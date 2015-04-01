@@ -24,5 +24,9 @@ public class TestInitializeAndShuffle {
 		ArrayList<Integer> testCards = new ArrayList<Integer>();
 		assertEquals(testCards, target.shuffle(new ArrayList<Integer>()));
 	}
+	@Test
+	public void TestShuffle2() {
+		assertEquals(doorCards.size(), target.shuffle(doorCards).size());
+	}
 
 }
