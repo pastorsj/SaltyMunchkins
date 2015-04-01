@@ -1,5 +1,6 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.junit.Test;
 
@@ -26,10 +27,13 @@ public class Main {
 	}
 	
 	public ArrayList<Integer> shuffle(ArrayList<Integer> cards) {
-		if (cards.size() != 0) {
-			int temp = cards.get(0);
-			cards.set(0, cards.get(1));
-			cards.set(1, temp);
-		}return cards;
+		Random rand = new Random();
+		for(int i = cards.size()-1; i > 0; i--) {
+			int randNum = rand.nextInt(i);
+			int temp = cards.get(randNum);
+			cards.set(randNum, cards.get(i));
+			cards.set(i, temp);
+		}
+		return cards;
 	}
 }
