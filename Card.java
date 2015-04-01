@@ -12,4 +12,9 @@ public class Card {
 	public String getName(){
 		return this.name;
 	}
+	
+	public int getNumber(){
+		return this.num;
+	}
+
 }
