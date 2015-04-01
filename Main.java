@@ -21,9 +21,8 @@ public class Main {
 		
 		//These next methods will initialize the card list and shuffle the list of cards
 		//There are 168 cards, 100 door cards and 68 treasure cards
-		ArrayList<Card> doorCards = new ArrayList<Card>(100);
-		ArrayList<Card> treasureCards = new ArrayList<Card>(68);	
-
+		ArrayList<Integer> doorCards = new ArrayList<Integer>(100);
+		ArrayList<Integer> treasureCards = new ArrayList<Integer>(68);
 	}
 	
 	public ArrayList<Card> shuffle(ArrayList<Card> cards) {
