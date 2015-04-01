@@ -22,5 +22,19 @@ public class GameTest {
 		}
 		assertEquals(8, target.dealCards().size());
 	}
+	
+	@Test
+	public void testGameDealCardsReturnArrayListOfUniqueCards() {
+		for (int i = 0; i < 10; i++) {
+			doors.add(i);
+			treasures.add(10 + i);
+		}
+		ArrayList<Integer> resultArray = target.dealCards();
+		boolean result = true;
+		for(int j=0;j<resultArray.size();j++){
+			result &= resultArray.contains(resultArray.get(j));
+		}
+		assertEquals(true,result);
+	}
 
 }
