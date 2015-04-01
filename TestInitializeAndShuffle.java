@@ -1,6 +1,7 @@
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -30,6 +31,6 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestShuffle3() {
-		assertNotEquals(doorCards, target.shuffle(doorCards));
+		assertNotEquals(Arrays.toString(doorCards.toArray()), Arrays.toString(target.shuffle(doorCards).toArray()));
 	}
 }
