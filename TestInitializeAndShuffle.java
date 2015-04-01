@@ -33,4 +33,8 @@ public class TestInitializeAndShuffle {
 	public void TestShuffle3() {
 		assertNotEquals(Arrays.toString(doorCards.toArray()), Arrays.toString(target.shuffle(doorCards).toArray()));
 	}
+	@Test
+	public void TestShuffle4() {
+		assertNotEquals(target.shuffle(doorCards).toArray()[10], target.shuffle(doorCards).toArray()[10]);
+	}
 }
