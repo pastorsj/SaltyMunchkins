@@ -7,8 +7,6 @@ import static org.junit.Assert.*;
 
 
 public class Main {
-
-	
 	
 	public static void main(String[] args) throws IOException {
 
@@ -21,13 +19,14 @@ public class Main {
 		newFrame.setVisible(true);
 		newFrame.setTitle("Munchkin");
 		
-		
-		
-		
-		
-		
-		
-		
+		//These next methods will initialize the card list and shuffle the list of cards
+		//There are 168 cards, 100 door cards and 68 treasure cards
+		ArrayList<Card> doorCards = new ArrayList<Card>(100);
+		ArrayList<Card> treasureCards = new ArrayList<Card>(68);	
 
+	}
+	
+	public ArrayList<Card> shuffle(ArrayList<Card> cards) {
+		return null;
 	}
 }
