@@ -4,11 +4,15 @@ import org.junit.Test;
 
 
 public class CardTest {
-	
+	Card target = new Card(10, "Test");
 	@Test
 	public void testCardNotNull() {
-		Card target = new Card(10, "BOOO");
 		assertNotNull(target);
+	}
+	
+	@Test
+	public void testGetName(){
+		target.getName();
 	}
 	
 }
