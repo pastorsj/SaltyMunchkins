@@ -1,4 +1,4 @@
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 
@@ -10,7 +10,13 @@ public class GameTest {
 	ArrayList<Integer> treasures = new ArrayList<Integer>();
 	Game target = new Game(doors, treasures);
 	@Test
-	public void testCardNotNull() {
+	public void testGameNotNull() {
 		assertNotNull(target);
 	}
+	
+	@Test
+	public void testGameDealCardsReturnArrayListOfLength8() {
+		assertEquals(8, target.dealCards());
+	}
+	
 }
