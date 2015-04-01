@@ -25,7 +25,7 @@ public class Main {
 		ArrayList<Integer> treasureCards = new ArrayList<Integer>(68);
 	}
 	
-	public ArrayList<Card> shuffle(ArrayList<Card> cards) {
-		return null;
+	public ArrayList<Integer> shuffle(ArrayList<Integer> cards) {
+		return new ArrayList<Integer>();
 	}
 }
