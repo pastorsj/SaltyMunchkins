@@ -12,7 +12,7 @@ public class CardTest {
 	
 	@Test
 	public void testGetName(){
-		target.getName();
+		assertEquals("Test", target.getName());
 	}
 	
 }
