@@ -26,6 +26,10 @@ public class Main {
 	}
 	
 	public ArrayList<Integer> shuffle(ArrayList<Integer> cards) {
-		return cards;
+		if (cards.size() != 0) {
+			int temp = cards.get(0);
+			cards.set(0, cards.get(1));
+			cards.set(1, temp);
+		}return cards;
 	}
 }
