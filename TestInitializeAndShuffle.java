@@ -28,5 +28,8 @@ public class TestInitializeAndShuffle {
 	public void TestShuffle2() {
 		assertEquals(doorCards.size(), target.shuffle(doorCards).size());
 	}
-
+	@Test
+	public void TestShuffle3() {
+		assertNotEquals(doorCards, target.shuffle(doorCards));
+	}
 }
