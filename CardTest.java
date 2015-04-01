@@ -16,7 +16,7 @@ public class CardTest {
 	}
 	
 	@Test
-	public void getNumber(){
+	public void testGetNumber(){
 		assertEquals(10, target.getNumber());
 	}
 	
