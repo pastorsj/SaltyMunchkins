@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
-public class TestShuffling {
+public class TestInitializeAndShuffle {
 
 	@Test
 	public void test() {
