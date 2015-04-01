@@ -26,6 +26,6 @@ public class Main {
 	}
 	
 	public ArrayList<Integer> shuffle(ArrayList<Integer> cards) {
-		return new ArrayList<Integer>();
+		return cards;
 	}
 }
