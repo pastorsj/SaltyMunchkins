@@ -20,6 +20,18 @@ public class Game {
 		}
 		return cards;
 	}
-
+	
+	public ArrayList<Integer> dealCards() {
+		ArrayList<Integer> deal = new ArrayList<Integer>();
+		shuffle(doors);
+		shuffle(treasures);
+		for (int i = 0; i <= 3; i++) {
+			deal.add(doors.get(doors.size() - 1));
+			deal.add(treasures.get(treasures.size()-1));
+			doors.remove(doors.get(doors.size() - 1));
+			treasures.remove(treasures.get(treasures.size()-1));
+		}
+		return deal;
+	}
 
 }
