@@ -13,7 +13,9 @@ public class Main {
 
 		ReadFile file1 = new ReadFile(
 				"src\\CardList.txt");
-		String[] arrayOfLines = file1.OpenFile();
+		//String[] arrayOfLines = file1.OpenFile();
+		ArrayList<String> arrayOfLines = file1.OpenFile();
+		
 		
 		
 		
@@ -32,7 +34,8 @@ public class Main {
 		textFake.add("7");
 		textFake.add("8");
 		
-		InitializeCards ic = new InitializeCards(textFake);
+		//InitializeCards ic = new InitializeCards(textFake);
+		InitializeCards ic = new InitializeCards(arrayOfLines);
 		
 		Game newGame = new Game(ic.doors,ic.treasure);
 		newGame.shuffle(newGame.doors);

@@ -41,14 +41,14 @@ public class BottomCardPanel extends JPanel {
 			}
 			
 		
-			this.cardImage1 = ImageIO.read(new File ("src\\card1.jpg"));
-			this.cardImage2 = ImageIO.read(new File ("src\\card2.jpg"));
-			this.cardImage3 = ImageIO.read(new File ("src\\card3.jpg"));
-			this.cardImage4 = ImageIO.read(new File ("src\\card4.jpg"));
-			this.cardImage5 = ImageIO.read(new File ("src\\card5.jpg"));
-			this.cardImage6 = ImageIO.read(new File ("src\\card6.jpg"));
-			this.cardImage7 = ImageIO.read(new File ("src\\card7.jpg"));
-			this.cardImage8 = ImageIO.read(new File ("src\\card8.jpg"));
+//			this.cardImage1 = ImageIO.read(new File ("src\\card1.jpg"));
+//			this.cardImage2 = ImageIO.read(new File ("src\\card2.jpg"));
+//			this.cardImage3 = ImageIO.read(new File ("src\\card3.jpg"));
+//			this.cardImage4 = ImageIO.read(new File ("src\\card4.jpg"));
+//			this.cardImage5 = ImageIO.read(new File ("src\\card5.jpg"));
+//			this.cardImage6 = ImageIO.read(new File ("src\\card6.jpg"));
+//			this.cardImage7 = ImageIO.read(new File ("src\\card7.jpg"));
+//			this.cardImage8 = ImageIO.read(new File ("src\\card8.jpg"));
 		} catch (IOException ex) {
 			System.out.println("Error reading card file in BottomCardPanel");
 			// handle exception...

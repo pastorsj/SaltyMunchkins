@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
+import java.util.ArrayList;
 
 public class ReadFile {
 
@@ -11,15 +12,15 @@ public class ReadFile {
 		path = file_path;
 	}
 
-	public String[] OpenFile() throws IOException {
+	public ArrayList<String> OpenFile() throws IOException {
 		FileReader filereader1 = new FileReader(path);
 		BufferedReader textReader1 = new BufferedReader(filereader1);
 
 		numberOfLines = getNumberOfLines();
-		String[] textData = new String[numberOfLines];
+		ArrayList<String> textData = new ArrayList<String>();
 
 		for (int i = 0; i < numberOfLines; i++) {
-			textData[i] = textReader1.readLine();
+			textData.add(textReader1.readLine());
 		}
 		textReader1.close();
 		return textData;
