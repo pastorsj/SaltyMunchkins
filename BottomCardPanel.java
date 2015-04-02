@@ -20,12 +20,13 @@ public class BottomCardPanel extends JPanel {
 	private BufferedImage cardImage6;
 	private BufferedImage cardImage7;
 	private BufferedImage cardImage8;
+	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
 	
 	
 	
 
 	//public MapPanel (ButtonPanel bPanel){
-	 public BottomCardPanel(){
+	 public BottomCardPanel(ArrayList<Integer> hand){
 		super();
 
         SpringLayout layout = new SpringLayout();
@@ -33,6 +34,13 @@ public class BottomCardPanel extends JPanel {
         
     	
 		try {
+			
+			for(int i =0; i<hand.size();i++){
+				BufferedImage cardImage = ImageIO.read(new File ("src\\c"+hand.get(i)+".PNG"));
+				cardImages.add(cardImage);
+			}
+			
+		
 			this.cardImage1 = ImageIO.read(new File ("src\\card1.jpg"));
 			this.cardImage2 = ImageIO.read(new File ("src\\card2.jpg"));
 			this.cardImage3 = ImageIO.read(new File ("src\\card3.jpg"));
@@ -62,15 +70,18 @@ public class BottomCardPanel extends JPanel {
 			//go.drawImage(this.cardImage2, 60+180,0,180,200,null);
 			//go.drawImage(this.cardImage3, 2*(60+180), 0, 180, 200, null);
 			
-			go.drawImage(this.cardImage1,50,0,180, 225, null);
-			go.drawImage(this.cardImage2,50+180+15,0,180,225,null);
-			//go.drawImage(this.cardImage2, 50, -200, 180, 225, null);
-			go.drawImage(this.cardImage3, 50+180+15+180+15,0,180,225,null);
-			go.drawImage(this.cardImage4, 50+180+15+180+15+180+15,0,180,225,null);
-			go.drawImage(this.cardImage5, 50+180+15+180+15+180+15+180+15,0,180,225,null);
-			go.drawImage(this.cardImage6, 50+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
-			go.drawImage(this.cardImage7, 50+180+15+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
-			go.drawImage(this.cardImage8, 50+180+15+180+15+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
+			for(int i =0; i<cardImages.size();i++){
+				go.drawImage(cardImages.get(i),50+180*i+15*i,0,180,225,null);
+			}
+			
+		//	go.drawImage(this.cardImage1,50,0,180, 225, null);
+			//go.drawImage(this.cardImage2,50+180+15,0,180,225,null);
+		//	go.drawImage(this.cardImage3, 50+180+15+180+15,0,180,225,null);
+		//	go.drawImage(this.cardImage4, 50+180+15+180+15+180+15,0,180,225,null);
+		//	go.drawImage(this.cardImage5, 50+180+15+180+15+180+15+180+15,0,180,225,null);
+		//	go.drawImage(this.cardImage6, 50+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
+		//	go.drawImage(this.cardImage7, 50+180+15+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
+		//	go.drawImage(this.cardImage8, 50+180+15+180+15+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
 
 		}
 

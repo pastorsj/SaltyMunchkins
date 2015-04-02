@@ -11,29 +11,41 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 
-		//ReadFile file1 = new ReadFile(
-				//"FILE WITH DATA HERE");
-		//String[] arrayOfLines = file1.OpenFile();
-
+		ReadFile file1 = new ReadFile(
+				"src\\CardList.txt");
+		String[] arrayOfLines = file1.OpenFile();
 		
-		MFrame newFrame = new MFrame();
-		newFrame.setVisible(true);
-		newFrame.setTitle("Munchkin");
+		
 		
 		//These next methods will initialize the card list and shuffle the list of cards
 		//There are 168 cards, 100 door cards and 68 treasure cards
-		ArrayList<Integer> doorCards = new ArrayList<Integer>(100);
-		ArrayList<Integer> treasureCards = new ArrayList<Integer>(68);
+	//	ArrayList<Integer> doorCards = new ArrayList<Integer>(4);
+		//ArrayList<Integer> treasureCards = new ArrayList<Integer>(4);
+		
+		ArrayList<String> textFake = new ArrayList<String>();
+		textFake.add("1");
+		textFake.add("2");
+		textFake.add("3");
+		textFake.add("4");
+		textFake.add("5");
+		textFake.add("6");
+		textFake.add("7");
+		textFake.add("8");
+		
+		InitializeCards ic = new InitializeCards(textFake);
+		
+		Game newGame = new Game(ic.doors,ic.treasure);
+		newGame.shuffle(newGame.doors);
+		newGame.shuffle(newGame.treasures);
+		
+		ArrayList<Integer> hand = newGame.dealCards();
+		ArrayList<Card> deal;
+		MFrame newFrame = new MFrame(hand);
+		newFrame.setVisible(true);
+		newFrame.setTitle("Munchkin");
+		
+		
 	}
 	
-	public ArrayList<Integer> shuffle(ArrayList<Integer> cards) {
-		Random rand = new Random();
-		for(int i = cards.size()-1; i > 0; i--) {
-			int randNum = rand.nextInt(i);
-			int temp = cards.get(randNum);
-			cards.set(randNum, cards.get(i));
-			cards.set(i, temp);
-		}
-		return cards;
-	}
+
 }

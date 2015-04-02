@@ -1,13 +1,17 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Random;
 
 public class Game {
 	ArrayList<Integer> doors;
 	ArrayList<Integer> treasures;
+	
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
-		this.doors = doors;
+ 		this.doors = doors;
 		this.treasures = treasures;
+	
+		
 	}
 
 	public ArrayList<Integer> shuffle(ArrayList<Integer> cards) {
@@ -33,5 +37,7 @@ public class Game {
 		}
 		return deal;
 	}
+	
+	
 
 }
