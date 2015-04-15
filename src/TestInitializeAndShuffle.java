@@ -42,6 +42,6 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDeal1() {
-		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
+		assertEquals(false, target.dealNewCard(doorCards, targetPlayer));
 	}
 }
