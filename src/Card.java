@@ -10,14 +10,13 @@ public class Card {
 	public int monsterLevelBonus;
 	public String condForBonus;
 	public boolean inPlay;
-	
+	public int pLevelBonus;
+	public int numHands;
+	public int numGold;
 	
 	public Card(int num, String name) {
 		this.num = num;
 		this.name = name;
-		
-		
-			
 	}
 	
 	public String getName(){
