@@ -56,6 +56,11 @@ public class InitializeCards {
 	
 	public void addConditions(){
 		doorHash.get(1).addNum=5;
+		doorHash.get(2).monsterLevel=2;
+		doorHash.get(2).monsterLevelBonus=3;
+		doorHash.get(2).numTreas=1;
+		doorHash.get(2).condForBonus="Monster Whacker";
+		
 	}
 
 }

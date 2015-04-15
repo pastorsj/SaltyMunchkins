@@ -4,6 +4,12 @@ public class Card {
 	public int num;
 	public String name;
 	public int addNum;
+	public int monsterLevel;
+	public String badStuff;
+	public int numTreas;
+	public int monsterLevelBonus;
+	public String condForBonus;
+	
 	
 	
 	public Card(int num, String name) {
