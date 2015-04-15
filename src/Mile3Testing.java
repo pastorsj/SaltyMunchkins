@@ -32,7 +32,6 @@ public class Mile3Testing {
 		cards.add(c87);
 		
 		
-		
 	}
 	@Test
 	public void CardsNotNull() {

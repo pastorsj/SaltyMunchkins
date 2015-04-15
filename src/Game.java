@@ -5,12 +5,13 @@ import java.util.Random;
 public class Game {
 	ArrayList<Integer> doors;
 	ArrayList<Integer> treasures;
+	Player p1 = new Player("p1");
+	Player p2 = new Player("p2");
 	
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
  		this.doors = doors;
 		this.treasures = treasures;
-	
 		
 	}
 
@@ -25,6 +26,12 @@ public class Game {
 		return cards;
 	}
 	
+	public void setInitialCards(){
+		p1.pHand=this.dealCards();
+		p2.pHand=this.dealCards();
+	}
+
+	
 	public ArrayList<Integer> dealCards() {
 		ArrayList<Integer> deal = new ArrayList<Integer>();
 		shuffle(doors);
@@ -34,6 +41,7 @@ public class Game {
 			deal.add(treasures.get(treasures.size()-1));
 			doors.remove(doors.get(doors.size() - 1));
 			treasures.remove(treasures.get(treasures.size()-1));
+			
 		}
 		return deal;
 	}
