@@ -66,6 +66,6 @@ public class Mile3Testing {
 
 	@Test
 	public void setValuesForC3(){
-		assertEquals(3,init.doorHash.get(1).addNum);
+		assertEquals(3,init.doorHash.get(3).addNum);
 	}
 }
