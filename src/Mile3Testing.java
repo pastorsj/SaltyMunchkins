@@ -61,6 +61,7 @@ public class Mile3Testing {
 		assertEquals(2,init.doorHash.get(2).monsterLevel);
 		assertEquals(3,init.doorHash.get(2).monsterLevelBonus);
 		assertEquals(1, init.doorHash.get(2).numTreas);
+		assertEquals("Monster Whacker", init.doorHash.get(2).condForBonus);
 	}
 
 }
