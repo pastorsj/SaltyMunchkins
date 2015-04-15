@@ -9,7 +9,7 @@ public class Card {
 	public int numTreas;
 	public int monsterLevelBonus;
 	public String condForBonus;
-	
+	public boolean inPlay;
 	
 	
 	public Card(int num, String name) {

@@ -29,7 +29,7 @@ public class Mile3Testing {
 		
 		 myGame.p1.pHand=p1cards;
 		 myGame.p2.pHand=p2cards;
-		init.doorHash.get(1).addNum=5;
+		init.doorHash.get(4).inPlay = true;
 		
 	}
 	@Test
@@ -73,6 +73,6 @@ public class Mile3Testing {
 	public void setValuesForC4(){
 		assertEquals(1,init.doorHash.get(4).monsterLevel);
 		assertEquals(1, init.doorHash.get(4).numTreas);
-		assertEquals(false,myGame.p1.classAbility);
+		//assertEquals(false,myGame.p1.classAbility);
 	}
 }
