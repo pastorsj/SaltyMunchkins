@@ -48,6 +48,7 @@ public class Main {
 		newFrame.setTitle("Munchkin");
 		
 		
+		
 	}
 	
 
