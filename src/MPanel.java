@@ -17,20 +17,20 @@ public class MPanel extends JPanel {
 	CardPanel cardPanel;
 	BottomCardPanel bCardPanel;
 
-	public MPanel(MFrame frame, ArrayList<Integer> hand) throws IOException {
+	public MPanel(MFrame frame, ArrayList<Integer> hand,ArrayList<String> arrayOfLines) throws IOException {
 
 		super();
 		//this.setPreferredSize(new Dimension(1250, 600));
 		
 		//this.setPreferredSize(new Dimension (1900, 700));
-		this.setPreferredSize(new Dimension (2000, 950));
+		this.setPreferredSize(new Dimension (2000, 990));
 
 		this.setLayout(new BorderLayout(5,5));
 		
 
 		//this.dPanel = new DirectionsPanel(bPanel);
-		this.cardPanel = new CardPanel();
-		this.cardPanel.setMaximumSize(new Dimension(200,200));
+		this.cardPanel = new CardPanel(frame,arrayOfLines);
+		//this.cardPanel.setMaximumSize(new Dimension(200,200));
 
 		this.munchPanel = new MunchkinPanel();
 		this.bCardPanel = new BottomCardPanel(hand);
@@ -38,17 +38,20 @@ public class MPanel extends JPanel {
 	
 		//this.add(bPanel, BorderLayout.NORTH);
 		
-		this.add(bCardPanel, BorderLayout.SOUTH);
+		this.add(bCardPanel, BorderLayout.CENTER);
 		
 		//this.add(munchPanel, BorderLayout.CENTER);
 		
-		this.add(munchPanel, BorderLayout.NORTH);
+		//this.add(munchPanel, BorderLayout.NORTH);
+		this.add(munchPanel,BorderLayout.NORTH);
 		//this.add(Box.createRigidArea(new Dimension(5,0)));
 		
 		//this.add(dPanel, BorderLayout.WEST);
 		this.add(cardPanel, BorderLayout.EAST);
 		
 		munchPanel.setPreferredSize(new Dimension(75, 240));
+		
+		
 	   // panelCenter.setPreferredSize(new Dimension(panelCenter.getWidth(), 100));
 	    bCardPanel.setPreferredSize(new Dimension(0, 225));
 		

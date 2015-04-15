@@ -43,7 +43,7 @@ public class Main {
 		
 		ArrayList<Integer> hand = newGame.dealCards();
 		ArrayList<Card> deal;
-		MFrame newFrame = new MFrame(hand);
+		MFrame newFrame = new MFrame(hand,arrayOfLines);
 		newFrame.setVisible(true);
 		newFrame.setTitle("Munchkin");
 		

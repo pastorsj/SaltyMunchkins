@@ -15,7 +15,7 @@ public class InitializeCards {
 		//numDoors = 68;
 		//numTreas = 0;
 		
-		numDoors = 68;
+		numDoors = 67;
 		numTreas=83;
 		
 		for(int i=0; i<numDoors; i++){

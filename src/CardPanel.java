@@ -1,6 +1,13 @@
 
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Panel;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
@@ -13,18 +20,28 @@ public class CardPanel extends Panel {
 	
 	public JTextArea aboutOrigin;
 	public JTextArea aboutDest;
-	public JTextArea aboutPOI;
+	//public JTextArea aboutPOI;
+	public BufferedImage largeCard;
+	public NewGameButton ngb;
 
-	public CardPanel(){
+	public CardPanel(MFrame frame,ArrayList<String> arrayOfLines) throws IOException{
+		
+		
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
-		JLabel about = new JLabel("About the Cards:");
-		this.add(about,JPanel.CENTER_ALIGNMENT);		
+		
+		
+		JLabel about = new JLabel("CLICK FOR NEW GAME:");
+		this.add(about,JPanel.CENTER_ALIGNMENT);	
+	//	this.setMinimumSize(new Dimension (2000,2000));
 		
 		
 		//this.aboutOrigin = new JTextArea(5,30);
 		//this.aboutDest = new JTextArea(5,30);
 		this.aboutOrigin = new JTextArea (5, 30);
 		this.aboutDest = new JTextArea (5,30);
+		
+		this.ngb= new NewGameButton(frame,arrayOfLines);
+		this.add(ngb);
 		
 		aboutOrigin.setLineWrap(true);
 		aboutDest.setLineWrap(true);
@@ -39,15 +56,35 @@ public class CardPanel extends Panel {
 		
 		JLabel poi = new JLabel("Cards:");
 		this.add(poi);
-		this.aboutPOI = new JTextArea();
+		
+		//this.aboutPOI = new JTextArea();
+		this.largeCard = ImageIO.read(new File("src\\c1.PNG"));
+		
+		
+		
+		
 		//aboutPOI.setMaximumSize(new Dimension(100,100));
-		this.add(aboutPOI);
+		//this.add(aboutPOI);
+	
+		this.setVisible(false);
+		this.repaint();
 		//this.add(Box.createRigidArea(new Dimension(5,0)));
 		
-		JScrollPane scrolly = new JScrollPane(aboutPOI);
-		scrolly.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		//JScrollPane scrolly = new JScrollPane(aboutPOI);
+		//scrolly.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		//scrolly.setMaximumSize(new Dimension(450,320));
-		this.add(scrolly);		
+		//this.add(scrolly);		
 	}
+	
+	 public void paintComponent(Graphics go) {
+			
+			super.paintComponents(go);
+			
+			go.drawImage(this.largeCard,1000,0,180,180,null);
+			
+			//go.drawImage(this.cardImage,0,250,null);
+			
+		}
+	
 	
 }

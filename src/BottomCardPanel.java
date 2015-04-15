@@ -41,19 +41,12 @@ public class BottomCardPanel extends JPanel {
 			}
 			
 		
-//			this.cardImage1 = ImageIO.read(new File ("src\\card1.jpg"));
-//			this.cardImage2 = ImageIO.read(new File ("src\\card2.jpg"));
-//			this.cardImage3 = ImageIO.read(new File ("src\\card3.jpg"));
-//			this.cardImage4 = ImageIO.read(new File ("src\\card4.jpg"));
-//			this.cardImage5 = ImageIO.read(new File ("src\\card5.jpg"));
-//			this.cardImage6 = ImageIO.read(new File ("src\\card6.jpg"));
-//			this.cardImage7 = ImageIO.read(new File ("src\\card7.jpg"));
-//			this.cardImage8 = ImageIO.read(new File ("src\\card8.jpg"));
 		} catch (IOException ex) {
 			System.out.println("Error reading card file in BottomCardPanel");
 			// handle exception...
 		}
-		this.setPreferredSize(new Dimension(2000, 1000));
+		//this.setPreferredSize(new Dimension(2000, 1000));
+		this.setMinimumSize(new Dimension(2000,500));
 		this.setVisible(true);
 		this.repaint();
 		
@@ -71,8 +64,12 @@ public class BottomCardPanel extends JPanel {
 			//go.drawImage(this.cardImage3, 2*(60+180), 0, 180, 200, null);
 			
 			for(int i =0; i<cardImages.size();i++){
-				go.drawImage(cardImages.get(i),50+180*i+15*i,0,180,225,null);
+				go.drawImage(cardImages.get(i),50+180*i+10*i,500,180,225,null);
 			}
+			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
+		//
+			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,570,null);
+
 			
 		//	go.drawImage(this.cardImage1,50,0,180, 225, null);
 			//go.drawImage(this.cardImage2,50+180+15,0,180,225,null);
