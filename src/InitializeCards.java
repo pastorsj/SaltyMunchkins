@@ -29,8 +29,33 @@ public class InitializeCards {
 			treasureHash.put(i+1, newCard);
 			treasure.add(i+1);
 		}
+		this.addConditions();
 	
 		
+	}
+	
+	public InitializeCards(){
+		numDoors= 67;
+		numTreas=83;
+		
+		for(int i=0; i<numDoors; i++){
+			Card newCard = new Card(i+1, "");
+			doorHash.put(i+1, newCard);
+			doors.add(i+1);
+		}
+
+		for(int i=numDoors;i<(numDoors+numTreas)-1; i++){
+			Card newCard = new Card(i+1, "");
+			treasureHash.put(i+1, newCard);
+			treasure.add(i+1);
+		}
+		this.addConditions();
+		
+		
+	}
+	
+	public void addConditions(){
+		doorHash.get(1).addNum=5;
 	}
 
 }

@@ -15,9 +15,6 @@ public class Game {
 		
 	}
 	
-	public Game(){
-		
-	}
 
 	public ArrayList<Integer> shuffle(ArrayList<Integer> cards) {
 		Random rand = new Random();

@@ -9,11 +9,14 @@ import org.junit.Test;
 public class Mile3Testing {
 	public ArrayList<Integer> p1cards;
 	public ArrayList<Integer> p2cards;
+	public Game myGame;
+	public InitializeCards init = new InitializeCards();
 	
 	@Before
 	public void setUp() {
 		p1cards = new ArrayList<Integer>();
 		p2cards= new ArrayList<Integer>();
+		myGame=new Game(init.doors,init.treasure);
 		
 		p1cards.add(1);
 		p1cards.add(2);
@@ -24,6 +27,9 @@ public class Mile3Testing {
 		p2cards.add(86);
 		p2cards.add(87);
 		
+		 myGame.p1.pHand=p1cards;
+		 myGame.p2.pHand=p2cards;
+		init.doorHash.get(1).addNum=5;
 		
 	}
 	@Test
@@ -41,11 +47,15 @@ public class Mile3Testing {
 	
 	@Test
 	public void setPlayerHands(){
-		 Game myGame = new Game();
-		 myGame.p1.pHand=p1cards;
+		
 		 assertNotNull(myGame.p1.pHand);
-		 
 		 assertNotNull(myGame.p2.pHand);
+	}
+	
+	@Test
+	public void setAddNumForC1(){
+		
+		assertEquals(5,init.doorHash.get(1).addNum);
 	}
 
 }
