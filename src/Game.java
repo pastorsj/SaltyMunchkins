@@ -51,7 +51,7 @@ public class Game {
 	}
 	
 	public int dealNewCard(ArrayList<Integer> cards) {
-		return 0;
+		return cards.size()-1;
 	}
 
 }
