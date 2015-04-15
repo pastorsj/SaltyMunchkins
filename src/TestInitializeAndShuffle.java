@@ -42,6 +42,11 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDeal1() {
+		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
+	}
+	@Test
+	public void TestDeal2() {
+		targetPlayer.pHand = new ArrayList<Integer>(8);
 		assertEquals(false, target.dealNewCard(doorCards, targetPlayer));
 	}
 }
