@@ -58,7 +58,7 @@ public class CardPanel extends Panel {
 		this.add(poi);
 		
 		//this.aboutPOI = new JTextArea();
-		this.largeCard = ImageIO.read(new File("src\\c1.PNG"));
+		this.largeCard = ImageIO.read(new File("src\\m1.PNG"));
 		
 		
 		

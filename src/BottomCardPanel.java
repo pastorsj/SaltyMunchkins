@@ -36,7 +36,7 @@ public class BottomCardPanel extends JPanel {
 		try {
 			
 			for(int i =0; i<hand.size();i++){
-				BufferedImage cardImage = ImageIO.read(new File ("src\\c"+hand.get(i)+".PNG"));
+				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+hand.get(i)+".PNG"));
 				cardImages.add(cardImage);
 			}
 			
