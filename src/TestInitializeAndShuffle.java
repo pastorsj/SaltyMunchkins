@@ -51,10 +51,12 @@ public class TestInitializeAndShuffle {
 	@Test
 	public void TestDeal2() {
 		targetPlayer.pHand.add(7);
+		targetPlayer.pHand.add(7);
 		assertEquals(false, target.dealNewCard(doorCards, targetPlayer));
 	}
 	@Test
 	public void TestDeal3() {
+		targetPlayer.pHand.remove(7);
 		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
 		target.dealNewCard(doorCards, targetPlayer);
 		assertEquals(8, targetPlayer.pHand.size());
