@@ -22,6 +22,9 @@ public class TestInitializeAndShuffle {
 		for(int i = 0; i < 68; i++) {
 			treasureCards.add(i);
 		}
+		for(int i = 0; i < 8; i++) {
+			targetPlayer.pHand.add(i);
+		}
 	}
 	@Test
 	public void TestShuffle1() {
@@ -42,23 +45,22 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDeal1() {
+		targetPlayer.pHand.remove(7);
 		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
 	}
 	@Test
 	public void TestDeal2() {
-		targetPlayer.pHand = new ArrayList<Integer>(8);
+		targetPlayer.pHand.add(7);
 		assertEquals(false, target.dealNewCard(doorCards, targetPlayer));
 	}
 	@Test
 	public void TestDeal3() {
-		targetPlayer.pHand = new ArrayList<Integer>(7);
 		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
 		target.dealNewCard(doorCards, targetPlayer);
 		assertEquals(8, targetPlayer.pHand.size());
 	}
 	@Test
 	public void TestDeal4() {
-		targetPlayer.pHand = new ArrayList<Integer>(7);
 		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
 		int sizeOfCards = doorCards.size()-1;
 		target.dealNewCard(doorCards, targetPlayer);
