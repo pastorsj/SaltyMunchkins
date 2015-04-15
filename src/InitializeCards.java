@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -15,8 +17,8 @@ public class InitializeCards {
 		//numDoors = 68;
 		//numTreas = 0;
 		
-		numDoors = 67;
-		numTreas=83;
+		numDoors = 82;
+		numTreas=67;
 		
 		for(int i=0; i<numDoors; i++){
 			Card newCard = new Card(i+1, cardInfo.get(i));
@@ -35,8 +37,8 @@ public class InitializeCards {
 	}
 	
 	public InitializeCards(){
-		numDoors= 67;
-		numTreas=83;
+		numDoors=82;
+		numTreas=67;
 		
 		for(int i=0; i<numDoors; i++){
 			Card newCard = new Card(i+1, "");
