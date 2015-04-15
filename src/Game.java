@@ -49,9 +49,9 @@ public class Game {
 		}
 		return deal;
 	}
-	
-	public int dealNewCard(ArrayList<Integer> cards) {
-		return cards.size()-1;
+	//This function will not deal another card if the player hand size equals 8
+	public boolean dealNewCard(ArrayList<Integer> cards, Player p) {
+		return false;
 	}
 
 }

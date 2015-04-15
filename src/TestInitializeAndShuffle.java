@@ -12,6 +12,7 @@ public class TestInitializeAndShuffle {
 	ArrayList<Integer> doorCards = new ArrayList<Integer>(100);
 	ArrayList<Integer> treasureCards = new ArrayList<Integer>(68);	
 	Game target = new Game(doorCards,treasureCards);
+	Player targetPlayer = new Player("Player1");
 	
 	@Before
 	public void setUp() {
@@ -41,7 +42,6 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDeal1() {
-		int doorCardNumber = doorCards.size()-1;
-		assertEquals(doorCardNumber, target.dealNewCard(doorCards));
+		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
 	}
 }
