@@ -18,5 +18,10 @@ public class Mile3Testing {
 		assertNotNull(cards);
 		
 	}
+	
+	@Test
+	public void EightCardsAdded(){
+		assertEquals(8,cards.size());
+	}
 
 }
