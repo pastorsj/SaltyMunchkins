@@ -64,4 +64,8 @@ public class Mile3Testing {
 		assertEquals("Monster Whacker", init.doorHash.get(2).condForBonus);
 	}
 
+	@Test
+	public void setValuesForC3(){
+		assertEquals(3,init.doorHash.get(1).addNum);
+	}
 }
