@@ -29,6 +29,7 @@ public class InitializeCards {
 			treasureHash.put(i+1, newCard);
 			treasure.add(i+1);
 		}
+		this.addConditions();
 	
 		
 	}
@@ -48,8 +49,13 @@ public class InitializeCards {
 			treasureHash.put(i+1, newCard);
 			treasure.add(i+1);
 		}
+		this.addConditions();
 		
 		
+	}
+	
+	public void addConditions(){
+		doorHash.get(1).addNum=5;
 	}
 
 }

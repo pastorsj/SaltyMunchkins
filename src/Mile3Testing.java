@@ -29,7 +29,7 @@ public class Mile3Testing {
 		
 		 myGame.p1.pHand=p1cards;
 		 myGame.p2.pHand=p2cards;
-		
+		init.doorHash.get(1).addNum=5;
 		
 	}
 	@Test
