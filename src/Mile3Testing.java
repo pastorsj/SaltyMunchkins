@@ -44,6 +44,8 @@ public class Mile3Testing {
 		 Game myGame = new Game();
 		 myGame.p1.pHand=p1cards;
 		 assertNotNull(myGame.p1.pHand);
+		 
+		 assertNotNull(myGame.p2.pHand);
 	}
 
 }
