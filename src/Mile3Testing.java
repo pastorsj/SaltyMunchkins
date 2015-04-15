@@ -11,6 +11,7 @@ public class Mile3Testing {
 	
 	@Before
 	public void setUp() {
+		cards = new ArrayList<Card>();
 	}
 	@Test
 	public void CardsNotNull() {
