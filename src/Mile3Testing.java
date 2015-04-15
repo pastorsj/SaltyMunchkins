@@ -7,49 +7,42 @@ import org.junit.Test;
 
 
 public class Mile3Testing {
-	public ArrayList<Card> p1cards;
-	public ArrayList<Card> p2cards;
+	public ArrayList<Integer> p1cards;
+	public ArrayList<Integer> p2cards;
 	
 	@Before
 	public void setUp() {
-		p1cards = new ArrayList<Card>();
-		p2cards= new ArrayList<Card>();
-		Card c1 = new Card(1, "");
-		Card c2 = new Card(2, "");
-		Card c3 = new Card(3, "");
-		Card c4 = new Card(4, "");
+		p1cards = new ArrayList<Integer>();
+		p2cards= new ArrayList<Integer>();
 		
-		Card c84 = new Card(84, "");
-		Card c85 = new Card(85, "");
-		Card c86 = new Card(87, "");
-		Card c87 = new Card (88, "");
-		
-		p1cards.add(c1);
-		p1cards.add(c2);
-		p2cards.add(c3);
-		p2cards.add(c4);
-		p1cards.add(c84);
-		p1cards.add(c85);
-		p2cards.add(c86);
-		p2cards.add(c87);
+		p1cards.add(1);
+		p1cards.add(2);
+		p2cards.add(3);
+		p2cards.add(4);
+		p1cards.add(84);
+		p1cards.add(85);
+		p2cards.add(86);
+		p2cards.add(87);
 		
 		
 	}
 	@Test
 	public void CardsNotNull() {
-		assertNotNull(cards);
+		assertNotNull(p1cards);
+		assertNotNull(p2cards);
 		
 	}
 	
 	@Test
 	public void EightCardsAdded(){
-		assertEquals(8,cards.size());
+		assertEquals(4,p1cards.size());
+		assertEquals(4,p2cards.size());
 	}
 	
 	@Test
-	public void setAddNum(){
+	public void setPlayerHands(){
 		 Game myGame = new Game();
-		 myGame.p1.pHand=
+		 assertNotNull(myGame.p1.pHand);
 	}
 
 }
