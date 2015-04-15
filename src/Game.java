@@ -7,7 +7,7 @@ public class Game {
 	ArrayList<Integer> treasures;
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
-	
+
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
  		this.doors = doors;
@@ -48,7 +48,10 @@ public class Game {
 	}
 	//This function will not deal another card if the player hand size equals 8
 	public boolean dealNewCard(ArrayList<Integer> cards, Player p) {
-		return false;
+		if(p.pHand.size()<8) {
+			p.pHand.add(1);
+			return true;
+		}return false;
 	}
 
 }

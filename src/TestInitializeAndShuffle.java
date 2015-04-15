@@ -42,6 +42,28 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDeal1() {
+		targetPlayer.pHand = new ArrayList<Integer>(8);
+		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
+	}
+	@Test
+	public void TestDeal2() {
+		targetPlayer.pHand = new ArrayList<Integer>(8);
+		System.out.println(targetPlayer.pHand.size());
 		assertEquals(false, target.dealNewCard(doorCards, targetPlayer));
+	}
+	@Test
+	public void TestDeal3() {
+		targetPlayer.pHand = new ArrayList<Integer>(7);
+		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
+		target.dealNewCard(doorCards, targetPlayer);
+		assertEquals(8, targetPlayer.pHand.size());
+	}
+	@Test
+	public void TestDeal4() {
+		targetPlayer.pHand = new ArrayList<Integer>(7);
+		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
+		int sizeOfCards = doorCards.size()-1;
+		target.dealNewCard(doorCards, targetPlayer);
+		assertEquals(sizeOfCards, doorCards.size());
 	}
 }
