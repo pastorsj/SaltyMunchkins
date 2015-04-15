@@ -39,4 +39,9 @@ public class TestInitializeAndShuffle {
 	public void TestShuffle4() {
 		assertNotEquals(target.shuffle(doorCards).toArray()[10], target.shuffle(doorCards).toArray()[10]);
 	}
+	@Test
+	public void TestDeal1() {
+		ArrayList<Integer> testCard = new ArrayList<Integer>();
+		assertEquals(testCard, target.dealNewCard(doorCards));
+	}
 }
