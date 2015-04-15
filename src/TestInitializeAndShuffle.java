@@ -41,7 +41,7 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDeal1() {
-		ArrayList<Integer> testCard = new ArrayList<Integer>();
-		assertEquals(testCard, target.dealNewCard(doorCards));
+		int doorCardNumber = doorCards.size()-1;
+		assertEquals(doorCardNumber, target.dealNewCard(doorCards));
 	}
 }

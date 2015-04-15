@@ -46,8 +46,8 @@ public class Game {
 		return deal;
 	}
 	
-	public ArrayList<Integer> dealNewCard(ArrayList<Integer> cards) {
-		return null;
+	public int dealNewCard(ArrayList<Integer> cards) {
+		return 0;
 	}
 
 }
