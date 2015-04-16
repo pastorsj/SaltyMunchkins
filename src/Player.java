@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Player {
 	public String username;
-	public ArrayList<Integer> pHand;
+	public ArrayList<Integer> pHand = new ArrayList<Integer>();
 	public boolean classAbility;
 	
 	public Player(String name){
