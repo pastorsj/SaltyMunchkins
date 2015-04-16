@@ -40,8 +40,7 @@ public class CardPanel extends Panel {
 		this.aboutOrigin = new JTextArea (5, 30);
 		this.aboutDest = new JTextArea (5,30);
 		
-		this.ngb= new NewGameButton(frame,arrayOfLines);
-		this.add(ngb);
+	
 		
 		aboutOrigin.setLineWrap(true);
 		aboutDest.setLineWrap(true);

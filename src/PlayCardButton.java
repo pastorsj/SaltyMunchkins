@@ -6,12 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class NewGameButton extends Button implements ActionListener{
+public class PlayCardButton extends Button implements ActionListener{
 	public MFrame frame;
 	public ArrayList<String> arrayOfCardLines;
 	public Player turnPlayer;
-	public NewGameButton(MFrame mframe,ArrayList<String> arrayOfLines,Player player){
-	
+	public PlayCardButton(MFrame mframe,ArrayList<String> arrayOfLines,Player player){
 		this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;
 		this.turnPlayer=player;

@@ -34,15 +34,15 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	
 
 	//public MapPanel (ButtonPanel bPanel){
-	 public BottomCardPanel(ArrayList<Integer> hand,MFrame frame,ArrayList<String> arrayOfLines){
+	 public BottomCardPanel(Player player,MFrame frame,ArrayList<String> arrayOfLines){
 		super();
 
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
         //this.setLayout(null);
-        NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines);
+        NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines,player);
         this.ngb=newGameButton;
-        this.ngb2 = new NewGameButton(frame, arrayOfLines);
+        this.ngb2 = new NewGameButton(frame, arrayOfLines,player);
         //ngb.setBounds(0,0,50,50);
 		ngb.setPreferredSize(new Dimension(50,50));
 		ngb.setLocation(-100,-100);
@@ -53,8 +53,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
     	
 		try {
 			MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
-			for(int i =0; i<hand.size();i++){
-				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+hand.get(i)+".PNG"));
+			for(int i =0; i<player.pHand.size();i++){
+				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+player.pHand.get(i)+".PNG"));
 				cardImages.add(cardImage);
 			}
 		
@@ -106,8 +106,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println("hello");
-		System.out.println(MouseInfo.getPointerInfo().getLocation());
+//		System.out.println(MouseInfo.getPointerInfo().getLocation());
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
 		
@@ -116,26 +115,47 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				largeCard=cardImages.get(0);
 			}
 			else if(x>200 && x<374){
-				largeCard=cardImages.get(1);
+				if(cardImages.size()>1){
+					largeCard=cardImages.get(1);
+				}
+				
 			}
 			
 			else if(x>393 && x<564){
-				largeCard=cardImages.get(2);
+				if(cardImages.size()>2){
+					largeCard=cardImages.get(2);
+				}
+				
 			}
 			else if(x>582 && x<753){
-				largeCard=cardImages.get(3);
+				if(cardImages.size()>3){
+					largeCard=cardImages.get(3);
+				}
+				
 			}
 			else if(x>773 && x<946){
-				largeCard=cardImages.get(4);
+				if(cardImages.size()>4){
+					largeCard=cardImages.get(4);
+				}
+				
 			}
 			else if(x>960 && x<1137){
-				largeCard=cardImages.get(5);
+				if(cardImages.size()>5){
+					largeCard=cardImages.get(5);
+				}
+				
 			}
 			else if(x>1151 && x<1324){
-				largeCard=cardImages.get(6);
+				if(cardImages.size()>6){
+					largeCard=cardImages.get(6);
+				}
+				
 			}
 			else if(x>1340 && x<1517){
-				largeCard=cardImages.get(7);
+				if(cardImages.size()>7){
+					largeCard=cardImages.get(7);
+				}
+				
 			}
 		
 			else{

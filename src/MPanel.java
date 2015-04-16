@@ -17,7 +17,7 @@ public class MPanel extends JPanel {
 	CardPanel cardPanel;
 	BottomCardPanel bCardPanel;
 
-	public MPanel(MFrame frame, ArrayList<Integer> hand,ArrayList<String> arrayOfLines) throws IOException {
+	public MPanel(MFrame frame, Player player,ArrayList<String> arrayOfLines) throws IOException {
 
 		super();
 		//this.setPreferredSize(new Dimension(1250, 600));
@@ -34,7 +34,7 @@ public class MPanel extends JPanel {
 		//this.cardPanel.setMaximumSize(new Dimension(200,200));
 
 		this.munchPanel = new MunchkinPanel();
-		this.bCardPanel = new BottomCardPanel(hand,frame,arrayOfLines);
+		this.bCardPanel = new BottomCardPanel(player,frame,arrayOfLines);
 		//this.bPanel = new ButtonPanel(mPanel, dPanel, pPanel,cities,US);
 	
 		//this.add(bPanel, BorderLayout.NORTH);
