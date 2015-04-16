@@ -63,8 +63,6 @@ public class TestInitializeAndShuffle {
 	public void TestDeal4() {
 		targetPlayer.pHand.remove(7);
 		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
-		int sizeOfCards = doorCards.size()-1;
-		target.dealNewCard(doorCards, targetPlayer);
-		assertEquals(sizeOfCards, doorCards.size());
+		assertEquals(99, doorCards.size());
 	}
 }
