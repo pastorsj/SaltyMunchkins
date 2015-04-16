@@ -75,4 +75,29 @@ public class Mile3Testing {
 		assertEquals(1, init.doorHash.get(4).numTreas);
 		//assertEquals(false,myGame.p1.classAbility);
 	}
+	
+	@Test
+	public void setValuesForC84(){
+		assertEquals(500,init.treasureHash.get(84).numGold);
+		assertEquals(2, init.treasureHash.get(84).numHands);
+		assertEquals(4, init.treasureHash.get(84).pLevelBonus);
+	}
+	
+	@Test
+	public void setValuesForC85(){
+		assertEquals(600,init.treasureHash.get(85).numGold);
+	}
+	
+	@Test
+	public void setValuesForC86(){
+		assertEquals(200,init.treasureHash.get(86).numGold);
+		assertEquals(1, init.treasureHash.get(86).numHands);
+		assertEquals(2, init.treasureHash.get(86).pLevelBonus);
+	}
+	
+	@Test
+	public void setValuesForC87(){
+		assertEquals(200,init.treasureHash.get(87).numGold);
+		assertEquals(1, init.treasureHash.get(87).pLevelBonus);
+	}
 }
