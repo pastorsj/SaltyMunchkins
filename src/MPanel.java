@@ -29,6 +29,7 @@ public class MPanel extends JPanel {
 		
 
 		//this.dPanel = new DirectionsPanel(bPanel);
+	
 		this.cardPanel = new CardPanel(frame,arrayOfLines);
 		//this.cardPanel.setMaximumSize(new Dimension(200,200));
 
@@ -47,9 +48,9 @@ public class MPanel extends JPanel {
 		//this.add(Box.createRigidArea(new Dimension(5,0)));
 		
 		//this.add(dPanel, BorderLayout.WEST);
-		this.add(cardPanel, BorderLayout.EAST);
+//		this.add(cardPanel, BorderLayout.EAST);
 		
-		munchPanel.setPreferredSize(new Dimension(75, 240));
+//		munchPanel.setPreferredSize(new Dimension(75, 240));
 		
 		
 	   // panelCenter.setPreferredSize(new Dimension(panelCenter.getWidth(), 100));

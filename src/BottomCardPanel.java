@@ -1,5 +1,9 @@
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.MouseInfo;
+import java.awt.PointerInfo;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -10,7 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
 
-public class BottomCardPanel extends JPanel {
+public class BottomCardPanel extends JPanel implements MouseListener{
 	//private BufferedImage munchkinLogo;
 	private BufferedImage cardImage1;
 	private BufferedImage cardImage2;
@@ -23,6 +27,9 @@ public class BottomCardPanel extends JPanel {
 	private BufferedImage MunchBanner;
 	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
 	public NewGameButton ngb;
+	public NewGameButton ngb2;
+	private BufferedImage largeCard;
+
 	
 	
 
@@ -30,14 +37,18 @@ public class BottomCardPanel extends JPanel {
 	 public BottomCardPanel(ArrayList<Integer> hand,MFrame frame,ArrayList<String> arrayOfLines){
 		super();
 
+		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
-        //this.setLayout(layout);
+        //this.setLayout(null);
         NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines);
         this.ngb=newGameButton;
-      
-		ngb.setPreferredSize(new Dimension(25,25));
-		ngb.setLocation(0,0);
+        this.ngb2 = new NewGameButton(frame, arrayOfLines);
+        //ngb.setBounds(0,0,50,50);
+		ngb.setPreferredSize(new Dimension(50,50));
+		ngb.setLocation(-100,-100);
 		  this.add(ngb);
+		  
+		  this.add(ngb2);
         
     	
 		try {
@@ -57,7 +68,10 @@ public class BottomCardPanel extends JPanel {
 		this.setVisible(true);
 		this.repaint();
 		
+		
+		
 	 }
+	 
 	 
 	 public void paintComponent(Graphics go) {
 			
@@ -76,7 +90,7 @@ public class BottomCardPanel extends JPanel {
 			}
 //			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
 		//
-			go.drawImage(cardImages.get(1),50+180*8+10*8,400,360,570,null);
+			go.drawImage(largeCard,50+180*8+10*8,400,360,570,null);
 
 			
 		//	go.drawImage(this.cardImage1,50,0,180, 225, null);
@@ -89,5 +103,73 @@ public class BottomCardPanel extends JPanel {
 		//	go.drawImage(this.cardImage8, 50+180+15+180+15+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
 
 		}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		System.out.println("hello");
+		System.out.println(MouseInfo.getPointerInfo().getLocation());
+		int x = MouseInfo.getPointerInfo().getLocation().x;
+		int y = MouseInfo.getPointerInfo().getLocation().y;
+		
+		if(y>780 && y<1006){
+			if(x>10 && x<185){
+				largeCard=cardImages.get(0);
+			}
+			else if(x>200 && x<374){
+				largeCard=cardImages.get(1);
+			}
+			
+			else if(x>393 && x<564){
+				largeCard=cardImages.get(2);
+			}
+			else if(x>582 && x<753){
+				largeCard=cardImages.get(3);
+			}
+			else if(x>773 && x<946){
+				largeCard=cardImages.get(4);
+			}
+			else if(x>960 && x<1137){
+				largeCard=cardImages.get(5);
+			}
+			else if(x>1151 && x<1324){
+				largeCard=cardImages.get(6);
+			}
+			else if(x>1340 && x<1517){
+				largeCard=cardImages.get(7);
+			}
+		
+			else{
+				
+			}
+			
+			this.repaint();
+		}
+		
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
