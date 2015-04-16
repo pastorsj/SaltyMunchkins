@@ -10,6 +10,10 @@ public class Card {
 	public int monsterLevelBonus;
 	public String condForBonus;
 	public boolean inPlay;
+	public int numGold;
+	public int numHands;
+	public int pLevelBonus;
+	
 	
 	
 	public Card(int num, String name) {
