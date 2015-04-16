@@ -33,7 +33,7 @@ public class MPanel extends JPanel {
 		//this.cardPanel.setMaximumSize(new Dimension(200,200));
 
 		this.munchPanel = new MunchkinPanel();
-		this.bCardPanel = new BottomCardPanel(hand);
+		this.bCardPanel = new BottomCardPanel(hand,frame,arrayOfLines);
 		//this.bPanel = new ButtonPanel(mPanel, dPanel, pPanel,cities,US);
 	
 		//this.add(bPanel, BorderLayout.NORTH);
@@ -43,7 +43,7 @@ public class MPanel extends JPanel {
 		//this.add(munchPanel, BorderLayout.CENTER);
 		
 		//this.add(munchPanel, BorderLayout.NORTH);
-		this.add(munchPanel,BorderLayout.NORTH);
+		//this.add(munchPanel,BorderLayout.NORTH);
 		//this.add(Box.createRigidArea(new Dimension(5,0)));
 		
 		//this.add(dPanel, BorderLayout.WEST);

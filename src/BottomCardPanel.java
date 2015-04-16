@@ -20,26 +20,33 @@ public class BottomCardPanel extends JPanel {
 	private BufferedImage cardImage6;
 	private BufferedImage cardImage7;
 	private BufferedImage cardImage8;
+	private BufferedImage MunchBanner;
 	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
-	
+	public NewGameButton ngb;
 	
 	
 
 	//public MapPanel (ButtonPanel bPanel){
-	 public BottomCardPanel(ArrayList<Integer> hand){
+	 public BottomCardPanel(ArrayList<Integer> hand,MFrame frame,ArrayList<String> arrayOfLines){
 		super();
 
-        SpringLayout layout = new SpringLayout();
-        this.setLayout(layout);
+        //SpringLayout layout = new SpringLayout();
+        //this.setLayout(layout);
+        NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines);
+        this.ngb=newGameButton;
+      
+		ngb.setPreferredSize(new Dimension(25,25));
+		ngb.setLocation(0,0);
+		  this.add(ngb);
         
     	
 		try {
-			
+			MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
 			for(int i =0; i<hand.size();i++){
 				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+hand.get(i)+".PNG"));
 				cardImages.add(cardImage);
 			}
-			
+		
 		
 		} catch (IOException ex) {
 			System.out.println("Error reading card file in BottomCardPanel");
@@ -62,13 +69,14 @@ public class BottomCardPanel extends JPanel {
 			//go.drawImage(this.cardImage1,50,0,180,200,null);
 			//go.drawImage(this.cardImage2, 60+180,0,180,200,null);
 			//go.drawImage(this.cardImage3, 2*(60+180), 0, 180, 200, null);
+	//		go.drawImage(MunchBanner,550,0,null);
 			
 			for(int i =0; i<cardImages.size();i++){
-				go.drawImage(cardImages.get(i),50+180*i+10*i,500,180,225,null);
+				go.drawImage(cardImages.get(i),50+180*i+10*i,750,180,225,null);
 			}
-			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
+//			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
 		//
-			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,570,null);
+			go.drawImage(cardImages.get(1),50+180*8+10*8,400,360,570,null);
 
 			
 		//	go.drawImage(this.cardImage1,50,0,180, 225, null);
