@@ -78,8 +78,12 @@ public class Mile3Testing {
 	
 	@Test
 	public void setValuesForC5(){
-		assertEquals(-2,init.doorHash.get(5).pLevelBonus);
+		assertEquals(6,init.doorHash.get(5).monsterLevel);
+		assertEquals(-2,init.doorHash.get(5).monsterLevelBonus);
+		assertEquals(2, init.doorHash.get(5).numTreas);
+		assertEquals("Professors", init.doorHash.get(5).condForBonus);
 	}
+	
 	
 	@Test
 	public void setValuesForC84(){
