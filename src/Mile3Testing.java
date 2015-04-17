@@ -106,6 +106,35 @@ public class Mile3Testing {
 	}
 	
 	@Test
+	public void setValuesForC9(){
+		//TODO: Need to figure out later
+	}
+	
+	@Test
+	public void setValuesForC10(){
+		//TODO: An extra hand worth of items
+	}
+	
+	@Test
+	public void setValuesForC11(){
+		//cult meeting card. 
+	}
+	
+	@Test
+	public void setValuesForC12(){
+		//cultist class card
+	}
+	
+	@Test
+	public void setValuesForC13(){
+		//TODO: Lose your class
+	}
+	
+	@Test
+	public void setValuesForC14(){
+	}
+	
+	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.treasureHash.get(84).numGold);
 		assertEquals(2, init.treasureHash.get(84).numHands);
