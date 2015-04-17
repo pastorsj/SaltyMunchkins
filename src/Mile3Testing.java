@@ -84,6 +84,18 @@ public class Mile3Testing {
 		assertEquals("Professors", init.doorHash.get(5).condForBonus);
 	}
 	
+	@Test
+	public void setValuesForC6(){
+		//m6 is the card that allows players to cheat, so it is removed from the deck for this project
+	}
+	
+	@Test
+	public void setValuesForC7(){
+		assertEquals(2,init.doorHash.get(5).monsterLevel);
+		assertEquals(4,init.doorHash.get(5).monsterLevelBonus);
+		assertEquals(1, init.doorHash.get(5).numTreas);
+		assertEquals("Females", init.doorHash.get(5).condForBonus);
+	}
 	
 	@Test
 	public void setValuesForC84(){
