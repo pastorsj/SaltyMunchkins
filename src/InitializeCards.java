@@ -27,9 +27,16 @@ public class InitializeCards {
 		}
 
 		for(int i=numDoors;i<(numDoors+numTreas)-1; i++){
-			Card newCard = new Card(i+1, cardInfo.get(i));
-			treasureHash.put(i+1, newCard);
-			treasure.add(i+1);
+			
+			if(i!=91){
+				Card newCard = new Card(i+1, cardInfo.get(i));
+				treasureHash.put(i+1, newCard);
+				treasure.add(i+1);
+			}
+			else{
+				
+			}
+		
 		}
 		this.addConditions();
 	
@@ -47,9 +54,14 @@ public class InitializeCards {
 		}
 
 		for(int i=numDoors;i<(numDoors+numTreas)-1; i++){
-			Card newCard = new Card(i+1, "");
-			treasureHash.put(i+1, newCard);
-			treasure.add(i+1);
+			if(i!=91){
+				Card newCard = new Card(i+1, "");
+				treasureHash.put(i+1, newCard);
+				treasure.add(i+1);
+			}
+			else{
+				
+			}
 		}
 		this.addConditions();
 		

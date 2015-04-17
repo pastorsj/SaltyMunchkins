@@ -34,13 +34,15 @@ public class NewGameButton extends Button implements ActionListener{
 		Game newGame = new Game(ic.doors,ic.treasure);
 		newGame.shuffle(newGame.doors);
 		newGame.shuffle(newGame.treasures);
+		newGame.p1.pHand=newGame.dealCards();
 		
 		//ArrayList<Integer> hand = newGame.dealCards();
-		this.turnPlayer.pHand=newGame.dealCards();
+		//this.turnPlayer.pHand=newGame.dealCards();
+		
 		ArrayList<Card> deal;
 		MFrame newFrame;
 		try {
-			newFrame = new MFrame(myGame,arrayOfCardLines);
+			newFrame = new MFrame(newGame,arrayOfCardLines);
 			newFrame.setVisible(true);
 			newFrame.setTitle("Munchkin");
 		} catch (IOException e) {

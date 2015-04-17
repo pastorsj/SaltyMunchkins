@@ -40,7 +40,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	//public MapPanel (ButtonPanel bPanel){
 	 public BottomCardPanel(Game game,MFrame frame,ArrayList<String> arrayOfLines){
 		super();
-		System.out.println("tP: "+game.turnPlayer);
+	
 		if(game.turnPlayer==1){
 			this.turnPlayer=game.p1;
 			
@@ -60,6 +60,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.add(ngb);
 		
 		this.pcb= new PlayCardButton(frame,arrayOfLines,game);
+		pcb.setPreferredSize(new Dimension (50,50));
 		this.add(pcb);
 		
         
@@ -69,6 +70,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			for(int i =0; i<this.turnPlayer.pHand.size();i++){
 				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+this.turnPlayer.pHand.get(i)+".PNG"));
 				cardImages.add(cardImage);
+			
 			}
 			
 			for(int i =0; i<this.turnPlayer.pPlay.size();i++){
@@ -184,7 +186,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			else{
 				
 			}
-			System.out.println("largeCardPos: "+largeCardPos);
+			
 			this.repaint();
 		}
 		

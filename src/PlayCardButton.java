@@ -31,8 +31,6 @@ public class PlayCardButton extends Button implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		int cardToMovePos=this.frame.mainPanel.bCardPanel.largeCardPos;
-		System.out.println("cardToMovePos"+cardToMovePos);
-		System.out.println("player hand:"+turnPlayer.pHand);
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
 		turnPlayer.pHand.remove(cardToMovePos);
 		turnPlayer.pPlay.add(cardToMove);
