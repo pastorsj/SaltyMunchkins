@@ -1,12 +1,15 @@
 import java.awt.Button;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 
-public class EndTurnButton extends Button implements ActionListener{
+
+public class EndTurnButton extends JButton implements ActionListener{
 	public MFrame frame;
 	public ArrayList<String> arrayOfCardLines;
 	public Player turnPlayer;
@@ -19,6 +22,9 @@ public class EndTurnButton extends Button implements ActionListener{
 		else{
 			this.turnPlayer=game.p2;
 		}
+		
+		super.setFont(new Font("Arial",Font.PLAIN, 15));
+		super.setText("EndTurn");
 		
 		this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;

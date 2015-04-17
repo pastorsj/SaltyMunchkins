@@ -34,6 +34,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public PlayCardButton pcb;
 	public Player turnPlayer;
 	public Game myGame;
+	public MFrame myFrame;
+	public ArrayList<String> myArrayOfLines;
 
 	
 	
@@ -42,6 +44,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	 public BottomCardPanel(Game game,MFrame frame,ArrayList<String> arrayOfLines){
 		super();
 		this.myGame=game;
+		this.myFrame=frame;
+		this.myArrayOfLines=arrayOfLines;
 	
 		if(game.turnPlayer==1){
 			this.turnPlayer=game.p1;
@@ -57,16 +61,16 @@ public class BottomCardPanel extends JPanel implements MouseListener{
         this.ngb=newGameButton;
  
         //ngb.setBounds(0,0,50,50);
-		ngb.setPreferredSize(new Dimension(50,50));
+		ngb.setPreferredSize(new Dimension(100,30));
 		ngb.setLocation(-100,-100);
 		this.add(ngb);
 		
 		this.pcb= new PlayCardButton(frame,arrayOfLines,game);
-		pcb.setPreferredSize(new Dimension (50,50));
+		pcb.setPreferredSize(new Dimension (100,30));
 		this.add(pcb);
 		
 		this.etb=new EndTurnButton(frame,arrayOfLines,game);
-		etb.setPreferredSize(new Dimension(50,50));
+		etb.setPreferredSize(new Dimension(90,30));
 		this.add(etb);
 		
         

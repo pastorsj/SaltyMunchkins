@@ -1,12 +1,15 @@
 import java.awt.Button;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 
-public class NewGameButton extends Button implements ActionListener{
+
+public class NewGameButton extends JButton implements ActionListener{
 	public MFrame frame;
 	public ArrayList<String> arrayOfCardLines;
 	public Game myGame;
@@ -19,10 +22,13 @@ public class NewGameButton extends Button implements ActionListener{
 			this.turnPlayer=game.p2;
 		}
 		
+		super.setFont(new Font("Arial",Font.PLAIN, 15));
+		super.setText("NewGame");
+		
 		this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;
 		this.myGame=game;
-		this.setMaximumSize(new Dimension(100,50));
+	
 		addActionListener(this);
 	}
 
@@ -35,6 +41,7 @@ public class NewGameButton extends Button implements ActionListener{
 		newGame.shuffle(newGame.doors);
 		newGame.shuffle(newGame.treasures);
 		newGame.p1.pHand=newGame.dealCards();
+		newGame.p2.pHand=newGame.dealCards();
 		
 		//ArrayList<Integer> hand = newGame.dealCards();
 		//this.turnPlayer.pHand=newGame.dealCards();

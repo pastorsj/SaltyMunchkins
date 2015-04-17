@@ -1,12 +1,17 @@
 import java.awt.Button;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
 
-public class PlayCardButton extends Button implements ActionListener{
+
+import javax.swing.JButton;
+
+
+public class PlayCardButton extends JButton implements ActionListener{
 	public MFrame frame;
 	public ArrayList<String> arrayOfCardLines;
 	public Player turnPlayer;
@@ -20,9 +25,14 @@ public class PlayCardButton extends Button implements ActionListener{
 			this.turnPlayer=game.p2;
 		}
 		
+		String buttonText = "PlayCard";
+		
+		super.setFont(new Font("Arial",Font.PLAIN, 15));
+		super.setText(buttonText);
+		
 		this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;
-		this.setMaximumSize(new Dimension(100,50));
+
 		this.arrayOfLines=arrayOfLines;
 		this.myGame=game;
 		addActionListener(this);
