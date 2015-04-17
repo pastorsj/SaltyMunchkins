@@ -28,7 +28,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
 	public ArrayList<BufferedImage> cardsInPlayImages = new ArrayList<BufferedImage>();
 	public NewGameButton ngb;
-	public NewGameButton ngb2;
+	public EndTurnButton etb;
 	public BufferedImage largeCard;
 	public int largeCardPos;
 	public PlayCardButton pcb;
@@ -64,6 +64,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.pcb= new PlayCardButton(frame,arrayOfLines,game);
 		pcb.setPreferredSize(new Dimension (50,50));
 		this.add(pcb);
+		
+		this.etb=new EndTurnButton(frame,arrayOfLines,game);
+		etb.setPreferredSize(new Dimension(50,50));
+		this.add(etb);
 		
         
     	
