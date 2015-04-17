@@ -77,6 +77,11 @@ public class Mile3Testing {
 	}
 	
 	@Test
+	public void setValuesForC5(){
+		assertEquals(-2,init.doorHash.get(5).pLevelBonus);
+	}
+	
+	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.treasureHash.get(84).numGold);
 		assertEquals(2, init.treasureHash.get(84).numHands);
