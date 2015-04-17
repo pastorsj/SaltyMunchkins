@@ -57,7 +57,7 @@ public class Game {
 	}
 	
 	public boolean mustDiscard(Player p) {
-		return false;
+		return p.pHand.size()==8;
 	}
 
 }
