@@ -28,7 +28,8 @@ public class NewGameButton extends Button implements ActionListener{
 		newGame.shuffle(newGame.doors);
 		newGame.shuffle(newGame.treasures);
 		
-		ArrayList<Integer> hand = newGame.dealCards();
+		//ArrayList<Integer> hand = newGame.dealCards();
+		turnPlayer.pHand=newGame.dealCards();
 		ArrayList<Card> deal;
 		MFrame newFrame;
 		try {

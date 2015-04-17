@@ -10,33 +10,35 @@ public class PlayCardButton extends Button implements ActionListener{
 	public MFrame frame;
 	public ArrayList<String> arrayOfCardLines;
 	public Player turnPlayer;
+	public ArrayList<String> arrayOfLines;
 	public PlayCardButton(MFrame mframe,ArrayList<String> arrayOfLines,Player player){
 		this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;
 		this.turnPlayer=player;
 		this.setMaximumSize(new Dimension(100,50));
+		this.arrayOfLines=arrayOfLines;
 		addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+		int cardToMovePos=this.frame.mainPanel.bCardPanel.largeCardPos;
+		System.out.println("cardToMovePos"+cardToMovePos);
+		System.out.println("player hand:"+turnPlayer.pHand);
+		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
+		turnPlayer.pHand.remove(cardToMovePos);
+		turnPlayer.pPlay.add(cardToMove);
+
 		frame.dispose();
 		
-		InitializeCards ic = new InitializeCards(arrayOfCardLines);
-		Game newGame = new Game(ic.doors,ic.treasure);
-		newGame.shuffle(newGame.doors);
-		newGame.shuffle(newGame.treasures);
 		
-		ArrayList<Integer> hand = newGame.dealCards();
-		ArrayList<Card> deal;
-		MFrame newFrame;
 		try {
-			newFrame = new MFrame(turnPlayer,arrayOfCardLines);
-			newFrame.setVisible(true);
-			newFrame.setTitle("Munchkin");
+			frame=new MFrame(turnPlayer,this.arrayOfLines);
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		
 		
 	}

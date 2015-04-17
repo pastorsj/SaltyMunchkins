@@ -15,7 +15,7 @@ public class MPanel extends JPanel {
 	MunchkinPanel munchPanel;
 	//DirectionsPanel dPanel;
 	CardPanel cardPanel;
-	BottomCardPanel bCardPanel;
+public 	BottomCardPanel bCardPanel;
 
 	public MPanel(MFrame frame, Player player,ArrayList<String> arrayOfLines) throws IOException {
 

@@ -26,9 +26,12 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	private BufferedImage cardImage8;
 	private BufferedImage MunchBanner;
 	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
+	public ArrayList<BufferedImage> cardsInPlayImages = new ArrayList<BufferedImage>();
 	public NewGameButton ngb;
 	public NewGameButton ngb2;
-	private BufferedImage largeCard;
+	public BufferedImage largeCard;
+	public int largeCardPos;
+	public PlayCardButton pcb;
 
 	
 	
@@ -42,13 +45,15 @@ public class BottomCardPanel extends JPanel implements MouseListener{
         //this.setLayout(null);
         NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines,player);
         this.ngb=newGameButton;
-        this.ngb2 = new NewGameButton(frame, arrayOfLines,player);
+ 
         //ngb.setBounds(0,0,50,50);
 		ngb.setPreferredSize(new Dimension(50,50));
 		ngb.setLocation(-100,-100);
-		  this.add(ngb);
-		  
-		  this.add(ngb2);
+		this.add(ngb);
+		
+		this.pcb= new PlayCardButton(frame,arrayOfLines,player);
+		this.add(pcb);
+		
         
     	
 		try {
@@ -57,6 +62,13 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+player.pHand.get(i)+".PNG"));
 				cardImages.add(cardImage);
 			}
+			
+			for(int i =0; i<player.pPlay.size();i++){
+				BufferedImage playImage = ImageIO.read(new File("src\\m"+player.pPlay.get(i)+".PNG"));
+				cardsInPlayImages.add(playImage);
+			}
+			
+			
 		
 		
 		} catch (IOException ex) {
@@ -90,17 +102,12 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			}
 //			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
 		//
+			for(int i =0; i<cardsInPlayImages.size();i++){
+				go.drawImage(cardsInPlayImages.get(i),50+100*i,515,180,225,null);
+			}
+			
 			go.drawImage(largeCard,50+180*8+10*8,400,360,570,null);
 
-			
-		//	go.drawImage(this.cardImage1,50,0,180, 225, null);
-			//go.drawImage(this.cardImage2,50+180+15,0,180,225,null);
-		//	go.drawImage(this.cardImage3, 50+180+15+180+15,0,180,225,null);
-		//	go.drawImage(this.cardImage4, 50+180+15+180+15+180+15,0,180,225,null);
-		//	go.drawImage(this.cardImage5, 50+180+15+180+15+180+15+180+15,0,180,225,null);
-		//	go.drawImage(this.cardImage6, 50+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
-		//	go.drawImage(this.cardImage7, 50+180+15+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
-		//	go.drawImage(this.cardImage8, 50+180+15+180+15+180+15+180+15+180+15+180+15+180+15,0,180,225,null);
 
 		}
 
@@ -109,14 +116,16 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 //		System.out.println(MouseInfo.getPointerInfo().getLocation());
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
-		
 		if(y>780 && y<1006){
 			if(x>10 && x<185){
 				largeCard=cardImages.get(0);
+				largeCardPos=0;
 			}
 			else if(x>200 && x<374){
 				if(cardImages.size()>1){
 					largeCard=cardImages.get(1);
+					largeCardPos=1;
+				
 				}
 				
 			}
@@ -124,36 +133,42 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			else if(x>393 && x<564){
 				if(cardImages.size()>2){
 					largeCard=cardImages.get(2);
+					largeCardPos=2;
 				}
 				
 			}
 			else if(x>582 && x<753){
 				if(cardImages.size()>3){
 					largeCard=cardImages.get(3);
+					largeCardPos=3;
 				}
 				
 			}
 			else if(x>773 && x<946){
 				if(cardImages.size()>4){
 					largeCard=cardImages.get(4);
+					largeCardPos=4;
 				}
 				
 			}
 			else if(x>960 && x<1137){
 				if(cardImages.size()>5){
 					largeCard=cardImages.get(5);
+					largeCardPos=5;
 				}
 				
 			}
 			else if(x>1151 && x<1324){
 				if(cardImages.size()>6){
 					largeCard=cardImages.get(6);
+					largeCardPos=6;
 				}
 				
 			}
 			else if(x>1340 && x<1517){
 				if(cardImages.size()>7){
 					largeCard=cardImages.get(7);
+					largeCardPos=7;
 				}
 				
 			}
@@ -161,7 +176,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			else{
 				
 			}
-			
+			System.out.println("largeCardPos: "+largeCardPos);
 			this.repaint();
 		}
 		

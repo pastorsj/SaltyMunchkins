@@ -10,7 +10,7 @@ import javax.swing.JFrame;
 
 
 public class MFrame extends JFrame {
-	private MPanel mainPanel;
+	public MPanel mainPanel;
 
 	public MFrame(Player player,ArrayList<String> arrayOfLines) throws IOException{
 		super();
