@@ -63,6 +63,15 @@ public class InitializeCards {
 		doorHash.get(3).addNum=3;
 		doorHash.get(4).numTreas=1;
 		doorHash.get(4).monsterLevel = 1;
+		treasureHash.get(84).numGold=500;
+		treasureHash.get(84).numHands=2;
+		treasureHash.get(84).pLevelBonus=4;
+		treasureHash.get(85).numGold=600;
+		treasureHash.get(86).numGold=200;
+		treasureHash.get(86).numHands=1;
+		treasureHash.get(86).pLevelBonus=2;
+		treasureHash.get(87).numGold=200;
+		treasureHash.get(87).pLevelBonus=1;
 	}
 
 }
