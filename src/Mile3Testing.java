@@ -77,6 +77,64 @@ public class Mile3Testing {
 	}
 	
 	@Test
+	public void setValuesForC5(){
+		assertEquals(6,init.doorHash.get(5).monsterLevel);
+		assertEquals(-2,init.doorHash.get(5).monsterLevelBonus);
+		assertEquals(2, init.doorHash.get(5).numTreas);
+		assertEquals("Professors", init.doorHash.get(5).condForBonus);
+	}
+	
+	@Test
+	public void setValuesForC6(){
+		//m6 is the card that allows players to cheat, so it is removed from the deck for this project
+	}
+	
+	@Test
+	public void setValuesForC7(){
+		assertEquals(2,init.doorHash.get(7).monsterLevel);
+		assertEquals(4,init.doorHash.get(7).monsterLevelBonus);
+		assertEquals(1, init.doorHash.get(7).numTreas);
+		assertEquals("Females", init.doorHash.get(7).condForBonus);
+	}
+	
+	@Test
+	public void setValuesForC8(){
+		assertEquals(8,init.doorHash.get(8).monsterLevel);
+		assertEquals(3,init.doorHash.get(8).monsterLevelBonus);
+		assertEquals(2, init.doorHash.get(8).numTreas);
+		//TODO: if the player has an even number of cards in hand, monsterLevelBonus is +3
+	}
+	
+	@Test
+	public void setValuesForC9(){
+		//TODO: Need to figure out later
+	}
+	
+	@Test
+	public void setValuesForC10(){
+		//TODO: An extra hand worth of items
+	}
+	
+	@Test
+	public void setValuesForC11(){
+		//cult meeting card. 
+	}
+	
+	@Test
+	public void setValuesForC12(){
+		//cultist class card
+	}
+	
+	@Test
+	public void setValuesForC13(){
+		//TODO: Lose your class
+	}
+	
+	@Test
+	public void setValuesForC14(){
+	}
+	
+	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.treasureHash.get(84).numGold);
 		assertEquals(2, init.treasureHash.get(84).numHands);

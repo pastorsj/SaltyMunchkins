@@ -1,3 +1,5 @@
+import static org.junit.Assert.assertEquals;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -63,6 +65,27 @@ public class InitializeCards {
 		doorHash.get(3).addNum=3;
 		doorHash.get(4).numTreas=1;
 		doorHash.get(4).monsterLevel = 1;
+		doorHash.get(5).monsterLevel=6;
+		doorHash.get(5).monsterLevelBonus=-2;
+		doorHash.get(5).numTreas=2;
+		doorHash.get(5).condForBonus="Professors";
+		doorHash.get(7).monsterLevel=2;
+		doorHash.get(7).monsterLevelBonus=4;
+		doorHash.get(7).numTreas=1;
+		doorHash.get(7).condForBonus="Females";
+		doorHash.get(8).monsterLevel=8;
+		doorHash.get(8).monsterLevelBonus=3;
+		doorHash.get(8).numTreas=2;
+		treasureHash.get(84).numGold=500;
+		treasureHash.get(84).numHands=2;
+		treasureHash.get(84).pLevelBonus=4;
+		treasureHash.get(85).numGold=600;
+		treasureHash.get(86).numGold=200;
+		treasureHash.get(86).numHands=1;
+		treasureHash.get(86).pLevelBonus=2;
+		treasureHash.get(87).numGold=200;
+		treasureHash.get(87).pLevelBonus=1;
+		
 	}
 
 }

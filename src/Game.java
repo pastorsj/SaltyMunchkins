@@ -55,5 +55,9 @@ public class Game {
 			return true;
 		} return false;
 	}
+	
+	public boolean mustDiscard(Player p) {
+		return true;
+	}
 
 }
