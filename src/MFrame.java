@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 public class MFrame extends JFrame {
 	public MPanel mainPanel;
 
-	public MFrame(Player player,ArrayList<String> arrayOfLines) throws IOException{
+	public MFrame(Game game,ArrayList<String> arrayOfLines) throws IOException{
 		super();
 		
 		//this.setSize(new Dimension(1300, 600));
@@ -22,7 +22,7 @@ public class MFrame extends JFrame {
 		this.setLayout(new FlowLayout());
 		
 		
-		this.mainPanel = new MPanel(this,player,arrayOfLines);
+		this.mainPanel = new MPanel(this,game,arrayOfLines);
 		this.add(this.mainPanel);
 		
 		

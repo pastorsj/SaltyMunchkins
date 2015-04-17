@@ -7,12 +7,13 @@ public class Game {
 	ArrayList<Integer> treasures;
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
+	int turnPlayer;
 
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
  		this.doors = doors;
 		this.treasures = treasures;
-		
+		this.turnPlayer=1;
 	}
 	
 

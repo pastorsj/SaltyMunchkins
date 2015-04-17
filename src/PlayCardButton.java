@@ -11,12 +11,20 @@ public class PlayCardButton extends Button implements ActionListener{
 	public ArrayList<String> arrayOfCardLines;
 	public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
-	public PlayCardButton(MFrame mframe,ArrayList<String> arrayOfLines,Player player){
+	public Game myGame;
+	public PlayCardButton(MFrame mframe,ArrayList<String> arrayOfLines,Game game){
+		if(game.turnPlayer==1){
+			this.turnPlayer=game.p1;
+		}
+		else{
+			this.turnPlayer=game.p2;
+		}
+		
 		this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;
-		this.turnPlayer=player;
 		this.setMaximumSize(new Dimension(100,50));
 		this.arrayOfLines=arrayOfLines;
+		this.myGame=game;
 		addActionListener(this);
 	}
 
@@ -28,12 +36,20 @@ public class PlayCardButton extends Button implements ActionListener{
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
 		turnPlayer.pHand.remove(cardToMovePos);
 		turnPlayer.pPlay.add(cardToMove);
-
+		
+		if(myGame.turnPlayer==1){
+			myGame.p1=turnPlayer;
+		}
+		else{
+			myGame.p2=turnPlayer;
+		}
+		
+		
 		frame.dispose();
 		
 		
 		try {
-			frame=new MFrame(turnPlayer,this.arrayOfLines);
+			frame=new MFrame(myGame,this.arrayOfLines);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

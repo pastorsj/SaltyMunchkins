@@ -32,18 +32,26 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public BufferedImage largeCard;
 	public int largeCardPos;
 	public PlayCardButton pcb;
+	public Player turnPlayer;
 
 	
 	
 
 	//public MapPanel (ButtonPanel bPanel){
-	 public BottomCardPanel(Player player,MFrame frame,ArrayList<String> arrayOfLines){
+	 public BottomCardPanel(Game game,MFrame frame,ArrayList<String> arrayOfLines){
 		super();
-
+		System.out.println("tP: "+game.turnPlayer);
+		if(game.turnPlayer==1){
+			this.turnPlayer=game.p1;
+			
+		}
+		else{
+			this.turnPlayer=game.p2;
+		}
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
         //this.setLayout(null);
-        NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines,player);
+        NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines,game);
         this.ngb=newGameButton;
  
         //ngb.setBounds(0,0,50,50);
@@ -51,20 +59,20 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		ngb.setLocation(-100,-100);
 		this.add(ngb);
 		
-		this.pcb= new PlayCardButton(frame,arrayOfLines,player);
+		this.pcb= new PlayCardButton(frame,arrayOfLines,game);
 		this.add(pcb);
 		
         
     	
 		try {
 			MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
-			for(int i =0; i<player.pHand.size();i++){
-				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+player.pHand.get(i)+".PNG"));
+			for(int i =0; i<this.turnPlayer.pHand.size();i++){
+				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+this.turnPlayer.pHand.get(i)+".PNG"));
 				cardImages.add(cardImage);
 			}
 			
-			for(int i =0; i<player.pPlay.size();i++){
-				BufferedImage playImage = ImageIO.read(new File("src\\m"+player.pPlay.get(i)+".PNG"));
+			for(int i =0; i<this.turnPlayer.pPlay.size();i++){
+				BufferedImage playImage = ImageIO.read(new File("src\\m"+this.turnPlayer.pPlay.get(i)+".PNG"));
 				cardsInPlayImages.add(playImage);
 			}
 			
