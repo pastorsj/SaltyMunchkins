@@ -98,6 +98,14 @@ public class Mile3Testing {
 	}
 	
 	@Test
+	public void setValuesForC8(){
+		assertEquals(8,init.doorHash.get(8).monsterLevel);
+		assertEquals(3,init.doorHash.get(8).monsterLevelBonus);
+		assertEquals(2, init.doorHash.get(8).numTreas);
+		//TODO: if the player has an even number of cards in hand, monsterLevelBonus is +3
+	}
+	
+	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.treasureHash.get(84).numGold);
 		assertEquals(2, init.treasureHash.get(84).numHands);
