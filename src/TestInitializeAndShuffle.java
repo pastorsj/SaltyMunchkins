@@ -67,11 +67,16 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDiscard1() {
-		targetPlayer.pHand.add(8);
+		targetPlayer.pHand.remove(7);
 		assertEquals(false, target.mustDiscard(targetPlayer));
 	}
 	@Test
 	public void TestDiscard2() {
 		assertEquals(true, target.mustDiscard(targetPlayer));
+	}
+	@Test
+	public void TestDiscard3() {
+		targetPlayer.pHand.add(9);
+		assertEquals(true,target.mustDiscard(targetPlayer));
 	}
 }
