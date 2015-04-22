@@ -3,9 +3,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class Game {
-	ArrayList<Integer> doors;
-	ArrayList<Integer> treasures;
-	ArrayList<Integer> discards;
+	ArrayList<Integer> doors = new ArrayList<Integer>();
+	ArrayList<Integer> treasures = new ArrayList<Integer>();
+	ArrayList<Integer> discards = new ArrayList<Integer>();
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
 	int turnPlayer;
