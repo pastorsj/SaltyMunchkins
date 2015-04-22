@@ -26,6 +26,8 @@ public class Player {
 			else{
 				card = initCards.getTreasureHash().get(i);
 			}
+			
+			
 		}
 	}
 	
