@@ -5,7 +5,7 @@ public class Card {
 	public String name;
 	public int addNum;
 	public int monsterLevel;
-	public String badStuff;
+	public String badStuff=""; //gold or treas or level
 	public int numTreas;
 	public int monsterLevelBonus;
 	public String condForBonus;

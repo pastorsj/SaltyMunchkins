@@ -201,6 +201,7 @@ public class Mile3Testing {
 		assertEquals(2,init.doorHash.get(27).monsterLevelBonus);
 		assertEquals(1, init.doorHash.get(27).numTreas);
 		assertEquals("Investigators", init.doorHash.get(27).condForBonus);
+		assertEquals("gold",init.doorHash.get(27).badStuff);
 	}
 	
 	@Test
