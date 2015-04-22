@@ -139,6 +139,9 @@ public class InitializeCards {
 		treasureHash.get(98).numGold=800;
 		treasureHash.get(98).pLevelBonus=4;
 		treasureHash.get(98).numHands=2;
+	treasureHash.get(99).numGold=300;
+		treasureHash.get(99).pLevelBonus=1;
+		treasureHash.get(99).footGear=true;
 	}
 
 	public HashMap<Integer, Card> getDoorHash() {
