@@ -132,6 +132,7 @@ public class InitializeCards {
 		treasureHash.get(90).forMe = false;
 		treasureHash.get(90).pLevelBonus = 3;
 		treasureHash.get(90).monsterLevelBonus = 3;
+		treasureHash.get(94).goUpALevel = true;
 	}
 
 	public HashMap<Integer, Card> getDoorHash() {
