@@ -1,6 +1,7 @@
 import java.util.HashMap;
 
 public class Card {
+	public String NotUsableBy = "";
 	public int num;
 	public String name;
 	public int addNum;
