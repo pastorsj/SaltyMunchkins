@@ -66,6 +66,7 @@ public class Game {
 	public boolean discardCard(Player p, int card) {
 		if(p.pHand.contains(card)) {
 			p.pHand.remove(card);
+			discards.add(card);
 			return true;
 		}return false;
 	}
