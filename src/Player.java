@@ -7,6 +7,7 @@ public class Player {
 	public boolean classAbility;
 	public ArrayList<Integer> pPlay = new ArrayList<Integer>();
 	public String className;
+	public int pLevel=1;
 	
 	public Player(String name){
 		this.username=name;

@@ -19,7 +19,7 @@ public class CardFuncTesting {
 		
 	}
 	@Test
-	public void func57P1() {
+	public void func57init() {
 			myGame.turnPlayer=1;
 			myGame.funcs.func57();
 			assertEquals("Professor",myGame.p1.className);
@@ -27,6 +27,19 @@ public class CardFuncTesting {
 			myGame.funcs.func57();
 			assertEquals("Professor", myGame.p2.className);
 		}
+	
+	public void testPlayClass(){
+		//need to test that if player with professor has lowest or tied at lowest level,
+		//can discard 3 cards and go up level
+		myGame.turnPlayer=1;
+		myGame.p1.className="Professor";
+	
+		
+		//write this later when discard is implemented.
+		
+		
+		
+	}
 		
 		
 		

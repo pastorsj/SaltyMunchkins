@@ -17,6 +17,10 @@ public class CardFunc {
 		end();
 	}
 	
+	public void playClass(){
+		
+	}
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;
