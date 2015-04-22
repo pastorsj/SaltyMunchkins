@@ -242,6 +242,11 @@ public class Mile3Testing {
 		assertEquals(2, init.doorHash.get(33).numTreas);
 		assertEquals("Females", init.doorHash.get(33).condForBonus);
 	}
+	
+	@Test
+	public void setValuesForC34(){
+		assertEquals(3,init.doorHash.get(34).monsterLevelBonus);
+	}
 	@Test
 	public void setValuesForC42(){
 		assertEquals(-5,init.doorHash.get(42).monsterLevelBonus);
