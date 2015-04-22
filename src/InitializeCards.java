@@ -101,6 +101,9 @@ public class InitializeCards {
 		treasureHash.get(88).numHands = 1;
 		treasureHash.get(88).pLevelBonus = 2;
 		treasureHash.get(89).goUpALevel = true;
+		treasureHash.get(90).numGold = 100;
+		treasureHash.get(90).numUse = 1;
+		treasureHash.get(90).addLevel = 3;
 	}
 
 }
