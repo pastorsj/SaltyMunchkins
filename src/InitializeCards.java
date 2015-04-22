@@ -88,6 +88,8 @@ public class InitializeCards {
 		doorHash.get(8).monsterLevel=8;
 		doorHash.get(8).monsterLevelBonus=3;
 		doorHash.get(8).numTreas=2;
+		doorHash.get(26).monsterLevel=10;
+		doorHash.get(26).numTreas=3;
 		treasureHash.get(84).numGold=500;
 		treasureHash.get(84).numHands=2;
 		treasureHash.get(84).pLevelBonus=4;

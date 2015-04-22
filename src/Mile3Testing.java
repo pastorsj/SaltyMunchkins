@@ -191,8 +191,8 @@ public class Mile3Testing {
 	
 	@Test
 	public void setValuesForC26(){
-		assertEquals(10,init.doorHash.get(7).monsterLevel);
-		assertEquals(3, init.doorHash.get(7).numTreas);
+		assertEquals(10,init.doorHash.get(26).monsterLevel);
+		assertEquals(3, init.doorHash.get(26).numTreas);
 	}
 	
 	@Test
