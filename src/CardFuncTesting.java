@@ -20,10 +20,11 @@ public class CardFuncTesting {
 	}
 	@Test
 	public void func57P1() {
-		myGame.turnPlayer=1;
+			myGame.turnPlayer=1;
 			myGame.funcs.func57();
 			assertEquals("Professor",myGame.p1.className);
 			myGame.turnPlayer=2;
+			myGame.funcs.func57();
 			assertEquals("Professor", myGame.p2.className);
 		}
 		
