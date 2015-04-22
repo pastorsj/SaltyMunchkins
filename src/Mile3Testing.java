@@ -317,4 +317,11 @@ public class Mile3Testing {
 		assertEquals(3, init.treasureHash.get(97).pLevelBonus);
 		assertEquals("Monster Whacker", init.treasureHash.get(97).NotUsableBy);
 	}
+
+	@Test
+	public void setValuesForC98() {
+		assertEquals(800, init.treasureHash.get(98).numGold);
+		assertEquals(4, init.treasureHash.get(98).pLevelBonus);
+		assertEquals(2, init.treasureHash.get(98).numHands);
+	}
 }
