@@ -6,6 +6,9 @@ public class Card {
 	public int addNum;
 	public int monsterLevel;
 	public String badStuff=""; //gold or treas or level
+	public int badGold;
+	public int badTreas;
+	public int badLevel;
 	public int numTreas;
 	public int monsterLevelBonus;
 	public String condForBonus;
