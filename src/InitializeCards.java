@@ -107,6 +107,10 @@ public class InitializeCards {
 		doorHash.get(33).numTreas = 2;
 		doorHash.get(33).condForBonus = "Females";
 		doorHash.get(34).monsterLevelBonus = 3;
+		doorHash.get(35).monsterLevel=14;
+		doorHash.get(35).monsterLevelBonus=-2;
+		doorHash.get(35).numTreas=4;
+		doorHash.get(35).condForBonus="Professors";
 		doorHash.get(42).monsterLevelBonus = -5;
 		doorHash.get(42).badStuff = "treas";
 		doorHash.get(42).badTreas = -1;
