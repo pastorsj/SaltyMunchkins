@@ -53,7 +53,7 @@ public class Mile3Testing {
 	
 	@Test
 	public void setAddNumForC1(){
-		assertEquals(5,init.doorHash.get(1).addNum);
+		assertEquals(5,init.doorHash.get(1).monsterLevelBonus);
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class Mile3Testing {
 
 	@Test
 	public void setValuesForC3(){
-		assertEquals(3,init.doorHash.get(3).addNum);
+		assertEquals(3,init.doorHash.get(3).monsterLevelBonus);
 	}
 	
 	@Test
@@ -209,6 +209,10 @@ public class Mile3Testing {
 		assertEquals(2, init.doorHash.get(28).numTreas);
 	}
 	
+	@Test
+	public void setValuesForC29(){
+		assertEquals(10,init.doorHash.get(29).monsterLevelBonus);
+	}
 	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.treasureHash.get(84).numGold);
