@@ -87,4 +87,9 @@ public class TestInitializeAndShuffle {
 	public void TestDiscard4() {
 		assertEquals(true, target.discardCard(targetPlayer, 1));
 	}
+	@Test
+	public void TestDiscard5() {
+		assertEquals(true, target.discardCard(targetPlayer, 1));
+		assertEquals(7, targetPlayer.pHand.size());
+	}
 }
