@@ -136,6 +136,9 @@ public class InitializeCards {
 		treasureHash.get(97).numGold = 700;
 		treasureHash.get(97).pLevelBonus = 3;
 		treasureHash.get(97).NotUsableBy = "Monster Whacker";
+		treasureHash.get(98).numGold=800;
+		treasureHash.get(98).pLevelBonus=4;
+		treasureHash.get(98).numHands=2;
 	}
 
 	public HashMap<Integer, Card> getDoorHash() {
