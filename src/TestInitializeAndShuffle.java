@@ -2,15 +2,19 @@ import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import org.junit.Before;
 import org.junit.Test;
 
 
 public class TestInitializeAndShuffle {
-	
+	HashMap<Integer,Card> doorHash = new HashMap<Integer, Card>();
+	HashMap<Integer, Card> treasureHash=new HashMap<Integer, Card>();
+	ArrayList<Integer> doorCardArray = new ArrayList<Integer>();
+	ArrayList<Integer> treasureCardArray = new ArrayList<Integer>();
 	ArrayList<Integer> doorCards = new ArrayList<Integer>(100);
-	ArrayList<Integer> treasureCards = new ArrayList<Integer>(68);	
+	ArrayList<Integer> treasureCards = new ArrayList<Integer>(68);
 	Game target = new Game(doorCards,treasureCards);
 	Player targetPlayer = new Player("Player1");
 	
