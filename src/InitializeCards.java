@@ -127,5 +127,13 @@ public class InitializeCards {
 		treasureHash.get(90).pLevelBonus = 3;
 		treasureHash.get(90).monsterLevelBonus = 3;
 	}
+	
+	public HashMap<Integer,Card> getDoorHash(){
+		return doorHash;
+	}
+	
+	public HashMap<Integer,Card> getTreasureHash(){
+		return treasureHash;
+	}
 
 }

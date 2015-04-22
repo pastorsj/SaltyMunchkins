@@ -8,9 +8,25 @@ public class Player {
 	public ArrayList<Integer> pPlay = new ArrayList<Integer>();
 	public String className;
 	public int pLevel=1;
+	public int cLevel=pLevel;
+	public InitializeCards initCards = new InitializeCards();
 	
-	public Player(String name){
+	
+	public Player(String name,Game game){
 		this.username=name;
+		
+	}
+	
+	public void cLevelCalculation(){
+		Card card;
+		for(int i=0; i<this.pHand.size();i++){
+			if(pHand.get(i)<68){
+				card = initCards.getDoorHash().get(i);
+			}
+			else{
+				card = initCards.getTreasureHash().get(i);
+			}
+		}
 	}
 	
 	

@@ -38,6 +38,10 @@ public class CardFuncTesting {
 		//write this later when discard is implemented.
 		
 		
+	}
+	
+	public void TestFunc27(){
+		
 		
 	}
 		

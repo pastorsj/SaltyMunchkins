@@ -10,7 +10,9 @@ public class Game {
 	Player p2 = new Player("p2");
 	int turnPlayer;
 	CardFunc funcs = new CardFunc(this);
-
+	int mInPlay = 0; //0 indicates no monster, otherwise card number goes here.
+	
+	
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
  		this.doors = doors;
