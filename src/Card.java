@@ -15,6 +15,7 @@ public class Card {
 	public int pLevelBonus;
 	public boolean goUpALevel;
 	public int addLevel;
+	public int numUse;
 	
 	
 	
