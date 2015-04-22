@@ -16,6 +16,7 @@ public class Card {
 	public boolean goUpALevel;
 	public boolean forMe;
 	public int numUse;
+	public int bonusTreasure=0;
 	
 	
 	
