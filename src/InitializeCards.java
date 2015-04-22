@@ -107,10 +107,10 @@ public class InitializeCards {
 		doorHash.get(33).numTreas = 2;
 		doorHash.get(33).condForBonus = "Females";
 		doorHash.get(34).monsterLevelBonus = 3;
-		doorHash.get(35).monsterLevel=14;
-		doorHash.get(35).monsterLevelBonus=-2;
-		doorHash.get(35).numTreas=4;
-		doorHash.get(35).condForBonus="Professors";
+		doorHash.get(35).monsterLevel = 14;
+		doorHash.get(35).monsterLevelBonus = -2;
+		doorHash.get(35).numTreas = 4;
+		doorHash.get(35).condForBonus = "Professors";
 		doorHash.get(42).monsterLevelBonus = -5;
 		doorHash.get(42).badStuff = "treas";
 		doorHash.get(42).badTreas = -1;
@@ -133,6 +133,9 @@ public class InitializeCards {
 		treasureHash.get(90).pLevelBonus = 3;
 		treasureHash.get(90).monsterLevelBonus = 3;
 		treasureHash.get(94).goUpALevel = true;
+		treasureHash.get(97).numGold = 700;
+		treasureHash.get(97).pLevelBonus = 3;
+		treasureHash.get(97).NotUsableBy = "Monster Whacker";
 	}
 
 	public HashMap<Integer, Card> getDoorHash() {
