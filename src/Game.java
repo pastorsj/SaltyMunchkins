@@ -8,6 +8,7 @@ public class Game {
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
 	int turnPlayer;
+	CardFunc funcs = new CardFunc(this);
 
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {

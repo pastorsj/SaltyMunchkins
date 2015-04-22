@@ -14,7 +14,7 @@ public class Card {
 	public int numHands;
 	public int pLevelBonus;
 	public boolean goUpALevel;
-	public int addLevel;
+	public boolean forMe;
 	public int numUse;
 	
 	
