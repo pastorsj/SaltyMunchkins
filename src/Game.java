@@ -5,6 +5,7 @@ import java.util.Random;
 public class Game {
 	ArrayList<Integer> doors;
 	ArrayList<Integer> treasures;
+	ArrayList<Integer> discards;
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
 	int turnPlayer;
@@ -60,6 +61,14 @@ public class Game {
 	
 	public boolean mustDiscard(Player p) {
 		return p.pHand.size()>=8;
+	}
+	
+	public boolean discardCard(Player p, int card) {
+		return false;
+	}
+	
+	public ArrayList<Integer> returnDiscardPile() {
+		return discards;
 	}
 
 }
