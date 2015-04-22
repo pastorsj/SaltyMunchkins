@@ -64,7 +64,7 @@ public class Game {
 	}
 	
 	public boolean discardCard(Player p, int card) {
-		return false;
+		return p.pHand.contains(card);
 	}
 	
 	public ArrayList<Integer> returnDiscardPile() {
