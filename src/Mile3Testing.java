@@ -132,6 +132,67 @@ public class Mile3Testing {
 	
 	@Test
 	public void setValuesForC14(){
+		//Curse: discard all the items that you cannot legally use (an item with Cheat is fine, but are we using Cheat???)
+	}
+	
+	@Test
+	public void setValuesForC15(){
+		// -5 to your next combat. After that, the damage is permanent but there is no further penalty
+	}
+	
+	@Test
+	public void setValuesForC16(){
+		// cultist -> noncultist; noncultist -> cultist -- may be removed from the deck
+	}
+	
+	@Test
+	public void setValuesForC17(){
+		// If you have the Miner's Helmet or the Two-handed flashlight, discard them. -3 on your current combat. If not in combat, -3 in the next combat.
+	}
+	
+	@Test
+	public void setValuesForC18(){
+		// Lose the armor you are wearing
+	}
+	
+	@Test
+	public void setValuesForC19(){
+		// Lose the headgear you are wearing
+	}
+	
+	@Test
+	public void setValuesForC20(){
+		// Discard all your Classes except cultist 
+	}
+	@Test
+	public void setValuesForC21(){
+		// Lose one item that you have in play. The player on your right chooses what you lose
+	}
+	
+	@Test
+	public void setValuesForC22(){
+		// Lose a level 
+	}
+	
+	@Test
+	public void setValuesForC23(){
+		// Discard an item or items with a printed value of at least 1000 gold pieces
+	}
+	
+	@Test
+	public void setValuesForC24(){
+		// Lose the footgear you are wearing
+	}
+	
+	@Test
+	public void setValuesForC25(){
+		// It is a complicated card
+	}
+	
+	@Test
+	public void setValuesForC26(){
+		assertEquals(10,init.doorHash.get(7).monsterLevel);
+		assertEquals(3, init.doorHash.get(7).numTreas);
 	}
 	
 	@Test
