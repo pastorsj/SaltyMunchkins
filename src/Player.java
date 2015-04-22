@@ -12,7 +12,7 @@ public class Player {
 	public InitializeCards initCards = new InitializeCards();
 	
 	
-	public Player(String name,Game game){
+	public Player(String name){
 		this.username=name;
 		
 	}
