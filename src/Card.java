@@ -13,6 +13,7 @@ public class Card {
 	public int numGold;
 	public int numHands;
 	public int pLevelBonus;
+	public boolean goUpALevel;
 	
 	
 	
