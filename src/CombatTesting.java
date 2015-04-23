@@ -20,7 +20,7 @@ public class CombatTesting {
 		hand.add(88); //plb =2 
 		hand.add(87); //plb=1
 		hand.add(86); // plb=2 
-		myGame.p1.pPlay=hand;
+		myGame.p1.pPlay=hand; //note this is NOT pHand, this is the cards in PLAY
 		myGame.p1.cLevelCalculation();
 				
 
@@ -33,6 +33,13 @@ public class CombatTesting {
 	public void TestCLevelCalc() {
 		assertEquals(10,myGame.p1.cLevel);
 		
+	}
+	
+	@Test
+	public void TestMLevelBonusCalc(){
+		myGame.p1.pPlay.add(29); //+10 to monster
+		myGame.p1.pPlay.add(42); //-5 to monster
+		assertEquals(5,myGame.p1.mLevelBonusCalculation());
 	}
 	
 

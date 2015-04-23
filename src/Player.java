@@ -35,6 +35,12 @@ public class Player {
 			
 			
 		}
+		
+		
+	}
+	
+	public int mLevelBonusCalculation(){
+		return 0;
 	}
 	
 	

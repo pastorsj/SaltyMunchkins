@@ -11,6 +11,7 @@ public class Game {
 	int turnPlayer;
 	CardFunc funcs = new CardFunc(this);
 	int mInPlay = 0; //0 indicates no monster, otherwise card number goes here.
+	int mLevel = 0; //0 indicates no monster, otherwise monster level goes here.
 	
 	
 
@@ -76,5 +77,6 @@ public class Game {
 	public ArrayList<Integer> returnDiscardPile() {
 		return discards;
 	}
+	
 
 }

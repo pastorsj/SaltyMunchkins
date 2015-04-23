@@ -11,6 +11,7 @@ public class CardFuncTesting {
 	
 	public InitializeCards init = new InitializeCards();
 	
+	
 	@Before
 	public void setUp() {
 		myGame=new Game(init.doors,init.treasure);
@@ -27,7 +28,7 @@ public class CardFuncTesting {
 			myGame.funcs.func57();
 			assertEquals("Professor", myGame.p2.className);
 		}
-	
+	@Test
 	public void testPlayClass(){
 		//need to test that if player with professor has lowest or tied at lowest level,
 		//can discard 3 cards and go up level
@@ -39,11 +40,12 @@ public class CardFuncTesting {
 		
 		
 	}
-	
-	public void TestFunc27(){
-		
+	@Test
+	public void testMLevelCalc(){
 		
 	}
+	
+	
 		
 		
 		

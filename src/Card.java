@@ -5,7 +5,7 @@ public class Card {
 	public int num;
 	public String name;
 	public int addNum;
-	public int monsterLevel;
+	public int monsterLevel=0; //is 0 if not a monster
 	public String badStuff=""; //gold or treas or level
 	public int badGold;
 	public int badTreas;
