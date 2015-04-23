@@ -30,6 +30,16 @@ public class Main {
 		InitializeCards ic = new InitializeCards();
 		ArrayList<Integer> doorAv = new ArrayList<Integer>();
 		ArrayList<Integer> treasAv = new ArrayList<Integer>();
+		doorAv.add(27);
+		doorAv.add(2);
+		doorAv.add(7);
+		doorAv.add(42);
+		doorAv.add(29);
+		doorAv.add(4);
+		
+		treasAv.add(86);
+		treasAv.add(87);
+		treasAv.add(88);
 		
 		Game newGame = new Game(ic.doors,ic.treasure);
 		newGame.shuffle(newGame.doors);
