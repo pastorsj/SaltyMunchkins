@@ -19,6 +19,7 @@ public class Player {
 	
 	public void cLevelCalculation(){
 		Card card;
+		this.cLevel=this.pLevel;
 		for(int i=0; i<this.pHand.size();i++){
 			
 			if(pHand.get(i)<68){
