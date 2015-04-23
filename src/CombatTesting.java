@@ -44,10 +44,14 @@ public class CombatTesting {
 	
 	@Test
 	public void TestDidIWin(){
+		myGame.mLevel= 15;
 		//p1 has player level bonus of 9
-		myGame.p1.pPlay.add(42);
+		myGame.p1.pPlay.add(42); //subtract 9 from monster.
 		assertEquals(true,myGame.p1.didIwin(myGame));
 		
+		myGame.p2.pPlay.add(29);
+		myGame.p2.pPlay.add(29);
+		assertEquals(false,myGame.p1.didIwin(myGame));
 	}
 	
 
