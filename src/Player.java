@@ -20,12 +20,17 @@ public class Player {
 	public void cLevelCalculation(){
 		Card card;
 		for(int i=0; i<this.pHand.size();i++){
+			
 			if(pHand.get(i)<68){
-				card = initCards.getDoorHash().get(i);
+				card = initCards.getDoorHash().get(pHand.get(i));
+			
 			}
 			else{
-				card = initCards.getTreasureHash().get(i);
+				card = initCards.getTreasureHash().get(pHand.get(i));
+				
 			}
+			
+			this.cLevel+=card.pLevelBonus;
 			
 			
 		}

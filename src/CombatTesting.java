@@ -21,6 +21,7 @@ public class CombatTesting {
 		hand.add(87); //plb=1
 		hand.add(86); // plb=2 
 		myGame.p1.pHand=hand;
+		myGame.p1.cLevelCalculation();
 				
 
 		
