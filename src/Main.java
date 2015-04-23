@@ -24,18 +24,12 @@ public class Main {
 	//	ArrayList<Integer> doorCards = new ArrayList<Integer>(4);
 		//ArrayList<Integer> treasureCards = new ArrayList<Integer>(4);
 		
-		ArrayList<String> textFake = new ArrayList<String>();
-		textFake.add("1");
-		textFake.add("2");
-		textFake.add("3");
-		textFake.add("4");
-		textFake.add("5");
-		textFake.add("6");
-		textFake.add("7");
-		textFake.add("8");
+
+	//	InitializeCards ic = new InitializeCards(arrayOfLines); use when all implemented
 		
-		//InitializeCards ic = new InitializeCards(textFake);
-		InitializeCards ic = new InitializeCards(arrayOfLines);
+		InitializeCards ic = new InitializeCards();
+		ArrayList<Integer> doorAv = new ArrayList<Integer>();
+		ArrayList<Integer> treasAv = new ArrayList<Integer>();
 		
 		Game newGame = new Game(ic.doors,ic.treasure);
 		newGame.shuffle(newGame.doors);

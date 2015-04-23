@@ -16,8 +16,8 @@ public class InitializeCards {
 		// numDoors = 68;
 		// numTreas = 0;
 
-		numDoors = 67;
-		numTreas = 83;
+		//numDoors = 67;
+		//numTreas = 83;
 
 		for (int i = 0; i < numDoors; i++) {
 			Card newCard = new Card(i + 1, cardInfo.get(i));
@@ -61,6 +61,21 @@ public class InitializeCards {
 		}
 		this.addConditions();
 
+	}
+	
+	public InitializeCards(ArrayList<Integer> doorAvailable, ArrayList<Integer> treasAvailable){
+		for (int i = 0; i < doorAvailable.size(); i++) {
+			Card newCard = new Card(doorAvailable.get(i), "");
+			doorHash.put(doorAvailable.get(i), newCard);
+			doors.add(doorAvailable.get(i));
+		}
+
+		for (int i = 0; i < treasAvailable.size(); i++) {
+			Card newCard = new Card(treasAvailable.get(i),"");
+			treasureHash.put(treasAvailable.get(i), newCard);
+			treasure.add(treasAvailable.get(i));
+		}
+		this.addConditionsForSelect();
 	}
 
 	public void addConditions() {
@@ -140,6 +155,58 @@ public class InitializeCards {
 		treasureHash.get(98).pLevelBonus=4;
 		treasureHash.get(98).numHands=2;
 	treasureHash.get(99).numGold=300;
+		treasureHash.get(99).pLevelBonus=1;
+		treasureHash.get(99).footGear=true;
+	}
+	
+	public void addConditionsForSelect() {
+		
+		doorHash.get(2).monsterLevel = 2;
+		doorHash.get(2).monsterLevelBonus = 3;
+		doorHash.get(2).numTreas = 1;
+		doorHash.get(2).condForBonus = "Monster Whacker";
+		
+		doorHash.get(4).numTreas = 1;
+		doorHash.get(4).monsterLevel = 1;
+	
+		doorHash.get(7).monsterLevel = 2;
+		doorHash.get(7).monsterLevelBonus = 4;
+		doorHash.get(7).numTreas = 1;
+		doorHash.get(7).condForBonus = "Females";
+		
+		
+		doorHash.get(29).monsterLevelBonus = 10;
+		doorHash.get(29).bonusTreasure = 2;
+	
+		doorHash.get(42).monsterLevelBonus = -5;
+		doorHash.get(42).badStuff = "treas";
+		doorHash.get(42).badTreas = -1;
+		treasureHash.get(84).numGold = 500;
+		treasureHash.get(84).numHands = 2;
+		treasureHash.get(84).pLevelBonus = 4;
+		treasureHash.get(85).numGold = 600;
+		treasureHash.get(86).numGold = 200;
+		treasureHash.get(86).numHands = 1;
+		treasureHash.get(86).pLevelBonus = 2;
+		treasureHash.get(87).numGold = 200;
+		treasureHash.get(87).pLevelBonus = 1;
+		treasureHash.get(88).numGold = 300;
+		treasureHash.get(88).numHands = 1;
+		treasureHash.get(88).pLevelBonus = 2;
+		treasureHash.get(89).goUpALevel = true;
+		treasureHash.get(90).numGold = 100;
+		treasureHash.get(90).numUse = 1;
+		treasureHash.get(90).forMe = false;
+		treasureHash.get(90).pLevelBonus = 3;
+		treasureHash.get(90).monsterLevelBonus = 3;
+		treasureHash.get(94).goUpALevel = true;
+		treasureHash.get(97).numGold = 700;
+		treasureHash.get(97).pLevelBonus = 3;
+		treasureHash.get(97).NotUsableBy = "Monster Whacker";
+		treasureHash.get(98).numGold=800;
+		treasureHash.get(98).pLevelBonus=4;
+		treasureHash.get(98).numHands=2;
+		treasureHash.get(99).numGold=300;
 		treasureHash.get(99).pLevelBonus=1;
 		treasureHash.get(99).footGear=true;
 	}

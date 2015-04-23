@@ -23,6 +23,7 @@ public class Card {
 	public boolean forMe;
 	public int numUse;
 	public int bonusTreasure=0;
+	boolean readyToPlay=false; //means card is implemented enough to be in demo.
 	
 	
 	

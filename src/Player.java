@@ -20,14 +20,14 @@ public class Player {
 	public void cLevelCalculation(){
 		Card card;
 		this.cLevel=this.pLevel;
-		for(int i=0; i<this.pHand.size();i++){
+		for(int i=0; i<this.pPlay.size();i++){
 			
-			if(pHand.get(i)<68){
-				card = initCards.getDoorHash().get(pHand.get(i));
+			if(pPlay.get(i)<68){
+				card = initCards.getDoorHash().get(pPlay.get(i));
 			
 			}
 			else{
-				card = initCards.getTreasureHash().get(pHand.get(i));
+				card = initCards.getTreasureHash().get(pPlay.get(i));
 				
 			}
 			
