@@ -7,8 +7,8 @@ public class Player {
 	public boolean classAbility;
 	public ArrayList<Integer> pPlay = new ArrayList<Integer>();
 	public String className;
-	public int pLevel=1;
-	public int cLevel=pLevel;
+	public int pLevel=1; //actual level of player
+	public int cLevel=pLevel; //the level a player is with door cards in combat
 	public InitializeCards initCards = new InitializeCards();
 	
 	
@@ -47,6 +47,23 @@ public class Player {
 		}
 		return mLevelBonus;
 	}
+	
+	public boolean didIwin(Game game){
+		int playerInt = game.turnPlayer;
+		if(playerInt==1){
+			return didIwinHelper(game.p1, game.p2);
+		}
+		else{
+			return didIwinHelper(game.p2,game.p1);
+		}
+		
+		
+	}
+	
+	public boolean didIwinHelper(Player me, Player other){
+		return false;
+	}
+	
 	
 	
 

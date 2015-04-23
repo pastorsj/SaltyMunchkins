@@ -42,6 +42,14 @@ public class CombatTesting {
 		assertEquals(5,myGame.p1.mLevelBonusCalculation());
 	}
 	
+	@Test
+	public void TestDidIWin(){
+		//p1 has player level bonus of 9
+		myGame.p1.pPlay.add(42);
+		assertEquals(true,myGame.p1.didIwin(myGame));
+		
+	}
+	
 
 	
 }
