@@ -61,7 +61,7 @@ public class Player {
 	}
 	
 	public boolean didIwinHelper(Player me, Player other){
-		return false;
+		return true;
 	}
 	
 	
