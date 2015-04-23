@@ -29,7 +29,7 @@ public class Mile3Testing {
 		
 		 myGame.p1.pHand=p1cards;
 		 myGame.p2.pHand=p2cards;
-		init.doorHash.get(4).inPlay = true;
+		init.cardHash.get(4).inPlay = true;
 		
 	}
 	@Test
@@ -53,35 +53,35 @@ public class Mile3Testing {
 	
 	@Test
 	public void setAddNumForC1(){
-		assertEquals(5,init.doorHash.get(1).monsterLevelBonus);
+		assertEquals(5,init.cardHash.get(1).monsterLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC2(){
-		assertEquals(2,init.doorHash.get(2).monsterLevel);
-		assertEquals(3,init.doorHash.get(2).monsterLevelBonus);
-		assertEquals(1, init.doorHash.get(2).numTreas);
-		assertEquals("Monster Whacker", init.doorHash.get(2).condForBonus);
+		assertEquals(2,init.cardHash.get(2).monsterLevel);
+		assertEquals(3,init.cardHash.get(2).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(2).numTreas);
+		assertEquals("Monster Whacker", init.cardHash.get(2).condForBonus);
 	}
 
 	@Test
 	public void setValuesForC3(){
-		assertEquals(3,init.doorHash.get(3).monsterLevelBonus);
+		assertEquals(3,init.cardHash.get(3).monsterLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC4(){
-		assertEquals(1,init.doorHash.get(4).monsterLevel);
-		assertEquals(1, init.doorHash.get(4).numTreas);
+		assertEquals(1,init.cardHash.get(4).monsterLevel);
+		assertEquals(1, init.cardHash.get(4).numTreas);
 		//assertEquals(false,myGame.p1.classAbility);
 	}
 	
 	@Test
 	public void setValuesForC5(){
-		assertEquals(6,init.doorHash.get(5).monsterLevel);
-		assertEquals(-2,init.doorHash.get(5).monsterLevelBonus);
-		assertEquals(2, init.doorHash.get(5).numTreas);
-		assertEquals("Professors", init.doorHash.get(5).condForBonus);
+		assertEquals(6,init.cardHash.get(5).monsterLevel);
+		assertEquals(-2,init.cardHash.get(5).monsterLevelBonus);
+		assertEquals(2, init.cardHash.get(5).numTreas);
+		assertEquals("Professors", init.cardHash.get(5).condForBonus);
 	}
 	
 	@Test
@@ -91,17 +91,17 @@ public class Mile3Testing {
 	
 	@Test
 	public void setValuesForC7(){
-		assertEquals(2,init.doorHash.get(7).monsterLevel);
-		assertEquals(4,init.doorHash.get(7).monsterLevelBonus);
-		assertEquals(1, init.doorHash.get(7).numTreas);
-		assertEquals("Females", init.doorHash.get(7).condForBonus);
+		assertEquals(2,init.cardHash.get(7).monsterLevel);
+		assertEquals(4,init.cardHash.get(7).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(7).numTreas);
+		assertEquals("Females", init.cardHash.get(7).condForBonus);
 	}
 	
 	@Test
 	public void setValuesForC8(){
-		assertEquals(8,init.doorHash.get(8).monsterLevel);
-		assertEquals(3,init.doorHash.get(8).monsterLevelBonus);
-		assertEquals(2, init.doorHash.get(8).numTreas);
+		assertEquals(8,init.cardHash.get(8).monsterLevel);
+		assertEquals(3,init.cardHash.get(8).monsterLevelBonus);
+		assertEquals(2, init.cardHash.get(8).numTreas);
 		//TODO: if the player has an even number of cards in hand, monsterLevelBonus is +3
 	}
 	
@@ -191,144 +191,144 @@ public class Mile3Testing {
 	
 	@Test
 	public void setValuesForC26(){
-		assertEquals(10,init.doorHash.get(26).monsterLevel);
-		assertEquals(3, init.doorHash.get(26).numTreas);
+		assertEquals(10,init.cardHash.get(26).monsterLevel);
+		assertEquals(3, init.cardHash.get(26).numTreas);
 	}
 	
 	@Test
 	public void setValuesForC27(){
-		assertEquals(1,init.doorHash.get(27).monsterLevel);
-		assertEquals(2,init.doorHash.get(27).monsterLevelBonus);
-		assertEquals(1, init.doorHash.get(27).numTreas);
-		assertEquals("Investigators", init.doorHash.get(27).condForBonus);
-		assertEquals("gold",init.doorHash.get(27).badStuff);		
-		assertEquals(-500,init.doorHash.get(27).badGold);
+		assertEquals(1,init.cardHash.get(27).monsterLevel);
+		assertEquals(2,init.cardHash.get(27).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(27).numTreas);
+		assertEquals("Investigators", init.cardHash.get(27).condForBonus);
+		assertEquals("gold",init.cardHash.get(27).badStuff);		
+		assertEquals(-500,init.cardHash.get(27).badGold);
 	}
 	
 	@Test
 	public void setValuesForC28(){
-		assertEquals(6,init.doorHash.get(28).monsterLevel);
-		assertEquals(2, init.doorHash.get(28).numTreas);
+		assertEquals(6,init.cardHash.get(28).monsterLevel);
+		assertEquals(2, init.cardHash.get(28).numTreas);
 	}
 	
 	@Test
 	public void setValuesForC29(){
-		assertEquals(10,init.doorHash.get(29).monsterLevelBonus);
-		assertEquals(2, init.doorHash.get(29).bonusTreasure);
+		assertEquals(10,init.cardHash.get(29).monsterLevelBonus);
+		assertEquals(2, init.cardHash.get(29).bonusTreasure);
 	}
 	
 	@Test
 	public void setValuesForC30(){
-		assertEquals(12,init.doorHash.get(30).monsterLevel);
-		assertEquals(-2,init.doorHash.get(30).monsterLevelBonus);
-		assertEquals(3, init.doorHash.get(30).numTreas);
-		assertEquals("Monster Whacker", init.doorHash.get(30).condForBonus);
+		assertEquals(12,init.cardHash.get(30).monsterLevel);
+		assertEquals(-2,init.cardHash.get(30).monsterLevelBonus);
+		assertEquals(3, init.cardHash.get(30).numTreas);
+		assertEquals("Monster Whacker", init.cardHash.get(30).condForBonus);
 	}
 	
 	@Test
 	public void setValuesForC31(){
-		assertEquals(3,init.doorHash.get(31).monsterLevelBonus);
+		assertEquals(3,init.cardHash.get(31).monsterLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC32(){
-		assertEquals(12,init.doorHash.get(32).monsterLevel);
-		assertEquals(3, init.doorHash.get(32).numTreas);
+		assertEquals(12,init.cardHash.get(32).monsterLevel);
+		assertEquals(3, init.cardHash.get(32).numTreas);
 	}
 	@Test
 	public void setValuesForC33(){
-		assertEquals(4,init.doorHash.get(33).monsterLevel);
-		assertEquals(-2,init.doorHash.get(33).monsterLevelBonus);
-		assertEquals(2, init.doorHash.get(33).numTreas);
-		assertEquals("Females", init.doorHash.get(33).condForBonus);
+		assertEquals(4,init.cardHash.get(33).monsterLevel);
+		assertEquals(-2,init.cardHash.get(33).monsterLevelBonus);
+		assertEquals(2, init.cardHash.get(33).numTreas);
+		assertEquals("Females", init.cardHash.get(33).condForBonus);
 	}
 	
 	@Test
 	public void setValuesForC34(){
-		assertEquals(3,init.doorHash.get(34).monsterLevelBonus);
+		assertEquals(3,init.cardHash.get(34).monsterLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC35(){
-		assertEquals(14,init.doorHash.get(35).monsterLevel);
-		assertEquals(-2,init.doorHash.get(35).monsterLevelBonus);
-		assertEquals(4, init.doorHash.get(35).numTreas);
-		assertEquals("Professors", init.doorHash.get(35).condForBonus);
+		assertEquals(14,init.cardHash.get(35).monsterLevel);
+		assertEquals(-2,init.cardHash.get(35).monsterLevelBonus);
+		assertEquals(4, init.cardHash.get(35).numTreas);
+		assertEquals("Professors", init.cardHash.get(35).condForBonus);
 	}
 	@Test
 	public void setValuesForC42(){
-		assertEquals(-5,init.doorHash.get(42).monsterLevelBonus);
-		assertEquals("treas",init.doorHash.get(42).badStuff);		
-		assertEquals(-1,init.doorHash.get(42).badTreas);
+		assertEquals(-5,init.cardHash.get(42).monsterLevelBonus);
+		assertEquals("treas",init.cardHash.get(42).badStuff);		
+		assertEquals(-1,init.cardHash.get(42).badTreas);
 	}
 	@Test
 	public void setValuesForC84(){
-		assertEquals(500,init.treasureHash.get(84).numGold);
-		assertEquals(2, init.treasureHash.get(84).numHands);
-		assertEquals(4, init.treasureHash.get(84).pLevelBonus);
+		assertEquals(500,init.cardHash.get(84).numGold);
+		assertEquals(2, init.cardHash.get(84).numHands);
+		assertEquals(4, init.cardHash.get(84).pLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC85(){
-		assertEquals(600,init.treasureHash.get(85).numGold);
+		assertEquals(600,init.cardHash.get(85).numGold);
 	}
 	
 	@Test
 	public void setValuesForC86(){
-		assertEquals(200,init.treasureHash.get(86).numGold);
-		assertEquals(1, init.treasureHash.get(86).numHands);
-		assertEquals(2, init.treasureHash.get(86).pLevelBonus);
+		assertEquals(200,init.cardHash.get(86).numGold);
+		assertEquals(1, init.cardHash.get(86).numHands);
+		assertEquals(2, init.cardHash.get(86).pLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC87(){
-		assertEquals(200,init.treasureHash.get(87).numGold);
-		assertEquals(1, init.treasureHash.get(87).pLevelBonus);
+		assertEquals(200,init.cardHash.get(87).numGold);
+		assertEquals(1, init.cardHash.get(87).pLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC88() {
-		assertEquals(300, init.treasureHash.get(88).numGold);
-		assertEquals(1, init.treasureHash.get(88).numHands);
-		assertEquals(2, init.treasureHash.get(88).pLevelBonus);
+		assertEquals(300, init.cardHash.get(88).numGold);
+		assertEquals(1, init.cardHash.get(88).numHands);
+		assertEquals(2, init.cardHash.get(88).pLevelBonus);
 	}
 	
 	@Test
 	public void setValuesForC89() {
-		assertEquals(true, init.treasureHash.get(89).goUpALevel);
+		assertEquals(true, init.cardHash.get(89).goUpALevel);
 	}
 	
 	@Test
 	public void setValuesForC90() {
-		assertEquals(100, init.treasureHash.get(90).numGold);
-		assertEquals(3, init.treasureHash.get(90).pLevelBonus);
-		assertEquals(3, init.treasureHash.get(90).monsterLevelBonus);
-		assertEquals(1, init.treasureHash.get(90).numUse);
+		assertEquals(100, init.cardHash.get(90).numGold);
+		assertEquals(3, init.cardHash.get(90).pLevelBonus);
+		assertEquals(3, init.cardHash.get(90).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(90).numUse);
 	}
 	
 	@Test
 	public void setValuesForC94() {
-		assertEquals(true, init.treasureHash.get(94).goUpALevel);
+		assertEquals(true, init.cardHash.get(94).goUpALevel);
 	}
 	
 	@Test
 	public void setValuesForC97() {
-		assertEquals(700, init.treasureHash.get(97).numGold);
-		assertEquals(3, init.treasureHash.get(97).pLevelBonus);
-		assertEquals("Monster Whacker", init.treasureHash.get(97).NotUsableBy);
+		assertEquals(700, init.cardHash.get(97).numGold);
+		assertEquals(3, init.cardHash.get(97).pLevelBonus);
+		assertEquals("Monster Whacker", init.cardHash.get(97).NotUsableBy);
 	}
 
 	@Test
 	public void setValuesForC98() {
-		assertEquals(800, init.treasureHash.get(98).numGold);
-		assertEquals(4, init.treasureHash.get(98).pLevelBonus);
-		assertEquals(2, init.treasureHash.get(98).numHands);
+		assertEquals(800, init.cardHash.get(98).numGold);
+		assertEquals(4, init.cardHash.get(98).pLevelBonus);
+		assertEquals(2, init.cardHash.get(98).numHands);
 	}
 	
 	@Test
 	public void setValuesForC99() {
-		assertEquals(300, init.treasureHash.get(99).numGold);
-		assertEquals(1, init.treasureHash.get(99).pLevelBonus);
-		assertEquals(true, init.treasureHash.get(99).footGear);
+		assertEquals(300, init.cardHash.get(99).numGold);
+		assertEquals(1, init.cardHash.get(99).pLevelBonus);
+		assertEquals(true, init.cardHash.get(99).footGear);
 	}
 }

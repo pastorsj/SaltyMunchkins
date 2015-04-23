@@ -23,11 +23,11 @@ public class Player {
 		for(int i=0; i<this.pPlay.size();i++){
 			
 			if(pPlay.get(i)<68){
-				card = initCards.getDoorHash().get(pPlay.get(i));
+				card = initCards.getCardHash().get(pPlay.get(i));
 			
 			}
 			else{
-				card = initCards.getTreasureHash().get(pPlay.get(i));
+				card = initCards.getCardHash().get(pPlay.get(i));
 				
 			}
 			
@@ -40,7 +40,12 @@ public class Player {
 	}
 	
 	public int mLevelBonusCalculation(){
-		return 0;
+		int mLevelBonus=0;
+		InitializeCards init = new InitializeCards();
+		for(int i = 0; i<this.pPlay.size();i++){
+			mLevelBonus+=init.cardHash.get(this.pPlay.get(i)).monsterLevelBonus;
+		}
+		return mLevelBonus;
 	}
 	
 	
