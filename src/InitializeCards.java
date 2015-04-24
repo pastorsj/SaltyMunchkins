@@ -177,7 +177,8 @@ public class InitializeCards {
 		
 		cardHash.get(29).monsterLevelBonus = 10;
 		cardHash.get(29).bonusTreasure = 2;
-	
+		
+		
 		cardHash.get(42).monsterLevelBonus = -5;
 		cardHash.get(42).badStuff = "treas";
 		cardHash.get(42).badTreas = -1;

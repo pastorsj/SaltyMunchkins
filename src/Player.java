@@ -21,15 +21,10 @@ public class Player {
 		Card card;
 		this.cLevel=this.pLevel;
 		for(int i=0; i<this.pPlay.size();i++){
-			
-			if(pPlay.get(i)<68){
-				card = initCards.getCardHash().get(pPlay.get(i));
-			
-			}
-			else{
+		
 				card = initCards.getCardHash().get(pPlay.get(i));
 				
-			}
+			
 			
 			this.cLevel+=card.pLevelBonus;
 			
@@ -51,17 +46,22 @@ public class Player {
 	public boolean didIwin(Game game){
 		int playerInt = game.turnPlayer;
 		if(playerInt==1){
-			return didIwinHelper(game.p1, game.p2);
+			return didIwinHelper(game.p1, game.p2,game);
 		}
 		else{
-			return didIwinHelper(game.p2,game.p1);
+			return didIwinHelper(game.p2,game.p1, game);
 		}
 		
 		
 	}
 	
-	public boolean didIwinHelper(Player me, Player other){
-		return true;
+	public boolean didIwinHelper(Player me, Player other, Game game){
+		int monster = game.mLevel+other.mLevelBonusCalculation();
+		System.out.println("monster level in combat is: "+monster);
+		me.cLevelCalculation(); //me.cLevel is now set
+		System.out.println("my clevel is: " + me.cLevel);
+		return (me.cLevel>=monster);
+		
 	}
 	
 	
