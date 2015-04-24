@@ -59,7 +59,7 @@ public class InitializeCards {
 
 			}
 		}
-		this.addConditions();
+		this.addConditionsForSelect();
 
 	}
 	
@@ -170,7 +170,7 @@ public class InitializeCards {
 		cardHash.get(4).monsterLevel = 1;
 	
 		cardHash.get(7).monsterLevel = 2;
-		cardHash.get(7).monsterLevelBonus = 4;
+		cardHash.get(7).monsterLevelCondBonus = 4;
 		cardHash.get(7).numTreas = 1;
 		cardHash.get(7).condForBonus = "Females";
 		
