@@ -47,14 +47,11 @@ public class CombatTesting {
 		myGame.mLevel= 15;
 		//p1 has player level bonus of 9
 		myGame.p1.pPlay.add(42); //subtract 5 from monster.
-		System.out.println("should be -5: "+init.cardHash.get(42).monsterLevelBonus);
-		assertEquals(true,myGame.p1.didIwin(myGame));
-		
+		System.out.println("should be -5: " + init.cardHash.get(42).monsterLevelBonus);
+		assertEquals(true, myGame.p1.didIwin(myGame));
 		myGame.p2.pPlay.add(29); 
 		myGame.p2.pPlay.add(29);
-		assertEquals(false,myGame.p1.didIwin(myGame));
-		
-		
+		assertEquals(false, myGame.p2.didIwin(myGame));
 	}
 	
 
