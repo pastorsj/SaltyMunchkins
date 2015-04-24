@@ -11,7 +11,8 @@ public class Card {
 	public int badTreas;
 	public int badLevel;
 	public int numTreas;
-	public int monsterLevelBonus;
+	public int monsterLevelBonus; //always execute
+	public int monsterLevelCondBonus; //only execute if certain condition is met
 	public String condForBonus;
 	public boolean inPlay;
 	public int numGold;

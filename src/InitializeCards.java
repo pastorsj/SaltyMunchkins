@@ -162,7 +162,7 @@ public class InitializeCards {
 	public void addConditionsForSelect() {
 		
 		cardHash.get(2).monsterLevel = 2;
-		cardHash.get(2).monsterLevelBonus = 3;
+		cardHash.get(2).monsterLevelCondBonus = 3;
 		cardHash.get(2).numTreas = 1;
 		cardHash.get(2).condForBonus = "Monster Whacker";
 		
