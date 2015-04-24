@@ -10,7 +10,7 @@ public class Mile3Testing {
 	public ArrayList<Integer> p1cards;
 	public ArrayList<Integer> p2cards;
 	public Game myGame;
-	public InitializeCards init = new InitializeCards();
+	public InitializeCards init = new InitializeCards(true);
 	
 	@Before
 	public void setUp() {

@@ -63,6 +63,28 @@ public class InitializeCards {
 
 	}
 	
+	public InitializeCards(boolean test) {
+		numDoors = 67;
+		numTreas = 83;
+
+		for (int i = 0; i < numDoors; i++) {
+			Card newCard = new Card(i + 1, "");
+			cardHash.put(i + 1, newCard);
+			doors.add(i + 1);
+		}
+
+		for (int i = numDoors; i < (numDoors + numTreas) - 1; i++) {
+			if (i != 91) {
+				Card newCard = new Card(i + 1, "");
+				cardHash.put(i + 1, newCard);
+				treasure.add(i + 1);
+			} else {
+
+			}
+		}
+		this.addConditions();
+	}
+	
 	public InitializeCards(ArrayList<Integer> doorAvailable, ArrayList<Integer> treasAvailable){
 		for (int i = 0; i < doorAvailable.size(); i++) {
 			Card newCard = new Card(doorAvailable.get(i), "");
