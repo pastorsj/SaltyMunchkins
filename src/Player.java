@@ -28,7 +28,6 @@ public class Player {
 	public int mLevelBonusCalculation(){
 		int mLevelBonus=0;
 		InitializeCards init = new InitializeCards();
-		System.out.println("Cards: " + this.pPlay.toString());
 		for(int i = 0; i<this.pPlay.size();i++){
 			mLevelBonus+=init.cardHash.get(this.pPlay.get(i)).monsterLevelBonus;
 		}
@@ -47,8 +46,7 @@ public class Player {
 	
 	public boolean didIwinHelper(Player me, Player other, Game game){
 		int monster = game.mLevel + me.mLevelBonusCalculation()+other.mLevelBonusCalculation();
-		System.out.println("Game Level: " + game.mLevel);
-		System.out.println("Other level " + other.mLevelBonusCalculation());
+		System.out.println("Other person's monster bonus level " + other.mLevelBonusCalculation());
 		System.out.println("monster level in combat is: " + monster);
 		me.cLevelCalculation(); //me.cLevel is now set
 		System.out.println("my clevel is: " + me.cLevel);
