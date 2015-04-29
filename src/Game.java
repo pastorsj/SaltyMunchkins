@@ -41,8 +41,8 @@ public class Game {
 	
 	public ArrayList<Integer> dealCards() {
 		ArrayList<Integer> deal = new ArrayList<Integer>();
-		shuffle(doors);
-		shuffle(treasures);
+		doors = shuffle(doors);
+		treasures = shuffle(treasures);
 		for (int i = 0; i <= 3; i++) {
 			deal.add(doors.get(doors.size() - 1));
 			deal.add(treasures.get(treasures.size()-1));
