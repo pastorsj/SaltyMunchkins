@@ -52,4 +52,8 @@ public class Player {
 		System.out.println("my clevel is: " + me.cLevel);
 		return (me.cLevel>=monster);
 	}
+	
+	public void consequence(Game game, int win) {
+		System.out.println("Consequence is " + win);
+	}
 }
