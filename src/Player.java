@@ -7,12 +7,13 @@ public class Player {
 	public boolean classAbility;
 	public ArrayList<Integer> pPlay = new ArrayList<Integer>();
 	public String className;
+	public char gender = 'F';
 	public int pLevel=1; //actual level of player
 	public int cLevel=pLevel; //the level a player is with door cards in combat
 	public InitializeCards initCards = new InitializeCards();
 	
 	public Player(String name){
-		this.username=name;
+		this.username = name;
 		
 	}
 	
