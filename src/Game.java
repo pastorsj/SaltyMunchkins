@@ -121,5 +121,24 @@ public class Game {
 		}
 		
 	}
+	
+	public void updateMLevel(int cardToMove){
+		InitializeCards ic = new InitializeCards();
+		if (cardToMove < 83) { //if the card is a door card being put in play: 
+		Card cardInPlay = ic.getCardHash().get(cardToMove);
+		if(this.mLevel==0){ //if a monster is in play, don't want to override
+								//with another door card.
+			//myGame.mInPlay=cardInPlay.num;
+			this.mLevel = ic.getCardHash().get(cardToMove).monsterLevel;
+					
+		}
+		if (this.mInPlay != 0) {
+			//myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel+myGame.mLevel;
+				
+		}
+	
+	}
+	}
+
 
 }

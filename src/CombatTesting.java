@@ -90,11 +90,13 @@ public class CombatTesting {
 		myGame.p1.pHand=hand;
 		myGame.p1.pPlay=handInPlay;
 		myGame.p2.pPlay=hand2;
-		assertEquals(2,myGame.p1.pLevel);
+	
 		diwb1.didIWin();
+			assertEquals(2,myGame.p1.pLevel);
 		
 		
 		myGame.p1.pPlay.add(2); //level 2 monster
+		myGame.updateMLevel(2);
 		assertEquals(2,myGame.mLevel);
 		diwb1.didIWin();
 		assertEquals(3,myGame.p1.pLevel);

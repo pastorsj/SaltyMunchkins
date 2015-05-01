@@ -43,21 +43,23 @@ public class PlayCardButton extends JButton implements ActionListener {
 		int numDoor = 87;
 		int treasStart = 88;
 		InitializeCards ic = new InitializeCards();
+		
+		myGame.updateMLevel(cardToMovePos);
 			
-		if (cardToMove < 83) { //if the card is a door card being put in play: 
-			Card cardInPlay = ic.getCardHash().get(cardToMove);
-			if(myGame.mLevel==0){ //if a monster is in play, don't want to override
-									//with another door card.
-				//myGame.mInPlay=cardInPlay.num;
-				myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel;
-						
-			}
-			if (myGame.mInPlay != 0) {
-				//myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel+myGame.mLevel;
-					
-			}
-
-		}
+//		if (cardToMove < 83) { //if the card is a door card being put in play: 
+//			Card cardInPlay = ic.getCardHash().get(cardToMove);
+//			if(myGame.mLevel==0){ //if a monster is in play, don't want to override
+//									//with another door card.
+//				//myGame.mInPlay=cardInPlay.num;
+//				myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel;
+//						
+//			}
+//			if (myGame.mInPlay != 0) {
+//				//myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel+myGame.mLevel;
+//					
+//			}
+//
+//		}
 		
 
 		
