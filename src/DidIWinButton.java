@@ -70,8 +70,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 		didIWin();
-	
-		
+		myGame.mLevel=0;
 		
 		
 		frame.dispose();

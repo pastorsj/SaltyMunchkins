@@ -37,7 +37,7 @@ public class Main {
 		ArrayList<String> arrayOfLines = file1.OpenFile();
 		ArrayList<Integer> doorAv = new ArrayList<Integer>();
 		ArrayList<Integer> treasAv = new ArrayList<Integer>();
-		doorAv.add(27);
+		doorAv.add(27); //level1 monster
 		doorAv.add(2);
 		doorAv.add(7);
 		doorAv.add(42);

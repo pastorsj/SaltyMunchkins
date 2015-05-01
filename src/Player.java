@@ -48,6 +48,7 @@ public class Player {
 	public boolean didIwinHelper(Player me, Player other, Game game){
 		int monster = game.mLevel + me.mLevelBonusCalculation()+other.mLevelBonusCalculation();
 		System.out.println("Other person's monster bonus level " + other.mLevelBonusCalculation());
+		System.out.println("my monster level bonus calc is: "+me.mLevelBonusCalculation());
 		System.out.println("monster level in combat is: " + monster);
 		me.cLevelCalculation(); //me.cLevel is now set
 		System.out.println("my clevel is: " + me.cLevel);
