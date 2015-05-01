@@ -99,9 +99,9 @@ public class CardFunc {
 				//Discard card 12
 				myGame.discardCard(myGame.currentPlayer, 12);
 				myGame.currentPlayer.className = "";
-			} else {
-				//Lose a level
 			}
+		} else {
+			myGame.currentPlayer.pLevel -= 1;
 		}
 	}
 	
