@@ -57,7 +57,10 @@ public class CardFunc {
 			System.out.println(myGame.currentPlayer.pHand.get(0));
 			myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));
 		}
-
+	}
+	
+	public void func8Init() {
+		
 	}
 	
 	public void end(){
