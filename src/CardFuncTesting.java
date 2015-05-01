@@ -40,7 +40,7 @@ public class CardFuncTesting {
 	public void func1Test() {
 		ArrayList<Integer> hand = myGame.currentPlayer.pHand;
 		myGame.funcs.func1(true);
-		assertEquals(2, myGame.currentPlayer.pHand.size());
+		assertEquals(1, myGame.currentPlayer.pHand.size());
 	}
 }
 	

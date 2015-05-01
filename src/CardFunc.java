@@ -20,7 +20,9 @@ public class CardFunc {
 	public void func1(boolean checkWin) {
 		//+5 to Monster
 		//If win, draw extra treasure
-		
+		if(checkWin) {
+			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+		}
 	}
 	
 	public void end(){
