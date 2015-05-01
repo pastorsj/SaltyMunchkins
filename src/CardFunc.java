@@ -43,7 +43,9 @@ public class CardFunc {
 	}
 	
 	public void func7Init() {
-		
+		if(myGame.currentPlayer.gender == 'F') {
+			myGame.currentPlayer.cLevel += 4;
+		}
 	}
 	
 	public void end(){
