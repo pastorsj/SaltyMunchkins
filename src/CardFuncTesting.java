@@ -246,8 +246,8 @@ public class CardFuncTesting {
 	public void func17Test2() {
 		//Miner's Helmet is 111
 		//Two Handed Flashlight is 146
-		myGame.dealSpecificTreasureCard(111, myGame.currentPlayer);
-		myGame.dealSpecificTreasureCard(146, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(111);
+		myGame.currentPlayer.pHand.add(146);
 		myGame.funcs.func17();
 		assertEquals(0, myGame.currentPlayer.pHand.size());
 	}

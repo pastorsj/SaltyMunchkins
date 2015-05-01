@@ -183,7 +183,17 @@ public class CardFunc {
 	public void func26Init() {
 		//If Ichor cards are in play that give them combat bonus, double the effect.
 		//Perhaps Cards No: 100, 132
-		
+		myGame.changePlayer();
+		if(myGame.currentPlayer.pPlay.contains(100)) {
+			myGame.changePlayer(); 
+			myGame.currentPlayer.cLevel -= 6;
+			System.out.println(myGame.currentPlayer.cLevel);
+		}
+		if(myGame.currentPlayer.pPlay.contains(132)) {
+			myGame.changePlayer();
+			myGame.currentPlayer.cLevel -= 4;
+			System.out.println(myGame.currentPlayer.cLevel);
+		}
 	}
 	
 	
