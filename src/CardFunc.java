@@ -159,6 +159,14 @@ public class CardFunc {
 		}
 	}
 	
+	public void func21() {
+		//Other player choose an item that you must discard that is already in play
+	}
+	
+	public void func22() {
+		//Lose a level
+	}
+	
 	public void func26Init() {
 		//If Ichor cards are in play that give them combat bonus, double the effect.
 	}
