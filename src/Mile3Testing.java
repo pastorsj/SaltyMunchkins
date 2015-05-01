@@ -515,4 +515,19 @@ public class Mile3Testing {
 		assertEquals(1, init.cardHash.get(99).pLevelBonus);
 		assertEquals(true, init.cardHash.get(99).footGear);
 	}
+	
+	@Test
+	public void setValuesForC102() {
+		assertEquals(true, init.cardHash.get(102).goUpALevel);
+	}
+	
+	@Test
+	public void setValuesForC104() {
+		assertEquals(true, init.cardHash.get(104).goUpALevel);
+	}
+	
+	@Test
+	public void setValuesForC107() {
+		assertEquals(true, init.cardHash.get(107).goUpALevel);
+	}
 }
