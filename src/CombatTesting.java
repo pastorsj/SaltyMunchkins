@@ -73,7 +73,6 @@ public class CombatTesting {
 		diwb1.didIWin();
 		
 		assertEquals(1,myGame.p1.pHand.size());
-		
 		assertEquals(0,myGame.p1.pPlay.size());
 		
 		
