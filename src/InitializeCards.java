@@ -165,6 +165,8 @@ public class InitializeCards {
 		cardHash.get(42).monsterLevelBonus = -5;
 		cardHash.get(42).badStuff = "treas";
 		cardHash.get(42).badTreas = -1;
+		cardHash.get(43).monsterLevelBonus=10;
+		cardHash.get(43).bonusTreasure=2;
 		cardHash.get(84).numGold = 500;
 		cardHash.get(84).numHands = 2;
 		cardHash.get(84).pLevelBonus = 4;
