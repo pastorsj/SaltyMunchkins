@@ -35,26 +35,33 @@ public class NewGameButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		frame.dispose();
-		
-		InitializeCards ic = new InitializeCards(arrayOfCardLines);
-		Game newGame = new Game(ic.doors,ic.treasure);
-		newGame.shuffle(newGame.doors);
-		newGame.shuffle(newGame.treasures);
-		newGame.p1.pHand=newGame.dealCards();
-		newGame.p2.pHand=newGame.dealCards();
-		
-		//ArrayList<Integer> hand = newGame.dealCards();
-		//this.turnPlayer.pHand=newGame.dealCards();
-		
-		ArrayList<Card> deal;
-		MFrame newFrame;
 		try {
-			newFrame = new MFrame(newGame,arrayOfCardLines);
-			newFrame.setVisible(true);
-			newFrame.setTitle("Munchkin");
+			new Main().initMain();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+//		InitializeCards ic = new InitializeCards(arrayOfCardLines);
+//		Game newGame = new Game(ic.doors,ic.treasure);
+//		newGame.shuffle(newGame.doors);
+//		newGame.shuffle(newGame.treasures);
+//		newGame.p1.pHand=newGame.dealCards();
+//		newGame.p2.pHand=newGame.dealCards();
+//		
+//		ArrayList<Integer> hand = newGame.dealCards();
+//		this.turnPlayer.pHand=newGame.dealCards();
+//		
+//		ArrayList<Card> deal;
+//		MFrame newFrame;
+//		try {
+//			
+//			newFrame = new MFrame(newGame,arrayOfCardLines);
+//			newFrame.setVisible(true);
+//			newFrame.setTitle("Munchkin");
+//		} catch (IOException e) {
+//			e.printStackTrace();
+//		}
 		
 		
 	}

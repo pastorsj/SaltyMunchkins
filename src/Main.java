@@ -11,10 +11,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 
-		ReadFile file1 = new ReadFile(
-				"src\\CardList.txt");
-		//String[] arrayOfLines = file1.OpenFile();
-		ArrayList<String> arrayOfLines = file1.OpenFile();
+		initMain();
 		
 		
 		
@@ -28,6 +25,16 @@ public class Main {
 	//	InitializeCards ic = new InitializeCards(arrayOfLines); use when all implemented
 		
 		//InitializeCards ic = new InitializeCards();
+		
+		
+	}
+	
+	public static void initMain() throws IOException{
+		
+		ReadFile file1 = new ReadFile(
+				"src\\CardList.txt");
+		//String[] arrayOfLines = file1.OpenFile();
+		ArrayList<String> arrayOfLines = file1.OpenFile();
 		ArrayList<Integer> doorAv = new ArrayList<Integer>();
 		ArrayList<Integer> treasAv = new ArrayList<Integer>();
 		doorAv.add(27);
@@ -69,8 +76,7 @@ public class Main {
 		MFrame newFrame = new MFrame(newGame,arrayOfLines);
 		newFrame.setVisible(true);
 		newFrame.setTitle("Munchkin");
-		
-		
+		newGame.mframe=newFrame;
 		
 	}
 	
