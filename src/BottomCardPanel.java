@@ -27,6 +27,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	private BufferedImage MunchBanner;
 	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
 	public ArrayList<BufferedImage> cardsInPlayImages = new ArrayList<BufferedImage>();
+	public ArrayList<BufferedImage> cardsInPlayImages2 = new ArrayList<BufferedImage>();
 	public NewGameButton ngb;
 	public EndTurnButton etb;
 	public LetOtherPlayerPlayCardButton loppcb;
@@ -35,6 +36,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public PlayCardButton pcb;
 	public DidIWinButton diwb;
 	public Player turnPlayer;
+	public Player otherPlayer;
 	public Game myGame;
 	public MFrame myFrame;
 	public ArrayList<String> myArrayOfLines;
@@ -51,10 +53,11 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	
 		if(game.turnPlayer==1){
 			this.turnPlayer=game.p1;
-			
+			this.otherPlayer=game.p2;
 		}
 		else{
 			this.turnPlayer=game.p2;
+			this.turnPlayer=game.p1;
 		}
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
@@ -95,6 +98,11 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				cardsInPlayImages.add(playImage);
 			}
 			
+			for(int i =0; i<this.otherPlayer.pPlay.size();i++){
+				BufferedImage playImage2 = ImageIO.read(new File("src\\m"+this.otherPlayer.pPlay.get(i)+".PNG"));
+				cardsInPlayImages2.add(playImage2);
+			}
+			
 			
 		
 		
@@ -131,6 +139,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		//
 			for(int i =0; i<cardsInPlayImages.size();i++){
 				go.drawImage(cardsInPlayImages.get(i),50+100*i,515,180,225,null);
+			}
+			
+			for(int i =0; i<cardsInPlayImages2.size();i++){
+				go.drawImage(cardsInPlayImages2.get(i),50+100*i,200,180,225,null);
 			}
 			
 			go.drawImage(largeCard,50+180*8+10*8,400,360,570,null);
