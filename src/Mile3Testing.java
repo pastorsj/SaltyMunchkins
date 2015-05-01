@@ -387,6 +387,11 @@ public class Mile3Testing {
 	}
 	
 	@Test
+	public void setValuesForC60(){
+		assertEquals(5,init.cardHash.get(60).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(60).bonusTreasure);
+	}
+	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.cardHash.get(84).numGold);
 		assertEquals(2, init.cardHash.get(84).numHands);
