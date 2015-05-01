@@ -124,6 +124,12 @@ public class CardFunc {
 	
 	public void func17() {
 		myGame.currentPlayer.cLevel -= 3;
+		if(myGame.currentPlayer.pHand.contains(111)) {
+			myGame.discardCard(myGame.currentPlayer, 111);
+		}
+		if(myGame.currentPlayer.pHand.contains(146)) {
+			myGame.discardCard(myGame.currentPlayer, 146);
+		}
 	}
 	
 	public void func26Init() {
