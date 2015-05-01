@@ -295,7 +295,7 @@ public class CardFuncTesting {
 		myGame.dealSpecificDoorCard(12, myGame.currentPlayer);
 		myGame.funcs.func20();
 		assertEquals("Cultist", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(1, myGame.currentPlayer.pHand.size());
 	}
 }
 	
