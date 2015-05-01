@@ -1,6 +1,10 @@
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
+
+import javax.imageio.ImageIO;
 
 public class Game {
 	ArrayList<Integer> doors = new ArrayList<Integer>();
@@ -65,10 +69,17 @@ public class Game {
 		return deal;
 	}
 	//This function will not deal another card if the player hand size equals 8
-	public boolean dealNewCard(ArrayList<Integer> cards, Player p) {
+	public boolean dealNewCard(ArrayList<Integer> cards, Player p){
 		int size = cards.size()-1;
 		if(p.pHand.size() < 8) {
 			p.pHand.add(cards.get(size));
+			try {
+				this.mframe.mainPanel.bCardPanel.largeCard = ImageIO.read(new File ("src\\m"+(cards.get(size))+".PNG"));
+				this.mframe.mainPanel.bCardPanel.repaint();
+			} catch (IOException e) {
+				System.out.println("error reading card in GAME");
+				e.printStackTrace();
+			}
 			cards.remove(size);
 			return true;
 		} return false;

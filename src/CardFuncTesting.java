@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -37,7 +38,7 @@ public class CardFuncTesting {
 	}
 	
 	@Test
-	public void func1Test() {
+	public void func1Test() throws IOException {
 		myGame.funcs.func1(true);
 		assertEquals(1, myGame.currentPlayer.pHand.size());
 	}

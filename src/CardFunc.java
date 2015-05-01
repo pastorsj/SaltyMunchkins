@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 
 public class CardFunc {
 	public Game myGame;
@@ -17,7 +19,7 @@ public class CardFunc {
 		myGame.currentPlayer.cLevel -= 5;
 	}
 	
-	public void func1(boolean checkWin) {
+	public void func1(boolean checkWin) throws IOException {
 		//+5 to Monster
 		//If win, draw extra treasure
 		if(checkWin) {
