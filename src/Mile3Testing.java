@@ -264,6 +264,7 @@ public class Mile3Testing {
 		assertEquals("level", init.cardHash.get(36).badStuff);
 		assertEquals(1,init.cardHash.get(36).badLevel);
 	}	
+
 	@Test
 	public void setValuesForC37(){
 		assertEquals(12,init.cardHash.get(37).monsterLevel);
@@ -272,6 +273,13 @@ public class Mile3Testing {
 		assertEquals("Females", init.cardHash.get(37).condForBonus);
 	}	
 	
+	@Test
+	public void setValuesForC38(){
+		assertEquals(24,init.cardHash.get(38).monsterLevel);
+		assertEquals(5, init.cardHash.get(38).numTreas);
+		//TWO LEVELS!!!!!!!!!
+		//If the player fails to run away, the other player wins the game
+	}	
 	
 	@Test
 	public void setValuesForC42(){
