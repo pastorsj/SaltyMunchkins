@@ -78,7 +78,7 @@ public class CardFunc {
 	}
 	
 	public void func12Init() {
-		
+		myGame.currentPlayer.className = "Cultist";
 	}
 	
 	public void func26Init() {
