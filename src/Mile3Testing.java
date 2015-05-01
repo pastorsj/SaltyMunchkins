@@ -262,7 +262,7 @@ public class Mile3Testing {
 		assertEquals(1, init.cardHash.get(36).numTreas);
 		assertEquals("Males", init.cardHash.get(36).condForBonus);
 		assertEquals("level", init.cardHash.get(36).badStuff);
-		assertEquals(1,init.cardHash.get(36).badLevel);
+		assertEquals(-1,init.cardHash.get(36).badLevel);
 	}	
 
 	@Test
