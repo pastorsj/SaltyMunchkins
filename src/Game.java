@@ -8,6 +8,7 @@ public class Game {
 	ArrayList<Integer> discards = new ArrayList<Integer>();
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
+	Player currentPlayer = new Player("p1");
 	int turnPlayer;
 	CardFunc funcs = new CardFunc(this);
 	int mInPlay = 0; //0 indicates no monster, otherwise card number goes here.
@@ -19,6 +20,16 @@ public class Game {
  		this.doors = doors;
 		this.treasures = treasures;
 		this.turnPlayer=1;
+	}
+	
+	public void changePlayer() {
+		if(turnPlayer == 1) {
+			currentPlayer = p2;
+			turnPlayer = 2;
+		} else {
+			currentPlayer = p1;
+			turnPlayer = 1;
+		}
 	}
 	
 

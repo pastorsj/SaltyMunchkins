@@ -31,10 +31,9 @@ public class CardFuncTesting {
 	}
 	@Test
 	public void func1TestInit() {
-		myGame.turnPlayer=1;
-		int cLevel = myGame.p1.cLevel;
+		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func1Init();
-		assertEquals(cLevel-5, myGame.p1.cLevel);
+		assertEquals(cLevel-5, myGame.currentPlayer.cLevel);
 	}
 }
 	
