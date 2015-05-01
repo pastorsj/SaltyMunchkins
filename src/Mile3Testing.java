@@ -371,7 +371,7 @@ public class Mile3Testing {
 		assertEquals(3,init.cardHash.get(55).monsterLevelBonus);
 		assertEquals("Professors", init.cardHash.get(55).condForBonus);
 		assertEquals("level", init.cardHash.get(55).badStuff);
-		assertEquals(-1,init.cardHash.get(55).badItems);
+		assertEquals(-1,init.cardHash.get(55).badLevel);
 	}
 	
 	@Test
