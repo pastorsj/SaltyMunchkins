@@ -310,6 +310,14 @@ public class Mile3Testing {
 		assertEquals(1, init.cardHash.get(45).numTreas);
 		//player's footgear does not count during the fight and -2 to run away
 	}
+	
+	@Test
+	public void setValuesForC46(){
+		assertEquals(8,init.cardHash.get(46).monsterLevel);
+		assertEquals(2, init.cardHash.get(46).numTreas);
+		assertEquals("level", init.cardHash.get(46).badStuff);
+		assertEquals(-2,init.cardHash.get(46).badLevel);
+	}	
 	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.cardHash.get(84).numGold);
