@@ -75,6 +75,8 @@ public class CombatTesting {
 		assertEquals(1,myGame.p1.pHand.size());
 		assertEquals(0,myGame.p1.pPlay.size());
 		
+		//test that player level is set to 2
+		assertEquals(2,myGame.p1.pLevel);
 		
 	}
 	
