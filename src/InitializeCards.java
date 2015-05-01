@@ -255,6 +255,9 @@ public class InitializeCards {
 		cardHash.get(102).goUpALevel=true;
 		cardHash.get(104).goUpALevel=true;
 		cardHash.get(107).goUpALevel=true;
+		cardHash.get(111).numGold=400;
+		cardHash.get(111).pLevelBonus=2;
+		cardHash.get(111).headGear=true;
 	}
 	
 	public void addConditionsForSelect() {
