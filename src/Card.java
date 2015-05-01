@@ -26,7 +26,7 @@ public class Card {
 	public int numUse;
 	public int bonusTreasure=0;
 	boolean readyToPlay=false; //means card is implemented enough to be in demo.
-	public int selfOrOther; //0 for self, 1 for other
+	public int selfOrOther; //1 for other
 	
 	
 	
