@@ -51,7 +51,13 @@ public class CardFunc {
 	public void func7(boolean checkWin) {
 		if(checkWin) {
 			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+		} else {
+			//Discard a card in your hand
+			System.out.println(myGame.currentPlayer.pHand);
+			System.out.println(myGame.currentPlayer.pHand.get(0));
+			myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));
 		}
+
 	}
 	
 	public void end(){
