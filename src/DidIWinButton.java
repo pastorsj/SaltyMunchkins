@@ -33,17 +33,15 @@ public class DidIWinButton extends JButton implements ActionListener{
 		this.myGame=game;
 		addActionListener(this);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		
+	
+	public void didIWin(){
 		if(turnPlayer.didIwin(myGame)){
 			System.out.println("YOU WIN!");
 			turnPlayer.consequence(myGame, 1);
 		}
 		
 		else{
-			int roll = myGame.rollDice();
+			int roll = myGame.rollDice(2);
 			System.out.println("You rolled a " + roll);
 			if (roll>4) {
 				System.out.println("You ran away!");
@@ -53,6 +51,12 @@ public class DidIWinButton extends JButton implements ActionListener{
 				turnPlayer.consequence(myGame, -1);
 			}
 		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		
+		didIWin();
 		
 		
 		frame.dispose();

@@ -90,9 +90,16 @@ public class Game {
 		return discards;
 	}
 	
-	public int rollDice() {
-		Random rand = new Random();
-		return rand.nextInt(6) + 1;
+	//num==0 indicates a random value. otherwise, use given value.
+	public int rollDice(int num) {
+		if(num==0){
+			Random rand = new Random();
+			return rand.nextInt(6) + 1;
+		}
+		else{
+			return num;
+		}
+		
 	}
 
 }

@@ -54,6 +54,18 @@ public class CombatTesting {
 		assertEquals(false, myGame.p2.didIwin(myGame));
 	}
 	
+	@Test
+	public void TestGetTreasureForWinCard2(){
+		ArrayList<Integer> hand = new ArrayList<Integer>();
+		ArrayList<Integer> hand2 = new ArrayList<Integer>();
+		hand.add(2);
+		hand.add(88);
+		myGame.p1.pPlay=hand;
+		myGame.p2.pPlay=hand2;
+		
+		
+	}
+	
 
 	
 }
