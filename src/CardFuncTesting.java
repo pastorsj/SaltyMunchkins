@@ -167,9 +167,44 @@ public class CardFuncTesting {
 	public void func13Test() {
 		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
 		myGame.dealSpecificDoorCard(myGame.doors, 49, myGame.currentPlayer);
+		int sizeOfHand = myGame.currentPlayer.pHand.size();
 		System.out.println(myGame.currentPlayer.pHand);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+	}
+	
+	@Test
+	public void func13Test2() {
+		myGame.currentPlayer.className = "Professor"; //Card No: 57
+		myGame.dealSpecificDoorCard(myGame.doors, 57, myGame.currentPlayer);
+		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		System.out.println(myGame.currentPlayer.pHand);
+		myGame.funcs.func13();
+		assertEquals("", myGame.currentPlayer.className);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+	}
+	
+	@Test
+	public void func13Test3() {
+		myGame.currentPlayer.className = "Investigator"; //Card No: 44
+		myGame.dealSpecificDoorCard(myGame.doors, 44, myGame.currentPlayer);
+		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		System.out.println(myGame.currentPlayer.pHand);
+		myGame.funcs.func13();
+		assertEquals("", myGame.currentPlayer.className);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+	}
+	
+	@Test
+	public void func13Test4() {
+		myGame.currentPlayer.className = "Cultist"; //Card No: 12
+		myGame.dealSpecificDoorCard(myGame.doors, 12, myGame.currentPlayer);
+		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		System.out.println(myGame.currentPlayer.pHand);
+		myGame.funcs.func13();
+		assertEquals("", myGame.currentPlayer.className);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
 	}
 }
 	
