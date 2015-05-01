@@ -31,6 +31,10 @@ public class CardFunc {
 		}
 	}
 	
+	public void func2(boolean checkWin) {
+		
+	}
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;
@@ -39,6 +43,5 @@ public class CardFunc {
 			myGame.p2=p;
 		}
 	}
-	
-	
+
 }
