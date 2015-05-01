@@ -49,7 +49,9 @@ public class CardFunc {
 	}
 	
 	public void func7(boolean checkWin) {
-		
+		if(checkWin) {
+			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+		}
 	}
 	
 	public void end(){
