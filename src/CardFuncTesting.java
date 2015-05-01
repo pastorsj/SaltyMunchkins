@@ -64,6 +64,14 @@ public class CardFuncTesting {
 		assertEquals(0, myGame.currentPlayer.pHand.size());
 		assertEquals("", myGame.currentPlayer.className);
 	}
+	
+	@Test
+	public void func7TestInit() {
+		myGame.currentPlayer.gender = 'F';
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.funcs.func7Init();
+		assertEquals(cLevel+4, myGame.currentPlayer.cLevel);
+	}
 }
 	
 

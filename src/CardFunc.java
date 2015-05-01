@@ -42,7 +42,9 @@ public class CardFunc {
 		}
 	}
 	
-	
+	public void func7Init() {
+		
+	}
 	
 	public void end(){
 		if(myGame.turnPlayer==1){
