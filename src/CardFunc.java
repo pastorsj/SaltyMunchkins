@@ -106,7 +106,11 @@ public class CardFunc {
 	}
 	
 	public void func14() {
-		
+		if(myGame.currentPlayer.pHand.size() > 8) {
+			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
+			myGame.discardCard(myGame.currentPlayer, card);
+			func14();
+		}
 	}
 	
 	public void func26Init() {
