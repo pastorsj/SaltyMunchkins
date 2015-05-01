@@ -81,6 +81,10 @@ public class CardFunc {
 		myGame.currentPlayer.className = "Cultist";
 	}
 	
+	public void func13() {
+		
+	}
+	
 	public void func26Init() {
 		//If Ichor cards are in play that give them combat bonus, double the effect.
 	}

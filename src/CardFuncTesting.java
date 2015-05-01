@@ -164,6 +164,13 @@ public class CardFuncTesting {
 		myGame.funcs.func12Init();
 		assertEquals("Cultist", myGame.currentPlayer.className);
 	}
+	
+	@Test
+	public void func13Test() {
+		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
+		myGame.funcs.func13();
+		assertEquals("", myGame.currentPlayer.className);
+	}
 }
 	
 
