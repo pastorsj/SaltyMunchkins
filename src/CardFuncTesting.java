@@ -121,7 +121,6 @@ public class CardFuncTesting {
 	@Test
 	public void func8InitTest() {
 		myGame.currentPlayer.pHand = myGame.dealCards();
-		System.out.println(myGame.currentPlayer.pHand);
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func8Init();
 		assertEquals(cLevel-3, myGame.currentPlayer.cLevel);
@@ -131,7 +130,6 @@ public class CardFuncTesting {
 	public void func8InitTest2() {
 		myGame.currentPlayer.pHand = myGame.dealCards();
 		myGame.currentPlayer.pHand.remove(0);
-		System.out.println(myGame.currentPlayer.pHand);
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func8Init();
 		assertEquals(cLevel, myGame.currentPlayer.cLevel);
@@ -168,6 +166,8 @@ public class CardFuncTesting {
 	@Test
 	public void func13Test() {
 		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
+		myGame.dealSpecificDoorCard(myGame.doors, 49, myGame.currentPlayer);
+		System.out.println(myGame.currentPlayer.pHand);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
 	}

@@ -82,7 +82,27 @@ public class CardFunc {
 	}
 	
 	public void func13() {
-		
+		if(!myGame.currentPlayer.className.equals("")) {
+			if(myGame.currentPlayer.className.equals("Monster Whacker")) {
+				//Discard card 49
+				myGame.discardCard(myGame.currentPlayer, 49);
+				myGame.currentPlayer.className = "";
+			} else if(myGame.currentPlayer.className.equals("Professor")) {
+				//Discard card 57
+				myGame.discardCard(myGame.currentPlayer, 57);
+				myGame.currentPlayer.className = "";
+			} else if(myGame.currentPlayer.className.equals("Investigator")) {
+				//Discard card 44
+				myGame.discardCard(myGame.currentPlayer, 44);
+				myGame.currentPlayer.className = "";
+			} else if(myGame.currentPlayer.className.equals("Cultist")) {
+				//Discard card 12
+				myGame.discardCard(myGame.currentPlayer, 12);
+				myGame.currentPlayer.className = "";
+			} else {
+				//Lose a level
+			}
+		}
 	}
 	
 	public void func26Init() {
