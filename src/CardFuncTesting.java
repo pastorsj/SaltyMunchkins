@@ -18,15 +18,7 @@ public class CardFuncTesting {
 		myGame.p2.pHand=myGame.dealCards();
 		
 	}
-	@Test
-	public void func57init() {
-		myGame.turnPlayer=1;
-		myGame.funcs.func57();
-		assertEquals("Professor",myGame.p1.className);
-		myGame.turnPlayer=2;
-		myGame.funcs.func57();
-		assertEquals("Professor", myGame.p2.className);
-	}
+	
 	@Test
 	public void testPlayClass(){
 		//need to test that if player with professor has lowest or tied at lowest level,
@@ -38,9 +30,11 @@ public class CardFuncTesting {
 		//write this later when discard is implemented.	
 	}
 	@Test
-	public void func7TestInit() {
+	public void func1TestInit() {
 		myGame.turnPlayer=1;
-		myGame.funcs.func66Init();
+		int cLevel = myGame.p1.cLevel;
+		myGame.funcs.func1Init();
+		assertEquals(cLevel-5, myGame.p1.cLevel);
 	}
 }
 	
