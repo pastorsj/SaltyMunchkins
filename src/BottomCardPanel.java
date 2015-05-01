@@ -98,10 +98,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				cardsInPlayImages.add(playImage);
 			}
 			
-			for(int i =0; i<this.otherPlayer.pPlay.size();i++){
-				BufferedImage playImage2 = ImageIO.read(new File("src\\m"+this.otherPlayer.pPlay.get(i)+".PNG"));
-				cardsInPlayImages2.add(playImage2);
-			}
+		//	for(int i =0; i<this.otherPlayer.pPlay.size();i++){
+		//		BufferedImage playImage2 = ImageIO.read(new File("src\\m"+this.otherPlayer.pPlay.get(i)+".PNG"));
+		//		cardsInPlayImages2.add(playImage2);
+		//	}
 			
 			
 		
