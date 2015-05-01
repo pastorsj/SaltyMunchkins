@@ -123,7 +123,7 @@ public class CardFunc {
 	}
 	
 	public void func17() {
-		
+		myGame.currentPlayer.cLevel -= 3;
 	}
 	
 	public void func26Init() {
