@@ -56,6 +56,14 @@ public class CardFuncTesting {
 		myGame.funcs.func2(true);
 		assertEquals(1, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func2Test2() {
+		myGame.currentPlayer.className = "Monster Whacker";
+		myGame.funcs.func2(false);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals("", myGame.currentPlayer.className);
+	}
 }
 	
 
