@@ -349,6 +349,12 @@ public class Mile3Testing {
 	}	
 	
 	@Test
+	public void setValuesForC52(){
+		assertEquals(8,init.cardHash.get(52).monsterLevel);
+		assertEquals(2, init.cardHash.get(52).numTreas);
+	}	
+	
+	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.cardHash.get(84).numGold);
 		assertEquals(2, init.cardHash.get(84).numHands);
