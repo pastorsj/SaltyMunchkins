@@ -424,8 +424,6 @@ public class Mile3Testing {
 	public void setValuesForC64(){
 		assertEquals(16,init.cardHash.get(64).monsterLevel);
 		assertEquals(4, init.cardHash.get(64).numTreas);
-		assertEquals(2,init.cardHash.get(64).monsterLevelBonus);
-		assertEquals("Investigators", init.cardHash.get(64).condForBonus);
 		assertEquals("level", init.cardHash.get(64).badStuff);
 		assertEquals(-3,init.cardHash.get(64).badLevel);
 		//gets 2 levels
