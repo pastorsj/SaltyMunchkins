@@ -62,11 +62,6 @@ public class CardFunc {
 	public void func8Init() {
 		if(myGame.currentPlayer.pHand.size()%2 == 0) {
 			myGame.currentPlayer.cLevel -= 3;
-		} else {
-			p.pLevel -= 2;
-			if(p.pLevel<1) {
-				p.pLevel = 1;
-			}
 		}
 	}
 	
@@ -74,6 +69,11 @@ public class CardFunc {
 		if(checkWin) {
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+		} else {
+			myGame.currentPlayer.pLevel -= 2;
+			if(myGame.currentPlayer.pLevel<1) {
+				myGame.currentPlayer.pLevel = 1;
+			}
 		}
 	}
 	

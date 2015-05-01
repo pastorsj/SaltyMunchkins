@@ -143,12 +143,20 @@ public class CardFuncTesting {
 		myGame.funcs.func8(true);
 		assertEquals(sizeOfHand + 2, myGame.currentPlayer.pHand.size());
 	}
+	
 	@Test
 	public void func8Test2() {
-		int pLevel = myGame.currentPlayer.pLevel += 2;
+		myGame.currentPlayer.pLevel = 3;
+		int pLevel = myGame.currentPlayer.pLevel;
 		myGame.funcs.func8(false);
-		assertEquals(pLevel-2, myGame.currentPlayer.pLevel);
-		
+		assertEquals(pLevel-2, myGame.currentPlayer.pLevel);	
+	}
+	
+	@Test
+	public void func8Test3() {
+		int pLevel = myGame.currentPlayer.pLevel;
+		myGame.funcs.func8(false);
+		assertEquals(pLevel, myGame.currentPlayer.pLevel);	
 	}
 }
 	
