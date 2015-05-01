@@ -156,6 +156,10 @@ public class InitializeCards {
 		cardHash.get(36).condForBonus="Males";
 		cardHash.get(36).badStuff="level";
 		cardHash.get(36).badLevel=1;
+		cardHash.get(37).monsterLevel=12;
+		cardHash.get(37).monsterLevelBonus=-2;
+		cardHash.get(37).numTreas=3;
+		cardHash.get(37).condForBonus="Females";
 		cardHash.get(42).monsterLevelBonus = -5;
 		cardHash.get(42).badStuff = "treas";
 		cardHash.get(42).badTreas = -1;
