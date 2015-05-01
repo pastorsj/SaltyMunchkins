@@ -23,6 +23,9 @@ public class CombatTesting {
 		hand.add(86); // plb=2 
 		myGame.p1.pPlay=hand; //note this is NOT pHand, this is the cards in PLAY
 		myGame.p1.cLevelCalculation();
+		myGame.mframe = new MFrame(myGame, new ArrayList<String>());
+		myGame.mframe.setVisible(false);
+		
 				
 
 		

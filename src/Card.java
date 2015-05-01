@@ -28,7 +28,7 @@ public class Card {
 	boolean readyToPlay=false; //means card is implemented enough to be in demo.
 	public int selfOrOther; //1 for other
 	public boolean armor;
-	public boolean discard; //true means discard at end of combat. false means keep.
+	public boolean discard=true; //true means discard at end of combat. false means keep.
 	
 	
 	

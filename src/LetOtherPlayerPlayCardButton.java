@@ -48,12 +48,7 @@ public class LetOtherPlayerPlayCardButton extends JButton implements ActionListe
 		frame.dispose();
 		
 		
-		try {
-			frame=new MFrame(myGame,this.arrayOfLines);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		frame=new MFrame(myGame,this.arrayOfLines);
 		
 		
 		
