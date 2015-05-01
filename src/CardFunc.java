@@ -62,7 +62,7 @@ public class CardFunc {
 	public void func8Init() {
 		if(myGame.currentPlayer.pHand.size()%2 == 0) {
 			myGame.currentPlayer.cLevel -= 3;
-		} 
+		}
 	}
 	
 	public void func8(boolean checkWin) {
