@@ -356,8 +356,8 @@ public class Mile3Testing {
 	
 	@Test
 	public void setValuesForC54(){
-		assertEquals(18,init.cardHash.get(51).monsterLevel);
-		assertEquals(5, init.cardHash.get(51).numTreas);
+		assertEquals(18,init.cardHash.get(54).monsterLevel);
+		assertEquals(5, init.cardHash.get(54).numTreas);
 		//will not fight players of level 4 or below
 		//the player gets 2 levels if defeated
 		//bad stuff : you are dead
