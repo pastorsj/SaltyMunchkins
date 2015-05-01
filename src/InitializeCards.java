@@ -3,8 +3,6 @@ import static org.junit.Assert.assertEquals;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.junit.Test;
-
 public class InitializeCards {
 	public HashMap<Integer, Card> cardHash = new HashMap<Integer, Card>();
 	//public HashMap<Integer, Card> cardHash = new HashMap<Integer, Card>();
@@ -150,12 +148,6 @@ public class InitializeCards {
 		cardHash.get(35).monsterLevelBonus = -2;
 		cardHash.get(35).numTreas = 4;
 		cardHash.get(35).condForBonus = "Professors";
-		cardHash.get(36).monsterLevel=2;
-		cardHash.get(36).monsterLevelBonus=3;
-		cardHash.get(36).numTreas=1;
-		cardHash.get(36).condForBonus="Males";
-		cardHash.get(36).badStuff="level";
-		cardHash.get(36).badLevel=1;
 		cardHash.get(42).monsterLevelBonus = -5;
 		cardHash.get(42).badStuff = "treas";
 		cardHash.get(42).badTreas = -1;
@@ -207,7 +199,7 @@ public class InitializeCards {
 		
 		cardHash.get(29).monsterLevelBonus = 10;
 		cardHash.get(29).bonusTreasure = 2;
-
+		
 		
 		cardHash.get(42).monsterLevelBonus = -5;
 		cardHash.get(42).badStuff = "treas";
