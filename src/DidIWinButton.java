@@ -42,7 +42,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 		}
 		
 		else{
-			int roll = myGame.rollDice(2);
+			int roll = myGame.rollDice(0);
 			System.out.println("You rolled a " + roll);
 			if (roll>4) {
 				System.out.println("You ran away!");

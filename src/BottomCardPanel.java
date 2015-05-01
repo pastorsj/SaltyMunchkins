@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
@@ -40,6 +41,11 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public Game myGame;
 	public MFrame myFrame;
 	public ArrayList<String> myArrayOfLines;
+	public JLabel playerLabel; 
+	public JLabel playerLevel;
+	public JLabel playerCLevel;
+	public JLabel monsterLevel;
+	
 
 	
 	
@@ -54,11 +60,16 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		if(game.turnPlayer==1){
 			this.turnPlayer=game.p1;
 			this.otherPlayer=game.p2;
+			this.playerLabel= new JLabel("p1");
+			this.playerLevel = new JLabel("player level: "+myGame.p1.pLevel+"");
+			this.playerCLevel = new JLabel("player clevel: "+myGame.p1.cLevel+"");
+			this.monsterLevel = new JLabel("monster level: "+myGame.mLevel+"");
 			
 		}
 		else{
 			this.turnPlayer=game.p2;
 			this.otherPlayer=game.p1;
+			this.playerLabel= new JLabel("p2");
 		}
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
@@ -83,6 +94,11 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.etb=new EndTurnButton(frame,arrayOfLines,game);
 		etb.setPreferredSize(new Dimension(90,30));
 		this.add(etb);
+		
+		this.add(playerLabel);
+		this.add(playerLevel);
+		//this.add(playerCLevel);
+		//this.add(monsterLevel);
 		
         
     	
@@ -224,6 +240,18 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			for(int i =0; i<turnPlayer.pPlay.size();i++){
 				if(x>50+100*i && x<50+100*i+100){
 					largeCard=cardsInPlayImages.get(i);
+					largeCardPos=i;
+					
+				}
+			}
+			this.repaint();
+			
+		}
+		//added this to click other cards
+		if(y>50 && y<300){
+			for(int i =0; i<otherPlayer.pPlay.size();i++){
+				if(x>50+100*i && x<50+100*i+100){
+					largeCard=cardsInPlayImages2.get(i);
 					largeCardPos=i;
 					
 				}

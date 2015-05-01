@@ -44,7 +44,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 		int treasStart = 88;
 		InitializeCards ic = new InitializeCards();
 		
-		myGame.updateMLevel(cardToMovePos);
+		myGame.updateMLevel(cardToMove);
 			
 //		if (cardToMove < 83) { //if the card is a door card being put in play: 
 //			Card cardInPlay = ic.getCardHash().get(cardToMove);

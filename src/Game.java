@@ -129,6 +129,7 @@ public class Game {
 		if(this.mLevel==0){ //if a monster is in play, don't want to override
 								//with another door card.
 			//myGame.mInPlay=cardInPlay.num;
+			System.out.println(cardToMove);
 			this.mLevel = ic.getCardHash().get(cardToMove).monsterLevel;
 					
 		}
