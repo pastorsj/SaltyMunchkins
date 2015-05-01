@@ -56,6 +56,14 @@ public class Player {
 	
 	public void consequence(Game game, int win) {
 		System.out.println("Consequence is " + win);
-		game.dealNewCard(game.treasures, this);
+		if(win==1){
+			game.dealNewCard(game.treasures, this);
+			if(game.turnPlayer==1){
+				game.p1.pLevel++;
+			}
+			else{
+				game.p2.pLevel++;
+			}
+		}
 	}
 }
