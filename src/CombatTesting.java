@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import org.junit.Before;
@@ -55,17 +56,18 @@ public class CombatTesting {
 	}
 	
 	@Test
-	public void TestGetTreasureForWinCard2(){
+	public void TestGetTreasureForWinCard2() throws IOException{
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
+		DidIWinButton diwb1 = new DidIWinButton(new MFrame(myGame, new ArrayList<String>()), new ArrayList<String>(), myGame);
 		handInPlay.add(2);
 		handInPlay.add(88);
 		myGame.p1.pHand=hand;
 		myGame.p1.pPlay=handInPlay;
 		myGame.p2.pPlay=hand2;
 		
-		myGame.mframe.mainPanel.bCardPanel.diwb.didIWin();
+		diwb1.didIWin();
 		
 		assertEquals(1,myGame.p1.pHand.size());
 		

@@ -56,5 +56,6 @@ public class Player {
 	
 	public void consequence(Game game, int win) {
 		System.out.println("Consequence is " + win);
+		game.dealNewCard(game.treasures, this);
 	}
 }
