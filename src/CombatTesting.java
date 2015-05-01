@@ -57,11 +57,17 @@ public class CombatTesting {
 	@Test
 	public void TestGetTreasureForWinCard2(){
 		ArrayList<Integer> hand = new ArrayList<Integer>();
+		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
-		hand.add(2);
-		hand.add(88);
-		myGame.p1.pPlay=hand;
+		handInPlay.add(2);
+		handInPlay.add(88);
+		myGame.p1.pHand=hand;
+		myGame.p1.pPlay=handInPlay;
 		myGame.p2.pPlay=hand2;
+		
+		myGame.mframe.mainPanel.bCardPanel.diwb.didIWin();
+		
+		assertEquals(1,myGame.p1.pHand.size());
 		
 		
 	}

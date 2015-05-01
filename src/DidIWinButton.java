@@ -59,6 +59,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 		didIWin();
 		
 		
+		
 		frame.dispose();
 		
 		
