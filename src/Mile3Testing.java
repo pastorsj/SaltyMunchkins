@@ -440,7 +440,11 @@ public class Mile3Testing {
 		assertEquals("Monster Whackers", init.cardHash.get(65).condForBonus);
 		//gives a level to the player who has the lowest level; otherwise, just lose a level
 	}
-	
+	@Test
+	public void setValuesForC66(){
+		assertEquals(5,init.cardHash.get(66).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(66).bonusTreasure);
+	}
 	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.cardHash.get(84).numGold);
