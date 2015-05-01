@@ -8,7 +8,6 @@ import org.junit.Test;
 
 public class CardFuncTesting {
 	public Game myGame;
-	
 	public InitializeCards init = new InitializeCards();
 	
 	
@@ -21,13 +20,13 @@ public class CardFuncTesting {
 	}
 	@Test
 	public void func57init() {
-			myGame.turnPlayer=1;
-			myGame.funcs.func57();
-			assertEquals("Professor",myGame.p1.className);
-			myGame.turnPlayer=2;
-			myGame.funcs.func57();
-			assertEquals("Professor", myGame.p2.className);
-		}
+		myGame.turnPlayer=1;
+		myGame.funcs.func57();
+		assertEquals("Professor",myGame.p1.className);
+		myGame.turnPlayer=2;
+		myGame.funcs.func57();
+		assertEquals("Professor", myGame.p2.className);
+	}
 	@Test
 	public void testPlayClass(){
 		//need to test that if player with professor has lowest or tied at lowest level,
@@ -36,19 +35,14 @@ public class CardFuncTesting {
 		myGame.p1.className="Professor";
 	
 		
-		//write this later when discard is implemented.
-		
-		
+		//write this later when discard is implemented.	
 	}
 	@Test
-	public void testMLevelCalc(){
-		
+	public void func7TestInit() {
+		myGame.turnPlayer=1;
+		myGame.funcs.func66Init();
 	}
-	
-			
-		
-		
-	}
+}
 	
 
 	
