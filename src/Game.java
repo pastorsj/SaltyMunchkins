@@ -94,12 +94,10 @@ public class Game {
 		} return false;
 	}
 	
-	public boolean dealSpecificDoorCard(ArrayList<Integer> cards, int card, Player p) {
+	public boolean dealSpecificDoorCard(int card, Player p) {
 		if(p.pHand.size() < 8) {
-			System.out.println(card);
-			System.out.println(cards);
-			p.pHand.add(cards.get(cards.indexOf(card)));
-			cards.remove(cards.indexOf(card));
+			p.pHand.add(this.doors.get(this.doors.indexOf(card)));
+			this.doors.remove(this.doors.indexOf(card));
 			return true;
 		} return false;
 	}

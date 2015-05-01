@@ -122,6 +122,10 @@ public class CardFunc {
 		myGame.currentPlayer.cLevel -= 5;
 	}
 	
+	public void func17() {
+		
+	}
+	
 	public void func26Init() {
 		//If Ichor cards are in play that give them combat bonus, double the effect.
 	}
