@@ -280,6 +280,17 @@ public class Mile3Testing {
 		//TWO LEVELS!!!!!!!!!
 		//If the player fails to run away, the other player wins the game
 	}	
+
+	@Test
+	public void setValuesForC39(){
+		//the other player wins the game
+	}
+	
+	@Test
+	public void setValuesForC43(){
+		assertEquals(10,init.cardHash.get(43).monsterLevelBonus);
+		assertEquals(2, init.cardHash.get(43).bonusTreasure);
+	}
 	
 	@Test
 	public void setValuesForC42(){
