@@ -77,6 +77,15 @@ public class CardFunc {
 		}
 	}
 	
+	public void func12Init() {
+		
+	}
+	
+	public void func26Init() {
+		//If Ichor cards are in play that give them combat bonus, double the effect.
+	}
+	
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;

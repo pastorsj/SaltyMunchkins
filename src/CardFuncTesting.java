@@ -158,6 +158,12 @@ public class CardFuncTesting {
 		myGame.funcs.func8(false);
 		assertEquals(pLevel, myGame.currentPlayer.pLevel);	
 	}
+	
+	@Test
+	public void func12InitTest() {
+		myGame.funcs.func12Init();
+		assertEquals("Cultist", myGame.currentPlayer.className);
+	}
 }
 	
 
