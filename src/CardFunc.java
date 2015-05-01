@@ -34,6 +34,11 @@ public class CardFunc {
 	public void func2(boolean checkWin) {
 		if(checkWin) {
 			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+		}else {
+			if(!myGame.currentPlayer.className.equals("Cultist")) {
+				myGame.currentPlayer.className = "";				
+				//Need to discard any class card in play
+			}
 		}
 	}
 	
