@@ -431,6 +431,21 @@ public class Mile3Testing {
 	}
 	
 	@Test
+	public void setValuesForC65(){
+		assertEquals(14,init.cardHash.get(65).monsterLevel);
+		assertEquals(4, init.cardHash.get(65).numTreas);
+		assertEquals("level", init.cardHash.get(65).badStuff);
+		assertEquals(-1,init.cardHash.get(65).badLevel);
+		assertEquals(3,init.cardHash.get(65).monsterLevelBonus);
+		assertEquals("Monster Whackers", init.cardHash.get(65).condForBonus);
+		//gives a level to the player who has the lowest level; otherwise, just lose a level
+	}
+	@Test
+	public void setValuesForC66(){
+		assertEquals(5,init.cardHash.get(66).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(66).bonusTreasure);
+	}
+	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.cardHash.get(84).numGold);
 		assertEquals(2, init.cardHash.get(84).numHands);
