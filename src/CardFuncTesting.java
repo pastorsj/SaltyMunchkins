@@ -79,6 +79,13 @@ public class CardFuncTesting {
 		assertEquals(1, myGame.currentPlayer.pHand.size());
 	}
 	
+	@Test
+	public void func7Test2() {
+		myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+		myGame.funcs.func7(false);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+	}
+	
 }
 	
 
