@@ -173,7 +173,7 @@ public class CardFuncTesting {
 	@Test
 	public void func13Test() {
 		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
-		myGame.dealSpecificDoorCard(49, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(49);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
@@ -182,7 +182,7 @@ public class CardFuncTesting {
 	@Test
 	public void func13Test2() {
 		myGame.currentPlayer.className = "Professor"; //Card No: 57
-		myGame.dealSpecificDoorCard(57, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(57);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
@@ -191,7 +191,7 @@ public class CardFuncTesting {
 	@Test
 	public void func13Test3() {
 		myGame.currentPlayer.className = "Investigator"; //Card No: 44
-		myGame.dealSpecificDoorCard(44, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(44);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
@@ -200,7 +200,7 @@ public class CardFuncTesting {
 	@Test
 	public void func13Test4() {
 		myGame.currentPlayer.className = "Cultist"; //Card No: 12
-		myGame.dealSpecificDoorCard(12, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(12);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
@@ -265,7 +265,7 @@ public class CardFuncTesting {
 	@Test
 	public void func20Test() {
 		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
-		myGame.dealSpecificDoorCard(49, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(49);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
@@ -274,7 +274,7 @@ public class CardFuncTesting {
 	@Test
 	public void func20Test2() {
 		myGame.currentPlayer.className = "Professor"; //Card No: 57
-		myGame.dealSpecificDoorCard(57, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(57);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
@@ -283,7 +283,7 @@ public class CardFuncTesting {
 	@Test
 	public void func20Test3() {
 		myGame.currentPlayer.className = "Investigator"; //Card No: 44
-		myGame.dealSpecificDoorCard(44, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(44);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
@@ -292,7 +292,7 @@ public class CardFuncTesting {
 	@Test
 	public void func20Test4() {
 		myGame.currentPlayer.className = "Cultist"; //Card No: 12
-		myGame.dealSpecificDoorCard(12, myGame.currentPlayer);
+		myGame.currentPlayer.pHand.add(12);
 		myGame.funcs.func20();
 		assertEquals("Cultist", myGame.currentPlayer.className);
 		assertEquals(1, myGame.currentPlayer.pHand.size());
@@ -308,6 +308,41 @@ public class CardFuncTesting {
 		int pLevel = myGame.currentPlayer.pLevel;
 		myGame.funcs.func22();
 		assertEquals(pLevel-1, myGame.currentPlayer.pLevel);
+	}
+	
+	@Test
+	public void func23() {
+		//Player must discard at least 1000 gold pieces
+	}
+	
+	@Test
+	public void func24() {
+		//Lose the footgear on your character...
+	}
+	
+	@Test
+	public void func25() {
+		//Another complicated curse that needs an algorithm
+	}
+	
+	@Test
+	public void func26InitTest() {
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.changePlayer();
+		myGame.currentPlayer.pPlay.add(100);
+		myGame.changePlayer();
+		myGame.funcs.func26Init();
+		assertEquals(cLevel-6, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func26InitTest2() {
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.changePlayer();
+		myGame.currentPlayer.pPlay.add(132);
+		myGame.changePlayer();
+		myGame.funcs.func26Init();
+		assertEquals(cLevel-4, myGame.currentPlayer.cLevel);
 	}
 }
 	

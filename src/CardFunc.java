@@ -164,12 +164,26 @@ public class CardFunc {
 	}
 	
 	public void func22() {
-		//Lose a level
+		//Curse: Lose a level
 		myGame.currentPlayer.pLevel -= 1;
+	}
+	
+	public void func23() {
+		//Curse: Must discard at least 1000 gold pieces
+	}
+	
+	public void func24() {
+		//Curse: Must discard your footgear...
+	}
+	
+	public void func25() {
+		//Another curse, need algorithm...
 	}
 	
 	public void func26Init() {
 		//If Ichor cards are in play that give them combat bonus, double the effect.
+		//Perhaps Cards No: 100, 132
+		
 	}
 	
 	
