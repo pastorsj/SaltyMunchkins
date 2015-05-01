@@ -165,6 +165,7 @@ public class CardFunc {
 	
 	public void func22() {
 		//Lose a level
+		myGame.currentPlayer.pLevel -= 1;
 	}
 	
 	public void func26Init() {
