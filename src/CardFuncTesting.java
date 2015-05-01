@@ -9,12 +9,19 @@ import org.junit.Test;
 
 public class CardFuncTesting {
 	public Game myGame;
-	public InitializeCards init = new InitializeCards();
 	
 	
 	@Before
 	public void setUp() {
-		myGame=new Game(init.doors,init.treasure);
+		ArrayList<Integer> doors = new ArrayList<Integer>(82);
+		ArrayList<Integer> treasures = new ArrayList<Integer>(67);
+		for(int i = 1; i <= 82; i++) {
+			doors.add(i);
+		}
+		for(int i = 1; i <= 67; i++) {
+			treasures.add(82 + i);
+		}
+		myGame=new Game(doors, treasures);
 		myGame.p1.pHand=myGame.dealCards();
 		myGame.p2.pHand=myGame.dealCards();
 		
@@ -233,6 +240,16 @@ public class CardFuncTesting {
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func17();
 		assertEquals(cLevel-3, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func17Test2() {
+		//Miner's Helmet is 111
+		//Two Handed Flashlight is 146
+		myGame.dealSpecificTreasureCard(111, myGame.currentPlayer);
+		myGame.dealSpecificTreasureCard(146, myGame.currentPlayer);
+		myGame.funcs.func17();
+		assertEquals(0, myGame.currentPlayer.pHand.size());
 	}
 	
 }

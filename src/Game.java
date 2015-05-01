@@ -95,9 +95,19 @@ public class Game {
 	}
 	
 	public boolean dealSpecificDoorCard(int card, Player p) {
+		System.out.println(this.doors);
 		if(p.pHand.size() < 8) {
 			p.pHand.add(this.doors.get(this.doors.indexOf(card)));
 			this.doors.remove(this.doors.indexOf(card));
+			return true;
+		} return false;
+	}
+	
+	public boolean dealSpecificTreasureCard(int card, Player p) {
+		System.out.println(this.treasures);
+		if(p.pHand.size() < 8) {
+			p.pHand.add(this.treasures.get(this.treasures.indexOf(card)));
+			this.treasures.remove(this.treasures.indexOf(card));
 			return true;
 		} return false;
 	}
