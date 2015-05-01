@@ -314,6 +314,7 @@ public class InitializeCards {
 		cardHash.get(99).numGold=300;
 		cardHash.get(99).pLevelBonus=1;
 		cardHash.get(99).footGear=true;
+		
 	}
 
 	public HashMap<Integer, Card> getCardHash() {
