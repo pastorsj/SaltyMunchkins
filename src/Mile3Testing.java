@@ -371,7 +371,7 @@ public class Mile3Testing {
 		assertEquals(3,init.cardHash.get(55).monsterLevelBonus);
 		assertEquals("Professors", init.cardHash.get(55).condForBonus);
 		assertEquals("level", init.cardHash.get(55).badStuff);
-		assertEquals(-1,init.cardHash.get(55).badItems);
+		assertEquals(-1,init.cardHash.get(55).badLevel);
 	}
 	
 	@Test
@@ -384,6 +384,29 @@ public class Mile3Testing {
 		assertEquals(2,init.cardHash.get(59).monsterLevel);
 		assertEquals(1, init.cardHash.get(59).numTreas);
 		//bad stuff: the player becomes a cultist
+	}
+	
+	@Test
+	public void setValuesForC60(){
+		assertEquals(5,init.cardHash.get(60).monsterLevelBonus);
+		assertEquals(1, init.cardHash.get(60).bonusTreasure);
+	}
+	
+	@Test
+	public void setValuesForC61(){
+		assertEquals(8,init.cardHash.get(61).monsterLevel);
+		assertEquals(2, init.cardHash.get(61).numTreas);
+		assertEquals(2,init.cardHash.get(61).monsterLevelBonus);
+		assertEquals("Professors", init.cardHash.get(61).condForBonus);
+		//bad stuff: dead
+	}
+	
+	@Test
+	public void setValuesForC62(){
+		assertEquals(1,init.cardHash.get(62).monsterLevel);
+		assertEquals(1, init.cardHash.get(62).numTreas);
+		assertEquals("level", init.cardHash.get(62).badStuff);
+		assertEquals(-1,init.cardHash.get(62).badLevel);
 	}
 	
 	@Test
