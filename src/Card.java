@@ -10,6 +10,7 @@ public class Card {
 	public int badGold;
 	public int badTreas;
 	public int badLevel;
+	public int badItems;
 	public int numTreas;
 	public int monsterLevelBonus = 0; //always execute
 	public int monsterLevelCondBonus; //only execute if certain condition is met
@@ -26,6 +27,7 @@ public class Card {
 	public int bonusTreasure=0;
 	boolean readyToPlay=false; //means card is implemented enough to be in demo.
 	public int selfOrOther; //0 for self, 1 for other
+	
 	
 	
 	
