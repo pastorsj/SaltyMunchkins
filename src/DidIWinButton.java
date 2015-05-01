@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 
@@ -51,12 +52,25 @@ public class DidIWinButton extends JButton implements ActionListener{
 				turnPlayer.consequence(myGame, -1);
 			}
 		}
+		
+	
+		for(int i =0; i<turnPlayer.pPlay.size();i++){
+			HashMap<Integer, Card> hash = new InitializeCards().getCardHash();
+			if(hash.get(turnPlayer.pPlay.get(i)).discard){
+				turnPlayer.pPlay.remove(i);
+				i--;
+			}
+		
+		}
+	
+		myGame.mframe.repaint();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
 		didIWin();
+	
 		
 		
 		
