@@ -132,6 +132,19 @@ public class CardFunc {
 		}
 	}
 	
+	public void func18() {
+		//Curse: Need to discard all armor in play
+	}
+	
+	public void func19() {
+		//Curse: Need to discard all headgear in play
+	}
+	
+	public void func20() {
+		//Curse: Discard all class cards except Cultist
+		
+	}
+	
 	public void func26Init() {
 		//If Ichor cards are in play that give them combat bonus, double the effect.
 	}
