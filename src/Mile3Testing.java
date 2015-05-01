@@ -408,6 +408,17 @@ public class Mile3Testing {
 		assertEquals("level", init.cardHash.get(62).badStuff);
 		assertEquals(-1,init.cardHash.get(62).badLevel);
 	}
+
+	@Test
+	public void setValuesForC63(){
+		assertEquals(16,init.cardHash.get(63).monsterLevel);
+		assertEquals(4, init.cardHash.get(63).numTreas);
+		assertEquals(2,init.cardHash.get(63).monsterLevelBonus);
+		assertEquals("Investigators", init.cardHash.get(63).condForBonus);
+		//bad stuff: become a cultist
+		//gets 2 levels
+		//does not pursue players of level 3 or below
+	}
 	
 	@Test
 	public void setValuesForC84(){
