@@ -53,14 +53,14 @@ public class CardFunc {
 			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
 		} else {
 			//Discard a card in your hand
-			System.out.println(myGame.currentPlayer.pHand);
-			System.out.println(myGame.currentPlayer.pHand.get(0));
 			myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));
 		}
 	}
 	
 	public void func8Init() {
-		
+		if(myGame.currentPlayer.pHand.size()%2 == 0) {
+			myGame.currentPlayer.cLevel -= 3;
+		}
 	}
 	
 	public void end(){

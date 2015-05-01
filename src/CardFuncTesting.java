@@ -89,6 +89,7 @@ public class CardFuncTesting {
 	@Test
 	public void func8InitTest() {
 		myGame.currentPlayer.pHand = myGame.dealCards();
+		System.out.println(myGame.currentPlayer.pHand);
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func8Init();
 		assertEquals(cLevel-3, myGame.currentPlayer.cLevel);

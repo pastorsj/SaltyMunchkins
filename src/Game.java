@@ -79,7 +79,6 @@ public class Game {
 	
 	public boolean discardCard(Player p, int card) {
 		if(p.pHand.contains(card)) {
-			System.out.println("Here");
 			p.pHand.remove(p.pHand.indexOf(card));
 			discards.add(card);
 			return true;
