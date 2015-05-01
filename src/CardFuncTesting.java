@@ -44,11 +44,25 @@ public class CardFuncTesting {
 	}
 	
 	@Test
+	public void func1Test2() throws IOException {
+		myGame.funcs.func1(false);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+	}
+	
+	@Test
 	public void func2TestInit() {
 		myGame.currentPlayer.className = "Monster Whacker";
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func2Init();
 		assertEquals(cLevel-3, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func2TestInit2() {
+		myGame.currentPlayer.className = "Professor";
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.funcs.func2Init();
+		assertEquals(cLevel, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
@@ -67,11 +81,28 @@ public class CardFuncTesting {
 	}
 	
 	@Test
+	public void func2Test3() {
+		myGame.currentPlayer.className = "Cultist";
+		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		myGame.funcs.func2(false);
+		assertEquals(sizeOfHand, myGame.currentPlayer.pHand.size());
+		assertEquals("Cultist", myGame.currentPlayer.className);
+	}
+	
+	@Test
 	public void func7TestInit() {
 		myGame.currentPlayer.gender = 'F';
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func7Init();
 		assertEquals(cLevel+4, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func7TestInit2() {
+		myGame.currentPlayer.gender = 'M';
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.funcs.func7Init();
+		assertEquals(cLevel, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
@@ -82,7 +113,7 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func7Test2() {
-		myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+		myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 		myGame.funcs.func7(false);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
 	}
@@ -94,6 +125,16 @@ public class CardFuncTesting {
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func8Init();
 		assertEquals(cLevel-3, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func8InitTest2() {
+		myGame.currentPlayer.pHand = myGame.dealCards();
+		myGame.currentPlayer.pHand.remove(0);
+		System.out.println(myGame.currentPlayer.pHand);
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.funcs.func8Init();
+		assertEquals(cLevel, myGame.currentPlayer.cLevel);
 	}
 }
 	

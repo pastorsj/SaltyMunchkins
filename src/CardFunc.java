@@ -23,7 +23,7 @@ public class CardFunc {
 		//+5 to Monster
 		//If win, draw extra treasure
 		if(checkWin) {
-			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 		}
 	}
 	
@@ -35,7 +35,7 @@ public class CardFunc {
 	
 	public void func2(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 		}else {
 			if(!myGame.currentPlayer.className.equals("Cultist")) {
 				myGame.currentPlayer.className = "";				
@@ -52,7 +52,7 @@ public class CardFunc {
 	
 	public void func7(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 		} else {
 			//Discard a card in your hand
 			myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));

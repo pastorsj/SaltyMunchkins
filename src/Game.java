@@ -85,6 +85,15 @@ public class Game {
 		} return false;
 	}
 	
+	public boolean dealNewCardTest(ArrayList<Integer> cards, Player p){
+		int size = cards.size()-1;
+		if(p.pHand.size() < 8) {
+			p.pHand.add(cards.get(size));
+			cards.remove(size);
+			return true;
+		} return false;
+	}
+	
 	public boolean mustDiscard(Player p) {
 		return p.pHand.size()>=8;
 	}
