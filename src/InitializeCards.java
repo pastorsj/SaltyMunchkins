@@ -155,7 +155,7 @@ public class InitializeCards {
 		cardHash.get(36).numTreas=1;
 		cardHash.get(36).condForBonus="Males";
 		cardHash.get(36).badStuff="level";
-		cardHash.get(36).badLevel=1;
+		cardHash.get(36).badLevel=-1;
 		cardHash.get(37).monsterLevel=12;
 		cardHash.get(37).monsterLevelBonus=-2;
 		cardHash.get(37).numTreas=3;
@@ -167,6 +167,17 @@ public class InitializeCards {
 		cardHash.get(42).badTreas = -1;
 		cardHash.get(43).monsterLevelBonus=10;
 		cardHash.get(43).bonusTreasure=2;
+		cardHash.get(45).monsterLevel=1;
+		cardHash.get(45).numTreas=1;
+		cardHash.get(46).monsterLevel=8;
+		cardHash.get(46).numTreas=2;
+		cardHash.get(46).badStuff="level";
+		cardHash.get(46).badLevel=-2;
+		cardHash.get(47).monsterLevel=4;
+		cardHash.get(47).numTreas=2;
+		cardHash.get(47).badStuff="level";
+		cardHash.get(47).badLevel=-1;
+		cardHash.get(47).selfOrOther=1;
 		cardHash.get(84).numGold = 500;
 		cardHash.get(84).numHands = 2;
 		cardHash.get(84).pLevelBonus = 4;

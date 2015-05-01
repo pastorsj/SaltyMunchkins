@@ -262,7 +262,7 @@ public class Mile3Testing {
 		assertEquals(1, init.cardHash.get(36).numTreas);
 		assertEquals("Males", init.cardHash.get(36).condForBonus);
 		assertEquals("level", init.cardHash.get(36).badStuff);
-		assertEquals(1,init.cardHash.get(36).badLevel);
+		assertEquals(-1,init.cardHash.get(36).badLevel);
 	}	
 
 	@Test
@@ -298,6 +298,35 @@ public class Mile3Testing {
 		assertEquals("treas",init.cardHash.get(42).badStuff);		
 		assertEquals(-1,init.cardHash.get(42).badTreas);
 	}
+	
+	@Test
+	public void setValuesForC44(){
+		//Investigators class card
+	}
+	
+	@Test
+	public void setValuesForC45(){
+		assertEquals(1,init.cardHash.get(45).monsterLevel);
+		assertEquals(1, init.cardHash.get(45).numTreas);
+		//player's footgear does not count during the fight and -2 to run away
+	}
+	
+	@Test
+	public void setValuesForC46(){
+		assertEquals(8,init.cardHash.get(46).monsterLevel);
+		assertEquals(2, init.cardHash.get(46).numTreas);
+		assertEquals("level", init.cardHash.get(46).badStuff);
+		assertEquals(-2,init.cardHash.get(46).badLevel);
+	}	
+	
+	@Test
+	public void setValuesForC47(){
+		assertEquals(4,init.cardHash.get(47).monsterLevel);
+		assertEquals(2, init.cardHash.get(47).numTreas);
+		assertEquals("level", init.cardHash.get(47).badStuff);
+		assertEquals(-1,init.cardHash.get(47).badLevel);
+		assertEquals(1, init.cardHash.get(47).selfOrOther);
+	}	
 	@Test
 	public void setValuesForC84(){
 		assertEquals(500,init.cardHash.get(84).numGold);
