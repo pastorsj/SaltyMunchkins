@@ -94,6 +94,14 @@ public class Game {
 		} return false;
 	}
 	
+	public boolean dealSpecificDoorCard(ArrayList<Integer> cards, int card, Player p) {
+		if(p.pHand.size() < 8) {
+			p.pHand.add(cards.get(cards.indexOf(49)));
+			cards.remove(cards.indexOf(49));
+			return true;
+		} return false;
+	}
+	
 	public boolean mustDiscard(Player p) {
 		return p.pHand.size()>=8;
 	}
