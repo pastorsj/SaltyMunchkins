@@ -206,6 +206,14 @@ public class CardFuncTesting {
 		assertEquals(0, myGame.currentPlayer.pLevel);
 		assertEquals(0, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func14Test() {
+		myGame.currentPlayer.pHand = myGame.dealCards();
+		myGame.currentPlayer.pHand.add(100);
+		myGame.funcs.func14();
+		assertEquals(8, myGame.currentPlayer.pHand.size());
+	}
 }
 	
 

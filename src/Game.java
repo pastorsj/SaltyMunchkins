@@ -96,6 +96,8 @@ public class Game {
 	
 	public boolean dealSpecificDoorCard(ArrayList<Integer> cards, int card, Player p) {
 		if(p.pHand.size() < 8) {
+			System.out.println(card);
+			System.out.println(cards);
 			p.pHand.add(cards.get(cards.indexOf(card)));
 			cards.remove(cards.indexOf(card));
 			return true;
