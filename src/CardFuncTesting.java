@@ -488,7 +488,6 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pHand.remove(size-3);
 		myGame.funcs.func30(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());
-		
 	}
 }
 	
