@@ -256,7 +256,10 @@ public class CardFunc {
 	}
 	
 	public void func28(boolean checkWin) {
-		
+		if(checkWin) {
+			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+		}
 	}
 	
 	public void func29Init() {
