@@ -366,7 +366,17 @@ public class CardFunc {
 		if(checkWin) {
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+		} else {
+			//Can't help others until you go up a level...
 		}
+	}
+	
+	public void func34() {
+		//Same as func3()
+	}
+	
+	public void func35Init() {
+		
 	}
 	
 	public void end(){
