@@ -471,6 +471,14 @@ public class CardFuncTesting {
 		myGame.funcs.func29(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func30InitTest() {
+		myGame.currentPlayer.className = "Monster Whacker";
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.funcs.func30Init();
+		assertEquals(cLevel+2, myGame.currentPlayer.cLevel);
+	}
 }
 	
 
