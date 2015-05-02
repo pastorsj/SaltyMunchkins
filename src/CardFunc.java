@@ -437,6 +437,9 @@ public class CardFunc {
 			for(int i = 0; i < 5; i++) {
 				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			}
+		} else {
+			myGame.currentPlayer.className = "Cultist";
+			myGame.currentPlayer.pHand = new ArrayList<Integer>();
 		}
 	}
 	
