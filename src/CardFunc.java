@@ -293,7 +293,9 @@ public class CardFunc {
 	}
 	
 	public void func30Init() {
-		
+		if(myGame.currentPlayer.className.equals("Monster Whacker")) {
+			myGame.currentPlayer.cLevel += 2;
+		}
 	}
 	
 	public void end(){
