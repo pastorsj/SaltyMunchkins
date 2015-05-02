@@ -629,8 +629,8 @@ public class CardFuncTesting {
 	@Test
 	public void func38Test() {
 		int size = myGame.currentPlayer.pHand.size();
-		for(int i = 0; i < 5; i++) {
-			myGame.currentPlayer.pHand.remove(i);
+		for(int i = 1; i <= 5; i++) {
+			myGame.currentPlayer.pHand.remove(size-i);
 		}
 		myGame.funcs.func38(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());

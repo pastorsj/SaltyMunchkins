@@ -433,7 +433,11 @@ public class CardFunc {
 	}
 	
 	public void func38(boolean checkWin) {
-		
+		if(checkWin) {
+			for(int i = 0; i < 5; i++) {
+				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			}
+		}
 	}
 	
 	public void end(){
