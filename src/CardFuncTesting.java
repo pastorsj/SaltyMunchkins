@@ -349,7 +349,7 @@ public class CardFuncTesting {
 	public void func26Test() {
 		int sizeOfHand = myGame.currentPlayer.pHand.size();
 		myGame.funcs.func26(true);
-		assertEquals(sizeOfHand+1, myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer));
+		assertEquals(sizeOfHand+1, myGame.currentPlayer.pHand.size());
 	}
 }
 	
