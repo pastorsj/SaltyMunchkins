@@ -46,14 +46,17 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func1Test() throws IOException {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(size-1);
 		myGame.funcs.func1(true);
-		assertEquals(1, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func1Test2() throws IOException {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.funcs.func1(false);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
@@ -74,16 +77,19 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func2Test() {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(size-1);
 		myGame.currentPlayer.className = "Monster Whacker";
 		myGame.funcs.func2(true);
-		assertEquals(1, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func2Test2() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Monster Whacker";
 		myGame.funcs.func2(false);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 		assertEquals("", myGame.currentPlayer.className);
 	}
 	
@@ -114,15 +120,17 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func7Test() {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(size-1);
 		myGame.funcs.func7(true);
-		assertEquals(1, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func7Test2() {
-		myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.funcs.func7(false);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size-1, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
@@ -145,8 +153,10 @@ public class CardFuncTesting {
 	@Test
 	public void func8Test() {
 		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(sizeOfHand-1);
+		myGame.currentPlayer.pHand.remove(sizeOfHand-2);
 		myGame.funcs.func8(true);
-		assertEquals(sizeOfHand + 2, myGame.currentPlayer.pHand.size());
+		assertEquals(sizeOfHand, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
@@ -172,51 +182,56 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func13Test() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
 		myGame.currentPlayer.pHand.add(49);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func13Test2() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Professor"; //Card No: 57
 		myGame.currentPlayer.pHand.add(57);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func13Test3() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Investigator"; //Card No: 44
 		myGame.currentPlayer.pHand.add(44);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func13Test4() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Cultist"; //Card No: 12
 		myGame.currentPlayer.pHand.add(12);
 		myGame.funcs.func13();
 		assertEquals("", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func13Test5() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = ""; 
 		myGame.funcs.func13();
 		assertEquals(0, myGame.currentPlayer.pLevel);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
 	public void func14Test() {
-		myGame.currentPlayer.pHand = myGame.dealCards();
+		myGame.currentPlayer.pHand.remove(7);
 		myGame.currentPlayer.pHand.add(100);
 		myGame.funcs.func14();
 		assertEquals(8, myGame.currentPlayer.pHand.size());
@@ -246,10 +261,11 @@ public class CardFuncTesting {
 	public void func17Test2() {
 		//Miner's Helmet is 111
 		//Two Handed Flashlight is 146
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.pHand.add(111);
 		myGame.currentPlayer.pHand.add(146);
 		myGame.funcs.func17();
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
@@ -264,38 +280,43 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func20Test() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
 		myGame.currentPlayer.pHand.add(49);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}
 	
 	@Test
 	public void func20Test2() {
 		myGame.currentPlayer.className = "Professor"; //Card No: 57
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.pHand.add(57);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}
 	
 	@Test
 	public void func20Test3() {
+		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Investigator"; //Card No: 44
 		myGame.currentPlayer.pHand.add(44);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);
-		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}
 	
 	@Test
 	public void func20Test4() {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(size-1);
 		myGame.currentPlayer.className = "Cultist"; //Card No: 12
 		myGame.currentPlayer.pHand.add(12);
 		myGame.funcs.func20();
 		assertEquals("Cultist", myGame.currentPlayer.className);
-		assertEquals(1, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test
@@ -348,8 +369,9 @@ public class CardFuncTesting {
 	@Test
 	public void func26Test() {
 		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(sizeOfHand-1);
 		myGame.funcs.func26(true);
-		assertEquals(sizeOfHand+1, myGame.currentPlayer.pHand.size());
+		assertEquals(sizeOfHand, myGame.currentPlayer.pHand.size());
 	}
 	
 	@Test

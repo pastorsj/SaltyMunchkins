@@ -12,7 +12,7 @@ public class Game {
 	ArrayList<Integer> discards = new ArrayList<Integer>();
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
-	Player currentPlayer = new Player("p1");
+	Player currentPlayer = p1;
 	int turnPlayer;
 	CardFunc funcs = new CardFunc(this);
 	int mInPlay = 0; //0 indicates no monster, otherwise card number goes here.

@@ -187,18 +187,23 @@ public class CardFunc {
 		if(myGame.currentPlayer.pPlay.contains(100)) {
 			myGame.changePlayer(); 
 			myGame.currentPlayer.cLevel -= 6;
-			System.out.println(myGame.currentPlayer.cLevel);
 		}
 		if(myGame.currentPlayer.pPlay.contains(132)) {
 			myGame.changePlayer();
 			myGame.currentPlayer.cLevel -= 4;
-			System.out.println(myGame.currentPlayer.cLevel);
 		}
 	}
 	
 	public void func26(boolean checkWin) {
 		if(checkWin) {
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+		} else {
+			//Right now, we will take the last card from the current player and give it to the other player
+			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
+			myGame.currentPlayer.pHand.remove(myGame.currentPlayer.pHand.indexOf(card));
+			myGame.changePlayer();
+			myGame.currentPlayer.pHand.add(card);
+			myGame.changePlayer();
 		}
 	}
 	
