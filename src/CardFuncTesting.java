@@ -635,4 +635,11 @@ public class CardFuncTesting {
 		myGame.funcs.func38(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func38Test2() {
+		myGame.funcs.func38(false);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+		assertEquals("Cultist", myGame.currentPlayer.className);
+	}
 }
