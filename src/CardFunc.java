@@ -327,6 +327,8 @@ public class CardFunc {
 			for(int i = 0; i < 3; i++) {
 				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			}
+		} else {
+			//Need to discard all Ichor cards	
 		}
 	}
 	
