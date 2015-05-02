@@ -197,6 +197,8 @@ public class CardFunc {
 	public void func26(boolean checkWin) {
 		if(checkWin) {
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 		} else {
 			//Right now, we will take the last card from the current player and give it to the other player
 			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
