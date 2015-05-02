@@ -516,10 +516,12 @@ public class CardFuncTesting {
 		myGame.funcs.func32(false);
 		assertTrue(myGame.currentPlayer.pHand.size() <= size-2);
 	}
+	
+	@Test
+	public void func33InitTest() {
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.currentPlayer.gender = 'F';
+		myGame.funcs.func33Init();
+		assertEquals(cLevel + 2, myGame.currentPlayer.cLevel);
+	}
 }
-	
-
-	
-	
-	
-

@@ -356,6 +356,14 @@ public class CardFunc {
 		}
 	}
 	
+	public void func33Init() {
+		
+	}
+	
+	public void func33() {
+		
+	}
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;
