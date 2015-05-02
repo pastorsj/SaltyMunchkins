@@ -524,4 +524,13 @@ public class CardFuncTesting {
 		myGame.funcs.func33Init();
 		assertEquals(cLevel + 2, myGame.currentPlayer.cLevel);
 	}
+	
+	@Test
+	public void func33Test() {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(size-1);
+		myGame.currentPlayer.pHand.remove(size-2);
+		myGame.funcs.func33(true);
+		assertEquals(size, myGame.currentPlayer.pHand.size());
+	}
 }

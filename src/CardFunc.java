@@ -362,7 +362,7 @@ public class CardFunc {
 		}
 	}
 	
-	public void func33() {
+	public void func33(boolean checkWin) {
 		
 	}
 	
