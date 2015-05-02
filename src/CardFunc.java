@@ -376,7 +376,12 @@ public class CardFunc {
 	}
 	
 	public void func35Init() {
-		
+		if(myGame.currentPlayer.className.equals("Professor")) {
+			myGame.currentPlayer.cLevel += 2;
+		}
+		if(myGame.currentPlayer.className.equals("Investigator")) {
+			myGame.currentPlayer.cLevel += 2;
+		}
 	}
 	
 	public void end(){
