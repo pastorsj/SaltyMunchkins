@@ -196,6 +196,9 @@ public class CardFunc {
 		}
 	}
 	
+	public void func26(boolean checkWin) {
+		
+	}
 	
 	public void end(){
 		if(myGame.turnPlayer==1){
