@@ -574,6 +574,11 @@ public class CardFuncTesting {
 	}
 	
 	@Test
+	public void func36InitTest2() {
+		//Need to somehow test to make sure that male munchkins cannot help
+	}
+	
+	@Test
 	public void func36Test() {
 		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.pHand.remove(size-1);
@@ -586,5 +591,13 @@ public class CardFuncTesting {
 		int level = myGame.currentPlayer.pLevel;
 		myGame.funcs.func36(false);
 		assertEquals(level-1, myGame.currentPlayer.pLevel);
+	}
+	
+	@Test
+	public void func37InitTest() {
+		int level = myGame.currentPlayer.cLevel;
+		myGame.currentPlayer.gender = 'F';
+		myGame.funcs.func37Init();
+		assertEquals(level + 2, myGame.currentPlayer.cLevel);
 	}
 }

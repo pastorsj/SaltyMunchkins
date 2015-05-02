@@ -395,6 +395,7 @@ public class CardFunc {
 	}
 	
 	public void func36Init() {
+		//Male munchkins cannot help...
 		if(myGame.currentPlayer.gender == 'M') {
 			myGame.currentPlayer.cLevel -= 3;
 		}
@@ -406,6 +407,10 @@ public class CardFunc {
 		} else {
 			myGame.currentPlayer.pLevel -= 1;
 		}
+	}
+	
+	public void func37Init() {
+		
 	}
 	
 	public void end(){
