@@ -6,7 +6,7 @@ public class Player {
 	public ArrayList<Integer> pHand = new ArrayList<Integer>();
 	public boolean classAbility;
 	public ArrayList<Integer> pPlay = new ArrayList<Integer>();
-	public String className;
+	public String className = "";
 	public char gender = 'F';
 	public int pLevel=1; //actual level of player
 	public int cLevel=pLevel; //the level a player is with door cards in combat

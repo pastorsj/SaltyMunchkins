@@ -281,7 +281,7 @@ public class CardFuncTesting {
 	@Test
 	public void func20Test() {
 		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.className = "Monster Whacker"; //Card No: 49
+		//Card No: 49
 		myGame.currentPlayer.pHand.add(49);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);
@@ -290,7 +290,7 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func20Test2() {
-		myGame.currentPlayer.className = "Professor"; //Card No: 57
+		//Card No: 57
 		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.pHand.add(57);
 		myGame.funcs.func20();
@@ -301,7 +301,7 @@ public class CardFuncTesting {
 	@Test
 	public void func20Test3() {
 		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.className = "Investigator"; //Card No: 44
+		//Card No: 44
 		myGame.currentPlayer.pHand.add(44);
 		myGame.funcs.func20();
 		assertEquals("", myGame.currentPlayer.className);

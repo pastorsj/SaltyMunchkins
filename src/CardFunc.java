@@ -145,6 +145,18 @@ public class CardFunc {
 		if(myGame.currentPlayer.pHand.contains(49)) {
 			//Discard card 49
 			myGame.discardCard(myGame.currentPlayer, 49);
+		} 
+		if(myGame.currentPlayer.pHand.contains(57)) {
+			//Discard card 57
+			myGame.discardCard(myGame.currentPlayer, 57);
+		}
+		if(myGame.currentPlayer.pHand.contains(44)) {
+			//Discard card 44
+			myGame.discardCard(myGame.currentPlayer, 44);
+		}
+		if(myGame.currentPlayer.pPlay.contains(49)) {
+			//Discard card 49
+			myGame.discardCard(myGame.currentPlayer, 49);
 			myGame.currentPlayer.className = "";
 		} 
 		if(myGame.currentPlayer.pHand.contains(57)) {
@@ -270,7 +282,7 @@ public class CardFunc {
 	}
 	
 	public void func29Init() {
-		
+		myGame.currentPlayer.cLevel -= 10;
 	}
 	
 	public void end(){
