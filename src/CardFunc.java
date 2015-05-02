@@ -285,6 +285,10 @@ public class CardFunc {
 		myGame.currentPlayer.cLevel -= 10;
 	}
 	
+	public void func29(boolean checkWin) {
+		
+	}
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;

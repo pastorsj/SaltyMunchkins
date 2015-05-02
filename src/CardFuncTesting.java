@@ -316,7 +316,7 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pHand.add(12);
 		myGame.funcs.func20();
 		assertEquals("Cultist", myGame.currentPlayer.className);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}
 	
 	@Test
@@ -461,6 +461,15 @@ public class CardFuncTesting {
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func29Init();
 		assertEquals(cLevel-10, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func29Test() {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.pHand.remove(size-1);
+		myGame.currentPlayer.pHand.remove(size-2);
+		myGame.funcs.func29(true);
+		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
 }
 	
