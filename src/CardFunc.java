@@ -385,7 +385,11 @@ public class CardFunc {
 	}
 	
 	public void func35(boolean checkWin) {
-		
+		if(checkWin) {
+			for(int i = 0; i < 4; i++) {
+				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			}
+		}
 	}
 	
 	public void end(){
