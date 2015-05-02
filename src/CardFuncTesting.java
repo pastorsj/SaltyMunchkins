@@ -481,13 +481,20 @@ public class CardFuncTesting {
 	}
 	
 	@Test
-	public void func31Test() {
+	public void func30Test() {
 		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.pHand.remove(size-1);
 		myGame.currentPlayer.pHand.remove(size-2);
 		myGame.currentPlayer.pHand.remove(size-3);
 		myGame.funcs.func30(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());
+	}
+	
+	@Test
+	public void func32InitTest() {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.funcs.func32Init();
+		assertEquals(size-1, myGame.currentPlayer.pHand.size());
 	}
 }
 	

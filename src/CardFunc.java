@@ -303,7 +303,20 @@ public class CardFunc {
 			for(int i = 0; i < 3; i++) {
 				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			}
+		} else {
+			//Need to call a win method for the other player, such as playerWin(myGame.currentPlayer);
 		}
+	}
+	
+	public void func31() {
+		//+3 to monster
+		//or play on cultist until they die or they lose the class
+		//+3 permanant bonus
+		//same as func3()
+	}
+	
+	public void func32Init() {
+		//Must discard card in your hand
 	}
 	
 	public void end(){
