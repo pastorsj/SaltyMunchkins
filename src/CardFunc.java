@@ -389,7 +389,13 @@ public class CardFunc {
 			for(int i = 0; i < 4; i++) {
 				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			}
+		} else {
+			//You must help the other person in combat
 		}
+	}
+	
+	public void func36Init() {
+		
 	}
 	
 	public void end(){

@@ -559,4 +559,17 @@ public class CardFuncTesting {
 		myGame.funcs.func35(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func35Test1() {
+		//Somehow, we must test that the other person helps them in their next combat
+	}
+	
+	@Test
+	public void func36InitTest() {
+		myGame.currentPlayer.gender = 'M';
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func36Init();
+		assertEquals(level-3, myGame.currentPlayer.cLevel);
+	}
 }
