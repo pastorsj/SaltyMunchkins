@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class CardFunc {
@@ -420,6 +421,8 @@ public class CardFunc {
 			for(int i = 0; i < 3; i++) {
 				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			}
+		} else {
+			myGame.currentPlayer.pHand = new ArrayList<Integer>();
 		}
 	}
 	
