@@ -625,4 +625,14 @@ public class CardFuncTesting {
 		myGame.funcs.func38Init();
 		assertEquals(level - 4, myGame.currentPlayer.cLevel);
 	}
+	
+	@Test
+	public void func38Test() {
+		int size = myGame.currentPlayer.pHand.size();
+		for(int i = 0; i < 5; i++) {
+			myGame.currentPlayer.pHand.remove(i);
+		}
+		myGame.funcs.func38(true);
+		assertEquals(size, myGame.currentPlayer.pHand.size());
+	}
 }
