@@ -322,6 +322,10 @@ public class CardFunc {
 		myGame.currentPlayer.pHand.remove(myGame.currentPlayer.pHand.size()-1);
 	}
 	
+	public void func32(boolean checkWin) {
+		
+	}
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;
