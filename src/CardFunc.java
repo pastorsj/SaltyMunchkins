@@ -317,6 +317,9 @@ public class CardFunc {
 	
 	public void func32Init() {
 		//Must discard card in your hand
+		//Right now, it will delete the last card in your hand
+		//Could make it random
+		myGame.currentPlayer.pHand.remove(myGame.currentPlayer.pHand.size()-1);
 	}
 	
 	public void end(){
