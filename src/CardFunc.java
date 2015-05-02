@@ -224,6 +224,42 @@ public class CardFunc {
 	}
 	
 	public void func28Init() {
+		myGame.currentPlayer.cLevel = myGame.currentPlayer.pLevel;
+		//Will add something like this once the rest of the cards are implemented in
+//		if(myGame.currentPlayer.pPlay.contains(85)) {
+//			myGame.funcs.func85Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(100)) {
+//			myGame.funcs.func100Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(101)) {
+//			myGame.funcs.func101Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(105)) {
+//			myGame.funcs.func105Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(127)) {
+//			myGame.funcs.func127Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(85)) {
+//			myGame.funcs.func132Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(85)) {
+//			myGame.funcs.func137Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(85)) {
+//			myGame.funcs.func137Init();
+//		}
+//		if(myGame.currentPlayer.pPlay.contains(142)) {
+//			myGame.funcs.func142Init();
+//		}
+	}
+	
+	public void func28(boolean checkWin) {
+		
+	}
+	
+	public void func29Init() {
 		
 	}
 	
