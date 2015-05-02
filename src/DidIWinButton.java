@@ -25,7 +25,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 		}
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
-		super.setText("WIN?");
+		super.setText("WIN?");//Should be End Turn
 		
 		this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;
