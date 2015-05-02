@@ -406,6 +406,22 @@ public class CardFuncTesting {
 		myGame.funcs.func27(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func27Test2() {
+		//Last test needs to discard cards worth at least 500 gold
+		//Dependent on the user...
+	}
+	
+	@Test
+	public void func28Init() {
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.currentPlayer.pPlay.add(137);
+		myGame.changePlayer();
+		myGame.currentPlayer.pPlay.add(100);
+		myGame.funcs.func28Init();
+		assertEquals(cLevel+1, myGame.currentPlayer.cLevel);
+	}
 }
 	
 

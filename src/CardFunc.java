@@ -218,7 +218,13 @@ public class CardFunc {
 	public void func27(boolean checkWin) {
 		if(checkWin) {
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+		} else {
+			//Discard cards depending on the user, must add up to 500 gold.
 		}
+	}
+	
+	public void func28Init() {
+		
 	}
 	
 	public void end(){
