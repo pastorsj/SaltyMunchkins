@@ -209,6 +209,10 @@ public class CardFunc {
 		}
 	}
 	
+	public void func27Init() {
+		
+	}
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;
