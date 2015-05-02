@@ -351,6 +351,21 @@ public class CardFuncTesting {
 		myGame.funcs.func26(true);
 		assertEquals(sizeOfHand+1, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func26Test2() {
+		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.className = "Investigator";
+		myGame.changePlayer();
+		int sizeOfOtherHand = myGame.currentPlayer.pHand.size();
+		myGame.currentPlayer.className = "Cultist";
+		myGame.changePlayer();
+		myGame.funcs.func26(false);
+		assertEquals(sizeOfHand - 1, myGame.currentPlayer.pHand.size());
+		myGame.changePlayer();
+		assertEquals(sizeOfOtherHand + 1, myGame.currentPlayer.pHand.size());
+		myGame.changePlayer();
+	}
 }
 	
 
