@@ -259,7 +259,14 @@ public class CardFunc {
 		if(checkWin) {
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-		} 
+		} else {
+			//Give a card to another player
+			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
+			myGame.currentPlayer.pHand.remove(myGame.currentPlayer.pHand.size()-1);
+			myGame.changePlayer();
+			myGame.currentPlayer.pHand.add(card);
+			myGame.changePlayer();
+		}
 	}
 	
 	public void func29Init() {
