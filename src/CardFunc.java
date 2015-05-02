@@ -210,7 +210,9 @@ public class CardFunc {
 	}
 	
 	public void func27Init() {
-		
+		if(myGame.currentPlayer.className.equals("Professor")) {
+			myGame.currentPlayer.cLevel -= 2;
+		}
 	}
 	
 	public void end(){
