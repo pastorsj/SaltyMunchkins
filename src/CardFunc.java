@@ -259,7 +259,7 @@ public class CardFunc {
 		if(checkWin) {
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-		}
+		} 
 	}
 	
 	public void func29Init() {

@@ -442,6 +442,21 @@ public class CardFuncTesting {
 	}
 	
 	@Test
+	public void func28Test2() {
+		//We need to check that the player gives another card to the other player
+		//Will change once implemented with gui
+		//Right now, it will take the last card in the current players hand and give it to the other player
+		int size1 = myGame.currentPlayer.pHand.size();
+		myGame.changePlayer();
+		myGame.currentPlayer.pHand.remove(size1-1);
+		int size2 = myGame.currentPlayer.pHand.size();
+		myGame.changePlayer();
+		myGame.funcs.func28(false);
+		assertEquals(size1-1, myGame.currentPlayer.pHand.size());
+		assertEquals(size2, myGame.currentPlayer.pHand.size());
+	}
+	
+	@Test
 	public void func29InitTest() {
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func29Init();
