@@ -610,4 +610,11 @@ public class CardFuncTesting {
 		myGame.funcs.func37(true);
 		assertEquals(size, myGame.currentPlayer.pHand.size());
 	}
+	
+	@Test
+	public void func37Test2() {
+		int size = myGame.currentPlayer.pHand.size();
+		myGame.funcs.func37(false);
+		assertEquals(0, myGame.currentPlayer.pHand.size());
+	}
 }
