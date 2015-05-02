@@ -427,7 +427,9 @@ public class CardFunc {
 	}
 	
 	public void func38Init() {
-		
+		if(myGame.currentPlayer.className.equals("Cultist")) {
+			myGame.currentPlayer.cLevel -= 4;
+		}
 	}
 	
 	public void func38(boolean checkWin) {
