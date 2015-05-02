@@ -328,7 +328,31 @@ public class CardFunc {
 				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
 			}
 		} else {
-			//Need to discard all Ichor cards	
+			//Need to discard all Ichor cards
+			if(myGame.currentPlayer.pHand.contains(85)) {
+				myGame.discardCard(myGame.currentPlayer, 85);
+			}
+			if(myGame.currentPlayer.pHand.contains(100)) {
+				myGame.discardCard(myGame.currentPlayer, 100);
+			}
+			if(myGame.currentPlayer.pHand.contains(101)) {
+				myGame.discardCard(myGame.currentPlayer, 101);
+			}
+			if(myGame.currentPlayer.pHand.contains(105)) {
+				myGame.discardCard(myGame.currentPlayer, 105);
+			}
+			if(myGame.currentPlayer.pHand.contains(127)) {
+				myGame.discardCard(myGame.currentPlayer, 127);
+			}
+			if(myGame.currentPlayer.pHand.contains(132)) {
+				myGame.discardCard(myGame.currentPlayer, 132);
+			}
+			if(myGame.currentPlayer.pHand.contains(137)) {
+				myGame.discardCard(myGame.currentPlayer, 137);
+			}
+			if(myGame.currentPlayer.pHand.contains(142)) {
+				myGame.discardCard(myGame.currentPlayer, 142);
+			}
 		}
 	}
 	
