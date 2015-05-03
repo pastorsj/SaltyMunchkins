@@ -443,6 +443,14 @@ public class CardFunc {
 		}
 	}
 	
+	public void func39Init() {
+		
+	}
+	
+	public void func39(boolean checkWin) {
+		
+	}
+	
 	public void end(){
 		if(myGame.turnPlayer==1){
 			myGame.p1=p;

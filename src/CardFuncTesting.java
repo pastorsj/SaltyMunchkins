@@ -642,4 +642,12 @@ public class CardFuncTesting {
 		assertEquals(0, myGame.currentPlayer.pHand.size());
 		assertEquals("Cultist", myGame.currentPlayer.className);
 	}
+	
+	@Test
+	public void func39InitTest() {
+		myGame.currentPlayer.className = "Investigator";
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func39Init();
+		assertEquals(level-3, myGame.currentPlayer.cLevel);
+	}
 }
