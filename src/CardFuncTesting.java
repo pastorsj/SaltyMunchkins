@@ -647,5 +647,13 @@ public class CardFuncTesting {
 		myGame.funcs.func42(true);
 		assertEquals(2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
+	
+	@Test
+	public void func42Test2() {
+		//Need to deal one less treasure card to the current player
+		myGame.funcs.func36(true);
+		myGame.funcs.func42(true);
+		assertEquals(1, myGame.currentPlayer.treasuresWonEachTurn);
+	}
 
 }
