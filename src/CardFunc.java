@@ -458,7 +458,9 @@ public class CardFunc {
 	}
 	
 	public void func43(boolean checkWin) {
-		
+		if(checkWin) {
+			myGame.currentPlayer.treasuresWonEachTurn += 2;
+		}
 	}
 	
 	/*
