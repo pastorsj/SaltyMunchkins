@@ -457,13 +457,20 @@ public class CardFunc {
 		}
 	}
 	
-	public void func40Init() {
+	public void func42Init() {
 		myGame.currentPlayer.cLevel += 5;
 	}
 	
-	public void func40(boolean checkWin) {
-		
+	public void func42(boolean checkWin) {
+		if(checkWin) {
+			//If you win, you are dealt one less treasure card, minimum of 1
+		}
 	}
+	
+	/*
+	 * We need an end function that deals out the treasure cards, so that means that the player needs
+	 * to have a number of treasures to be dealt field.
+	 */
 	
 	public void end(){
 		if(myGame.turnPlayer==1){

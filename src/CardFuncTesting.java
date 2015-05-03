@@ -668,10 +668,18 @@ public class CardFuncTesting {
 	}
 	
 	@Test
-	public void func40TestInit() {
+	public void func42TestInit() {
 		int level = myGame.currentPlayer.cLevel;
-		myGame.funcs.func40Init();
+		myGame.funcs.func42Init();
 		assertEquals(level + 5, myGame.currentPlayer.cLevel);
 	}
+	
+	@Test
+	public void func42Test() {
+		//Need to deal one less treasure card to the current player
+	}
+	
+	@Test
+	public void 
 	
 }
