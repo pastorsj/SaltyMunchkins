@@ -464,11 +464,11 @@ public class CardFunc {
 	}
 	
 	public void func44Init() {
-		
+		myGame.currentPlayer.className = "Investigator";
 	}
 	
 	public void func44(boolean checkWin) {
-		
+		//Need to add class abilities...
 	}
 	
 	/*
