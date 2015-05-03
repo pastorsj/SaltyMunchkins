@@ -24,7 +24,7 @@ public class CardFunc {
 		//+5 to Monster
 		//If win, draw extra treasure
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		}
 	}
 	
@@ -36,7 +36,7 @@ public class CardFunc {
 	
 	public void func2(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		}else {
 			if(!myGame.currentPlayer.className.equals("Cultist")) {
 				myGame.currentPlayer.className = "";				
@@ -53,7 +53,7 @@ public class CardFunc {
 	
 	public void func7(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			//Discard a card in your hand
 			myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));
@@ -68,8 +68,7 @@ public class CardFunc {
 	
 	public void func8(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 2;
 		} else {
 			myGame.currentPlayer.pLevel -= 2;
 			if(myGame.currentPlayer.pLevel<1) {
@@ -209,9 +208,7 @@ public class CardFunc {
 	
 	public void func26(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 3;
 		} else {
 			//Right now, we will take the last card from the current player and give it to the other player
 			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
@@ -230,7 +227,7 @@ public class CardFunc {
 	
 	public void func27(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			//Discard cards depending on the user, must add up to 500 gold.
 		}
@@ -270,8 +267,7 @@ public class CardFunc {
 	
 	public void func28(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 2;
 		} else {
 			//Give a card to another player
 			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
@@ -288,8 +284,7 @@ public class CardFunc {
 	
 	public void func29(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 2;
 		}
 	}
 	
@@ -301,9 +296,7 @@ public class CardFunc {
 	
 	public void func30(boolean checkWin) {
 		if(checkWin) {
-			for(int i = 0; i < 3; i++) {
-				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			}
+			myGame.currentPlayer.treasuresWonEachTurn += 3;
 		} else {
 			//Need to call a win method for the other player, such as playerWin(myGame.currentPlayer);
 		}
@@ -325,9 +318,7 @@ public class CardFunc {
 	
 	public void func32(boolean checkWin) {
 		if(checkWin) {
-			for(int i = 0; i < 3; i++) {
-				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			}
+			myGame.currentPlayer.treasuresWonEachTurn += 3;
 		} else {
 			//Need to discard all Ichor cards
 			if(myGame.currentPlayer.pHand.contains(85)) {
@@ -365,8 +356,7 @@ public class CardFunc {
 	
 	public void func33(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 2;
 		} else {
 			//Can't help others until you go up a level...
 		}
@@ -387,9 +377,7 @@ public class CardFunc {
 	
 	public void func35(boolean checkWin) {
 		if(checkWin) {
-			for(int i = 0; i < 4; i++) {
-				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			}
+			myGame.currentPlayer.treasuresWonEachTurn += 4;
 		} else {
 			//You must help the other person in combat
 		}
@@ -404,7 +392,7 @@ public class CardFunc {
 	
 	public void func36(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			myGame.currentPlayer.pLevel -= 1;
 		}
@@ -418,9 +406,7 @@ public class CardFunc {
 	
 	public void func37(boolean checkWin) {
 		if(checkWin) {
-			for(int i = 0; i < 3; i++) {
-				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			}
+			myGame.currentPlayer.treasuresWonEachTurn += 3;
 		} else {
 			myGame.currentPlayer.pHand = new ArrayList<Integer>();
 		}
@@ -434,9 +420,7 @@ public class CardFunc {
 	
 	public void func38(boolean checkWin) {
 		if(checkWin) {
-			for(int i = 0; i < 5; i++) {
-				myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			}
+			myGame.currentPlayer.treasuresWonEachTurn += 5;
 		} else {
 			myGame.currentPlayer.className = "Cultist";
 			myGame.currentPlayer.pHand = new ArrayList<Integer>();
@@ -452,8 +436,7 @@ public class CardFunc {
 	
 	public void func39(boolean checkWin) {
 		if(checkWin) {
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
-			myGame.dealNewCardTest(myGame.treasures, myGame.currentPlayer);
+			myGame.currentPlayer.treasuresWonEachTurn += 2;
 		}
 	}
 	
@@ -463,7 +446,10 @@ public class CardFunc {
 	
 	public void func42(boolean checkWin) {
 		if(checkWin) {
-			//If you win, you are dealt one less treasure card, minimum of 1
+			myGame.currentPlayer.treasuresWonEachTurn -= 1;
+			if(myGame.currentPlayer.treasuresWonEachTurn < 1) {
+				myGame.currentPlayer.treasuresWonEachTurn = 1;
+			}
 		}
 	}
 	

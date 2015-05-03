@@ -10,6 +10,7 @@ public class Player {
 	public char gender = 'F';
 	public int pLevel=1; //actual level of player
 	public int cLevel=pLevel; //the level a player is with door cards in combat
+	public int treasuresWonEachTurn = 0;
 	public InitializeCards initCards = new InitializeCards();
 	
 	public Player(String name){

@@ -46,17 +46,16 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func1Test() throws IOException {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func1(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
 	public void func1Test2() throws IOException {
-		int size = myGame.currentPlayer.pHand.size();
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func1(false);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -77,28 +76,27 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func2Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.currentPlayer.className = "Monster Whacker";
 		myGame.funcs.func2(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
 	public void func2Test2() {
-		int size = myGame.currentPlayer.pHand.size();
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.currentPlayer.className = "Monster Whacker";
 		myGame.funcs.func2(false);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.treasuresWonEachTurn);
 		assertEquals("", myGame.currentPlayer.className);
 	}
 	
 	@Test
 	public void func2Test3() {
 		myGame.currentPlayer.className = "Cultist";
-		int sizeOfHand = myGame.currentPlayer.pHand.size();
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func2(false);
-		assertEquals(sizeOfHand, myGame.currentPlayer.pHand.size());
+		assertEquals(size, myGame.currentPlayer.treasuresWonEachTurn);
 		assertEquals("Cultist", myGame.currentPlayer.className);
 	}
 	
@@ -120,10 +118,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func7Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func7(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -135,7 +132,6 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func8InitTest() {
-		myGame.currentPlayer.pHand = myGame.dealCards();
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func8Init();
 		assertEquals(cLevel-3, myGame.currentPlayer.cLevel);
@@ -143,7 +139,6 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func8InitTest2() {
-		myGame.currentPlayer.pHand = myGame.dealCards();
 		myGame.currentPlayer.pHand.remove(0);
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func8Init();
@@ -152,11 +147,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func8Test() {
-		int sizeOfHand = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(sizeOfHand-1);
-		myGame.currentPlayer.pHand.remove(sizeOfHand-2);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func8(true);
-		assertEquals(sizeOfHand, myGame.currentPlayer.pHand.size());
+		assertEquals(size+2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -368,12 +361,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func26Test() {
-		int sizeOfHand = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(sizeOfHand-1);
-		myGame.currentPlayer.pHand.remove(sizeOfHand-2);
-		myGame.currentPlayer.pHand.remove(sizeOfHand-3);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func26(true);
-		assertEquals(sizeOfHand, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 3, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -401,10 +391,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func27Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func27(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -434,11 +423,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func28Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
-		myGame.currentPlayer.pHand.remove(size-2);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func28(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -465,11 +452,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func29Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
-		myGame.currentPlayer.pHand.remove(size-2);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func29(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -482,12 +467,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func30Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
-		myGame.currentPlayer.pHand.remove(size-2);
-		myGame.currentPlayer.pHand.remove(size-3);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func30(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 3, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -499,11 +481,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func32Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
-		myGame.currentPlayer.pHand.remove(size-2);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func32(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 3, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -527,11 +507,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func33Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
-		myGame.currentPlayer.pHand.remove(size-2);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func33(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size+2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -552,12 +530,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func35Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		for(int i = 0; i < 4; i++) {
-			myGame.currentPlayer.pHand.remove(i);
-		}
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func35(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size+4, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -580,10 +555,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func36Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func36(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -603,12 +577,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func37Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size - 1);
-		myGame.currentPlayer.pHand.remove(size - 2);
-		myGame.currentPlayer.pHand.remove(size - 3);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func37(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size+3, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -628,12 +599,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func38Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		for(int i = 1; i <= 5; i++) {
-			myGame.currentPlayer.pHand.remove(size-i);
-		}
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func38(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size + 5, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -660,11 +628,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func39Test() {
-		int size = myGame.currentPlayer.pHand.size();
-		myGame.currentPlayer.pHand.remove(size-1);
-		myGame.currentPlayer.pHand.remove(size-2);
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func39(true);
-		assertEquals(size, myGame.currentPlayer.pHand.size());
+		assertEquals(size+2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 	@Test
@@ -678,8 +644,5 @@ public class CardFuncTesting {
 	public void func42Test() {
 		//Need to deal one less treasure card to the current player
 	}
-	
-	@Test
-	public void 
-	
+
 }
