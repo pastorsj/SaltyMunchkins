@@ -458,7 +458,7 @@ public class CardFunc {
 	}
 	
 	public void func40Init() {
-		
+		myGame.currentPlayer.cLevel += 5;
 	}
 	
 	public void func40(boolean checkWin) {
