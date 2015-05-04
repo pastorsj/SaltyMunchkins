@@ -698,4 +698,6 @@ public class CardFuncTesting {
 		myGame.funcs.func46(true);
 		assertEquals(size+2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
+	
+	
 }
