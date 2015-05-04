@@ -576,6 +576,13 @@ public class CardFunc {
 		}
 	}
 	
+	public void func57Init() {
+		
+	}
+	
+	public void func57() {
+		
+	}
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
 	 * to have a number of treasures to be dealt field.
