@@ -577,7 +577,7 @@ public class CardFunc {
 	}
 	
 	public void func57Init() {
-		
+		myGame.currentPlayer.className = "Professor";
 	}
 	
 	public void func57() {
