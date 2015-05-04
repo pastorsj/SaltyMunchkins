@@ -529,7 +529,15 @@ public class CardFunc {
 	}
 	
 	public void func52Init() {
-		
+		if(myGame.turnPlayer == 1) {
+			if(myGame.p1.pLevel < myGame.p2.pLevel) {
+				myGame.currentPlayer.cLevel -= 4;
+			}
+		} else {
+			if(myGame.p2.pLevel < myGame.p1.pLevel) {
+				myGame.currentPlayer.cLevel -= 4;
+			}
+		}
 	}
 	
 	public void func52(boolean checkWin) {
