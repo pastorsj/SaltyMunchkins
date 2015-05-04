@@ -563,7 +563,9 @@ public class CardFunc {
 	}
 	
 	public void func55Init() {
-		
+		if(myGame.currentPlayer.className.equals("Professor")) {
+			myGame.currentPlayer.cLevel -= 3;
+		}
 	}
 	
 	public void func55(boolean checkWin) {
