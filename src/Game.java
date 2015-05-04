@@ -29,9 +29,11 @@ public class Game {
 	
 	public void changePlayer() {
 		if(turnPlayer == 1) {
+			p1 = currentPlayer;
 			currentPlayer = p2;
 			turnPlayer = 2;
 		} else {
+			p2 = currentPlayer;
 			currentPlayer = p1;
 			turnPlayer = 1;
 		}

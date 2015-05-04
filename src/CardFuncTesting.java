@@ -753,4 +753,20 @@ public class CardFuncTesting {
 		assertEquals(size + 4, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+	@Test
+	public void func51Test2() {
+		//Need a discard method...
+	}
+	
+	@Test
+	public void func52InitTest() {
+		myGame.currentPlayer.pLevel = 1;
+		myGame.changePlayer();
+		myGame.currentPlayer.pLevel = 2;
+		myGame.changePlayer();
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func52Init();
+		assertEquals(level - 4, myGame.currentPlayer.cLevel);
+	}
+	
 }
