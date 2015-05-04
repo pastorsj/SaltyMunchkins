@@ -591,6 +591,8 @@ public class CardFunc {
 	public void func59(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
+		} else {
+			myGame.currentPlayer.className = "Cultist";
 		}
 	}
 	/*
