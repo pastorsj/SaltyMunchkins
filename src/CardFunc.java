@@ -517,7 +517,9 @@ public class CardFunc {
 	}
 	
 	public void func51Init() {
-		
+		if(myGame.currentPlayer.gender == 'M') {
+			myGame.currentPlayer.cLevel -= 3;
+		}
 	}
 	
 	public void func51(boolean checkWin) {
