@@ -732,4 +732,23 @@ public class CardFuncTesting {
 		myGame.funcs.func49Init();
 		assertEquals("Monster Whacker", myGame.currentPlayer.className);
 	}
+	
+	@Test
+	public void func49Test() {
+		//Need to test for class abilities
+	}
+	
+	@Test
+	public void func51InitTest() {
+		myGame.currentPlayer.gender = 'M';
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func51Init();
+		assertEquals(level - 3, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func51Test() {
+		
+	}
+	
 }
