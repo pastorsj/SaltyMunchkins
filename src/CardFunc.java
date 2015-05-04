@@ -581,7 +581,17 @@ public class CardFunc {
 	}
 	
 	public void func57() {
-		
+		//Need to add class abilities
+	}
+	
+	public void func58(boolean checkWin) {
+		//Same as func3()
+	}
+	
+	public void func59(boolean checkWin) {
+		if(checkWin) {
+			myGame.currentPlayer.treasuresWonEachTurn += 1;
+		}
 	}
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
