@@ -678,16 +678,17 @@ public class CardFuncTesting {
 	}
 	
 	@Test
-	public void func44Test() {
-		int size = myGame.currentPlayer.treasuresWonEachTurn;
-		myGame.funcs.func44(true);
-		assertEquals(size+1, myGame.currentPlayer.treasuresWonEachTurn);
-	}
-	
-	@Test
 	public void func45Test() {
 		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func45(true);
 		assertEquals(size+1, myGame.currentPlayer.treasuresWonEachTurn);
+	}
+	
+	@Test
+	public void func46InitTest() {
+		myGame.currentPlayer.className = "Cultist";
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func46Init();
+		assertEquals(level+2, myGame.currentPlayer.cLevel);
 	}
 }
