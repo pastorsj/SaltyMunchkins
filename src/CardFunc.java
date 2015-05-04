@@ -20,7 +20,7 @@ public class CardFunc {
 		myGame.currentPlayer.cLevel -= 5;
 	}
 	
-	public void func1(boolean checkWin) throws IOException {
+	public void func1(boolean checkWin) {
 		//+5 to Monster
 		//If win, draw extra treasure
 		if(checkWin) {
@@ -492,7 +492,28 @@ public class CardFunc {
 	}
 	
 	public void func47(boolean checkWin) {
+		if(checkWin) {
+			myGame.currentPlayer.treasuresWonEachTurn += 1;
+		} else {
+			//Anyone who helps loses a level
+			//You don't lose anything if you lose
+		}
+	}
+	
+	public void func48Init() {
+		func1Init();
+	}
+	
+	public void func48(boolean checkWin) {
+		func1(checkWin);
+	}
+	
+	public void func49Init() {
 		
+	}
+	
+	public void func49() {
+		//Need to add class abilities
 	}
 	
 	/*

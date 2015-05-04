@@ -52,7 +52,7 @@ public class CardFuncTesting {
 	}
 	
 	@Test
-	public void func1Test2() throws IOException {
+	public void func1Test2() {
 		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func1(false);
 		assertEquals(size, myGame.currentPlayer.treasuresWonEachTurn);
@@ -711,5 +711,25 @@ public class CardFuncTesting {
 		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func47(true);
 		assertEquals(size+1, myGame.currentPlayer.treasuresWonEachTurn);
+	}
+	
+	@Test
+	public void func48TestInit() {
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.funcs.func48Init();
+		assertEquals(cLevel-5, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func48Test() {
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		myGame.funcs.func48(true);
+		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
+	}
+	
+	@Test
+	public void func49InitTest() {
+		myGame.funcs.func49Init();
+		assertEquals("Monster Whacker", myGame.currentPlayer.className);
 	}
 }
