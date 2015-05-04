@@ -769,4 +769,16 @@ public class CardFuncTesting {
 		assertEquals(level - 4, myGame.currentPlayer.cLevel);
 	}
 	
+	@Test
+	public void func52InitTest2() {
+		myGame.changePlayer();
+		myGame.currentPlayer.pLevel = 2; //P2
+		myGame.changePlayer();
+		myGame.currentPlayer.pLevel = 3; //P1
+		myGame.changePlayer();
+		int level = myGame.currentPlayer.cLevel; //P2
+		myGame.funcs.func52Init();
+		assertEquals(level - 4, myGame.currentPlayer.cLevel);
+	}
+	
 }
