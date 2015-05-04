@@ -543,7 +543,18 @@ public class CardFunc {
 	public void func52(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 2;
+		} else {
+			//Other players takes one of your cards in play
 		}
+	}
+	
+	public void func54Init() {
+		//Does not pursue of Level 4 or below (No roll dice)
+		//Defeated by Song of Madness, but you become a Cultist
+	}
+	
+	public void func54(boolean checkWin) {
+		
 	}
 	
 	/*

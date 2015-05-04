@@ -788,6 +788,15 @@ public class CardFuncTesting {
 		assertEquals(size + 2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+	@Test
+	public void func54InitTest() {
+		
+	}
 	
-	
+	@Test
+	public void func54Test() {
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		myGame.funcs.func54(true);
+		assertEquals(size + 4, myGame.currentPlayer.treasuresWonEachTurn);
+	}
 }
