@@ -571,6 +571,8 @@ public class CardFunc {
 	public void func55(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
+		} else {
+			myGame.currentPlayer.pLevel -= 1;
 		}
 	}
 	
