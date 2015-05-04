@@ -509,7 +509,7 @@ public class CardFunc {
 	}
 	
 	public void func49Init() {
-		
+		myGame.currentPlayer.className = "Monster Whacker";
 	}
 	
 	public void func49() {
