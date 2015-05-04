@@ -823,7 +823,12 @@ public class CardFuncTesting {
 		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
-	
+	@Test
+	public void func55Test2() {
+		int level = myGame.currentPlayer.pLevel;
+		myGame.funcs.func55(false);
+		assertEquals(level - 1, myGame.currentPlayer.pLevel);
+	}
 	
 	
 }
