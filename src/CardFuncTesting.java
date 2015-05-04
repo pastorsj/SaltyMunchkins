@@ -676,4 +676,11 @@ public class CardFuncTesting {
 		myGame.funcs.func44Init();
 		assertEquals("Investigator", myGame.currentPlayer.className);
 	}
+	
+	@Test
+	public void func45Test() {
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		myGame.funcs.func45(true);
+		assertEquals(size+1, myGame.currentPlayer.treasuresWonEachTurn);
+	}
 }
