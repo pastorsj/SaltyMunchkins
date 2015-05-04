@@ -790,13 +790,33 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func54InitTest() {
-		
+		//Not sure what to do here...
 	}
 	
 	@Test
 	public void func54Test() {
 		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		int level = myGame.currentPlayer.pLevel;
 		myGame.funcs.func54(true);
 		assertEquals(size + 6, myGame.currentPlayer.treasuresWonEachTurn);
+		assertEquals(level + 2, myGame.currentPlayer.pLevel);
 	}
+	
+	@Test
+	public void func54Test2() {
+		//If you lose, you die
+		//Need to test for this
+	}
+	
+	@Test
+	public void func55InitTest() {
+		myGame.currentPlayer.className = "Professor";
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func55Init();
+		assertEquals(level - 3, myGame.currentPlayer.cLevel);
+	}
+	
+	
+	
+	
 }

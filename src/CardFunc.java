@@ -556,7 +556,18 @@ public class CardFunc {
 	public void func54(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 6;
+			myGame.currentPlayer.pLevel += 2;
+		} else {
+			//You die, need to call the player lose for this person.
 		}
+	}
+	
+	public void func55Init() {
+		
+	}
+	
+	public void func55(boolean checkWin) {
+		
 	}
 	
 	/*
