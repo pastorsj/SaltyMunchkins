@@ -595,6 +595,15 @@ public class CardFunc {
 			myGame.currentPlayer.className = "Cultist";
 		}
 	}
+	
+	public void func60Init() {
+		func1Init();
+	}
+	
+	public void func60(boolean checkWin) {
+		func1(checkWin);
+	}
+	
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
 	 * to have a number of treasures to be dealt field.
