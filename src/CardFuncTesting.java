@@ -882,4 +882,12 @@ public class CardFuncTesting {
 		//Need to test that the player died...
 	}
 	
+	@Test
+	public void func62InitTest() {
+		myGame.currentPlayer.className = "Cultist";
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func62Init();
+		assertEquals(level - 3, myGame.currentPlayer.cLevel);
+	}
+	
 }

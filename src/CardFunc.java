@@ -618,6 +618,14 @@ public class CardFunc {
 		}
 	}
 	
+	public void func62Init() {
+		
+	}
+	
+	public void func62(boolean checkWin) {
+		
+	}
+	
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
 	 * to have a number of treasures to be dealt field.
