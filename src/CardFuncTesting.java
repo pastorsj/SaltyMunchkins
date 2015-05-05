@@ -877,4 +877,9 @@ public class CardFuncTesting {
 		assertEquals(size + 2, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+	@Test
+	public void func61Test2() {
+		//Need to test that the player died...
+	}
+	
 }
