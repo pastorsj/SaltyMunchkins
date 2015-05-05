@@ -862,4 +862,12 @@ public class CardFuncTesting {
 		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+	@Test
+	public void func61InitTest() {
+		myGame.currentPlayer.className = "Professor";
+		int level = myGame.currentPlayer.cLevel;
+		myGame.funcs.func61Init();
+		assertEquals(level - 2, myGame.currentPlayer.cLevel);
+	}
+	
 }
