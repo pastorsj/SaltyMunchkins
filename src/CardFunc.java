@@ -713,7 +713,9 @@ public class CardFunc {
 	}
 	
 	public void func71Init() {
-		
+		if(myGame.currentPlayer.gender == 'F') {
+			myGame.currentPlayer.cLevel -= 2;
+		}
 	}
 	
 	public void func71(boolean checkWin) {
