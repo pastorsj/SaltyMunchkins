@@ -698,6 +698,11 @@ public class CardFunc {
 		}
 	}
 	
+	public void func70(boolean checkWin) {
+		
+	}
+	
+	
 	
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs

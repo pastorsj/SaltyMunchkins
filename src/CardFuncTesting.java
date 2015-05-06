@@ -1015,4 +1015,11 @@ public class CardFuncTesting {
 		assertEquals("Cultist", myGame.currentPlayer.className);
 	}
 	
+	@Test
+	public void func70Test() {
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		myGame.funcs.func70(true);
+		assertEquals(size + 2, myGame.currentPlayer.treasuresWonEachTurn);
+	}
+	
 }
