@@ -24,6 +24,8 @@ public class CardFunc {
 		//If win, draw extra treasure
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
+			getTreasFromWin();
+			
 		}
 	}
 	
@@ -509,7 +511,7 @@ public class CardFunc {
 	public void func38Init() {
 		//+4 to any non cultists
 		if(!myGame.currentPlayer.className.equals("Cultist")) {
-			myGame.currentPlayer.cLevel += 4;
+			myGame.currentPlayer.cLevel -= 4;
 		}
 	}
 	
@@ -1024,30 +1026,13 @@ public class CardFunc {
 	public void func80(boolean checkWin) {
 		func1(checkWin);
 	}
-	
-	public void func89(){
-		myGame.currentPlayer.pLevel++;
+	//deal cards after a win
+	public void getTreasFromWin(){
+		for(int i = 0; i<myGame.currentPlayer.treasuresWonEachTurn;i++){
+			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+		}
 	}
 	
-	public void func94(){
-		func89();
-	}
-	
-	public void func102(){
-		func89();
-	}
-	
-	public void func104(){
-		func89();
-	}
-	
-	public void func107(){
-		func89();
-	}
-	
-	public void func115() {
-		func89();
-	}
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
 	 * to have a number of treasures to be dealt field.
@@ -1061,4 +1046,5 @@ public class CardFunc {
 			myGame.p2=p;
 		}
 	}
+
 }

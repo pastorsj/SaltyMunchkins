@@ -1141,13 +1141,7 @@ public class CardFuncTesting {
 		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	
-=======
-=======
-	
->>>>>>> 3bdf47bcf3d2cdce2d30b67650d3caeace48604e
+
 	@Test
 	public void func89Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
@@ -1173,19 +1167,14 @@ public class CardFuncTesting {
 		myGame.funcs.func104();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
-<<<<<<< HEAD
->>>>>>> origin/master
-=======
-	
+
 	@Test
 	public void func107Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
 		myGame.funcs.func107();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
-<<<<<<< HEAD
->>>>>>> 3bdf47bcf3d2cdce2d30b67650d3caeace48604e
-=======
+
 	
 	@Test
 	public void func115Test() {
@@ -1193,5 +1182,5 @@ public class CardFuncTesting {
 		myGame.funcs.func115();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
->>>>>>> ff554465ef14ec717dc5eed84896d3911d197486
+
 }

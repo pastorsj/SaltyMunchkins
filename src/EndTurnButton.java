@@ -40,10 +40,12 @@ public class EndTurnButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 		if(myGame.turnPlayer==1){
-			myGame.turnPlayer=2;
+			//myGame.turnPlayer=2;
+			myGame.changePlayer();
 		}
 		else{
-			myGame.turnPlayer=1;
+			//myGame.turnPlayer=1;
+			myGame.changePlayer();
 		}
 		
 		
