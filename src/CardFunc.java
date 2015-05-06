@@ -760,6 +760,14 @@ public class CardFunc {
 		myGame.currentPlayer.cLevel -= 3;
 	}
 	
+	public void func78Init() {
+		
+	}
+	
+	public void func78(boolean checkWin) {
+		
+	}
+	
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
 	 * to have a number of treasures to be dealt field.
