@@ -721,7 +721,17 @@ public class CardFunc {
 	public void func71(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 3;
+		} else {
+			//Discard all helpful class cards
 		}
+	}
+	
+	public void func72Init() {
+		
+	}
+	
+	public void func72(boolean checkWin) {
+		
 	}
 	
 	
