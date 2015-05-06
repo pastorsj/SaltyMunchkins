@@ -976,10 +976,10 @@ public class CardFuncTesting {
 	@Test
 	public void func65Test3() {
 		myGame.currentPlayer.pLevel = 4;
-		int p1level = 3;
+		int p1level = 4;
 		myGame.changePlayer();
 		myGame.currentPlayer.pLevel = 3;
-		int p2level = 4;
+		int p2level = 3;
 		myGame.changePlayer();
 		myGame.funcs.func65(false);
 		assertEquals(p1level, myGame.currentPlayer.pLevel);

@@ -673,6 +673,9 @@ public class CardFunc {
 			if(level1 < level2) {
 				myGame.changePlayer();
 				myGame.currentPlayer.pLevel -= 1;
+			} else if(level1 > level2) {
+				myGame.currentPlayer.pLevel += 1;
+				myGame.changePlayer();
 			}
 		}
 	}
