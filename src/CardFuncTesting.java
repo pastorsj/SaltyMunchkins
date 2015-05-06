@@ -1001,4 +1001,18 @@ public class CardFuncTesting {
 		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+	@Test
+	public void func67Test() {
+		myGame.currentPlayer.className = "Cultist";
+		myGame.funcs.func67();
+		assertEquals("", myGame.currentPlayer.className);
+	}
+	
+	@Test
+	public void func67Test2() {
+		myGame.currentPlayer.className = "Investigator";
+		myGame.funcs.func67();
+		assertEquals("Cultist", myGame.currentPlayer.className);
+	}
+	
 }
