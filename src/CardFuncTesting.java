@@ -930,7 +930,9 @@ public class CardFuncTesting {
 	@Test
 	public void func64Test() {
 		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		int level = myGame.currentPlayer.pLevel;
 		myGame.funcs.func64(true);
+		assertEquals(level + 2, myGame.currentPlayer.pLevel);
 		assertEquals(size + 4, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 }

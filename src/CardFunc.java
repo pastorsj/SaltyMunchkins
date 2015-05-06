@@ -648,7 +648,10 @@ public class CardFunc {
 	}
 	
 	public void func64(boolean checkWin) {
-		
+		if(checkWin) {
+			myGame.currentPlayer.treasuresWonEachTurn += 4;
+			myGame.currentPlayer.pLevel += 2;
+		}
 	}
 	
 	/*
