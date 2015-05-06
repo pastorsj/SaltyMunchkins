@@ -702,6 +702,13 @@ public class CardFunc {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 2;
 			myGame.dealNewCardTest(myGame.doors, myGame.currentPlayer);
+		} else {
+			//Discard all door cards
+			for(int i = 0; i < myGame.currentPlayer.pHand.size(); i++) {
+				if(myGame.currentPlayer.pHand.get(i) <= 82) {
+					myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(i));
+				}
+			}
 		}
 	}
 	
