@@ -757,7 +757,7 @@ public class CardFunc {
 	}
 	
 	public void func76Init() {
-		
+		myGame.currentPlayer.cLevel -= 3;
 	}
 	
 	/*
