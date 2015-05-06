@@ -1061,9 +1061,19 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func74Init() {
+		myGame.currentPlayer.gender = 'M';
 		int level = myGame.currentPlayer.cLevel;
 		myGame.funcs.func74Init();
 		assertEquals(level + 2, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func74Test() {
+		int level = myGame.currentPlayer.pLevel;
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		myGame.funcs.func74(true);
+		assertEquals(level + 2, myGame.currentPlayer.pLevel);
+		assertEquals(size + 4, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
 }
