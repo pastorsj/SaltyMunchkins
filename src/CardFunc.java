@@ -1028,6 +1028,10 @@ public class CardFunc {
 	public void func89(){
 		myGame.currentPlayer.pLevel++;
 	}
+	
+	public void func94(){
+		func89();
+	}
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
 	 * to have a number of treasures to be dealt field.
