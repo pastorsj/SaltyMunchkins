@@ -699,7 +699,10 @@ public class CardFunc {
 	}
 	
 	public void func70(boolean checkWin) {
-		
+		if(checkWin) {
+			myGame.currentPlayer.treasuresWonEachTurn += 2;
+			myGame.dealNewCardTest(myGame.doors, myGame.currentPlayer);
+		}
 	}
 	
 	
