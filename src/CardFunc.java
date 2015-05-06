@@ -741,6 +741,7 @@ public class CardFunc {
 	}
 	
 	public void func74Init() {
+		//Won't pursue anyone of level 3 or below.
 		if(myGame.currentPlayer.gender == 'M') {
 			myGame.currentPlayer.cLevel += 2;
 		}
@@ -750,6 +751,8 @@ public class CardFunc {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 4;
 			myGame.currentPlayer.pLevel += 2;
+		} else {
+			myGame.currentPlayer.pLevel -= myGame.currentPlayer.pHand.size();
 		}
 	}
 	
