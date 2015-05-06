@@ -1105,4 +1105,18 @@ public class CardFuncTesting {
 		assertEquals(size + 3, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+	@Test
+	public void func79InitTest() {
+		//Test for pursuit level 4 or below
+	}
+	
+	@Test
+	public void func79Test() {
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		int level = myGame.currentPlayer.pLevel;
+		myGame.funcs.func79(true);
+		assertEquals(size + 5, myGame.currentPlayer.treasuresWonEachTurn);
+		assertEquals(level + 2, myGame.currentPlayer.pLevel);
+	}
+	
 }

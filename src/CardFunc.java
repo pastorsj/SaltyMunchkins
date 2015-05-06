@@ -769,7 +769,17 @@ public class CardFunc {
 	public void func78(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 3;
+		} else {
+			//Can't help others until you go up a level
 		}
+	}
+	
+	public void func79Init() {
+		//Add a field for pursuit (no pursuit of anyone lower than level 4)
+	}
+	
+	public void func79(boolean checkWin) {
+		
 	}
 	
 	/*
