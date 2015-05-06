@@ -735,10 +735,18 @@ public class CardFunc {
 	public void func72(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 2;
+		} else {
+			//Need to discard headgear and footgear somehow
 		}
 	}
 	
+	public void func74Init() {
+		
+	}
 	
+	public void func74(boolean checkWin) {
+		
+	}
 	
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
