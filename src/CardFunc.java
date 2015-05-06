@@ -666,6 +666,14 @@ public class CardFunc {
 	public void func65(boolean checkWin) {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 4;
+		} else {
+			int level1 = myGame.currentPlayer.pLevel;
+			myGame.changePlayer();
+			int level2 = myGame.currentPlayer.pLevel;
+			if(level1 < level2) {
+				myGame.changePlayer();
+				myGame.currentPlayer.pLevel -= 1;
+			}
 		}
 	}
 	
