@@ -591,10 +591,10 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func38InitTest() {
-		myGame.currentPlayer.className = "Cultist";
+		myGame.currentPlayer.className = "";
 		int level = myGame.currentPlayer.cLevel;
 		myGame.funcs.func38Init();
-		assertEquals(level - 4, myGame.currentPlayer.cLevel);
+		assertEquals(level + 4, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
@@ -1141,5 +1141,33 @@ public class CardFuncTesting {
 		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+<<<<<<< HEAD
 	
+=======
+	@Test
+	public void func89Test() {
+		int pLevel = myGame.currentPlayer.pLevel;
+		myGame.funcs.func89();
+		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
+	}
+	@Test
+	public void func94Test() {
+		int pLevel = myGame.currentPlayer.pLevel;
+		myGame.funcs.func94();
+		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
+	}
+	@Test
+	public void func102Test() {
+		int pLevel = myGame.currentPlayer.pLevel;
+		myGame.funcs.func102();
+		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
+	}	
+	
+	@Test
+	public void func104Test() {
+		int pLevel = myGame.currentPlayer.pLevel;
+		myGame.funcs.func104();
+		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
+	}
+>>>>>>> origin/master
 }

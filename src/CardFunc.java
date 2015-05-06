@@ -509,7 +509,7 @@ public class CardFunc {
 	public void func38Init() {
 		//+4 to any non cultists
 		if(!myGame.currentPlayer.className.equals("Cultist")) {
-			myGame.currentPlayer.cLevel -= 4;
+			myGame.currentPlayer.cLevel += 4;
 		}
 	}
 	
@@ -1025,6 +1025,21 @@ public class CardFunc {
 		func1(checkWin);
 	}
 	
+	public void func89(){
+		myGame.currentPlayer.pLevel++;
+	}
+	
+	public void func94(){
+		func89();
+	}
+	
+	public void func102(){
+		func89();
+	}
+	
+	public void func104(){
+		func89();
+	}
 	/*
 	 * We need an end function that deals out the treasure cards, so that means that the player needs
 	 * to have a number of treasures to be dealt field.
