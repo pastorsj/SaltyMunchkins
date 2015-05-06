@@ -651,6 +651,8 @@ public class CardFunc {
 		if(checkWin) {
 			myGame.currentPlayer.treasuresWonEachTurn += 4;
 			myGame.currentPlayer.pLevel += 2;
+		} else {
+			myGame.currentPlayer.pLevel -= 3;
 		}
 	}
 	

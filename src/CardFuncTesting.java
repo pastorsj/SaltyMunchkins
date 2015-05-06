@@ -941,6 +941,6 @@ public class CardFuncTesting {
 		//Need to discard footgear in play
 		int level = myGame.currentPlayer.pLevel;
 		myGame.funcs.func64(false);
-		assertEquals(level + 3, myGame.currentPlayer.pLevel);
+		assertEquals(level - 3, myGame.currentPlayer.pLevel);
 	}
 }
