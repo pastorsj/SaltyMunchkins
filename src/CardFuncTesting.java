@@ -935,4 +935,12 @@ public class CardFuncTesting {
 		assertEquals(level + 2, myGame.currentPlayer.pLevel);
 		assertEquals(size + 4, myGame.currentPlayer.treasuresWonEachTurn);
 	}
+	
+	@Test
+	public void func64Test2() {
+		//Need to discard footgear in play
+		int level = myGame.currentPlayer.pLevel;
+		myGame.funcs.func64(false);
+		assertEquals(level + 3, myGame.currentPlayer.pLevel);
+	}
 }
