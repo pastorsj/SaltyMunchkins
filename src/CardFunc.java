@@ -676,8 +676,18 @@ public class CardFunc {
 			} else if(level1 > level2) {
 				myGame.currentPlayer.pLevel += 1;
 				myGame.changePlayer();
+			} else {
+				//Do nothing I think
 			}
 		}
+	}
+	
+	public void func66Init() {
+		func1Init();
+	}
+	
+	public void func66(boolean checkWin) {
+		func1(checkWin);
 	}
 	
 	/*
