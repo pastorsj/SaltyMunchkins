@@ -35,7 +35,7 @@ public class Game {
 		} else {
 			p2 = currentPlayer;
 			currentPlayer = p1;
-			turnPlayer = 1;
+			turnPlayer = 1; 
 		}
 	}
 	
