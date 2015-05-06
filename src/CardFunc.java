@@ -780,8 +780,22 @@ public class CardFunc {
 	
 	public void func79(boolean checkWin) {
 		if(checkWin) {
+			myGame.currentPlayer.treasuresWonEachTurn += 5;
 			myGame.currentPlayer.pLevel += 2;
+		} else {
+			//Discard all cards (in hand or in play) that begin with a vowel
 		}
+	}
+	
+	public void func80Init() {
+		if(myGame.currentPlayer.className.equals("Professor")) {
+			myGame.currentPlayer.cLevel -= 5;
+		}
+		func1Init();
+	}
+	
+	public void func80(boolean checkWin) {
+		func1(checkWin);
 	}
 	
 	/*
