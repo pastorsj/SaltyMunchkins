@@ -779,7 +779,9 @@ public class CardFunc {
 	}
 	
 	public void func79(boolean checkWin) {
-		
+		if(checkWin) {
+			myGame.currentPlayer.pLevel += 2;
+		}
 	}
 	
 	/*
