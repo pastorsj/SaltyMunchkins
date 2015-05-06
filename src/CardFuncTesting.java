@@ -1166,4 +1166,11 @@ public class CardFuncTesting {
 		myGame.funcs.func104();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
+	
+	@Test
+	public void func107Test() {
+		int pLevel = myGame.currentPlayer.pLevel;
+		myGame.funcs.func107();
+		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
+	}
 }
