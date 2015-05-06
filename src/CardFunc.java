@@ -1033,12 +1033,44 @@ public class CardFunc {
 		}
 	}
 	
+	public void func84() {
+		
+	}
+	
+	public void func85() {
+		
+	}
+	
+	public void func86() {
+		
+	}
+	
+	public void func87() {
+		
+	}
+	
+	public void func88() {
+		
+	}
+	
 	public void func89(){
 		myGame.currentPlayer.pLevel++;
 	}
 	
 	public void func94(){
 		func89();
+	}
+	
+	public void func97() {
+		
+	}
+	
+	public void func98() {
+		
+	}
+	
+	public void func99() {
+		
 	}
 	
 	public void func102(){
