@@ -96,7 +96,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.add(etb);
 		
 		this.add(playerLabel);
-		this.add(playerLevel);
+		//this.add(playerLevel);
 		//this.add(playerCLevel);
 		//this.add(monsterLevel);
 		

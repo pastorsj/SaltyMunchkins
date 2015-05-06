@@ -99,8 +99,30 @@ public class CombatTesting {
 		myGame.updateMLevel(2);
 		assertEquals(2,myGame.mLevel);
 		diwb1.didIWin();
-		assertEquals(3,myGame.p1.pLevel);
+		assertEquals(3,myGame.p1.pLevel);	
 		
+	}
+	
+	@Test
+	public void TestCanBeat2AfterBeat1NoArmorNewWay(){
+		ArrayList<Integer> hand = new ArrayList<Integer>();
+		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
+		ArrayList<Integer> hand2 = new ArrayList<Integer>();
+		DidIWinButton diwb1 = new DidIWinButton(new MFrame(myGame, new ArrayList<String>()), new ArrayList<String>(), myGame);
+		handInPlay.add(27); //level 1 monster
+		myGame.p1.pHand=hand;
+		myGame.p1.pPlay=handInPlay;
+		myGame.p2.pPlay=hand2;
+	
+		diwb1.didIWin();
+			assertEquals(2,myGame.p1.pLevel);
+		
+		
+		myGame.p1.pPlay.add(2); //level 2 monster
+		myGame.playACard(2);
+		assertEquals(2,myGame.mLevel);
+		diwb1.didIWin();
+		assertEquals(3,myGame.p1.pLevel);	
 		
 	}
 	

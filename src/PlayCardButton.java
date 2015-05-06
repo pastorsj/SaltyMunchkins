@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -40,11 +41,10 @@ public class PlayCardButton extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		int cardToMovePos = this.frame.mainPanel.bCardPanel.largeCardPos;
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
-		int numDoor = 87;
-		int treasStart = 88;
-		InitializeCards ic = new InitializeCards();
 		
-		myGame.updateMLevel(cardToMove);
+		
+		myGame.playACard(cardToMove);
+		//myGame.updateMLevel(cardToMove);
 			
 //		if (cardToMove < 83) { //if the card is a door card being put in play: 
 //			Card cardInPlay = ic.getCardHash().get(cardToMove);

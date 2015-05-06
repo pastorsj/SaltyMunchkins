@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -141,6 +142,24 @@ public class Game {
 		}
 	
 	}
+	}
+	
+	public void playACard(int card){
+		CardFunc fc = new CardFunc(this);
+		
+		int methodNum = card;
+		String funcToCall = "";
+		try {
+			Method method =CardFunc.class.getMethod(funcToCall,null);
+			//method.invoke();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 
