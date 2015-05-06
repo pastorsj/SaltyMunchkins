@@ -693,6 +693,8 @@ public class CardFunc {
 	public void func67() {
 		if(myGame.currentPlayer.className.equals("Cultist")) {
 			myGame.currentPlayer.className = "";
+		} else if(!myGame.currentPlayer.className.equals("")) {
+			myGame.currentPlayer.className = "Cultist";
 		}
 	}
 	
