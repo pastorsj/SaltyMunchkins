@@ -951,4 +951,6 @@ public class CardFuncTesting {
 		myGame.funcs.func65Init();
 		assertEquals(level + 3, myGame.currentPlayer.cLevel);
 	}
+	
+	
 }
