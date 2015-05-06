@@ -945,12 +945,17 @@ public class CardFuncTesting {
 	}
 	
 	@Test
-	public void func65Init() {
+	public void func65InitTest() {
 		myGame.currentPlayer.className = "Monster Whacker";
 		int level = myGame.currentPlayer.cLevel;
 		myGame.funcs.func65Init();
 		assertEquals(level + 3, myGame.currentPlayer.cLevel);
 	}
 	
-	
+	@Test
+	public void func65Test() {
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		myGame.funcs.func65(true);
+		assertEquals(size + 4, myGame.currentPlayer.treasuresWonEachTurn);
+	}
 }

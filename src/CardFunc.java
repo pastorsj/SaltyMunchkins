@@ -663,7 +663,7 @@ public class CardFunc {
 		}
 	}
 	
-	public void func65() {
+	public void func65(boolean checkWin) {
 		
 	}
 	
