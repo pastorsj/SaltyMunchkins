@@ -652,8 +652,17 @@ public class CardFunc {
 			myGame.currentPlayer.treasuresWonEachTurn += 4;
 			myGame.currentPlayer.pLevel += 2;
 		} else {
+			//Need to discard all footgear in play
 			myGame.currentPlayer.pLevel -= 3;
 		}
+	}
+	
+	public void func65Init() {
+		
+	}
+	
+	public void func65() {
+		
 	}
 	
 	/*
