@@ -712,6 +712,14 @@ public class CardFunc {
 		}
 	}
 	
+	public void func71Init() {
+		
+	}
+	
+	public void func71(boolean checkWin) {
+		
+	}
+	
 	
 	
 	/*
