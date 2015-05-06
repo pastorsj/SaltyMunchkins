@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -145,13 +146,24 @@ public class Game {
 	}
 	
 	public void playACard(int card){
-		CardFunc fc = new CardFunc(this);
+		CardFunc cf = new CardFunc(this);
 		
 		int methodNum = card;
-		String funcToCall = "";
+		String funcToCall = "func"+methodNum+"Init";
 		try {
 			Method method =CardFunc.class.getMethod(funcToCall,null);
-			//method.invoke();
+			try {
+				method.invoke(cf, null);
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		} catch (NoSuchMethodException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
