@@ -45,7 +45,7 @@ public class CardFuncTesting {
 	}
 	
 	@Test
-	public void func1Test() throws IOException {
+	public void func1Test() {
 		int size = myGame.currentPlayer.treasuresWonEachTurn;
 		myGame.funcs.func1(true);
 		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
@@ -986,4 +986,19 @@ public class CardFuncTesting {
 		myGame.changePlayer();
 		assertEquals(p2level + 1, myGame.currentPlayer.pLevel);
 	}
+	
+	@Test
+	public void func66TestInit() {
+		int cLevel = myGame.currentPlayer.cLevel;
+		myGame.funcs.func66Init();
+		assertEquals(cLevel-5, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func66Test() {
+		int size = myGame.currentPlayer.treasuresWonEachTurn;
+		myGame.funcs.func66(true);
+		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
+	}
+	
 }
