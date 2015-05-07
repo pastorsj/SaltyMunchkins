@@ -1033,6 +1033,13 @@ public class CardFunc {
 		}
 	}
 	
+	public void func84Init(){
+		int die = myGame.rollDice(0); //0 indicates return random number
+		
+
+		
+	}
+	
 	public void func84() {
 		
 	}

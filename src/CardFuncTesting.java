@@ -1141,6 +1141,20 @@ public class CardFuncTesting {
 		assertEquals(size + 1, myGame.currentPlayer.treasuresWonEachTurn);
 	}
 	
+	@Test
+	public void func84Test(){
+		myGame.mLevel=2;
+		myGame.currentPlayer.pLevel = 1;
+		myGame.playACard(84);
+		boolean win = myGame.currentPlayer.didIwin(myGame);
+		if(win){ //know that you didn't roll a 6
+			assertEquals(false,myGame.currentPlayer.pHand.contains(84));
+		}
+		else{ //you rolled a six
+			assertEquals(true, myGame.currentPlayer.pHand.contains(84)); //should still have card in hand
+		}
+	}
+	
 
 	@Test
 	public void func89Test() {
