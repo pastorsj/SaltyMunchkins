@@ -38,23 +38,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 	}
 	
 	public void didIWin(){
-		if(myGame.currentPlayer.didIwin(myGame)){
-			System.out.println("YOU WIN!");
-			myGame.currentPlayer.consequence(myGame, 1);
-	
-		}
-		
-		else{
-			int roll = myGame.rollDice(0);
-			System.out.println("You rolled a " + roll);
-			if (roll>4) {
-				System.out.println("You ran away!");
-				myGame.currentPlayer.consequence(myGame, 0);
-			} else {
-				System.out.println("You lose...");
-				myGame.currentPlayer.consequence(myGame, -1);
-			}
-		}
+		boolean bool = myGame.currentPlayer.didIwin(myGame);
 		myGame.mframe.repaint();
 	}
 	

@@ -1147,19 +1147,28 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pLevel = 1;
 		myGame.currentPlayer.pPlay.add(84);
 		myGame.playACard(84);
-		System.out.println("card in play: "+myGame.currentPlayer.pPlay);
-		System.out.println("card in hand: "+myGame.currentPlayer.pHand);
-		boolean win = myGame.currentPlayer.didIwin(myGame);
-		System.out.println("card in play: "+myGame.currentPlayer.pPlay);
-		System.out.println("card in hand: "+myGame.currentPlayer.pHand);
+		System.out.println("Cards in Play: "+myGame.currentPlayer.pPlay);
+		boolean win= myGame.currentPlayer.didIwin(myGame);
+		
 		if(win){ //know that you didn't roll a 6
-			
-			assertEquals(false,myGame.currentPlayer.pHand.contains(84));
+			System.out.println("Cards in Play: "+myGame.currentPlayer.pPlay);
+			assertEquals(true, myGame.currentPlayer.pHand.contains(84)); //should still have card in hand
 		}
 		else{ //you rolled a six
-			assertEquals(true, myGame.currentPlayer.pHand.contains(84)); //should still have card in hand
+			System.out.println("rolled a 6");
+			assertEquals(false, myGame.currentPlayer.pHand.contains(84));
+			
 			
 		}
+	}
+	
+	@Test
+	public void func86Test(){
+		myGame.mLevel=2;
+		myGame.currentPlayer.pLevel = 1;
+		myGame.currentPlayer.pPlay.add(86);
+		//myGame.playACard(86);
+		
 	}
 	
 

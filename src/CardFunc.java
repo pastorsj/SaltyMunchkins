@@ -1031,16 +1031,17 @@ public class CardFunc {
 		for(int i = 0; i<myGame.currentPlayer.treasuresWonEachTurn;i++){
 			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
 		}
+		
 	}
 	
 	public void func84Init(){
 		int die = myGame.rollDice(0); //0 indicates return random number
 		System.out.println("dice is: "+die);
 		if (die ==6){
-			myGame.ic.getCardHash().get(84).discard=true;
+			
 		}
 		else{
-			myGame.ic.getCardHash().get(84).discard=false;
+			//myGame.ic.getCardHash().get(84).discard=false;
 			myGame.currentPlayer.hLevel+=2;
 			myGame.currentPlayer.cLevel+=4;
 			
@@ -1049,7 +1050,15 @@ public class CardFunc {
 		
 	}
 	
-	public void func84() {
+	public void func84(boolean checkwin) {
+		if(checkwin){
+			myGame.ic.getCardHash().get(84).discard=false;
+			System.out.println("set discard to false");
+		}
+		else{
+			myGame.ic.getCardHash().get(84).discard=true;
+			System.out.println("set discard to true");
+		}
 		
 	}
 	

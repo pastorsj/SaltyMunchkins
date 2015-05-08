@@ -51,7 +51,7 @@ public class Main {
 		doorAv.add(42);
 		
 		treasAv.add(84);
-		treasAv.add(85);
+		//treasAv.add(85);
 		treasAv.add(86);
 		treasAv.add(87);
 		treasAv.add(88);

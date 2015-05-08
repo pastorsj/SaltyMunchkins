@@ -1,3 +1,5 @@
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 
@@ -38,55 +40,114 @@ public class Player {
 	}
 	
 	public boolean didIwin(Game game){
-		int playerInt = game.turnPlayer;
-		if(playerInt==1){
-			game.p1.endCombat(game);
-			return didIwinHelper(game.p1, game.p2,game);
+		
+			boolean bool = didIwinHelper(game);
+			
+			System.out.println("bool for win is: "+bool);
+			//return bool;
+		
+		
+		if(bool){
+			game.currentPlayer.consequence(game, 1);
 		}
+		
 		else{
-			game.p2.endCombat(game);
-			return didIwinHelper(game.p2,game.p1, game);
+			int roll = game.rollDice(0);
+			System.out.println("You rolled a " + roll);
+			if (roll>4) {
+				System.out.println("You ran away!");
+				game.currentPlayer.consequence(game, 0);
+			} else {
+				System.out.println("You lose...");
+				game.currentPlayer.consequence(game, -1);
+			}
 		}
+		
+		return bool;
 	}
 	
-	public boolean didIwinHelper(Player me, Player other, Game game){
-		int monster = game.mLevel + me.mLevelBonusCalculation()+other.mLevelBonusCalculation();
-		System.out.println("Other person's monster bonus level " + other.mLevelBonusCalculation());
-		System.out.println("my monster level bonus calc is: "+me.mLevelBonusCalculation());
+	public boolean didIwinHelper(Game game){
+		int monster = game.mLevel + game.currentPlayer.mLevelBonusCalculation()+game.otherPlayer.mLevelBonusCalculation();
+		System.out.println("Other person's monster bonus level " + game.otherPlayer.mLevelBonusCalculation());
+		System.out.println("my monster level bonus calc is: "+game.currentPlayer.mLevelBonusCalculation());
 		System.out.println("monster level in combat is: " + monster);
-		me.cLevelCalculation(); //me.cLevel is now set
-		System.out.println("my clevel is: " + me.cLevel);
-		return (me.cLevel>=monster);
+		game.currentPlayer.cLevelCalculation(); //me.cLevel is now set
+		System.out.println("my clevel is: " + game.currentPlayer.cLevel);
+		return (game.currentPlayer.cLevel>=monster);
 	}
 	
 	public void consequence(Game game, int win) {
 		System.out.println("Consequence is " + win);
+		boolean bool;
 		if(win==1){
 			game.dealNewCard(game.treasures, this);
-			if(game.turnPlayer==1){
-				game.p1.pLevel++;
-			}
-			else{
-				game.p2.pLevel++;
-			}
+			game.currentPlayer.pLevel++;
+			bool=true;}
+		else{
+			bool=false;}
+		
+			CardFunc cf = new CardFunc(game);
+			for (int i = 0; i<game.currentPlayer.pPlay.size();i++){
+				int methodNum=game.currentPlayer.pPlay.get(i);
+				
+				String funcToCall = "func"+methodNum;
+				try {
+					Method method =CardFunc.class.getMethod(funcToCall,boolean.class);
+					try {
+						method.invoke(cf, bool);
+					} catch (IllegalAccessException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IllegalArgumentException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (InvocationTargetException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				} catch (NoSuchMethodException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SecurityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			
+		
+			
+		
+			
+			//if(game.turnPlayer==1){
+				//game.p1.pLevel++;
+			//}
+			//else{
+				//game.p2.pLevel++;
+			//}
+			game.currentPlayer.endCombat(game);
+			game.otherPlayer.endCombat(game);
 		}
 	}
 	
 public void endCombat(Game myGame){
-		
+		System.out.println("END COMBAT IS CALLED");
 		for(int i =0; i<this.pPlay.size();i++){
 		
 			if(myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
+				System.out.println("delete pPlay in endCombat");
 				myGame.currentPlayer.pPlay.remove(i);
 				i--;
 			}
 			else{
+				System.out.println("moving card to pHand in endCombat");
 				myGame.currentPlayer.pHand.add(myGame.currentPlayer.pPlay.get(i));
 				myGame.currentPlayer.pPlay.remove(i);
 			}
 		
 		}
 		myGame.currentPlayer.hLevel = 0;
+		myGame.currentPlayer.treasuresWonEachTurn = 0;
 		
 		}
 }

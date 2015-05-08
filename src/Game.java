@@ -15,6 +15,7 @@ public class Game {
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
 	Player currentPlayer = p1;
+	Player otherPlayer = p2;
 	int turnPlayer;
 	CardFunc funcs = new CardFunc(this);
 	int mInPlay = 0; //0 indicates no monster, otherwise card number goes here.
@@ -34,10 +35,12 @@ public class Game {
 		if(turnPlayer == 1) {
 			p1 = currentPlayer;
 			currentPlayer = p2;
+			otherPlayer = p1;
 			turnPlayer = 2;
 		} else {
 			p2 = currentPlayer;
 			currentPlayer = p1;
+			otherPlayer = p2;
 			turnPlayer = 1; 
 		}
 	}
