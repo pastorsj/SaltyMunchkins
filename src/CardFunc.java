@@ -57,11 +57,28 @@ public class CardFunc {
 	
 	public void func4Init() {
 		//No class abilities can be used
+		myGame.mLevel = 1;
+		
 	}
 	
 	public void func4(boolean checkWin) {
 		//Gain 1 treasure
 		//Bad: Lose your armor
+		
+		if(checkWin){
+			myGame.currentPlayer.treasuresWonEachTurn+=1;
+			getTreasFromWin();
+		}
+		else{
+			for(int i = 0;i<myGame.currentPlayer.pHand.size();i++){
+				if((myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).numGold>0)||
+						(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).headGear)||
+						(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).footGear)){
+					myGame.currentPlayer.pHand.remove(i);
+					i--;
+				}
+			}
+		}
 	}
 	
 	public void func5Init() {
