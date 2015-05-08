@@ -1241,7 +1241,17 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pPlay.add(97);
 		myGame.playACard(97);
 		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
-		
+	}
+	
+	@Test
+	public void func98Test(){
+		//98 adds 4 to player level
+		myGame.currentPlayer.pPlay.add(2);
+		myGame.playACard(2);
+		myGame.currentPlayer.pPlay.add(98);
+		myGame.playACard(98);
+		assertEquals(5, myGame.currentPlayer.cLevel);
+		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
 		
 	}
 	@Test
