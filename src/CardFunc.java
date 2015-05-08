@@ -1096,11 +1096,11 @@ public class CardFunc {
 	}
 	
 	public void func90Init(){
-		
+		myGame.currentPlayer.cLevel+=2;
 	}
 	
 	public void func90(boolean checkwin){
-		
+		myGame.ic.getCardHash().get(90).discard=true;
 	}
 	
 	public void func94Init(){
