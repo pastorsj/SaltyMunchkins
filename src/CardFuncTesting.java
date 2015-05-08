@@ -1205,14 +1205,22 @@ public class CardFuncTesting {
 	@Test
 	public void func90Test(){
 		//can +3 to either side, need to try both ways (help monster, help self)
-		System.out.println("clevel before 90 is: "+myGame.currentPlayer.cLevel);
 		myGame.currentPlayer.pPlay.add(2);
 		myGame.playACard(2);
-		System.out.println("mlevel : "+myGame.mLevel);
 		myGame.currentPlayer.pPlay.add(90);
 		myGame.playACard(90);
-		System.out.println("clevel in 90 is: "+myGame.currentPlayer.cLevel);
 		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
+		
+	}
+	
+	//90 can be applied to either side
+	@Test public void func90TestOtherAdd(){
+		myGame.currentPlayer.pPlay.add(2);
+		myGame.playACard(2);
+		myGame.otherPlayer.pPlay.add(90);
+		myGame.changePlayer();
+		myGame.playACard(90);
+		assertEquals(false, myGame.currentPlayer.didIwin(myGame));
 		
 	}
 	@Test
