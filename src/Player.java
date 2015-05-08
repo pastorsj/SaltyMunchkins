@@ -133,7 +133,7 @@ public class Player {
 	
 public void endCombat(Game myGame){
 		System.out.println("END COMBAT IS CALLED");
-		for(int i =0; i<this.pPlay.size();i++){
+		for(int i =0; i<myGame.currentPlayer.pPlay.size();i++){
 		
 			if(myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
 				System.out.println("delete pPlay in endCombat");

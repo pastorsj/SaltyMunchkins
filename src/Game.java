@@ -29,6 +29,8 @@ public class Game {
  		this.doors = doors;
 		this.treasures = treasures;
 		this.turnPlayer=1;
+		p1.pHand = new ArrayList<Integer>();
+		p2.pHand = new ArrayList<Integer>();
 	}
 	
 	public void changePlayer() {

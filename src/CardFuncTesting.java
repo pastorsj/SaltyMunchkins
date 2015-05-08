@@ -1223,6 +1223,9 @@ public class CardFuncTesting {
 		assertEquals(false, myGame.currentPlayer.didIwin(myGame));
 		
 	}
+	
+	
+	
 	@Test
 	public void func94Test() {
 		int pLevel = myGame.currentPlayer.pLevel;

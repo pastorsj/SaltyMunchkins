@@ -1096,7 +1096,20 @@ public class CardFunc {
 	}
 	
 	public void func90Init(){
-		myGame.currentPlayer.cLevel+=2;
+		boolean hasMonster = false;
+		for(int i=0; i<myGame.currentPlayer.pPlay.size();i++){
+			if(myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).monsterLevel>0){
+				hasMonster = true; 
+			}
+		}
+		
+		if(hasMonster){
+			myGame.currentPlayer.cLevel+=2;
+		}
+		else{
+			myGame.mLevel+=2;
+		}
+		
 	}
 	
 	public void func90(boolean checkwin){
