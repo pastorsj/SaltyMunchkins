@@ -333,6 +333,7 @@ public class CardFunc {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			//Discard cards depending on the user, must add up to 500 gold.
+			myGame.mframe.mainPanel.bCardPanel.add(myGame.mframe.mainPanel.bCardPanel.db);
 			
 		}
 	}

@@ -101,7 +101,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		
 		this.db = new DiscardButton(frame,arrayOfLines,game);
 		db.setPreferredSize(new Dimension(100,30));
-		this.add(db);
+		//this.add(db);
 		
 		
 		this.add(playerLabel);
