@@ -32,6 +32,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public NewGameButton ngb;
 	public EndTurnButton etb;
 	public LetOtherPlayerPlayCardButton loppcb;
+	public DiscardButton db;
 	public BufferedImage largeCard;
 	public int largeCardPos;
 	public PlayCardButton pcb;
@@ -97,6 +98,11 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.etb=new EndTurnButton(frame,arrayOfLines,game);
 		etb.setPreferredSize(new Dimension(90,30));
 		this.add(etb);
+		
+		this.db = new DiscardButton(frame,arrayOfLines,game);
+		db.setPreferredSize(new Dimension(100,30));
+		this.add(db);
+		
 		
 		this.add(playerLabel);
 		this.add(playerLevel);

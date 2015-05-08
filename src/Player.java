@@ -8,6 +8,7 @@ public class Player {
 	public ArrayList<Integer> pHand = new ArrayList<Integer>();
 	public boolean classAbility;
 	public ArrayList<Integer> pPlay = new ArrayList<Integer>();
+	public ArrayList<Integer> pDiscard = new ArrayList<Integer>();
 	public String className = "";
 	public char gender = 'F';
 	public int pLevel=1; //actual level of player
@@ -137,6 +138,9 @@ public class Player {
 		}
 	}
 	
+public void discard500Gold(Game myGame){
+	
+}
 public void endCombat(Game myGame){
 		System.out.println("END COMBAT IS CALLED");
 		for(int i =0; i<this.pPlay.size();i++){
