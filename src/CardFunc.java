@@ -1129,7 +1129,7 @@ public class CardFunc {
 	}
 	
 	public void func98Init() {
-		
+		myGame.currentPlayer.cLevel+=4;
 	}
 	
 	public void func98(boolean checkwin){
