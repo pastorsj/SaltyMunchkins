@@ -1066,6 +1066,11 @@ public class CardFunc {
 		
 	}
 	
+	public void func86Init(){
+		myGame.currentPlayer.cLevel+=2;
+		
+	}
+	
 	public void func86(boolean checkwin) {
 		
 	}
