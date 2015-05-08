@@ -594,7 +594,7 @@ public class CardFuncTesting {
 		myGame.currentPlayer.className = "";
 		int level = myGame.currentPlayer.cLevel;
 		myGame.funcs.func38Init();
-		assertEquals(level + 4, myGame.currentPlayer.cLevel);
+		assertEquals(level - 4, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
