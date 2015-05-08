@@ -1198,13 +1198,27 @@ public class CardFuncTesting {
 	@Test
 	public void func89Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
-		myGame.funcs.func89();
+		myGame.funcs.func89Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
+	}
+	
+	@Test
+	public void func90Test(){
+		//can +3 to either side, need to try both ways (help monster, help self)
+		System.out.println("clevel before 90 is: "+myGame.currentPlayer.cLevel);
+		myGame.currentPlayer.pPlay.add(2);
+		myGame.playACard(2);
+		System.out.println("mlevel : "+myGame.mLevel);
+		myGame.currentPlayer.pPlay.add(90);
+		myGame.playACard(90);
+		System.out.println("clevel in 90 is: "+myGame.currentPlayer.cLevel);
+		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
+		
 	}
 	@Test
 	public void func94Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
-		myGame.funcs.func94();
+		myGame.funcs.func94Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
 	@Test

@@ -34,6 +34,7 @@ public class CardFunc {
 		if(myGame.currentPlayer.className.equals("Monster Whacker")) {
 			myGame.currentPlayer.cLevel -= 3;
 		}
+		myGame.mLevel = 2;
 	}
 	
 	public void func2(boolean checkWin) {
@@ -1090,12 +1091,20 @@ public class CardFunc {
 		
 	}
 	
-	public void func89(){
+	public void func89Init(){
 		myGame.currentPlayer.pLevel++;
 	}
 	
-	public void func94(){
-		func89();
+	public void func90Init(){
+		
+	}
+	
+	public void func90(boolean checkwin){
+		
+	}
+	
+	public void func94Init(){
+		func89Init();
 	}
 	
 	public void func97() {
@@ -1111,23 +1120,23 @@ public class CardFunc {
 	}
 	
 	public void func102(){
-		func89();
+		func89Init();
 	}
 	
 	public void func104(){
-		func89();
+		func89Init();
 	}
 	
 	public void func107(){
-		func89();
+		func89Init();
 	}
 	
 	public void func115() {
-		func89();
+		func89Init();
 	}
 	
 	public void func129() {
-		func89();
+		func89Init();
 	}
 	
 	/*
