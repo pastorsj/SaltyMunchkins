@@ -375,7 +375,7 @@ public class CardFunc {
 	
 	public void func29Init() {
 		//+ 10 to the monster
-		myGame.currentPlayer.cLevel -= 10;
+		myGame.mLevel += 10;
 	}
 	
 	public void func29(boolean checkWin) {
