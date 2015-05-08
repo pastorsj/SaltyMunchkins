@@ -1076,14 +1076,17 @@ public class CardFunc {
 	}
 	
 	public void func87Init() {
-		
+		myGame.currentPlayer.cLevel+=1;
 	}
 	
 	public void func87(boolean checkwin){
 		
 	}
 	
-	public void func88() {
+	public void func88Init() {
+		
+	}
+	public void func88(boolean checkwin){
 		
 	}
 	
