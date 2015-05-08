@@ -61,6 +61,20 @@ public class Main {
 		treasAv.add(97);
 		treasAv.add(98);
 		treasAv.add(99);
+		
+		//double the treasures
+		treasAv.add(84);
+		//treasAv.add(85);
+		treasAv.add(86);
+		treasAv.add(87);
+		treasAv.add(88);
+		treasAv.add(89);
+		treasAv.add(90);
+		treasAv.add(94);
+		treasAv.add(97);
+		treasAv.add(98);
+		treasAv.add(99);
+		
 		InitializeCards ic = new InitializeCards(doorAv,treasAv);
 		
 		Game newGame = new Game(ic.doors,ic.treasure);

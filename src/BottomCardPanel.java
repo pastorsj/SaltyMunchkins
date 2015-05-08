@@ -70,6 +70,9 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			this.turnPlayer=game.p2;
 			this.otherPlayer=game.p1;
 			this.playerLabel= new JLabel("p2");
+			this.playerLevel = new JLabel("player level: "+myGame.p2.pLevel+"");
+			this.playerCLevel = new JLabel("player clevel: "+myGame.p2.cLevel+"");
+			this.monsterLevel = new JLabel("monster level: "+myGame.mLevel+"");
 		}
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
@@ -96,9 +99,9 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.add(etb);
 		
 		this.add(playerLabel);
-		//this.add(playerLevel);
-		//this.add(playerCLevel);
-		//this.add(monsterLevel);
+		this.add(playerLevel);
+		this.add(playerCLevel);
+		this.add(monsterLevel);
 		
         
     	
@@ -140,6 +143,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	 public void paintComponent(Graphics go) {
 			
 			super.paintComponents(go);
+			
+			
 			
 			//go.drawImage(this.munchkinLogo,0,0,null);
 			//go.drawImage(this.cardImage,0,400, 180, 180, null);

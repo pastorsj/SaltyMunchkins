@@ -74,7 +74,7 @@ public class Player {
 		//System.out.println("my monster level bonus calc is: "+game.currentPlayer.mLevelBonusCalculation());
 		//System.out.println("monster level in combat is: " + monster);
 		//game.currentPlayer.cLevelCalculation(); //me.cLevel is now set using hash
-		System.out.println("my clevel is: " + game.currentPlayer.cLevel);
+		System.out.println("my clevel is: " + game.currentPlayer.cLevel+game.currentPlayer.pLevel);
 		return (game.currentPlayer.cLevel>=monster);
 	}
 	
@@ -128,8 +128,12 @@ public class Player {
 			//else{
 				//game.p2.pLevel++;
 			//}
+			
+				
 			game.currentPlayer.endCombat(game);
 			game.otherPlayer.endCombat(game);
+			cf.getTreasFromWin();
+			game.currentPlayer.treasuresWonEachTurn = 0;
 		}
 	}
 	
@@ -150,7 +154,7 @@ public void endCombat(Game myGame){
 		
 		}
 		this.hLevel = 0;
-		this.treasuresWonEachTurn = 0;
+		
 		
 		}
 }
