@@ -1035,7 +1035,16 @@ public class CardFunc {
 	
 	public void func84Init(){
 		int die = myGame.rollDice(0); //0 indicates return random number
-		
+		System.out.println("dice is: "+die);
+		if (die ==6){
+			myGame.ic.getCardHash().get(84).discard=true;
+		}
+		else{
+			myGame.ic.getCardHash().get(84).discard=false;
+			myGame.currentPlayer.hLevel+=2;
+			myGame.currentPlayer.cLevel+=4;
+			
+		}
 
 		
 	}

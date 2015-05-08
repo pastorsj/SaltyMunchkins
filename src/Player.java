@@ -12,6 +12,7 @@ public class Player {
 	public int cLevel=pLevel; //the level a player is with door cards in combat
 	public int treasuresWonEachTurn = 0;
 	public InitializeCards initCards = new InitializeCards();
+	public int hLevel = 0; //number of hand cards in play
 	
 	public Player(String name){
 		this.username = name;
@@ -39,9 +40,11 @@ public class Player {
 	public boolean didIwin(Game game){
 		int playerInt = game.turnPlayer;
 		if(playerInt==1){
+			game.p1.endCombat(game);
 			return didIwinHelper(game.p1, game.p2,game);
 		}
 		else{
+			game.p2.endCombat(game);
 			return didIwinHelper(game.p2,game.p1, game);
 		}
 	}
@@ -68,4 +71,22 @@ public class Player {
 			}
 		}
 	}
+	
+public void endCombat(Game myGame){
+		
+		for(int i =0; i<this.pPlay.size();i++){
+		
+			if(myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
+				myGame.currentPlayer.pPlay.remove(i);
+				i--;
+			}
+			else{
+				myGame.currentPlayer.pHand.add(myGame.currentPlayer.pPlay.get(i));
+				myGame.currentPlayer.pPlay.remove(i);
+			}
+		
+		}
+		myGame.currentPlayer.hLevel = 0;
+		
+		}
 }

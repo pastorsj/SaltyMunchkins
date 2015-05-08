@@ -20,6 +20,7 @@ public class Game {
 	int mInPlay = 0; //0 indicates no monster, otherwise card number goes here.
 	int mLevel = 0; //0 indicates no monster, otherwise monster level goes here.
 	MFrame mframe;
+	InitializeCards ic = new InitializeCards();
 	
 	
 
