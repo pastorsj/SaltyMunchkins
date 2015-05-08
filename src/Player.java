@@ -69,9 +69,10 @@ public class Player {
 	public boolean didIwinHelper(Game game){
 		//int monster = game.mLevel + game.currentPlayer.mLevelBonusCalculation()+game.otherPlayer.mLevelBonusCalculation();
 		int monster = game.mLevel;
-		System.out.println("Other person's monster bonus level " + game.otherPlayer.mLevelBonusCalculation());
-		System.out.println("my monster level bonus calc is: "+game.currentPlayer.mLevelBonusCalculation());
-		System.out.println("monster level in combat is: " + monster);
+		System.out.println("monster level is: "+monster);
+		//System.out.println("Other person's monster bonus level " + game.otherPlayer.mLevelBonusCalculation());
+		//System.out.println("my monster level bonus calc is: "+game.currentPlayer.mLevelBonusCalculation());
+		//System.out.println("monster level in combat is: " + monster);
 		//game.currentPlayer.cLevelCalculation(); //me.cLevel is now set using hash
 		System.out.println("my clevel is: " + game.currentPlayer.cLevel);
 		return (game.currentPlayer.cLevel>=monster);
@@ -85,6 +86,7 @@ public class Player {
 			game.currentPlayer.pLevel++;
 			bool=true;}
 		else{
+			game.currentPlayer.treasuresWonEachTurn=0; //need this because card func 29 
 			bool=false;}
 		
 			CardFunc cf = new CardFunc(game);

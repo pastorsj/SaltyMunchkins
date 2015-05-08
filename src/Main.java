@@ -39,7 +39,7 @@ public class Main {
 		ArrayList<Integer> treasAv = new ArrayList<Integer>();
 		doorAv.add(27); //level1 monster
 		doorAv.add(2);
-		doorAv.add(7);
+		doorAv.add(7); //give away item of choice
 		doorAv.add(42);
 		doorAv.add(29);
 		doorAv.add(4); //not sure if this is for cards in play or for cards in hand?? assume hand

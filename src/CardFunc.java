@@ -325,6 +325,7 @@ public class CardFunc {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			//Discard cards depending on the user, must add up to 500 gold.
+			
 		}
 	}
 	
@@ -376,12 +377,13 @@ public class CardFunc {
 	public void func29Init() {
 		//+ 10 to the monster
 		myGame.mLevel += 10;
+		myGame.otherPlayer.treasuresWonEachTurn+=2;
 	}
 	
 	public void func29(boolean checkWin) {
 		//If win, draw two extra treasures
 		if(checkWin) {
-			myGame.currentPlayer.treasuresWonEachTurn += 2;
+			//myGame.currentPlayer.treasuresWonEachTurn += 2;
 		}
 	}
 	
