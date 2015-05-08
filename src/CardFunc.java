@@ -1066,7 +1066,7 @@ public class CardFunc {
 		
 	}
 	
-	public void func86() {
+	public void func86(boolean checkwin) {
 		
 	}
 	
