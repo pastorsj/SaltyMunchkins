@@ -81,7 +81,7 @@ public class Player {
 		System.out.println("Consequence is " + win);
 		boolean bool;
 		if(win==1){
-			game.dealNewCard(game.treasures, this);
+			//game.dealNewCard(game.treasures, this);
 			game.currentPlayer.pLevel++;
 			bool=true;}
 		else{
@@ -133,22 +133,22 @@ public class Player {
 	
 public void endCombat(Game myGame){
 		System.out.println("END COMBAT IS CALLED");
-		for(int i =0; i<myGame.currentPlayer.pPlay.size();i++){
+		for(int i =0; i<this.pPlay.size();i++){
 		
-			if(myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
+			if(myGame.ic.getCardHash().get(this.pPlay.get(i)).discard){
 				System.out.println("delete pPlay in endCombat");
-				myGame.currentPlayer.pPlay.remove(i);
+				this.pPlay.remove(i);
 				i--;
 			}
 			else{
 				System.out.println("moving card to pHand in endCombat");
-				myGame.currentPlayer.pHand.add(myGame.currentPlayer.pPlay.get(i));
-				myGame.currentPlayer.pPlay.remove(i);
+				this.pHand.add(this.pPlay.get(i));
+				this.pPlay.remove(i);
 			}
 		
 		}
-		myGame.currentPlayer.hLevel = 0;
-		myGame.currentPlayer.treasuresWonEachTurn = 0;
+		this.hLevel = 0;
+		this.treasuresWonEachTurn = 0;
 		
 		}
 }

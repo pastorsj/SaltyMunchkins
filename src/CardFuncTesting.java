@@ -472,9 +472,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func29InitTest() {
-		int cLevel = myGame.currentPlayer.cLevel;
+		int monsterLevel = myGame.mLevel;
 		myGame.funcs.func29Init();
-		assertEquals(cLevel-10, myGame.currentPlayer.cLevel);
+		assertEquals(monsterLevel+10, myGame.mLevel);
 	}
 	
 	@Test

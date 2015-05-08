@@ -26,8 +26,8 @@ public class Game {
 	
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
- 		this.doors = doors;
-		this.treasures = treasures;
+ 		this.doors = this.shuffle(doors);
+		this.treasures = this.shuffle(treasures);
 		this.turnPlayer=1;
 		p1.pHand = new ArrayList<Integer>();
 		p2.pHand = new ArrayList<Integer>();
