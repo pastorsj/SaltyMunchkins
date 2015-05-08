@@ -101,6 +101,33 @@ public class CardFuncTesting {
 	}
 	
 	@Test
+	public void func4Test(){
+		myGame.currentPlayer.pPlay.add(4);
+		myGame.playACard(4);
+		myGame.currentPlayer.pLevel = 1;
+		myGame.currentPlayer.pPlay.add(97);
+		myGame.playACard(97);
+		myGame.mLevel = 5;
+		assertEquals(false, myGame.currentPlayer.didIwin(myGame));
+		boolean hasArmor=false;
+		for(int i = 0;i<myGame.currentPlayer.pHand.size();i++){
+			if((myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).numGold>0)||
+					(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).headGear)||
+					(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).footGear)){
+				hasArmor=true;
+			}
+		}
+		
+		assertEquals(false, hasArmor);
+		
+		
+		
+		
+		
+		
+	}
+	
+	@Test
 	public void func7TestInit() {
 		myGame.currentPlayer.gender = 'F';
 		int cLevel = myGame.currentPlayer.cLevel;

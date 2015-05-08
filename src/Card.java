@@ -17,9 +17,9 @@ public class Card {
 	public String condForBonus;
 	public boolean inPlay;
 	public int numGold;
-	public int numHands;
-	public boolean footGear;
-	public boolean headGear;
+	public int numHands=0;
+	public boolean footGear=false;
+	public boolean headGear=false;
 	public int pLevelBonus=0;
 	public boolean goUpALevel;
 	public boolean forMe;
