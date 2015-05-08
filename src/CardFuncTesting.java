@@ -1232,6 +1232,18 @@ public class CardFuncTesting {
 		myGame.funcs.func94Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
+	
+	@Test
+	public void func97Test(){
+		//90 adds 3 to player clevel
+		myGame.currentPlayer.pPlay.add(2);
+		myGame.playACard(2);
+		myGame.currentPlayer.pPlay.add(97);
+		myGame.playACard(97);
+		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
+		
+		
+	}
 	@Test
 	public void func102Test() {
 		int pLevel = myGame.currentPlayer.pLevel;

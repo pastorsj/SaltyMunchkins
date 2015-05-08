@@ -1120,7 +1120,11 @@ public class CardFunc {
 		func89Init();
 	}
 	
-	public void func97() {
+	
+	public void func97Init(){
+		
+	}
+	public void func97(boolean checkwin) {
 		
 	}
 	
