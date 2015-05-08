@@ -72,7 +72,7 @@ public class Player {
 		System.out.println("Other person's monster bonus level " + game.otherPlayer.mLevelBonusCalculation());
 		System.out.println("my monster level bonus calc is: "+game.currentPlayer.mLevelBonusCalculation());
 		System.out.println("monster level in combat is: " + monster);
-		game.currentPlayer.cLevelCalculation(); //me.cLevel is now set
+		//game.currentPlayer.cLevelCalculation(); //me.cLevel is now set using hash
 		System.out.println("my clevel is: " + game.currentPlayer.cLevel);
 		return (game.currentPlayer.cLevel>=monster);
 	}
