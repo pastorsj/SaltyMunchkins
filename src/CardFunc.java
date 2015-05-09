@@ -101,8 +101,8 @@ public class CardFunc {
 	public void func7Init() {
 		//-4 against females
 		if(myGame.currentPlayer.gender == 'F') {
-			myGame.currentPlayer.cLevel += 4;
-			myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+			myGame.mLevel += 4;
+			myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("player clevel: "+myGame.mLevel);
 		}
 		myGame.mLevel +=2;
 		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
@@ -116,7 +116,8 @@ public class CardFunc {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			//Discard a card in your hand
-			myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));
+			//myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));
+			myGame.mframe.mainPanel.bCardPanel.add(myGame.mframe.mainPanel.bCardPanel.db);
 		}
 	}
 	
