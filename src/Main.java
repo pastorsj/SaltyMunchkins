@@ -91,7 +91,7 @@ public class Main {
 		newGame.mframe = new MFrame(newGame);
 		newGame.mframe.setVisible(true);
 		newGame.mframe.setTitle("Munchkin");
-		newGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		newGame.mframe.bCardPanel.etb.setVisible(true);
 		newGame.mframe.revalidate();
 		newGame.mframe.repaint();
 		

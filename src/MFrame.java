@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -10,7 +11,8 @@ import javax.swing.JFrame;
 
 
 public class MFrame extends JFrame {
-	public MPanel mainPanel;
+	//public MPanel mainPanel;
+	public BottomCardPanel bCardPanel;
 
 	public MFrame(Game game){
 		super();
@@ -21,17 +23,16 @@ public class MFrame extends JFrame {
 		
 		this.setLayout(new FlowLayout());
 		
+		this.bCardPanel = new BottomCardPanel(game);
+		//this.add(this.bCardPanel);
+	
 		
-		try {
-			this.mainPanel = new MPanel(this,game);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		this.add(this.mainPanel);
+		this.add(bCardPanel, BorderLayout.CENTER);
+			this.setVisible(true);
+		//this.add(this.mainPanel);
 		
 		
-		this.setVisible(true);
+		//this.setVisible(true);
 		
 		
 	}
