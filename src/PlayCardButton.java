@@ -68,12 +68,14 @@ public class PlayCardButton extends JButton implements ActionListener {
 			myGame.p2 = turnPlayer;
 		}
 		
-		myGame.mframe.dispose();
+		//myGame.mframe.dispose();
 
-		myGame.mframe= new MFrame(myGame);
-		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		//myGame.mframe= new MFrame(myGame);
+		//myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
+		myGame.mframe.mainPanel.revalidate();
+		myGame.mframe.mainPanel.repaint();
 
 	}
 

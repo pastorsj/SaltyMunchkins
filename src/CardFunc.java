@@ -336,10 +336,12 @@ public class CardFunc {
 			//Discard cards depending on the user, must add up to 500 gold.
 			System.out.println("GETTING HERE");
 			//myGame.mframe.mainPanel.bCardPanel.removeETB();
-			myGame.mframe.dispose();
+			//myGame.mframe.dispose();
 			
-			myGame.mframe=new MFrame(myGame);
+			//myGame.mframe=new MFrame(myGame);
+			//myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
 		//	myGame.mframe = new MFrame(myGame);

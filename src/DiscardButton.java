@@ -29,6 +29,7 @@ public class DiscardButton extends JButton implements ActionListener {
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
 		super.setText(buttonText);
 		this.setPreferredSize(new Dimension(100,30));
+		super.setVisible(false);
 
 		
 		
@@ -73,9 +74,12 @@ public class DiscardButton extends JButton implements ActionListener {
 			myGame.p2 = turnPlayer;
 		}
 
-		myGame.mframe.dispose();
+		//myGame.mframe.dispose();
 
-		myGame.mframe = new MFrame(myGame);
+		//myGame.mframe = new MFrame(myGame);
+		
+		myGame.mframe.revalidate();
+		myGame.mframe.repaint();
 
 	}
 

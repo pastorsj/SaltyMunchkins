@@ -53,10 +53,10 @@ public class DidIWinButton extends JButton implements ActionListener{
 		myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
 		
 		
-		myGame.mframe.dispose();
-		
-		
-		myGame.mframe=new MFrame(myGame);
+		//myGame.mframe.dispose();
+		//myGame.mframe=new MFrame(myGame);
+		myGame.mframe.revalidate();
+		myGame.mframe.repaint();
 		
 		
 		

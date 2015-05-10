@@ -103,9 +103,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.add(etb);
 		
 		
-		//this.db = new DiscardButton(frame,arrayOfLines,game);
+		this.db = new DiscardButton(game);
 	
-		//this.add(db);
+		this.add(db);
+		
 		
 		
 		this.add(playerLabel);
@@ -115,35 +116,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		
         
     	
-		try {
-			MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
-			for(int i =0; i<this.turnPlayer.pHand.size();i++){
-				BufferedImage cardImage = ImageIO.read(new File ("src\\m"+this.turnPlayer.pHand.get(i)+".PNG"));
-				cardImages.add(cardImage);
-			
-			}
-			
-			for(int i =0; i<this.turnPlayer.pPlay.size();i++){
-				BufferedImage playImage = ImageIO.read(new File("src\\m"+this.turnPlayer.pPlay.get(i)+".PNG"));
-				cardsInPlayImages.add(playImage);
-			}
-			
-			for(int i =0; i<this.otherPlayer.pPlay.size();i++){
-				BufferedImage playImage2 = ImageIO.read(new File("src\\m"+this.otherPlayer.pPlay.get(i)+".PNG"));
-				cardsInPlayImages2.add(playImage2);
-			}
-			
-			
 		
-		
-		} catch (IOException ex) {
-			System.out.println("Error reading card file in BottomCardPanel");
-			// handle exception...
-		}
-		//this.setPreferredSize(new Dimension(2000, 1000));
-		this.setMinimumSize(new Dimension(2000,500));
-		this.setVisible(true);
-		this.repaint();
 		
 		
 		
@@ -151,8 +124,39 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	 
 	 
 	 public void paintComponent(Graphics go) {
-			
+			cardImages = new ArrayList<BufferedImage>();
+			cardsInPlayImages = new ArrayList<BufferedImage>();
 			super.paintComponents(go);
+			
+			try {
+				MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
+				for(int i =0; i<this.turnPlayer.pHand.size();i++){
+					BufferedImage cardImage = ImageIO.read(new File ("src\\m"+this.turnPlayer.pHand.get(i)+".PNG"));
+					cardImages.add(cardImage);
+				
+				}
+				
+				for(int i =0; i<this.turnPlayer.pPlay.size();i++){
+					BufferedImage playImage = ImageIO.read(new File("src\\m"+this.turnPlayer.pPlay.get(i)+".PNG"));
+					cardsInPlayImages.add(playImage);
+				}
+				
+				for(int i =0; i<this.otherPlayer.pPlay.size();i++){
+					BufferedImage playImage2 = ImageIO.read(new File("src\\m"+this.otherPlayer.pPlay.get(i)+".PNG"));
+					cardsInPlayImages2.add(playImage2);
+				}
+				
+				
+			
+			
+			} catch (IOException ex) {
+				System.out.println("Error reading card file in BottomCardPanel");
+				// handle exception...
+			}
+			//this.setPreferredSize(new Dimension(2000, 1000));
+			this.setMinimumSize(new Dimension(2000,500));
+			this.setVisible(true);
+			this.repaint();
 			
 			
 			
