@@ -60,7 +60,6 @@ public class DidIWinButton extends JButton implements ActionListener{
 		
 		
 		
-		
 	}
 
 }

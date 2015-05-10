@@ -29,7 +29,7 @@ public class DiscardButton extends JButton implements ActionListener {
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
 		super.setText(buttonText);
 		this.setPreferredSize(new Dimension(100,30));
-		super.setVisible(false);
+
 		
 		
 
@@ -40,7 +40,7 @@ public class DiscardButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		int cardToMovePos = this.myGame.mframe.bCardPanel.largeCardPos;
+		int cardToMovePos = this.myGame.mframe.mainPanel.bCardPanel.largeCardPos;
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
 		
 		

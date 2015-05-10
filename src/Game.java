@@ -84,8 +84,8 @@ public class Game {
 		if(p.pHand.size() < 8) {
 			p.pHand.add(cards.get(size));
 			try {
-				this.mframe.bCardPanel.largeCard = ImageIO.read(new File ("src\\m"+(cards.get(size))+".PNG"));
-				this.mframe.bCardPanel.repaint();
+				this.mframe.mainPanel.bCardPanel.largeCard = ImageIO.read(new File ("src\\m"+(cards.get(size))+".PNG"));
+				this.mframe.mainPanel.bCardPanel.repaint();
 			} catch (IOException e) {
 				System.out.println("error reading card in GAME");
 				e.printStackTrace();
@@ -179,9 +179,9 @@ public class Game {
 			e.printStackTrace();
 		}
 		
-		this.mframe.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
-		this.mframe.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
-		this.mframe.bCardPanel.monsterLevel.setText("monster level: " +this.mLevel);
+		this.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
+		this.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
+		this.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: " +this.mLevel);
 		
 	}
 

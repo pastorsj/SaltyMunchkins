@@ -35,7 +35,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		int cardToMovePos = myGame.mframe.bCardPanel.largeCardPos;
+		int cardToMovePos = myGame.mframe.mainPanel.bCardPanel.largeCardPos;
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
 		
 		
@@ -71,7 +71,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 		myGame.mframe.dispose();
 
 		myGame.mframe= new MFrame(myGame);
-		myGame.mframe.bCardPanel.etb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
 

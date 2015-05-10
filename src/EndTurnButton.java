@@ -27,7 +27,7 @@ public class EndTurnButton extends JButton implements ActionListener{
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
 		super.setText("EndTurn");//Should be just Switch Sides
-		//super.setVisible(false);
+		super.setVisible(false);
 	
 		
 		this.setMaximumSize(new Dimension(100,50));

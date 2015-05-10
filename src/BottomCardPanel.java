@@ -103,9 +103,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.add(etb);
 		
 		
-		this.db = new DiscardButton(game);
-		this.add(db);
-		this.db.setVisible(false);
+		//this.db = new DiscardButton(frame,arrayOfLines,game);
+	
+		//this.add(db);
+		
 		
 		this.add(playerLabel);
 		this.add(playerLevel);
