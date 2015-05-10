@@ -15,7 +15,10 @@ public class Player {
 	public int cLevel=pLevel; //the level a player is with door cards in combat
 	public int treasuresWonEachTurn = 0;
 	public InitializeCards initCards = new InitializeCards();
-	public int hLevel = 0; //number of hand cards in play
+	public int hLevel = 0; //number of hands in play (max is 2)
+	public int headLevel = 0; //amount of headgear in play (max is 1)
+	public int armorLevel = 0; //amount of armor in play (max is 1)
+	public int footLevel = 0; //amount of footgear in play (max is 1)
 	
 	public Player(String name){
 		this.username = name;
