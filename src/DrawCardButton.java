@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 
 public class DrawCardButton extends Button implements ActionListener{
-	public MFrame frame;
+	
 	public ArrayList<String> arrayOfCardLines;
 	public Game myGame;
 	public ArrayList<String> arrayOfLines;
-	public DrawCardButton(MFrame mframe,ArrayList<String> arrayOfLines,Game game){
-		this.frame=mframe;
+	public DrawCardButton(Game game){
+		
 		this.arrayOfCardLines=arrayOfLines;
 		this.myGame=game;
 		this.setMaximumSize(new Dimension(100,50));
-		this.arrayOfLines=arrayOfLines;
+		
 		addActionListener(this);
 	}
 
@@ -24,10 +24,10 @@ public class DrawCardButton extends Button implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 
-		frame.dispose();
+		myGame.mframe.dispose();
 		
 		
-		frame=new MFrame(myGame,this.arrayOfLines);
+		myGame.mframe=new MFrame(myGame);
 		
 		
 		

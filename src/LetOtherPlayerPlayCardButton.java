@@ -10,12 +10,12 @@ import javax.swing.JButton;
 
 
 public class LetOtherPlayerPlayCardButton extends JButton implements ActionListener{
-	public MFrame frame;
+	
 	public ArrayList<String> arrayOfCardLines;
 	public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
-	public LetOtherPlayerPlayCardButton(MFrame mframe,ArrayList<String> arrayOfLines,Game game){
+	public LetOtherPlayerPlayCardButton(MFrame mframe,Game game){
 		if(game.turnPlayer==1){
 			this.turnPlayer=game.p1;
 		}
@@ -26,10 +26,10 @@ public class LetOtherPlayerPlayCardButton extends JButton implements ActionListe
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
 		super.setText("EndTurn");
 		
-		this.frame=mframe;
+		
 		this.arrayOfCardLines=arrayOfLines;
 		this.setMaximumSize(new Dimension(100,50));
-		this.arrayOfLines=arrayOfLines;
+		
 		this.myGame=game;
 		addActionListener(this);
 	}
@@ -45,10 +45,10 @@ public class LetOtherPlayerPlayCardButton extends JButton implements ActionListe
 		}
 		
 		
-		frame.dispose();
+		myGame.mframe.dispose();
 		
 		
-		frame=new MFrame(myGame,this.arrayOfLines);
+		myGame.mframe=new MFrame(myGame);
 		
 		
 		

@@ -88,9 +88,12 @@ public class Main {
 		newGame.p1.pHand=hand;
 		
 		newGame.p2.pHand=newGame.dealCards();
-		newGame.mframe = new MFrame(newGame,arrayOfLines);
+		newGame.mframe = new MFrame(newGame);
 		newGame.mframe.setVisible(true);
 		newGame.mframe.setTitle("Munchkin");
+		newGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		newGame.mframe.revalidate();
+		newGame.mframe.repaint();
 		
 		
 	}

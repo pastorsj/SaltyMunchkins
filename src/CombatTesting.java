@@ -23,7 +23,7 @@ public class CombatTesting {
 		hand.add(86); // plb=2 
 		myGame.p1.pPlay=hand; //note this is NOT pHand, this is the cards in PLAY
 		myGame.p1.cLevelCalculation();
-		myGame.mframe = new MFrame(myGame, new ArrayList<String>());
+		myGame.mframe = new MFrame(myGame);
 		myGame.mframe.setVisible(false);
 		
 				
@@ -63,7 +63,7 @@ public class CombatTesting {
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
-		DidIWinButton diwb1 = new DidIWinButton(new MFrame(myGame, new ArrayList<String>()), new ArrayList<String>(), myGame);
+		DidIWinButton diwb1 = new DidIWinButton(myGame);
 		handInPlay.add(2);
 		handInPlay.add(88);
 		myGame.p1.pHand=hand;
@@ -85,7 +85,7 @@ public class CombatTesting {
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
-		DidIWinButton diwb1 = new DidIWinButton(new MFrame(myGame, new ArrayList<String>()), new ArrayList<String>(), myGame);
+		DidIWinButton diwb1 = new DidIWinButton(myGame);
 		handInPlay.add(27); //level 1 monster
 		myGame.p1.pHand=hand;
 		myGame.p1.pPlay=handInPlay;
@@ -108,7 +108,7 @@ public class CombatTesting {
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
-		DidIWinButton diwb1 = new DidIWinButton(new MFrame(myGame, new ArrayList<String>()), new ArrayList<String>(), myGame);
+		DidIWinButton diwb1 = new DidIWinButton(myGame);
 		handInPlay.add(27); //level 1 monster
 		myGame.playACard(27);
 		myGame.p1.pHand=hand;

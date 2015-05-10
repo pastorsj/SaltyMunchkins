@@ -10,11 +10,11 @@ import javax.swing.JButton;
 
 
 public class NewGameButton extends JButton implements ActionListener{
-	public MFrame frame;
+	
 	public ArrayList<String> arrayOfCardLines;
 	public Game myGame;
 	public Player turnPlayer;
-	public NewGameButton(MFrame mframe,ArrayList<String> arrayOfLines,Game game){
+	public NewGameButton(Game game){
 		if(game.turnPlayer==1){
 			this.turnPlayer=game.p1;
 		}
@@ -25,8 +25,8 @@ public class NewGameButton extends JButton implements ActionListener{
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
 		super.setText("NewGame");
 		
-		this.frame=mframe;
-		this.arrayOfCardLines=arrayOfLines;
+	
+		
 		this.myGame=game;
 	
 		addActionListener(this);
@@ -34,7 +34,7 @@ public class NewGameButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		frame.dispose();
+		myGame.mframe.dispose();
 		try {
 			new Main().initMain();
 		} catch (IOException e) {

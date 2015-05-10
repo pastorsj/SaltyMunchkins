@@ -10,13 +10,13 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 public class DiscardButton extends JButton implements ActionListener {
-	public MFrame frame;
+
 	public ArrayList<String> arrayOfCardLines;
 	public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
 
-	public DiscardButton(MFrame mframe, ArrayList<String> arrayOfLines,
+	public DiscardButton(
 			Game game) {
 		if (game.turnPlayer == 1) {
 			this.turnPlayer = game.p1;
@@ -28,18 +28,19 @@ public class DiscardButton extends JButton implements ActionListener {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
 		super.setText(buttonText);
+		this.setPreferredSize(new Dimension(100,30));
 
-		this.frame = mframe;
-		this.arrayOfCardLines = arrayOfLines;
+		
+		
 
-		this.arrayOfLines = arrayOfLines;
+		
 		this.myGame = game;
 		addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		int cardToMovePos = this.frame.mainPanel.bCardPanel.largeCardPos;
+		int cardToMovePos = this.myGame.mframe.mainPanel.bCardPanel.largeCardPos;
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
 		
 		
@@ -72,9 +73,9 @@ public class DiscardButton extends JButton implements ActionListener {
 			myGame.p2 = turnPlayer;
 		}
 
-		frame.dispose();
+		myGame.mframe.dispose();
 
-		frame = new MFrame(myGame, this.arrayOfLines);
+		myGame.mframe = new MFrame(myGame);
 
 	}
 

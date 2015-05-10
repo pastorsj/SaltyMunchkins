@@ -10,13 +10,12 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 
 public class PlayCardButton extends JButton implements ActionListener {
-	public MFrame frame;
-	public ArrayList<String> arrayOfCardLines;
+
 	public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
 
-	public PlayCardButton(MFrame mframe, ArrayList<String> arrayOfLines,
+	public PlayCardButton(
 			Game game) {
 		if (game.turnPlayer == 1) {
 			this.turnPlayer = game.p1;
@@ -29,17 +28,14 @@ public class PlayCardButton extends JButton implements ActionListener {
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
 		super.setText(buttonText);
 
-		this.frame = mframe;
-		this.arrayOfCardLines = arrayOfLines;
 
-		this.arrayOfLines = arrayOfLines;
 		this.myGame = game;
 		addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		int cardToMovePos = this.frame.mainPanel.bCardPanel.largeCardPos;
+		int cardToMovePos = myGame.mframe.mainPanel.bCardPanel.largeCardPos;
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
 		
 		
@@ -71,10 +67,13 @@ public class PlayCardButton extends JButton implements ActionListener {
 		} else {
 			myGame.p2 = turnPlayer;
 		}
+		
+		myGame.mframe.dispose();
 
-		frame.dispose();
-
-		frame = new MFrame(myGame, this.arrayOfLines);
+		myGame.mframe= new MFrame(myGame);
+		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		myGame.mframe.revalidate();
+		myGame.mframe.repaint();
 
 	}
 

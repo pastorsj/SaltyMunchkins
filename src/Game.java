@@ -179,6 +179,10 @@ public class Game {
 			e.printStackTrace();
 		}
 		
+		this.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
+		this.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
+		this.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: " +this.mLevel);
+		
 	}
 
 

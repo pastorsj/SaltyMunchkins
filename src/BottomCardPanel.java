@@ -14,6 +14,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
+import com.sun.glass.ui.View;
+
+
 
 public class BottomCardPanel extends JPanel implements MouseListener{
 	//private BufferedImage munchkinLogo;
@@ -52,11 +55,11 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	
 
 	//public MapPanel (ButtonPanel bPanel){
-	 public BottomCardPanel(Game game,MFrame frame,ArrayList<String> arrayOfLines){
+	 public BottomCardPanel(Game game){
 		super();
 		this.myGame=game;
-		this.myFrame=frame;
-		this.myArrayOfLines=arrayOfLines;
+		
+		//this.myArrayOfLines=arrayOfLines;
 	
 		if(game.turnPlayer==1){
 			this.turnPlayer=game.p1;
@@ -78,7 +81,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
         //this.setLayout(null);
-        NewGameButton newGameButton= new NewGameButton(frame,arrayOfLines,game);
+        NewGameButton newGameButton= new NewGameButton(game);
         this.ngb=newGameButton;
  
         //ngb.setBounds(0,0,50,50);
@@ -86,21 +89,22 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		ngb.setLocation(-100,-100);
 		this.add(ngb);
 		
-		this.pcb= new PlayCardButton(frame,arrayOfLines,game);
+		this.pcb= new PlayCardButton(game);
 		pcb.setPreferredSize(new Dimension (100,30));
 		this.add(pcb);
 		
-		this.diwb = new DidIWinButton(frame, arrayOfLines,game);
+		this.diwb = new DidIWinButton(game);
 		diwb.setPreferredSize(new Dimension (100,30));
 		this.add(diwb);
 		
 		
-		this.etb=new EndTurnButton(frame,arrayOfLines,game);
+		this.etb=new EndTurnButton(game);
 		etb.setPreferredSize(new Dimension(90,30));
 		this.add(etb);
 		
-		this.db = new DiscardButton(frame,arrayOfLines,game);
-		db.setPreferredSize(new Dimension(100,30));
+		
+		//this.db = new DiscardButton(frame,arrayOfLines,game);
+	
 		//this.add(db);
 		
 		
@@ -177,6 +181,11 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 
 
 		}
+	 
+	 public void removeETB(){
+		 this.etb.setVisible(false);
+	
+	 }
 
 	@Override
 	public void mouseClicked(MouseEvent e) {

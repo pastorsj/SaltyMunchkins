@@ -53,7 +53,7 @@ public class Player {
 		}
 		
 		else{
-			int roll = game.rollDice(0);
+			int roll = game.rollDice(2);
 			System.out.println("You rolled a " + roll);
 			if (roll>4) {
 				System.out.println("You ran away!");

@@ -24,7 +24,7 @@ public class CardPanel extends Panel {
 	public BufferedImage largeCard;
 	public NewGameButton ngb;
 
-	public CardPanel(MFrame frame,ArrayList<String> arrayOfLines) throws IOException{
+	public CardPanel(MFrame frame) throws IOException{
 		
 		
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));

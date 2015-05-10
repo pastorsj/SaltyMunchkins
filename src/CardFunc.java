@@ -33,7 +33,7 @@ public class CardFunc {
 		//+3 against Monster Whackers
 		if(myGame.currentPlayer.className.equals("Monster Whacker")) {
 			myGame.currentPlayer.cLevel -= 3;
-			myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 		}
 		myGame.mLevel = 2;
 	}
@@ -59,7 +59,7 @@ public class CardFunc {
 	public void func4Init() {
 		//No class abilities can be used
 		myGame.mLevel = 1;
-		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 		
 	}
 	
@@ -102,10 +102,10 @@ public class CardFunc {
 		//-4 against females
 		if(myGame.currentPlayer.gender == 'F') {
 			myGame.mLevel += 4;
-			myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("player clevel: "+myGame.mLevel);
+			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("player clevel: "+myGame.mLevel);
 		}
 		myGame.mLevel +=2;
-		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 	}
 	
 	public void func7(boolean checkWin) {
@@ -323,10 +323,10 @@ public class CardFunc {
 	public void func27Init() {
 		if(myGame.currentPlayer.className.equals("Professor")) {
 			myGame.currentPlayer.cLevel -= 2;
-			myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
+			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
 		}
-		myGame.mLevel +=2;
-		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		myGame.mLevel +=1;
+	//	myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 	}
 	
 	public void func27(boolean checkWin) {
@@ -334,7 +334,22 @@ public class CardFunc {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			//Discard cards depending on the user, must add up to 500 gold.
-			myGame.mframe.mainPanel.bCardPanel.add(myGame.mframe.mainPanel.bCardPanel.db);
+			System.out.println("GETTING HERE");
+			//myGame.mframe.mainPanel.bCardPanel.removeETB();
+			myGame.mframe.dispose();
+			
+			myGame.mframe=new MFrame(myGame);
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
+		//	myGame.mframe = new MFrame(myGame);
+			//myGame.mframe.repaint();
+		//	myGame.mframe.mainPanel.bCardPanel.revalidate();
+		//	DiscardButton db = new DiscardButton(myGame);
+		//	db.setVisible(true);
+		//	myGame.mframe.mainPanel.bCardPanel.add(db);
+			
+		
 			
 		}
 	}
@@ -387,7 +402,7 @@ public class CardFunc {
 	public void func29Init() {
 		//+ 10 to the monster
 		myGame.mLevel += 10;
-		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 		myGame.otherPlayer.treasuresWonEachTurn+=2;
 	}
 	
@@ -587,8 +602,9 @@ public class CardFunc {
 	
 	public void func42Init() {
 		//-5 to the monster
-		myGame.currentPlayer.cLevel += 5;
-		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		myGame.mLevel -= 5;
+		myGame.currentPlayer.treasuresWonEachTurn-=1;
+	//	myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: " +myGame.mLevel);
 	}
 	
 	public void func42(boolean checkWin) {
@@ -1076,7 +1092,7 @@ public class CardFunc {
 			//myGame.ic.getCardHash().get(84).discard=false;
 			myGame.currentPlayer.hLevel+=2;
 			myGame.currentPlayer.cLevel+=4;
-			myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 			
 		}
 
@@ -1101,7 +1117,7 @@ public class CardFunc {
 	
 	public void func86Init(){
 		myGame.currentPlayer.cLevel+=2;
-		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 		
 	}
 	
@@ -1111,7 +1127,7 @@ public class CardFunc {
 	
 	public void func87Init() {
 		myGame.currentPlayer.cLevel+=1;
-		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
 	public void func87(boolean checkwin){
@@ -1127,8 +1143,9 @@ public class CardFunc {
 	
 	public void func89Init(){
 		myGame.currentPlayer.pLevel++;
-		myGame.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: "+myGame.currentPlayer.pLevel);
-		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		myGame.currentPlayer.cLevel++;
+		//myGame.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: "+myGame.currentPlayer.pLevel);
+		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
 	public void func90Init(){
@@ -1141,12 +1158,12 @@ public class CardFunc {
 		
 		if(hasMonster){
 			myGame.currentPlayer.cLevel+=2;
-			myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
+			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
 			
 		}
 		else{
 			myGame.mLevel+=2;
-			myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 		}
 		
 	}
@@ -1162,7 +1179,7 @@ public class CardFunc {
 	
 	public void func97Init(){
 		myGame.currentPlayer.cLevel+=3;
-		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 		
 	}
 	public void func97(boolean checkwin) {
@@ -1171,7 +1188,7 @@ public class CardFunc {
 	
 	public void func98Init() {
 		myGame.currentPlayer.cLevel+=4;
-		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
 	public void func98(boolean checkwin){
@@ -1180,7 +1197,7 @@ public class CardFunc {
 	
 	public void func99Init() {
 		myGame.currentPlayer.cLevel+=1;
-		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
 	public void func99(boolean checkwin){

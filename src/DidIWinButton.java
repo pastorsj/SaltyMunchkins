@@ -11,12 +11,12 @@ import javax.swing.JButton;
 
 
 public class DidIWinButton extends JButton implements ActionListener{
-	public MFrame frame;
+	//public MFrame frame;
 	public ArrayList<String> arrayOfCardLines;
 	//public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
-	public DidIWinButton(MFrame mframe,ArrayList<String> arrayOfLines,Game game){
+	public DidIWinButton(Game game){
 	//	if(game.turnPlayer==1){
 	//		this.turnPlayer=game.p1;
 	//	}
@@ -29,7 +29,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
 		super.setText("WIN?");//Should be End Turn
 		
-		this.frame=mframe;
+		//this.frame=mframe;
 		this.arrayOfCardLines=arrayOfLines;
 		this.setMaximumSize(new Dimension(100,50));
 		this.arrayOfLines=arrayOfLines;
@@ -39,7 +39,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 	
 	public void didIWin(){
 		boolean bool = myGame.currentPlayer.didIwin(myGame);
-		myGame.mframe.repaint();
+	//	myGame.mframe.repaint();
 	}
 	
 		
@@ -50,12 +50,13 @@ public class DidIWinButton extends JButton implements ActionListener{
 		
 		didIWin();
 		myGame.mLevel=0;
+		myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
 		
 		
-		frame.dispose();
+		myGame.mframe.dispose();
 		
 		
-		frame=new MFrame(myGame,this.arrayOfLines);
+		myGame.mframe=new MFrame(myGame);
 		
 		
 		
