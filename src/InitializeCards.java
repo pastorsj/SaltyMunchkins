@@ -249,6 +249,7 @@ public class InitializeCards {
 		cardHash.get(97).numGold = 700;
 		cardHash.get(97).pLevelBonus = 3;
 		cardHash.get(97).NotUsableBy = "Monster Whacker";
+		cardHash.get(97).discard = false;
 		cardHash.get(98).numGold=800;
 		cardHash.get(98).pLevelBonus=4;
 		cardHash.get(98).numHands=2;
