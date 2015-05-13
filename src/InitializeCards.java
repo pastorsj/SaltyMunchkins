@@ -270,6 +270,10 @@ public class InitializeCards {
 		cardHash.get(112).pLevelBonus=1;
 		cardHash.get(112).armor=true;
 		cardHash.get(112).discard=false;
+		cardHash.get(113).numGold=600;
+		cardHash.get(113).pLevelBonus=3;
+		cardHash.get(113).footGear=true;
+		cardHash.get(113).discard=false;
 	}
 	
 	public void addConditionsForSelect() {
