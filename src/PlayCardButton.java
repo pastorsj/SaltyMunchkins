@@ -59,8 +59,8 @@ public class PlayCardButton extends JButton implements ActionListener {
 		
 
 		
-		turnPlayer.pHand.remove(cardToMovePos);
-		turnPlayer.pPlay.add(cardToMove);
+		myGame.currentPlayer.pHand.remove(cardToMovePos);
+		myGame.currentPlayer.pPlay.add(cardToMove);
 
 		if (myGame.turnPlayer == 1) {
 			myGame.p1 = turnPlayer;
@@ -74,8 +74,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 		//myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
-		myGame.mframe.mainPanel.revalidate();
-		myGame.mframe.mainPanel.repaint();
+		
 
 	}
 

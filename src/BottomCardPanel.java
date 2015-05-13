@@ -40,7 +40,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public int largeCardPos;
 	public PlayCardButton pcb;
 	public DidIWinButton diwb;
-	public Discard500GoldButton d5gb;
+	public DiscardGoldButton dgb;
 	public Player turnPlayer;
 	public Player otherPlayer;
 	public Game myGame;
@@ -107,8 +107,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.db = new DiscardButton(game);
 		this.add(db);
 		
-		this.d5gb = new Discard500GoldButton(game);
-		this.add(d5gb);
+		this.dgb = new DiscardGoldButton(game);
+		this.add(dgb);
 		
 		
 		
@@ -134,19 +134,20 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			
 			try {
 				MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
-				for(int i =0; i<this.turnPlayer.pHand.size();i++){
-					BufferedImage cardImage = ImageIO.read(new File ("src\\m"+this.turnPlayer.pHand.get(i)+".PNG"));
+				//i<this.turnPlayer.pHand.size()
+				for(int i =0; i<myGame.currentPlayer.pHand.size();i++){
+					BufferedImage cardImage = ImageIO.read(new File ("src\\m"+myGame.currentPlayer.pHand.get(i)+".PNG"));
 					cardImages.add(cardImage);
 				
 				}
 				
-				for(int i =0; i<this.turnPlayer.pPlay.size();i++){
-					BufferedImage playImage = ImageIO.read(new File("src\\m"+this.turnPlayer.pPlay.get(i)+".PNG"));
+				for(int i =0; i<myGame.currentPlayer.pPlay.size();i++){
+					BufferedImage playImage = ImageIO.read(new File("src\\m"+myGame.currentPlayer.pPlay.get(i)+".PNG"));
 					cardsInPlayImages.add(playImage);
 				}
 				
-				for(int i =0; i<this.otherPlayer.pPlay.size();i++){
-					BufferedImage playImage2 = ImageIO.read(new File("src\\m"+this.otherPlayer.pPlay.get(i)+".PNG"));
+				for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
+					BufferedImage playImage2 = ImageIO.read(new File("src\\m"+myGame.otherPlayer.pPlay.get(i)+".PNG"));
 					cardsInPlayImages2.add(playImage2);
 				}
 				

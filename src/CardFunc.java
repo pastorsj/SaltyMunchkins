@@ -74,9 +74,12 @@ public class CardFunc {
 		}
 		else{
 			for(int i = 0;i<myGame.currentPlayer.pHand.size();i++){
-				if((myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).numGold>0)||
-						(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).headGear)||
-						(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).footGear)){
+				//if((myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).numGold>0)||
+					//	(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).headGear)||
+						//(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).footGear)){
+					//myGame.currentPlayer.pHand.remove(i);
+					//i--;
+				if(myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).armor){
 					myGame.currentPlayer.pHand.remove(i);
 					i--;
 				}
@@ -307,6 +310,12 @@ public class CardFunc {
 	
 	public void func23() {
 		//Curse: Must discard at least 1000 gold pieces
+		myGame.changePlayer();
+		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 500;
+		myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(true);
+		
+		
 	}
 	
 	public void func24() {
@@ -358,14 +367,15 @@ public class CardFunc {
 			myGame.currentPlayer.treasuresWonEachTurn += 1;
 		} else {
 			//Discard cards depending on the user, must add up to 500 gold.
-			System.out.println("GETTING HERE");
+		
 			//myGame.mframe.mainPanel.bCardPanel.removeETB();
 			//myGame.mframe.dispose();
 			
 			//myGame.mframe=new MFrame(myGame);
 			//myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
-			myGame.mframe.mainPanel.bCardPanel.d5gb.setVisible(true);
+			myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 500;
+			myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(true);
 		
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
@@ -382,17 +392,16 @@ public class CardFunc {
 		}
 	}
 	
-	public void discard500Gold(){
-	
-		myGame.mframe.mainPanel.bCardPanel.d5gb.goldLeft = 0;
+	public void discardGold(){
+		myGame.mframe.mainPanel.bCardPanel.dgb.goldLeft = 0;
 		for(int i =0; i<myGame.currentPlayer.pHand.size();i++){
-			myGame.mframe.mainPanel.bCardPanel.d5gb.goldLeft+=
+			myGame.mframe.mainPanel.bCardPanel.dgb.goldLeft+=
 					myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).numGold;
 		}
-		if(myGame.mframe.mainPanel.bCardPanel.d5gb.goldCount>=500 || 
-				myGame.mframe.mainPanel.bCardPanel.d5gb.goldLeft==0){
+		if(myGame.mframe.mainPanel.bCardPanel.dgb.goldCount>=myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard || 
+				myGame.mframe.mainPanel.bCardPanel.dgb.goldLeft==0){
 			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
-			myGame.mframe.mainPanel.bCardPanel.d5gb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(false);
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
 		}

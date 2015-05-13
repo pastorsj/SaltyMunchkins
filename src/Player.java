@@ -157,6 +157,7 @@ public void endCombat(Game myGame){
 		}
 		this.hLevel = 0;
 		myGame.mLevel = 0;
+		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 0;
 		
 		
 		

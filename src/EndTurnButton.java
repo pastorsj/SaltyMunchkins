@@ -49,10 +49,12 @@ public class EndTurnButton extends JButton implements ActionListener{
 		}
 		
 		
-		myGame.mframe.dispose();
+		//myGame.mframe.dispose();
 		
 		
-		myGame.mframe=new MFrame(myGame);
+		//myGame.mframe=new MFrame(myGame);
+		myGame.mframe.revalidate();
+		myGame.mframe.repaint();
 		
 		
 		
