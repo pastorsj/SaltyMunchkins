@@ -238,6 +238,7 @@ public class InitializeCards {
 		cardHash.get(88).numGold = 300;
 		cardHash.get(88).numHands = 1;
 		cardHash.get(88).pLevelBonus = 2;
+		cardHash.get(88).discard =false;
 		cardHash.get(89).goUpALevel = true;
 		cardHash.get(90).numGold = 100;
 		cardHash.get(90).numUse = 1;
