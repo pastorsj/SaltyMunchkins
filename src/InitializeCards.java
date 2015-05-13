@@ -294,6 +294,10 @@ public class InitializeCards {
 		cardHash.get(119).pLevelBonus=3;
 		cardHash.get(119).numHands=1;
 		cardHash.get(119).discard=false;
+		cardHash.get(120).numGold=300;
+		cardHash.get(120).pLevelBonus=1;
+		cardHash.get(120).headGear=true;
+		cardHash.get(120).discard=false;
 		
 	}
 	
