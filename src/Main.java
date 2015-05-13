@@ -43,14 +43,7 @@ public class Main {
 		doorAv.add(42);
 		doorAv.add(29);
 		doorAv.add(4); //not sure if this is for cards in play or for cards in hand?? assume hand
-		
-		//add these doors just to have 8 cards
-		doorAv.add(27);
-		doorAv.add(2);
-		doorAv.add(7);
-		doorAv.add(42);
-		doorAv.add(4);
-		
+	
 		doorAv.add(1);
 		doorAv.add(3);
 		doorAv.add(5);
@@ -61,6 +54,7 @@ public class Main {
 		doorAv.add(15);
 		doorAv.add(17);
 		doorAv.add(20);
+		doorAv.add(23);
 		
 		treasAv.add(84);
 		//treasAv.add(85);

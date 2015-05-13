@@ -37,6 +37,8 @@ public class PlayCardButton extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		int cardToMovePos = myGame.mframe.mainPanel.bCardPanel.largeCardPos;
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
+		myGame.currentPlayer.pHand.remove(cardToMovePos);
+		myGame.currentPlayer.pPlay.add(cardToMove);
 		
 		
 		myGame.playACard(cardToMove);
@@ -59,8 +61,8 @@ public class PlayCardButton extends JButton implements ActionListener {
 		
 
 		
-		myGame.currentPlayer.pHand.remove(cardToMovePos);
-		myGame.currentPlayer.pPlay.add(cardToMove);
+		//myGame.currentPlayer.pHand.remove(cardToMovePos);
+		//myGame.currentPlayer.pPlay.add(cardToMove);
 
 		if (myGame.turnPlayer == 1) {
 			myGame.p1 = turnPlayer;

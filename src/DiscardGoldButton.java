@@ -46,7 +46,7 @@ public class DiscardGoldButton extends JButton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		int cardToMovePos = this.myGame.mframe.mainPanel.bCardPanel.largeCardPos;
-		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
+		int cardToMove = myGame.currentPlayer.pHand.get(cardToMovePos);
 		
 		
 		//myGame.playACard(cardToMove);
@@ -69,8 +69,8 @@ public class DiscardGoldButton extends JButton implements ActionListener {
 		
 
 		
-		turnPlayer.pHand.remove(cardToMovePos);
-		turnPlayer.pDiscard.add(cardToMove);
+		myGame.currentPlayer.pHand.remove(cardToMovePos);
+		myGame.currentPlayer.pDiscard.add(cardToMove);
 		
 		goldCount+=myGame.ic.getCardHash().get(cardToMove).numGold;
 		CardFunc cf = new CardFunc(myGame);

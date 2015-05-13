@@ -308,14 +308,21 @@ public class CardFunc {
 		myGame.currentPlayer.pLevel -= 1;
 	}
 	
-	public void func23() {
+	public void func23Init() {
 		//Curse: Must discard at least 1000 gold pieces
 		myGame.changePlayer();
+		myGame.mframe.revalidate();
+		myGame.mframe.repaint();
 		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
-		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 500;
+		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 1000;
 		myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(true);
 		
-		
+	}
+	
+	public void func23(boolean checkWin){
+		myGame.currentPlayer.pPlay.remove(0);
+		myGame.mframe.revalidate();
+		myGame.mframe.repaint();
 	}
 	
 	public void func24() {
@@ -1224,12 +1231,12 @@ public class CardFunc {
 		}
 		
 		if(hasMonster){
-			myGame.currentPlayer.cLevel+=2;
+			myGame.currentPlayer.cLevel+=3;
 			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
 			
 		}
 		else{
-			myGame.mLevel+=2;
+			myGame.mLevel+=3;
 			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 		}
 		
