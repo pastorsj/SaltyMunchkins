@@ -290,6 +290,10 @@ public class InitializeCards {
 		cardHash.get(118).pLevelBonus=5;
 		cardHash.get(118).numHands=2;
 		cardHash.get(118).discard = false;
+		cardHash.get(119).numGold=300;
+		cardHash.get(119).pLevelBonus=3;
+		cardHash.get(119).numHands=1;
+		cardHash.get(119).discard=false;
 		
 	}
 	
