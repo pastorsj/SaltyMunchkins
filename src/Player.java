@@ -138,9 +138,7 @@ public class Player {
 		}
 	}
 	
-public void discard500Gold(Game myGame){
-	
-}
+
 public void endCombat(Game myGame){
 		System.out.println("END COMBAT IS CALLED");
 		for(int i =0; i<this.pPlay.size();i++){

@@ -40,6 +40,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public int largeCardPos;
 	public PlayCardButton pcb;
 	public DidIWinButton diwb;
+	public Discard500GoldButton d5gb;
 	public Player turnPlayer;
 	public Player otherPlayer;
 	public Game myGame;
@@ -104,8 +105,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		
 		
 		this.db = new DiscardButton(game);
-	
 		this.add(db);
+		
+		this.d5gb = new Discard500GoldButton(game);
+		this.add(d5gb);
 		
 		
 		

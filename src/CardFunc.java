@@ -341,9 +341,11 @@ public class CardFunc {
 			//myGame.mframe=new MFrame(myGame);
 			//myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
-			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
+			myGame.mframe.mainPanel.bCardPanel.d5gb.setVisible(true);
+		
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
+			
 		//	myGame.mframe = new MFrame(myGame);
 			//myGame.mframe.repaint();
 		//	myGame.mframe.mainPanel.bCardPanel.revalidate();
@@ -354,6 +356,23 @@ public class CardFunc {
 		
 			
 		}
+	}
+	
+	public void discard500Gold(){
+	
+		myGame.mframe.mainPanel.bCardPanel.d5gb.goldLeft = 0;
+		for(int i =0; i<myGame.currentPlayer.pHand.size();i++){
+			myGame.mframe.mainPanel.bCardPanel.d5gb.goldLeft+=
+					myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).numGold;
+		}
+		if(myGame.mframe.mainPanel.bCardPanel.d5gb.goldCount>=500 || 
+				myGame.mframe.mainPanel.bCardPanel.d5gb.goldLeft==0){
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+			myGame.mframe.mainPanel.bCardPanel.d5gb.setVisible(false);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
+		}
+		
 	}
 	
 	public void func28Init() {
