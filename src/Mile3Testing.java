@@ -634,4 +634,11 @@ public class Mile3Testing {
 		assertEquals(2, init.cardHash.get(138).pLevelBonus);
 		assertEquals(1, init.cardHash.get(138).numHands);
 	}
+	
+	@Test
+	public void setValuesForC143() {
+		assertEquals(600, init.cardHash.get(143).numGold);
+		assertEquals(4, init.cardHash.get(143).pLevelBonus);
+		assertEquals(2, init.cardHash.get(143).numHands);
+	}
 }
