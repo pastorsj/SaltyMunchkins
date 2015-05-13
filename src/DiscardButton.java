@@ -15,6 +15,7 @@ public class DiscardButton extends JButton implements ActionListener {
 	public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
+	public int numDiscarded=0;
 
 	public DiscardButton(
 			Game game) {
@@ -43,6 +44,9 @@ public class DiscardButton extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		int cardToMovePos = this.myGame.mframe.mainPanel.bCardPanel.largeCardPos;
 		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
+		numDiscarded+=1;
+		CardFunc cf = new CardFunc(myGame);
+		cf.deleteWhenDiscard();
 		
 		
 		//myGame.playACard(cardToMove);

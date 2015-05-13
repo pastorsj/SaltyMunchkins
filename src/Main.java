@@ -51,6 +51,17 @@ public class Main {
 		doorAv.add(42);
 		doorAv.add(4);
 		
+		doorAv.add(1);
+		doorAv.add(3);
+		doorAv.add(5);
+	
+		doorAv.add(8);
+		doorAv.add(10);
+		doorAv.add(13);
+		doorAv.add(15);
+		doorAv.add(17);
+		doorAv.add(20);
+		
 		treasAv.add(84);
 		//treasAv.add(85);
 		treasAv.add(86);

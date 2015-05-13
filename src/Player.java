@@ -156,6 +156,8 @@ public void endCombat(Game myGame){
 		
 		}
 		this.hLevel = 0;
+		myGame.mLevel = 0;
+		
 		
 		
 		}

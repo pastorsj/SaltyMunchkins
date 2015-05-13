@@ -16,7 +16,7 @@ public class CardFunc {
 	}
 	
 	public void func1Init() {
-		myGame.currentPlayer.cLevel -= 5;
+		myGame.mLevel+= 5;
 	}
 	
 	public void func1(boolean checkWin) {
@@ -35,7 +35,7 @@ public class CardFunc {
 			myGame.currentPlayer.cLevel -= 3;
 			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 		}
-		myGame.mLevel = 2;
+		myGame.mLevel+= 2;
 	}
 	
 	public void func2(boolean checkWin) {
@@ -50,15 +50,16 @@ public class CardFunc {
 		}
 	}
 	
-	public void func3() {
+	public void func3Init() {
 		//+3 to monster
 		//If played on a Cultist, it gives them a permanent bonus of +3
 		//until the class card is lost or the player dies
+		myGame.mLevel+=3;
 	}
 	
 	public void func4Init() {
 		//No class abilities can be used
-		myGame.mLevel = 1;
+		myGame.mLevel+= 1;
 		//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 		
 	}
@@ -86,9 +87,19 @@ public class CardFunc {
 	public void func5Init() {
 		//-2 against Professors
 		//+2 against Cultists
+		if(myGame.currentPlayer.className.equals("Professor")) {
+			myGame.currentPlayer.cLevel -= 2;
+		}
+		myGame.mLevel+=6;
 	}
 	
 	public void func5(boolean checkWin) {
+		if(checkWin){
+			myGame.currentPlayer.treasuresWonEachTurn+=2;
+		}
+		else{
+			//need cultist/you lose screen!
+		}
 		//Gain 2 treasures
 		//Bad: Become a cultist
 		//If already a cultist, donate 1000 gold pieces
@@ -118,13 +129,19 @@ public class CardFunc {
 			//Discard a card in your hand
 			//myGame.discardCard(myGame.currentPlayer, myGame.currentPlayer.pHand.get(0));
 			myGame.mframe.mainPanel.bCardPanel.add(myGame.mframe.mainPanel.bCardPanel.db);
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
+			deleteWhenDiscard();
 		}
 	}
 	
 	public void func8Init() {
 		//Monster gets +3 if size of hand is even
+		myGame.mLevel+=8;
 		if(myGame.currentPlayer.pHand.size()%2 == 0) {
-			myGame.currentPlayer.cLevel -= 3;
+			myGame.mLevel += 3;
 		}
 	}
 	
@@ -138,19 +155,25 @@ public class CardFunc {
 			if(myGame.currentPlayer.pLevel<1) {//CHANGE
 				myGame.currentPlayer.pLevel = 1;
 			}
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
 		}
 	}
 	
 	public void func9() {
 		//Can play on someone who goes up a level without killing a monster
 		//Player can not get help until they kill a monster or use Wishing Ring
+
 	}
 	
-	public void func10() {
+	public void func10Init() {
 		//Can have an extra set of hand armor
+		myGame.currentPlayer.hLevel--;
 	}
 	
-	public void func11() {
+	public void func11Init() {
 		//Cult meeting
 		//Cultists can exchange cards
 		//Any non cultist with the cultist card can join
@@ -165,7 +188,7 @@ public class CardFunc {
 		//Can not voluntarily stop being a cultist
 	}
 	
-	public void func13() {
+	public void func13Init() {
 		//Curse
 		//Discard your class
 		//If you don't have a class, lose a level
@@ -192,17 +215,17 @@ public class CardFunc {
 		}
 	}
 	
-	public void func14() {
+	public void func14Init() {
 		//Curse
 		//Discard all extra cards in your hand
 		if(myGame.currentPlayer.pHand.size() > 8) {
 			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
 			myGame.discardCard(myGame.currentPlayer, card);
-			func14();
+			func14Init();
 		}
 	}
 	
-	public void func15() {
+	public void func15Init() {
 		//Curse
 		//Change sex
 		//-5 to your next combat
@@ -211,7 +234,8 @@ public class CardFunc {
 		} else {
 			myGame.currentPlayer.gender = 'F';
 		}
-		myGame.currentPlayer.cLevel -= 5;
+		myGame.currentPlayer.cLevel -= 5; //this will delete immediately if don't play monster now
+		
 	}
 	
 	public void func16() {
@@ -219,7 +243,7 @@ public class CardFunc {
 		///If you are not a cultist, become a cultist
 	}
 	
-	public void func17() {
+	public void func17Init() {
 		//Curse
 		//-3 on your next combat
 		//If you have miners helmet or two handed flashlight, discard them
@@ -375,6 +399,18 @@ public class CardFunc {
 		
 	}
 	
+	public void deleteWhenDiscard(){
+	
+		
+		if(myGame.mframe.mainPanel.bCardPanel.db.numDiscarded>0 || 
+				myGame.currentPlayer.pHand.size()==0){
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+			myGame.mframe.mainPanel.bCardPanel.db.setVisible(false);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
+		}
+	}
+	
 	public void func28Init() {
 		myGame.currentPlayer.cLevel = myGame.currentPlayer.pLevel;
 		//Will add something like this once the rest of the cards are implemented in
@@ -451,12 +487,13 @@ public class CardFunc {
 		}
 	}
 	
-	public void func31() {
+	public void func31Init() {
 		//+3 to monster
 		//or play on cultist until they die or they lose the class
 		//+3 permanant bonus
 		//same as func3()
-	}
+		func3Init();
+		}
 	
 	public void func32Init() {
 		//Must discard card in your hand

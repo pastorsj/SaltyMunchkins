@@ -129,6 +129,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	 public void paintComponent(Graphics go) {
 			cardImages = new ArrayList<BufferedImage>();
 			cardsInPlayImages = new ArrayList<BufferedImage>();
+			cardsInPlayImages2 = new ArrayList<BufferedImage>();
 			super.paintComponents(go);
 			
 			try {
