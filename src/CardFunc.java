@@ -15,6 +15,22 @@ public class CardFunc {
 		
 	}
 	
+	public boolean checkHands(int numHands) {
+		return (myGame.currentPlayer.hLevel+numHands)<=2;
+	}
+	
+	public boolean checkArmor(int numArmor) {
+		return (myGame.currentPlayer.armorLevel+numArmor)<=1;
+	}
+	
+	public boolean checkHeadGear(int numHead) {
+		return (myGame.currentPlayer.headLevel+numHead) <= 1;
+	}
+	
+	public boolean checkFootLevel(int numFoot) {
+		return (myGame.currentPlayer.footLevel+numFoot) <= 1;
+	}
+	
 	public void func1Init() {
 		myGame.mLevel+= 5;
 	}
@@ -1278,6 +1294,13 @@ public class CardFunc {
 		
 	}
 	
+	public void func100Init() {
+		//+3 to either side in combat
+	}
+	public void func101Init() {
+		
+	}
+	
 	public void func102(){
 		func89Init();
 	}
@@ -1286,16 +1309,312 @@ public class CardFunc {
 		func89Init();
 	}
 	
+	public void func105Init() {
+		//Triple combat bonus for all footgear in combat
+	}
+	
+	public void func106Init() {
+		//Same as func100
+	}
+	
 	public void func107(){
 		func89Init();
+	}
+	
+	public void func108Init() {
+		//Probably shouldn't implement
+	}
+	
+	public void func109Init() {
+		//Headgear for cultist only
+		if(myGame.currentPlayer.className.equals("Cultist") && checkHeadGear(1)) {
+			myGame.currentPlayer.headLevel+=1;
+			myGame.currentPlayer.cLevel+=4;
+		} else {
+			System.out.println("You cannot play this card 109");
+		}
+	}
+	
+	public void func110Init() {
+		//+2 to either side of combat
+		//If other person is a lower level, they can pick it up
+	}
+	
+	public void func111Init() {
+		if(checkHeadGear(1)) {
+			myGame.currentPlayer.headLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			System.out.println("You cannot use this item 111");
+		}
+	}
+	
+	public void func112Init() {
+		if(checkArmor(1)) {
+			myGame.currentPlayer.armorLevel += 1;
+			myGame.currentPlayer.cLevel += 1;
+		} else {
+			//Can technically use this on top of armor
+			System.out.println("You cannot use this item 112");
+		}
+	}
+	
+	public void func113Init() {
+		if(myGame.currentPlayer.className.equals("Monster Whacker") && checkFootLevel(1)) {
+			myGame.currentPlayer.footLevel += 1;
+			myGame.currentPlayer.cLevel += 3;
+		} else {
+			System.out.println("You cannot use this item 113");
+		}
+	}
+	
+	public void func114Init() {
+		if(!myGame.currentPlayer.className.equals("Cultist") && checkHands(1)) {
+			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			System.out.println("You cannot use this item 114");
+		}
 	}
 	
 	public void func115() {
 		func89Init();
 	}
 	
+	public void func116Init() {
+		if(checkHands(1)) {
+			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.cLevel += 1;
+		} else {
+			System.out.println("You cannot use this item 116");
+		}
+	}
+	
+	public void func117Init() {
+		func116Init();
+	}
+	
+	public void func118Init() {
+		if(myGame.currentPlayer.className.equals("Professor") && checkHands(2)) {
+			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.cLevel += 5;
+		} else {
+			System.out.println("You cannot use this item 118");
+		}
+	}
+	
+	public void func119Init() {
+		//If you are fighting a monster, you can end your turn by discarding the monster and this card
+		//You don't need to discard this card though
+	}
+	
+	public void func120Init() {
+		if(checkHeadGear(1)) {
+			myGame.currentPlayer.headLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			System.out.println("You cannot use this item 120");
+		}
+	}
+	
+	public void func121Init() {
+		//-1 for running away
+	}
+	
+	public void func121(boolean checkWin) {
+		//Draw one extra treasure every time you kill a monster
+	}
+	
+	public void func122Init() {
+		//Difficult to implement....
+	}
+	
+	public void func123Init() {
+		//If this card is played with a hands card, it is worth and extra +2 in combat
+	}
+	
+	public void func124Init() {
+		//Same as 110
+		func110Init();
+	}
+	
+	public void func125Init() {
+		if(checkHands(1)) {
+			myGame.currentPlayer.hLevel += 1;
+			if(myGame.mLevel >= 15) {
+				myGame.currentPlayer.cLevel += 5;
+			} else {
+				myGame.currentPlayer.cLevel += 2;
+			}
+		} else {
+			System.out.println("You cannot use this item 125");
+		}
+	}
+	
+	public void func126Init() {
+		if(checkArmor(1)) {
+			myGame.currentPlayer.armorLevel += 1;
+			myGame.currentPlayer.cLevel += 4;
+		} else {
+			System.out.println("You cannot use this item 126");
+		}
+	}
+	
+	public void func127Init() {
+		//+2 to run away to either side
+		//Usable only once
+	}
+	
+	public void func128Init() {
+		if(myGame.currentPlayer.className.equals("Monster Whacker") && checkHands(1)) {
+			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.cLevel += 1;
+		} else {
+			System.out.println("You cannot use this item 128");
+		}
+	}
+	
 	public void func129() {
 		func89Init();
+	}
+	
+	public void func130Init() {
+		if(checkFootLevel(1)) {
+			//You escape automatically and the other person get -2 to his roll
+		} else {
+			System.out.println("You cannot use this item 130");
+		}
+	}
+	
+	public void func131Init() {
+		if(checkHands(2)) {
+			myGame.currentPlayer.hLevel += 2;
+			//if monster card (shoggoth) = 
+			//else if monster (goth) card =
+			//else +2 
+		} else {
+			System.out.println("You cannot use this item 131");
+		}
+	}
+	
+	public void func132Init() {
+		//-2 to either side of combat, usable only once.
+	}
+	
+	public void func133Init() {
+		//Immune to all ichor effect except the ones you play
+		if(checkArmor(1)) {
+			myGame.currentPlayer.armorLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			System.out.println("You cannot use this item 133");	
+		}
+	}
+	
+	public void func134Init() {
+		//Difficult to implement
+	}
+	
+	public void func135Init() {
+		//If you help in combat and the other munchkin loses, you go up two levels
+		//Otherwise, go up a level
+	}
+	
+	public void func136Init() {
+		//+2 in combat unless you sing, then +5 i combat
+		//Defeats great cthulu, already implemented
+	}
+	
+	public void func137Init() {
+		//+4 to either side of combat
+		//Usable only once
+	}
+	
+	public void func138Init() {
+		if(checkHands(1)) {
+			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			System.out.println("You cannot use this item 138");
+		}
+	}
+	
+	public void func139Init() {
+		func89Init();
+	}
+	
+	public void func140Init() {
+		func89Init();
+	}
+	
+	public void func141Init() {
+		if(myGame.currentPlayer.className.equals("Cultist")) {
+			myGame.currentPlayer.hLevel -= 1;
+		} else {
+			System.out.println("You cannot use this item 141");
+		}
+	}
+	
+	public void func142Init() {
+		//Other ichor effect is doubled
+	}
+	
+	public void func143Init() {
+		if(checkHands(2)) {
+			myGame.currentPlayer.hLevel += 2;
+			if(myGame.currentPlayer.username.equals("Tommy") || myGame.currentPlayer.username.equals("Tom") || myGame.currentPlayer.username.equals("Tommie")) {
+				myGame.currentPlayer.cLevel += 1;
+			}
+			myGame.currentPlayer.cLevel += 4;
+		} else {
+			System.out.println("You cannot use this item 143");
+		}
+	}
+	
+	public void func144Init() {
+		if(myGame.currentPlayer.className.equals("Investigator") && checkHands(2)) {
+			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.cLevel += 4;
+		} else {
+			System.out.println("You cannot use this item 144");
+		}
+	}
+	
+	public void func145Init() {
+		if(myGame.currentPlayer.className.equals("Professor") && checkArmor(1)) {
+			myGame.currentPlayer.armorLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			//If you lose your armour, you lose this too
+			System.out.println("You cannot use this item 145");
+		}
+	}
+	
+	public void func146Init() {
+		if(!myGame.currentPlayer.className.equals("Professor") && checkHands(2)) {
+			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.cLevel += 3;
+		} else {
+			System.out.println("You cannot use this item 146");
+		}
+	}
+	
+	public void func147Init() {
+		//Draw three treasure cards immediately
+	}
+	
+	public void func148Init() {
+		if(!myGame.currentPlayer.className.equals("Investigator") && checkHands(1)) {
+			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.cLevel += 3;
+		} else {
+			System.out.println("You cannot use this item 148");
+		}
+	}
+	
+	public void func149Init() {
+		//Cancels any curse
+		//Usable only once
 	}
 	
 	/*

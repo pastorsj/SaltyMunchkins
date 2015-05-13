@@ -16,6 +16,9 @@ public class Player {
 	public int treasuresWonEachTurn = 0;
 	public InitializeCards initCards = new InitializeCards();
 	public int hLevel = 0; //number of hand cards in play
+	public int headLevel = 0;
+	public int armorLevel = 0;
+	public int footLevel = 0;
 	
 	public Player(String name){
 		this.username = name;
