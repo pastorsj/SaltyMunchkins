@@ -315,6 +315,11 @@ public class InitializeCards {
 		cardHash.get(133).numGold=400;
 		cardHash.get(133).pLevelBonus=2;
 		cardHash.get(133).armor=true;
+		cardHash.get(133).discard=false;
+		cardHash.get(138).numGold=300;
+		cardHash.get(138).pLevelBonus=2;
+		cardHash.get(138).numHands=1;
+		cardHash.get(138).discard=false;
 	}
 	
 	public void addConditionsForSelect() {
