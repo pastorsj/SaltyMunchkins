@@ -500,6 +500,7 @@ public class Mile3Testing {
 		assertEquals(700, init.cardHash.get(97).numGold);
 		assertEquals(3, init.cardHash.get(97).pLevelBonus);
 		assertEquals("Monster Whacker", init.cardHash.get(97).NotUsableBy);
+		assertEquals(true,init.cardHash.get(97).headGear);
 	}
 
 	@Test
