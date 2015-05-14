@@ -1369,7 +1369,10 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func118Test() {
-		
+		myGame.currentPlayer.className = "Professor";
+		myGame.funcs.func118Init();
+		assertEquals(2, myGame.currentPlayer.handLevel);
+		assertEquals(5, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
