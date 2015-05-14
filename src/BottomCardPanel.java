@@ -182,7 +182,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				//this.setPreferredSize(new Dimension(2000, 1000));
 				this.setMinimumSize(new Dimension(2000,500));
 				this.setVisible(true);
-				this.repaint();
+				//this.repaint();
 				
 				
 				
@@ -287,7 +287,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				
 			}
 			
-			this.repaint();
+			//this.repaint();
 		}
 		
 		if(y>545 && y<770){
@@ -298,7 +298,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 					
 				}
 			}
-			this.repaint();
+			//this.repaint();
 			
 		}
 		//added this to click other cards
@@ -310,10 +310,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 					
 				}
 			}
-			this.repaint();
+			//this.repaint();
 			
 		}
-		
+		myGame.mframe.repaint();//This blows everything up...
 		
 	}
 

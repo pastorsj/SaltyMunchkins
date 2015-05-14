@@ -61,7 +61,7 @@ public 	BottomCardPanel bCardPanel;
 		this.setVisible(true);
 	}
 
-	public void paintComponent(Graphics g) {
-
-	}
+//	public void paintComponent(Graphics g) {
+//
+//	}
 }

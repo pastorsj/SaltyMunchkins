@@ -250,7 +250,7 @@ public class NoEndPanel extends JPanel implements MouseListener{
 				
 			}
 			
-			this.repaint();
+			//this.repaint();
 		}
 		
 		if(y>545 && y<770){
@@ -261,7 +261,7 @@ public class NoEndPanel extends JPanel implements MouseListener{
 					
 				}
 			}
-			this.repaint();
+			//this.repaint();
 			
 		}
 		//added this to click other cards
@@ -273,11 +273,11 @@ public class NoEndPanel extends JPanel implements MouseListener{
 					
 				}
 			}
-			this.repaint();
+			//this.repaint();
 			
 		}
 		
-		
+		myGame.mframe.repaint();
 	}
 
 	@Override
