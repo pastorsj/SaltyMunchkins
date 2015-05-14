@@ -16,7 +16,7 @@ public class CardFunc {
 	}
 	
 	public boolean checkHands(int numHands) {
-		return (myGame.currentPlayer.hLevel+numHands)<=2;
+		return (myGame.currentPlayer.handLevel+numHands)<=2;
 	}
 	
 	public boolean checkArmor(int numArmor) {
@@ -189,7 +189,7 @@ public class CardFunc {
 	
 	public void func10Init() {
 		//Can have an extra set of hand armor
-		myGame.currentPlayer.hLevel--;
+		myGame.currentPlayer.handLevel--;
 	}
 	
 	public void func11Init() {
@@ -1180,7 +1180,7 @@ public class CardFunc {
 		}
 		else{
 			//myGame.ic.getCardHash().get(84).discard=false;
-			myGame.currentPlayer.hLevel+=2;
+			myGame.currentPlayer.handLevel+=2;
 			myGame.currentPlayer.cLevel+=4;
 			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 			
@@ -1206,6 +1206,7 @@ public class CardFunc {
 	}
 	
 	public void func86Init(){
+		myGame.currentPlayer.handLevel+=1;
 		myGame.currentPlayer.cLevel+=2;
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 		
@@ -1278,6 +1279,7 @@ public class CardFunc {
 	
 	public void func98Init() {
 		myGame.currentPlayer.cLevel+=4;
+		myGame.currentPlayer.handLevel+=2;
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
@@ -1370,7 +1372,7 @@ public class CardFunc {
 	
 	public void func114Init() {
 		if(!myGame.currentPlayer.className.equals("Cultist") && checkHands(1)) {
-			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.handLevel += 1;
 			myGame.currentPlayer.cLevel += 2;
 		} else {
 			System.out.println("You cannot use this item 114");
@@ -1383,7 +1385,7 @@ public class CardFunc {
 	
 	public void func116Init() {
 		if(checkHands(1)) {
-			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.handLevel += 1;
 			myGame.currentPlayer.cLevel += 1;
 		} else {
 			System.out.println("You cannot use this item 116");
@@ -1396,7 +1398,7 @@ public class CardFunc {
 	
 	public void func118Init() {
 		if(myGame.currentPlayer.className.equals("Professor") && checkHands(2)) {
-			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.handLevel += 2;
 			myGame.currentPlayer.cLevel += 5;
 		} else {
 			System.out.println("You cannot use this item 118");
@@ -1440,7 +1442,7 @@ public class CardFunc {
 	
 	public void func125Init() {
 		if(checkHands(1)) {
-			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.handLevel += 1;
 			if(myGame.mLevel >= 15) {
 				myGame.currentPlayer.cLevel += 5;
 			} else {
@@ -1467,7 +1469,7 @@ public class CardFunc {
 	
 	public void func128Init() {
 		if(myGame.currentPlayer.className.equals("Monster Whacker") && checkHands(1)) {
-			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.handLevel += 1;
 			myGame.currentPlayer.cLevel += 1;
 		} else {
 			System.out.println("You cannot use this item 128");
@@ -1488,7 +1490,7 @@ public class CardFunc {
 	
 	public void func131Init() {
 		if(checkHands(2)) {
-			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.handLevel += 2;
 			//if monster card (shoggoth) = 
 			//else if monster (goth) card =
 			//else +2 
@@ -1532,7 +1534,7 @@ public class CardFunc {
 	
 	public void func138Init() {
 		if(checkHands(1)) {
-			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.handLevel += 1;
 			myGame.currentPlayer.cLevel += 2;
 		} else {
 			System.out.println("You cannot use this item 138");
@@ -1549,7 +1551,7 @@ public class CardFunc {
 	
 	public void func141Init() {
 		if(myGame.currentPlayer.className.equals("Cultist")) {
-			myGame.currentPlayer.hLevel -= 1;
+			myGame.currentPlayer.handLevel -= 1;
 		} else {
 			System.out.println("You cannot use this item 141");
 		}
@@ -1561,7 +1563,7 @@ public class CardFunc {
 	
 	public void func143Init() {
 		if(checkHands(2)) {
-			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.handLevel += 2;
 			if(myGame.currentPlayer.username.equals("Tommy") || myGame.currentPlayer.username.equals("Tom") || myGame.currentPlayer.username.equals("Tommie")) {
 				myGame.currentPlayer.cLevel += 1;
 			}
@@ -1573,7 +1575,7 @@ public class CardFunc {
 	
 	public void func144Init() {
 		if(myGame.currentPlayer.className.equals("Investigator") && checkHands(2)) {
-			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.handLevel += 2;
 			myGame.currentPlayer.cLevel += 4;
 		} else {
 			System.out.println("You cannot use this item 144");
@@ -1592,7 +1594,7 @@ public class CardFunc {
 	
 	public void func146Init() {
 		if(!myGame.currentPlayer.className.equals("Professor") && checkHands(2)) {
-			myGame.currentPlayer.hLevel += 2;
+			myGame.currentPlayer.handLevel += 2;
 			myGame.currentPlayer.cLevel += 3;
 		} else {
 			System.out.println("You cannot use this item 146");
@@ -1605,7 +1607,7 @@ public class CardFunc {
 	
 	public void func148Init() {
 		if(!myGame.currentPlayer.className.equals("Investigator") && checkHands(1)) {
-			myGame.currentPlayer.hLevel += 1;
+			myGame.currentPlayer.handLevel += 1;
 			myGame.currentPlayer.cLevel += 3;
 		} else {
 			System.out.println("You cannot use this item 148");

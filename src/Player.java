@@ -15,10 +15,11 @@ public class Player {
 	public int cLevel=pLevel; //the level a player is with door cards in combat
 	public int treasuresWonEachTurn = 0;
 	public InitializeCards initCards = new InitializeCards();
-	public int hLevel = 0; //number of hand cards in play
+	public int handLevel = 0; //number of hand cards in play
 	public int headLevel = 0;
 	public int armorLevel = 0;
 	public int footLevel = 0;
+	public int goldSold=0;
 	
 	public Player(String name){
 		this.username = name;
@@ -151,6 +152,12 @@ public void endCombat(Game myGame){
 				this.pPlay.remove(i);
 				i--;
 			}
+			else if(myGame.ic.getCardHash().get(this.pPlay.get(i)).armor ||
+					myGame.ic.getCardHash().get(this.pPlay.get(i)).footGear ||
+					myGame.ic.getCardHash().get(this.pPlay.get(i)).headGear ||
+					myGame.ic.getCardHash().get(this.pPlay.get(i)).numHands>0){
+				
+			}
 			else{
 				System.out.println("moving card to pHand in endCombat");
 				this.pHand.add(this.pPlay.get(i));
@@ -158,7 +165,9 @@ public void endCombat(Game myGame){
 			}
 		
 		}
-		this.hLevel = 0;
+		this.handLevel = 0;
+		this.headLevel=0;
+		this.armorLevel=0;
 		myGame.mLevel = 0;
 		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 0;
 		

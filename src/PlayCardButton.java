@@ -40,8 +40,8 @@ public class PlayCardButton extends JButton implements ActionListener {
 		myGame.currentPlayer.pHand.remove(cardToMovePos);
 		myGame.currentPlayer.pPlay.add(cardToMove);
 		
-		
 		myGame.playACard(cardToMove);
+	
 		//myGame.updateMLevel(cardToMove);
 			
 //		if (cardToMove < 83) { //if the card is a door card being put in play: 

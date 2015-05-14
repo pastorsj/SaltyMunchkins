@@ -13,34 +13,6 @@ public class InitializeCards {
 	public int numDoors;
 	public int numTreas;
 
-	public InitializeCards(ArrayList<String> cardInfo) {
-
-		// numDoors = 68;
-		// numTreas = 0;
-
-		//numDoors = 67;
-		//numTreas = 83;
-
-//		for (int i = 0; i < numDoors; i++) {
-//			Card newCard = new Card(i + 1, cardInfo.get(i));
-//			cardHash.put(i + 1, newCard);
-//			doors.add(i + 1);
-//		}
-//
-//		for (int i = numDoors; i < (numDoors + numTreas) - 1; i++) {
-//
-//			if (i != 91) {
-//				Card newCard = new Card(i + 1, cardInfo.get(i));
-//				cardHash.put(i + 1, newCard);
-//				treasure.add(i + 1);
-//			} else {
-//
-//			}
-//
-//		}
-//		this.addConditions();
-
-	}
 
 	public InitializeCards() {
 		numDoors = 67;
@@ -85,6 +57,7 @@ public class InitializeCards {
 			}
 		}
 		this.addConditions();
+		this.addConditionsForSelect();
 	}
 	
 	public InitializeCards(ArrayList<Integer> doorAvailable, ArrayList<Integer> treasAvailable){
@@ -99,6 +72,7 @@ public class InitializeCards {
 			cardHash.put(treasAvailable.get(i), newCard);
 			treasure.add(treasAvailable.get(i));
 		}
+	
 		this.addConditionsForSelect();
 	}
 
