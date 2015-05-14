@@ -49,16 +49,16 @@ public class EndTurnButton extends JButton implements ActionListener{
 		}
 		
 		for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
-			if(myGame.currentPlayer.pPlay.get(i)>=17 && 
-					myGame.currentPlayer.pPlay.get(i)<=23){
+			if(myGame.currentPlayer.pPlay.get(i)>=13 && 
+					myGame.currentPlayer.pPlay.get(i)<=25){
 				myGame.currentPlayer.pPlay.remove(i);
 				i--;
 			}
 		}
 		
 		for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
-			if(myGame.otherPlayer.pPlay.get(i)>=17 &&
-					myGame.otherPlayer.pPlay.get(i)<=23){
+			if(myGame.otherPlayer.pPlay.get(i)>=13 &&
+					myGame.otherPlayer.pPlay.get(i)<=25){
 				myGame.otherPlayer.pPlay.remove(i);
 				i--;
 			}

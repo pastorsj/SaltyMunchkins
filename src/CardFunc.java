@@ -117,6 +117,14 @@ public class CardFunc {
 			myGame.currentPlayer.treasuresWonEachTurn+=2;
 		}
 		else{
+			myGame.currentPlayer.winStatus=-1;
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.ngb.setVisible(false);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
 			//need cultist/you lose screen!
 		}
 		//Gain 2 treasures
@@ -212,50 +220,69 @@ public class CardFunc {
 		//Curse
 		//Discard your class
 		//If you don't have a class, lose a level
-		if(!myGame.currentPlayer.className.equals("")) {
-			if(myGame.currentPlayer.className.equals("Monster Whacker")) {
-				//Discard card 49
-				myGame.discardCard(myGame.currentPlayer, 49);
-				myGame.currentPlayer.className = "";
-			} else if(myGame.currentPlayer.className.equals("Professor")) {
-				//Discard card 57
-				myGame.discardCard(myGame.currentPlayer, 57);
-				myGame.currentPlayer.className = "";
-			} else if(myGame.currentPlayer.className.equals("Investigator")) {
-				//Discard card 44
-				myGame.discardCard(myGame.currentPlayer, 44);
-				myGame.currentPlayer.className = "";
-			} else if(myGame.currentPlayer.className.equals("Cultist")) {
-				//Discard card 12
-				myGame.discardCard(myGame.currentPlayer, 12);
-				myGame.currentPlayer.className = "";
-			}
-		} else {
-			myGame.currentPlayer.pLevel -= 1;
+		
+		if(myGame.mLevel>0){
+			cantPlay();
 		}
+		else{
+			if(!myGame.currentPlayer.className.equals("")) {
+				if(myGame.currentPlayer.className.equals("Monster Whacker")) {
+					//Discard card 49
+					myGame.discardCard(myGame.currentPlayer, 49);
+					myGame.currentPlayer.className = "";
+				} else if(myGame.currentPlayer.className.equals("Professor")) {
+					//Discard card 57
+					myGame.discardCard(myGame.currentPlayer, 57);
+					myGame.currentPlayer.className = "";
+				} else if(myGame.currentPlayer.className.equals("Investigator")) {
+					//Discard card 44
+					myGame.discardCard(myGame.currentPlayer, 44);
+					myGame.currentPlayer.className = "";
+				} else if(myGame.currentPlayer.className.equals("Cultist")) {
+					//Discard card 12
+					myGame.discardCard(myGame.currentPlayer, 12);
+					myGame.currentPlayer.className = "";
+				}
+			} else {
+				myGame.currentPlayer.pLevel -= 1;
+			}
+		}
+		
 	}
 	
 	public void func14Init() {
 		//Curse
 		//Discard all extra cards in your hand
-		if(myGame.currentPlayer.pHand.size() > 8) {
-			int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
-			myGame.discardCard(myGame.currentPlayer, card);
-			func14Init();
+		if(myGame.mLevel>0){
+			cantPlay();
 		}
+		else{
+			if(myGame.currentPlayer.pHand.size() > 8) {
+				int card = myGame.currentPlayer.pHand.get(myGame.currentPlayer.pHand.size()-1);
+				myGame.discardCard(myGame.currentPlayer, card);
+				func14Init();
+			}
+		}
+		
 	}
 	
 	public void func15Init() {
 		//Curse
 		//Change sex
 		//-5 to your next combat
-		if(myGame.currentPlayer.gender == 'F') {
-			myGame.currentPlayer.gender = 'M';
-		} else {
-			myGame.currentPlayer.gender = 'F';
+		if(myGame.mLevel>0){
+			cantPlay();
 		}
-		myGame.currentPlayer.cLevel -= 5; //this will delete immediately if don't play monster now
-		
+		else{
+			if(myGame.currentPlayer.gender == 'F') {
+				myGame.currentPlayer.gender = 'M';
+			} else {
+				myGame.currentPlayer.gender = 'F';
+			}
+			myGame.currentPlayer.cLevel -= 5; //this will delete immediately if don't play monster now
+			
+		}
+	
 	}
 	
 	public void func16() {
@@ -267,13 +294,20 @@ public class CardFunc {
 		//Curse
 		//-3 on your next combat
 		//If you have miners helmet or two handed flashlight, discard them
-		myGame.currentPlayer.cLevel -= 3;
-		if(myGame.currentPlayer.pHand.contains(111)) {
-			myGame.discardCard(myGame.currentPlayer, 111);
+		
+		if(myGame.mLevel>0){
+			cantPlay();
 		}
-		if(myGame.currentPlayer.pHand.contains(146)) {
-			myGame.discardCard(myGame.currentPlayer, 146);
+		else{
+			myGame.currentPlayer.cLevel -= 3;
+			if(myGame.currentPlayer.pHand.contains(111)) {
+				myGame.discardCard(myGame.currentPlayer, 111);
+			}
+			if(myGame.currentPlayer.pHand.contains(146)) {
+				myGame.discardCard(myGame.currentPlayer, 146);
+			}
 		}
+		
 	}
 	
 	public void func18() {
@@ -286,33 +320,43 @@ public class CardFunc {
 	
 	public void func20Init() {
 		//Curse: Discard all class cards except Cultist
-		if(myGame.currentPlayer.pHand.contains(49)) {
-			//Discard card 49
-			myGame.discardCard(myGame.currentPlayer, 49);
-		} 
-		if(myGame.currentPlayer.pHand.contains(57)) {
-			//Discard card 57
-			myGame.discardCard(myGame.currentPlayer, 57);
+		
+		if(myGame.mLevel>0){
+			cantPlay();
 		}
-		if(myGame.currentPlayer.pHand.contains(44)) {
-			//Discard card 44
-			myGame.discardCard(myGame.currentPlayer, 44);
+		
+		else{
+			if(myGame.currentPlayer.pHand.contains(49)) {
+				//Discard card 49
+				myGame.discardCard(myGame.currentPlayer, 49);
+			} 
+			if(myGame.currentPlayer.pHand.contains(57)) {
+				//Discard card 57
+				myGame.discardCard(myGame.currentPlayer, 57);
+			}
+			if(myGame.currentPlayer.pHand.contains(44)) {
+				//Discard card 44
+				myGame.discardCard(myGame.currentPlayer, 44);
+			}
+			if(myGame.currentPlayer.pPlay.contains(49)) {
+				//Discard card 49
+				myGame.discardCard(myGame.currentPlayer, 49);
+				myGame.currentPlayer.className = "";
+			} 
+			if(myGame.currentPlayer.pHand.contains(57)) {
+				//Discard card 57
+				myGame.discardCard(myGame.currentPlayer, 57);
+				myGame.currentPlayer.className = "";
+			}
+			if(myGame.currentPlayer.pHand.contains(44)) {
+				//Discard card 44
+				myGame.discardCard(myGame.currentPlayer, 44);
+				myGame.currentPlayer.className = "";
+			}
 		}
-		if(myGame.currentPlayer.pPlay.contains(49)) {
-			//Discard card 49
-			myGame.discardCard(myGame.currentPlayer, 49);
-			myGame.currentPlayer.className = "";
-		} 
-		if(myGame.currentPlayer.pHand.contains(57)) {
-			//Discard card 57
-			myGame.discardCard(myGame.currentPlayer, 57);
-			myGame.currentPlayer.className = "";
-		}
-		if(myGame.currentPlayer.pHand.contains(44)) {
-			//Discard card 44
-			myGame.discardCard(myGame.currentPlayer, 44);
-			myGame.currentPlayer.className = "";
-		}
+		
+		
+		
 	}
 	
 	public void func21() {
@@ -322,6 +366,7 @@ public class CardFunc {
 	
 	public void func22() {
 		//Curse: Lose a level
+		
 		myGame.currentPlayer.pLevel -= 1;
 	}
 	
@@ -329,10 +374,8 @@ public class CardFunc {
 		//Curse: Must discard at least 1000 gold pieces
 		
 		if(myGame.mLevel>0){
-			myGame.currentPlayer.pHand.add(myGame.currentPlayer.pPlay.get(myGame.currentPlayer.pPlay.size()-1));
-			myGame.currentPlayer.pPlay.remove(myGame.currentPlayer.pPlay.size()-1);
-			//myGame.mframe.revalidate();
-			//myGame.mframe.repaint();
+			cantPlay();
+			
 		}
 		else{
 			myGame.changePlayer();
@@ -1309,7 +1352,10 @@ public class CardFunc {
 	}
 	
 	public void func100Init() {
-		//+3 to either side in combat
+		func90Init();
+	}
+	public void func100(boolean checkWin){
+		
 	}
 	public void func101Init() {
 		
@@ -1329,6 +1375,11 @@ public class CardFunc {
 	
 	public void func106Init() {
 		//Same as func100
+		func90Init();
+	}
+	
+	public void func106(boolean checkWin){
+		
 	}
 	
 	public void func107(){
@@ -1628,6 +1679,11 @@ public class CardFunc {
 	public void func149Init() {
 		//Cancels any curse
 		//Usable only once
+	}
+	
+	public void cantPlay(){
+		myGame.currentPlayer.pHand.add(myGame.currentPlayer.pPlay.get(myGame.currentPlayer.pPlay.size()-1));
+		myGame.currentPlayer.pPlay.remove(myGame.currentPlayer.pPlay.size()-1);
 	}
 	
 	/*

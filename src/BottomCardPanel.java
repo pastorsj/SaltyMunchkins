@@ -29,6 +29,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	private BufferedImage cardImage7;
 	private BufferedImage cardImage8;
 	private BufferedImage MunchBanner;
+	private BufferedImage youLoseScreen;
 	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
 	public ArrayList<BufferedImage> cardsInPlayImages = new ArrayList<BufferedImage>();
 	public ArrayList<BufferedImage> cardsInPlayImages2 = new ArrayList<BufferedImage>();
@@ -137,61 +138,80 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			cardsInPlayImages2 = new ArrayList<BufferedImage>();
 			super.paintComponents(go);
 			
-			try {
-				MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
-				//i<this.turnPlayer.pHand.size()
-				for(int i =0; i<myGame.currentPlayer.pHand.size();i++){
-					BufferedImage cardImage = ImageIO.read(new File ("src\\m"+myGame.currentPlayer.pHand.get(i)+".PNG"));
-					cardImages.add(cardImage);
-				
+			//if you lose
+			if(myGame.currentPlayer.winStatus==-1){
+				try {
+					youLoseScreen = ImageIO.read(new File ("src\\youlosescreen.png"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 				
-				for(int i =0; i<myGame.currentPlayer.pPlay.size();i++){
-					BufferedImage playImage = ImageIO.read(new File("src\\m"+myGame.currentPlayer.pPlay.get(i)+".PNG"));
-					cardsInPlayImages.add(playImage);
+				go.drawImage(youLoseScreen,0,0,1920,1080,null);
+			}
+			
+			//if you win/in play
+			else{
+				try {
+					MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
+					
+					//i<this.turnPlayer.pHand.size()
+					for(int i =0; i<myGame.currentPlayer.pHand.size();i++){
+						BufferedImage cardImage = ImageIO.read(new File ("src\\m"+myGame.currentPlayer.pHand.get(i)+".PNG"));
+						cardImages.add(cardImage);
+					
+					}
+					
+					for(int i =0; i<myGame.currentPlayer.pPlay.size();i++){
+						BufferedImage playImage = ImageIO.read(new File("src\\m"+myGame.currentPlayer.pPlay.get(i)+".PNG"));
+						cardsInPlayImages.add(playImage);
+					}
+					
+					for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
+						BufferedImage playImage2 = ImageIO.read(new File("src\\m"+myGame.otherPlayer.pPlay.get(i)+".PNG"));
+						cardsInPlayImages2.add(playImage2);
+					}
+					
+					
+				
+				
+				} catch (IOException ex) {
+					System.out.println("Error reading card file in BottomCardPanel");
+					// handle exception...
+				}
+				//this.setPreferredSize(new Dimension(2000, 1000));
+				this.setMinimumSize(new Dimension(2000,500));
+				this.setVisible(true);
+				this.repaint();
+				
+				
+				
+				//go.drawImage(this.munchkinLogo,0,0,null);
+				//go.drawImage(this.cardImage,0,400, 180, 180, null);
+				
+				//go.drawImage(this.cardImage1,50,0,180,200,null);
+				//go.drawImage(this.cardImage2, 60+180,0,180,200,null);
+				//go.drawImage(this.cardImage3, 2*(60+180), 0, 180, 200, null);
+		//		go.drawImage(MunchBanner,550,0,null);
+				
+				for(int i =0; i<cardImages.size();i++){
+					go.drawImage(cardImages.get(i),50+180*i+10*i,750,180,225,null);
+				}
+//				go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
+			//
+				for(int i =0; i<cardsInPlayImages.size();i++){
+					go.drawImage(cardsInPlayImages.get(i),50+100*i,515,180,225,null);
 				}
 				
-				for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
-					BufferedImage playImage2 = ImageIO.read(new File("src\\m"+myGame.otherPlayer.pPlay.get(i)+".PNG"));
-					cardsInPlayImages2.add(playImage2);
+				for(int i =0; i<cardsInPlayImages2.size();i++){
+					go.drawImage(cardsInPlayImages2.get(i),50+100*i,50,180,225,null);
 				}
 				
+				go.drawImage(largeCard,50+180*8+10*8,400,360,570,null);
 				
-			
-			
-			} catch (IOException ex) {
-				System.out.println("Error reading card file in BottomCardPanel");
-				// handle exception...
-			}
-			//this.setPreferredSize(new Dimension(2000, 1000));
-			this.setMinimumSize(new Dimension(2000,500));
-			this.setVisible(true);
-			this.repaint();
-			
-			
-			
-			//go.drawImage(this.munchkinLogo,0,0,null);
-			//go.drawImage(this.cardImage,0,400, 180, 180, null);
-			
-			//go.drawImage(this.cardImage1,50,0,180,200,null);
-			//go.drawImage(this.cardImage2, 60+180,0,180,200,null);
-			//go.drawImage(this.cardImage3, 2*(60+180), 0, 180, 200, null);
-	//		go.drawImage(MunchBanner,550,0,null);
-			
-			for(int i =0; i<cardImages.size();i++){
-				go.drawImage(cardImages.get(i),50+180*i+10*i,750,180,225,null);
-			}
-//			go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
-		//
-			for(int i =0; i<cardsInPlayImages.size();i++){
-				go.drawImage(cardsInPlayImages.get(i),50+100*i,515,180,225,null);
 			}
 			
-			for(int i =0; i<cardsInPlayImages2.size();i++){
-				go.drawImage(cardsInPlayImages2.get(i),50+100*i,50,180,225,null);
-			}
 			
-			go.drawImage(largeCard,50+180*8+10*8,400,360,570,null);
 
 
 		}
