@@ -1360,7 +1360,12 @@ public class CardFunc {
 	}
 	
 	public void func113Init() {
-		
+		if(myGame.currentPlayer.className.equals("Monster Whacker") && checkFootLevel(1)) {
+			myGame.currentPlayer.footLevel += 1;
+			myGame.currentPlayer.cLevel += 3;
+		} else {
+			System.out.println("You cannot use this item 113");
+		}
 	}
 	
 	public void func114Init() {

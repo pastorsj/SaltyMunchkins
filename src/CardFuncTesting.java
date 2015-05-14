@@ -1333,7 +1333,7 @@ public class CardFuncTesting {
 	@Test
 	public void func113Test() {
 		myGame.currentPlayer.className = "Monster Whacker";
-		myGame.funcs.func109Init();
+		myGame.funcs.func113Init();
 		assertEquals(1, myGame.currentPlayer.footLevel);
 		assertEquals(4, myGame.currentPlayer.cLevel);
 	}
