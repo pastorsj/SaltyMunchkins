@@ -1325,7 +1325,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func112Test() {
-		
+		myGame.funcs.func112Init();
+		assertEquals(1, myGame.currentPlayer.armorLevel);
+		assertEquals(2, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
