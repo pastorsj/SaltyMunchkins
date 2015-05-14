@@ -1369,7 +1369,12 @@ public class CardFunc {
 	}
 	
 	public void func114Init() {
-		
+		if(!myGame.currentPlayer.className.equals("Cultist") && checkHands(1)) {
+			myGame.currentPlayer.handLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			System.out.println("You cannot use this item 114");
+		}
 	}
 	
 	public void func115() {
