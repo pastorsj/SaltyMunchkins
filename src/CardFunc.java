@@ -1327,7 +1327,13 @@ public class CardFunc {
 	}
 	
 	public void func109Init() {
-		
+		//Headgear for cultist only
+		if(myGame.currentPlayer.className.equals("Cultist") && checkHeadGear(1)) {
+			myGame.currentPlayer.headLevel+=1;
+			myGame.currentPlayer.cLevel+=4;
+		} else {
+			System.out.println("You cannot play this card 109");
+		}
 	}
 	
 	public void func110Init() {

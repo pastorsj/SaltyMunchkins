@@ -1313,7 +1313,7 @@ public class CardFuncTesting {
 		myGame.currentPlayer.className = "Cultist";
 		myGame.funcs.func109Init();
 		assertEquals(1, myGame.currentPlayer.headLevel);
-		assertEquals(4, myGame.currentPlayer.cLevel);
+		assertEquals(5, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
