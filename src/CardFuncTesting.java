@@ -39,9 +39,9 @@ public class CardFuncTesting {
 	}
 	@Test
 	public void func1TestInit() {
-		int cLevel = myGame.currentPlayer.cLevel;
+		int mLevel = myGame.mLevel;
 		myGame.funcs.func1Init();
-		assertEquals(cLevel-5, myGame.currentPlayer.cLevel);
+		assertEquals(mLevel+5, myGame.mLevel);
 	}
 	
 	@Test
@@ -120,19 +120,14 @@ public class CardFuncTesting {
 		
 		assertEquals(false, hasArmor);
 		
-		
-		
-		
-		
-		
 	}
 	
 	@Test
 	public void func7TestInit() {
 		myGame.currentPlayer.gender = 'F';
-		int cLevel = myGame.currentPlayer.cLevel;
+		int mLevel = myGame.mLevel;
 		myGame.funcs.func7Init();
-		assertEquals(cLevel+4, myGame.currentPlayer.cLevel);
+		assertEquals(mLevel-4, myGame.mLevel);
 	}
 	
 	@Test
@@ -369,9 +364,9 @@ public class CardFuncTesting {
 	@Test
 	public void func26InitTest() {
 		int cLevel = myGame.currentPlayer.cLevel;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pPlay.add(100);
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.funcs.func26Init();
 		assertEquals(cLevel-6, myGame.currentPlayer.cLevel);
 	}
@@ -379,9 +374,9 @@ public class CardFuncTesting {
 	@Test
 	public void func26InitTest2() {
 		int cLevel = myGame.currentPlayer.cLevel;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pPlay.add(132);
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.funcs.func26Init();
 		assertEquals(cLevel-4, myGame.currentPlayer.cLevel);
 	}
@@ -397,15 +392,15 @@ public class CardFuncTesting {
 	public void func26Test2() {
 		int sizeOfHand = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Investigator";
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		int sizeOfOtherHand = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.className = "Cultist";
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.funcs.func26(false);
 		assertEquals(sizeOfHand - 1, myGame.currentPlayer.pHand.size());
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		assertEquals(sizeOfOtherHand + 1, myGame.currentPlayer.pHand.size());
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 	}
 	
 	@Test
@@ -441,9 +436,9 @@ public class CardFuncTesting {
 //	public void func28InitTest2() {
 //		int cLevel = myGame.currentPlayer.cLevel;
 //		myGame.currentPlayer.pPlay.add(137);
-//		myGame.changePlayer();
+//		myGame.changePlayerForTest();
 //		myGame.currentPlayer.pPlay.add(100);
-//		myGame.changePlayer();
+//		myGame.changePlayerForTest();
 //		myGame.funcs.func28Init();
 //		assertEquals(cLevel+1, myGame.currentPlayer.cLevel);
 //	}
@@ -461,10 +456,10 @@ public class CardFuncTesting {
 		//Will change once implemented with gui
 		//Right now, it will take the last card in the current players hand and give it to the other player
 		int size1 = myGame.currentPlayer.pHand.size();
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pHand.remove(size1-1);
 		int size2 = myGame.currentPlayer.pHand.size();
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.funcs.func28(false);
 		assertEquals(size1-1, myGame.currentPlayer.pHand.size());
 		assertEquals(size2, myGame.currentPlayer.pHand.size());
@@ -662,9 +657,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func42TestInit() {
-		int level = myGame.currentPlayer.cLevel;
+		int level = myGame.mLevel;
 		myGame.funcs.func42Init();
-		assertEquals(level + 5, myGame.currentPlayer.cLevel);
+		assertEquals(level - 5, myGame.mLevel);
 	}
 	
 	@Test
@@ -742,9 +737,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func48TestInit() {
-		int cLevel = myGame.currentPlayer.cLevel;
+		int mLevel = myGame.mLevel;
 		myGame.funcs.func48Init();
-		assertEquals(cLevel-5, myGame.currentPlayer.cLevel);
+		assertEquals(mLevel+5, myGame.mLevel);
 	}
 	
 	@Test
@@ -788,9 +783,9 @@ public class CardFuncTesting {
 	@Test
 	public void func52InitTest() {
 		myGame.currentPlayer.pLevel = 1;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pLevel = 2;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		int level = myGame.currentPlayer.cLevel;
 		myGame.funcs.func52Init();
 		assertEquals(level - 4, myGame.currentPlayer.cLevel);
@@ -798,11 +793,11 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func52InitTest2() {
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pLevel = 2; //P2
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pLevel = 3; //P1
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		int level = myGame.currentPlayer.cLevel; //P2
 		myGame.funcs.func52Init();
 		assertEquals(level - 4, myGame.currentPlayer.cLevel);
@@ -990,13 +985,13 @@ public class CardFuncTesting {
 	public void func65Test2() {
 		myGame.currentPlayer.pLevel = 3;
 		int p1level = 3;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pLevel = 4;
 		int p2level = 4;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.funcs.func65(false);
 		assertEquals(p1level - 1, myGame.currentPlayer.pLevel);
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		assertEquals(p2level, myGame.currentPlayer.pLevel);
 	}
 	
@@ -1004,21 +999,21 @@ public class CardFuncTesting {
 	public void func65Test3() {
 		myGame.currentPlayer.pLevel = 4;
 		int p1level = 4;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.currentPlayer.pLevel = 3;
 		int p2level = 3;
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.funcs.func65(false);
 		assertEquals(p1level, myGame.currentPlayer.pLevel);
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		assertEquals(p2level + 1, myGame.currentPlayer.pLevel);
 	}
 	
 	@Test
 	public void func66TestInit() {
-		int cLevel = myGame.currentPlayer.cLevel;
+		int mLevel = myGame.mLevel;
 		myGame.funcs.func66Init();
-		assertEquals(cLevel-5, myGame.currentPlayer.cLevel);
+		assertEquals(mLevel+5, myGame.mLevel);
 	}
 	
 	@Test
@@ -1150,7 +1145,7 @@ public class CardFuncTesting {
 	public void func80TestInit() {
 		int cLevel = myGame.currentPlayer.cLevel;
 		myGame.funcs.func80Init();
-		assertEquals(cLevel-5, myGame.currentPlayer.cLevel);
+		assertEquals(cLevel, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
@@ -1245,7 +1240,7 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pPlay.add(2);
 		myGame.playACard(2);
 		myGame.otherPlayer.pPlay.add(90);
-		myGame.changePlayer();
+		myGame.changePlayerForTest();
 		myGame.playACard(90);
 		assertEquals(false, myGame.currentPlayer.didIwin(myGame));
 		
@@ -1291,6 +1286,7 @@ public class CardFuncTesting {
 		assertEquals(2, myGame.currentPlayer.cLevel);
 		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
 	}
+	
 	@Test
 	public void func102Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
@@ -1312,12 +1308,59 @@ public class CardFuncTesting {
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
 
+	@Test
+	public void func109Test() {
+		myGame.currentPlayer.className = "Cultist";
+		myGame.funcs.func109Init();
+		assertEquals(1, myGame.currentPlayer.headLevel);
+		assertEquals(4, myGame.currentPlayer.cLevel);
+	}
+	
+	@Test
+	public void func111Test() {
+		
+	}
+	
+	@Test
+	public void func112Test() {
+		
+	}
+	
+	@Test
+	public void func113Test() {
+		
+	}
+	
+	@Test
+	public void func114Test() {
+		
+	}
 	
 	@Test
 	public void func115Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
 		myGame.funcs.func115();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
+	}
+	
+	@Test
+	public void func116Test() {
+		
+	}
+	
+	@Test
+	public void func117Test() {
+		
+	}
+	
+	@Test
+	public void func118Test() {
+		
+	}
+	
+	@Test
+	public void func120Test() {
+		
 	}
 	
 	@Test

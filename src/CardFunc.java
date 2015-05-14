@@ -131,10 +131,10 @@ public class CardFunc {
 	public void func7Init() {
 		//-4 against females
 		if(myGame.currentPlayer.gender == 'F') {
-			myGame.mLevel += 4;
+			myGame.mLevel -= 4;
 			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("player clevel: "+myGame.mLevel);
 		}
-		myGame.mLevel +=2;
+		//myGame.mLevel +=2; (Changed this, not sure if we need to keep it)
 		//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
 	}
 	
@@ -1156,9 +1156,8 @@ public class CardFunc {
 	public void func80Init() {
 		//If professor is in combat, +5 to the monster
 		if(myGame.currentPlayer.className.equals("Professor")) {
-			myGame.currentPlayer.cLevel -= 5;
+			myGame.currentPlayer.cLevel -= 10;
 		}
-		func1Init();
 	}
 	
 	public void func80(boolean checkWin) {
@@ -1328,13 +1327,7 @@ public class CardFunc {
 	}
 	
 	public void func109Init() {
-		//Headgear for cultist only
-		if(myGame.currentPlayer.className.equals("Cultist") && checkHeadGear(1)) {
-			myGame.currentPlayer.headLevel+=1;
-			myGame.currentPlayer.cLevel+=4;
-		} else {
-			System.out.println("You cannot play this card 109");
-		}
+		
 	}
 	
 	public void func110Init() {
@@ -1343,40 +1336,19 @@ public class CardFunc {
 	}
 	
 	public void func111Init() {
-		if(checkHeadGear(1)) {
-			myGame.currentPlayer.headLevel += 1;
-			myGame.currentPlayer.cLevel += 2;
-		} else {
-			System.out.println("You cannot use this item 111");
-		}
+		
 	}
 	
 	public void func112Init() {
-		if(checkArmor(1)) {
-			myGame.currentPlayer.armorLevel += 1;
-			myGame.currentPlayer.cLevel += 1;
-		} else {
-			//Can technically use this on top of armor
-			System.out.println("You cannot use this item 112");
-		}
+		
 	}
 	
 	public void func113Init() {
-		if(myGame.currentPlayer.className.equals("Monster Whacker") && checkFootLevel(1)) {
-			myGame.currentPlayer.footLevel += 1;
-			myGame.currentPlayer.cLevel += 3;
-		} else {
-			System.out.println("You cannot use this item 113");
-		}
+		
 	}
 	
 	public void func114Init() {
-		if(!myGame.currentPlayer.className.equals("Cultist") && checkHands(1)) {
-			myGame.currentPlayer.handLevel += 1;
-			myGame.currentPlayer.cLevel += 2;
-		} else {
-			System.out.println("You cannot use this item 114");
-		}
+		
 	}
 	
 	public void func115() {
@@ -1384,25 +1356,15 @@ public class CardFunc {
 	}
 	
 	public void func116Init() {
-		if(checkHands(1)) {
-			myGame.currentPlayer.handLevel += 1;
-			myGame.currentPlayer.cLevel += 1;
-		} else {
-			System.out.println("You cannot use this item 116");
-		}
+		
 	}
 	
 	public void func117Init() {
-		func116Init();
+		
 	}
 	
 	public void func118Init() {
-		if(myGame.currentPlayer.className.equals("Professor") && checkHands(2)) {
-			myGame.currentPlayer.handLevel += 2;
-			myGame.currentPlayer.cLevel += 5;
-		} else {
-			System.out.println("You cannot use this item 118");
-		}
+		
 	}
 	
 	public void func119Init() {
@@ -1411,12 +1373,7 @@ public class CardFunc {
 	}
 	
 	public void func120Init() {
-		if(checkHeadGear(1)) {
-			myGame.currentPlayer.headLevel += 1;
-			myGame.currentPlayer.cLevel += 2;
-		} else {
-			System.out.println("You cannot use this item 120");
-		}
+		
 	}
 	
 	public void func121Init() {

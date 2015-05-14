@@ -33,6 +33,20 @@ public class Game {
 		p2.pHand = new ArrayList<Integer>();
 	}
 	
+	public void changePlayerForTest() {
+		if(turnPlayer == 1) {
+			p1 = currentPlayer;
+			currentPlayer = p2;
+			otherPlayer = p1;
+			turnPlayer = 2;
+		} else {
+			p2 = currentPlayer;
+			currentPlayer = p1;
+			otherPlayer = p2;
+			turnPlayer = 1; 
+		}
+	}
+	
 	public void changePlayer() {
 		if(turnPlayer == 1) {
 			p1 = currentPlayer;
