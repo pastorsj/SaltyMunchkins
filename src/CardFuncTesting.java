@@ -1318,7 +1318,9 @@ public class CardFuncTesting {
 	
 	@Test
 	public void func111Test() {
-		
+		myGame.funcs.func111Init();
+		assertEquals(1, myGame.currentPlayer.headLevel);
+		assertEquals(3, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
