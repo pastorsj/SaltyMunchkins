@@ -1382,7 +1382,12 @@ public class CardFunc {
 	}
 	
 	public void func116Init() {
-		
+		if(checkHands(1)) {
+			myGame.currentPlayer.handLevel += 1;
+			myGame.currentPlayer.cLevel += 1;
+		} else {
+			System.out.println("You cannot use this item 116");
+		}
 	}
 	
 	public void func117Init() {
