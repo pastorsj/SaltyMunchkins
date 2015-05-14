@@ -1372,12 +1372,14 @@ public class CardFuncTesting {
 		myGame.currentPlayer.className = "Professor";
 		myGame.funcs.func118Init();
 		assertEquals(2, myGame.currentPlayer.handLevel);
-		assertEquals(5, myGame.currentPlayer.cLevel);
+		assertEquals(6, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
 	public void func120Test() {
-		
+		myGame.funcs.func120Init();
+		assertEquals(1, myGame.currentPlayer.headLevel);
+		assertEquals(3, myGame.currentPlayer.cLevel);
 	}
 	
 	@Test
