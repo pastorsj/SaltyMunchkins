@@ -1342,7 +1342,12 @@ public class CardFunc {
 	}
 	
 	public void func111Init() {
-		
+		if(checkHeadGear(1)) {
+			myGame.currentPlayer.headLevel += 1;
+			myGame.currentPlayer.cLevel += 2;
+		} else {
+			System.out.println("You cannot use this item 111");
+		}
 	}
 	
 	public void func112Init() {
