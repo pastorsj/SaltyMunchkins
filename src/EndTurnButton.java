@@ -49,7 +49,7 @@ public class EndTurnButton extends JButton implements ActionListener{
 		}
 		
 		for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
-			if(myGame.currentPlayer.pPlay.get(i)>=17 || 
+			if(myGame.currentPlayer.pPlay.get(i)>=17 && 
 					myGame.currentPlayer.pPlay.get(i)<=23){
 				myGame.currentPlayer.pPlay.remove(i);
 				i--;
@@ -57,14 +57,18 @@ public class EndTurnButton extends JButton implements ActionListener{
 		}
 		
 		for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
-			if(myGame.otherPlayer.pPlay.get(i)>=17 ||
+			if(myGame.otherPlayer.pPlay.get(i)>=17 &&
 					myGame.otherPlayer.pPlay.get(i)<=23){
 				myGame.otherPlayer.pPlay.remove(i);
 				i--;
 			}
 		}
 		
-		
+		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard=0;
+		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(true);
 		//myGame.mframe.dispose();
 		
 		

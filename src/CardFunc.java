@@ -130,8 +130,9 @@ public class CardFunc {
 	
 	public void func7Init() {
 		//-4 against females
+		myGame.mLevel+=2;
 		if(myGame.currentPlayer.gender == 'F') {
-			myGame.mLevel -= 4;
+			myGame.mLevel += 4;
 			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("player clevel: "+myGame.mLevel);
 		}
 		//myGame.mLevel +=2; (Changed this, not sure if we need to keep it)
@@ -326,19 +327,31 @@ public class CardFunc {
 	
 	public void func23Init() {
 		//Curse: Must discard at least 1000 gold pieces
-		myGame.changePlayer();
-		myGame.mframe.revalidate();
-		myGame.mframe.repaint();
-		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
-		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 1000;
-		myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(true);
+		
+		if(myGame.mLevel>0){
+			myGame.currentPlayer.pHand.add(myGame.currentPlayer.pPlay.get(myGame.currentPlayer.pPlay.size()-1));
+			myGame.currentPlayer.pPlay.remove(myGame.currentPlayer.pPlay.size()-1);
+			//myGame.mframe.revalidate();
+			//myGame.mframe.repaint();
+		}
+		else{
+			myGame.changePlayer();
+			System.out.println("current player is: "+myGame.turnPlayer);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 1000;
+			myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(true);
+		}
+	
 	
 	}
 	
 	public void func23(boolean checkWin){
-		myGame.currentPlayer.pPlay.remove(0);
-		myGame.mframe.revalidate();
-		myGame.mframe.repaint();
+		
 	}
 	
 	public void func24() {
