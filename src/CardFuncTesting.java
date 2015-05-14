@@ -298,7 +298,7 @@ public class CardFuncTesting {
 		int size = myGame.currentPlayer.pHand.size();
 		//Card No: 49
 		myGame.currentPlayer.pHand.add(49);
-		myGame.funcs.func20();
+		myGame.funcs.func20Init();
 		assertEquals("", myGame.currentPlayer.className);
 		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}
@@ -308,7 +308,7 @@ public class CardFuncTesting {
 		//Card No: 57
 		int size = myGame.currentPlayer.pHand.size();
 		myGame.currentPlayer.pHand.add(57);
-		myGame.funcs.func20();
+		myGame.funcs.func20Init();
 		assertEquals("", myGame.currentPlayer.className);
 		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}
@@ -318,7 +318,7 @@ public class CardFuncTesting {
 		int size = myGame.currentPlayer.pHand.size();
 		//Card No: 44
 		myGame.currentPlayer.pHand.add(44);
-		myGame.funcs.func20();
+		myGame.funcs.func20Init();
 		assertEquals("", myGame.currentPlayer.className);
 		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}
@@ -329,7 +329,7 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pHand.remove(size-1);
 		myGame.currentPlayer.className = "Cultist"; //Card No: 12
 		myGame.currentPlayer.pHand.add(12);
-		myGame.funcs.func20();
+		myGame.funcs.func20Init();
 		assertEquals("Cultist", myGame.currentPlayer.className);
 		assertTrue(myGame.currentPlayer.pHand.size() <= size);
 	}

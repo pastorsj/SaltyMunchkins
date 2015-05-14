@@ -283,7 +283,7 @@ public class CardFunc {
 		//Curse: Need to discard all headgear in play
 	}
 	
-	public void func20() {
+	public void func20Init() {
 		//Curse: Discard all class cards except Cultist
 		if(myGame.currentPlayer.pHand.contains(49)) {
 			//Discard card 49
@@ -332,7 +332,7 @@ public class CardFunc {
 		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 1000;
 		myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(true);
-		
+	
 	}
 	
 	public void func23(boolean checkWin){
