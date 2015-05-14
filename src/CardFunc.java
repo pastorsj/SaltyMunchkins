@@ -1391,7 +1391,7 @@ public class CardFunc {
 	}
 	
 	public void func117Init() {
-		
+		func116Init();
 	}
 	
 	public void func118Init() {
