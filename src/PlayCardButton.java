@@ -11,17 +11,12 @@ import javax.swing.JButton;
 
 public class PlayCardButton extends JButton implements ActionListener {
 
-	public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
 
 	public PlayCardButton(
 			Game game) {
-		if (game.turnPlayer == 1) {
-			this.turnPlayer = game.p1;
-		} else {
-			this.turnPlayer = game.p2;
-		}
+		
 
 		String buttonText = "PlayCard";
 
@@ -39,41 +34,32 @@ public class PlayCardButton extends JButton implements ActionListener {
 		int cardToMove = myGame.currentPlayer.pHand.get(cardToMovePos);
 		myGame.currentPlayer.pHand.remove(cardToMovePos);
 		myGame.currentPlayer.pPlay.add(cardToMove);
-		
-		myGame.playACard(cardToMove);
-	
-		//myGame.updateMLevel(cardToMove);
+		int curHandLevel=0;
+		for(int i =0; i<myGame.currentPlayer.pPlay.size();i++){
+			curHandLevel+=myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHands;
+		}
+		if(curHandLevel>2){
+			CardFunc cf = new CardFunc(myGame);
+			cf.cantPlay();
+		}
+		else{
+			myGame.playACard(cardToMove);
+			myGame.mframe.mainPanel.bCardPanel.pass.lastPass=
+					myGame.mframe.mainPanel.bCardPanel.pass.nowPass;
+			myGame.mframe.mainPanel.bCardPanel.pass.nowPass=false;
 			
-//		if (cardToMove < 83) { //if the card is a door card being put in play: 
-//			Card cardInPlay = ic.getCardHash().get(cardToMove);
-//			if(myGame.mLevel==0){ //if a monster is in play, don't want to override
-//									//with another door card.
-//				//myGame.mInPlay=cardInPlay.num;
-//				myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel;
-//						
-//			}
-//			if (myGame.mInPlay != 0) {
-//				//myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel+myGame.mLevel;
-//					
-//			}
-//
-//		}
-		
-
-		
-		//myGame.currentPlayer.pHand.remove(cardToMovePos);
-		//myGame.currentPlayer.pPlay.add(cardToMove);
-
-		if (myGame.turnPlayer == 1) {
-			myGame.p1 = turnPlayer;
-		} else {
-			myGame.p2 = turnPlayer;
+			if(myGame.monster){
+				myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+				myGame.mframe.mainPanel.bCardPanel.pass.setVisible(true);
+			}
+			else{
+				myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+			}
 		}
 		
-		//myGame.mframe.dispose();
+		
 
-		//myGame.mframe= new MFrame(myGame);
-		//myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
 		

@@ -40,6 +40,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public BufferedImage largeCard;
 	public int largeCardPos;
 	public PlayCardButton pcb;
+	public PassCombatButton pass;
 	public DidIWinButton diwb;
 	public SellGoldButton sgb;
 	public DiscardGoldButton dgb;
@@ -52,6 +53,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public JLabel playerLevel;
 	public JLabel playerCLevel;
 	public JLabel monsterLevel;
+	public JLabel diceLevel;
 	
 
 	
@@ -81,6 +83,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 			this.playerCLevel = new JLabel("player clevel: "+myGame.p2.cLevel+"");
 			this.monsterLevel = new JLabel("monster level: "+myGame.mLevel+"");
 		}
+		
+		this.diceLevel= new JLabel("number rolled: ");
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
         //this.setLayout(null);
@@ -96,13 +100,20 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		pcb.setPreferredSize(new Dimension (100,30));
 		this.add(pcb);
 		
+		this.pass = new PassCombatButton(game);
+		pass.setPreferredSize(new Dimension (100,30));
+		this.pass.setVisible(false);
+		this.add(pass);
+		
 		this.diwb = new DidIWinButton(game);
 		diwb.setPreferredSize(new Dimension (100,30));
+		this.diwb.setVisible(false);
 		this.add(diwb);
 		
 		
 		this.etb=new EndTurnButton(game);
 		etb.setPreferredSize(new Dimension(90,30));
+		this.etb.setVisible(false);
 		this.add(etb);
 		
 		this.sgb=new SellGoldButton(game);
@@ -122,6 +133,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.add(playerLevel);
 		this.add(playerCLevel);
 		this.add(monsterLevel);
+		this.add(diceLevel);
+		this.diceLevel.setVisible(false);
 		
         
     	

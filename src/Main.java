@@ -14,47 +14,44 @@ public class Main {
 		initMain();
 		
 		
-		
-		
-		//These next methods will initialize the card list and shuffle the list of cards
-		//There are 168 cards, 100 door cards and 68 treasure cards
-	//	ArrayList<Integer> doorCards = new ArrayList<Integer>(4);
-		//ArrayList<Integer> treasureCards = new ArrayList<Integer>(4);
-		
-
-	//	InitializeCards ic = new InitializeCards(arrayOfLines); use when all implemented
-		
-		//InitializeCards ic = new InitializeCards();
-		
-		
 	}
 	
 	public static void initMain() throws IOException{
 		
 		ReadFile file1 = new ReadFile(
 				"src\\CardList.txt");
-		//String[] arrayOfLines = file1.OpenFile();
 		ArrayList<String> arrayOfLines = file1.OpenFile();
 		ArrayList<Integer> doorAv = new ArrayList<Integer>();
 		ArrayList<Integer> treasAv = new ArrayList<Integer>();
-		doorAv.add(27); //level1 monster
-		doorAv.add(2);
-		doorAv.add(7); //give away item of choice
-		doorAv.add(42);
-		doorAv.add(29);
-		doorAv.add(4); //not sure if this is for cards in play or for cards in hand?? assume hand
 	
 		doorAv.add(1);
+		doorAv.add(2);
 		doorAv.add(3);
+		doorAv.add(4); //not sure if this is for cards in play or for cards in hand?? assume hand
 		doorAv.add(5);
-	
+		//6
+		doorAv.add(7); //give away item of choice
 		doorAv.add(8);
+		//9
 		doorAv.add(10);
+		//11
+		//12
 	//	doorAv.add(13);
+		//14
 	//	doorAv.add(15);
+		//16
 	//	doorAv.add(17);
+		//18
+		//19
 	//	doorAv.add(20);
+		//21
+		//22
 		doorAv.add(23);
+		doorAv.add(27); //level1 monster
+		doorAv.add(29);
+		
+		doorAv.add(30);
+		doorAv.add(42);
 		
 		treasAv.add(84);
 		//treasAv.add(85);

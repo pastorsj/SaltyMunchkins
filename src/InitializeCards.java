@@ -338,6 +338,7 @@ public class InitializeCards {
 		cardHash.get(8).monsterLevel = 8;
 		cardHash.get(8).monsterLevelBonus = 3;
 		cardHash.get(8).numTreas = 2;
+		cardHash.get(10).numHands = -1;
 	//	cardHash.get(26).monsterLevel = 10;
 	//	cardHash.get(26).numTreas = 3;
 		cardHash.get(27).monsterLevel = 1;

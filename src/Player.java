@@ -21,6 +21,8 @@ public class Player {
 	public int footLevel = 0;
 	public int goldSold=0;
 	public int winStatus=0; //1 win, 0 game in play, -1 lose
+	public boolean monster=false;
+	public int dice=0;
 	
 	public Player(String name){
 		this.username = name;
@@ -58,7 +60,7 @@ public class Player {
 		}
 		
 		else{
-			int roll = game.rollDice(2);
+			int roll = game.rollDice(0);
 			System.out.println("You rolled a " + roll);
 			if (roll>4) {
 				System.out.println("You ran away!");

@@ -28,6 +28,7 @@ public class EndTurnButton extends JButton implements ActionListener{
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
 		super.setText("EndTurn");//Should be just Switch Sides
 		//super.setVisible(false);
+		this.setVisible(false);
 	
 		
 		this.setMaximumSize(new Dimension(100,50));
@@ -65,10 +66,10 @@ public class EndTurnButton extends JButton implements ActionListener{
 		}
 		
 		myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard=0;
-		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 		myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(true);
 		myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(true);
-		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
 		//myGame.mframe.dispose();
 		
 		

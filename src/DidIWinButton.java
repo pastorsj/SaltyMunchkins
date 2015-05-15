@@ -34,6 +34,7 @@ public class DidIWinButton extends JButton implements ActionListener{
 		this.setMaximumSize(new Dimension(100,50));
 		this.arrayOfLines=arrayOfLines;
 		this.myGame=game;
+		this.setVisible(false);
 		addActionListener(this);
 	}
 	
@@ -47,10 +48,22 @@ public class DidIWinButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
+
+		myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(false);
+		myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(false);
+		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
 		
 		didIWin();
 		myGame.mLevel=0;
+		myGame.currentPlayer.monster=false;
+		if(!myGame.otherPlayer.monster){
+			myGame.monster=false;
+		}
 		myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
+		myGame.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: " +myGame.currentPlayer.pLevel);
+		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
+		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: " +myGame.mLevel);
 		
 		
 		//myGame.mframe.dispose();

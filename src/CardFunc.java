@@ -32,7 +32,14 @@ public class CardFunc {
 	}
 	
 	public void func1Init() {
-		myGame.mLevel+= 5;
+		if(!myGame.monster){
+			cantPlay();
+		}
+		else{
+		
+			myGame.mLevel+= 5;
+		}
+		
 	}
 	
 	public void func1(boolean checkWin) {
@@ -47,11 +54,20 @@ public class CardFunc {
 	
 	public void func2Init() {
 		//+3 against Monster Whackers
-		if(myGame.currentPlayer.className.equals("Monster Whacker")) {
-			myGame.currentPlayer.cLevel -= 3;
-			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+			cantPlay();
 		}
-		myGame.mLevel+= 2;
+		else{
+			myGame.monster=true;
+			myGame.currentPlayer.monster=true;
+			if(myGame.currentPlayer.className.equals("Monster Whacker")) {
+				myGame.currentPlayer.cLevel -= 3;
+				//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+			}
+			myGame.mLevel+= 2;
+			
+		}
+		
 	}
 	
 	public void func2(boolean checkWin) {
@@ -70,14 +86,26 @@ public class CardFunc {
 		//+3 to monster
 		//If played on a Cultist, it gives them a permanent bonus of +3
 		//until the class card is lost or the player dies
-		myGame.mLevel+=3;
+		if(!myGame.monster){
+			cantPlay();
+		}
+		else{
+			myGame.mLevel+=3;
+		}
+		
 	}
 	
 	public void func4Init() {
 		//No class abilities can be used
-		myGame.mLevel+= 1;
-		//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
-		
+		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+			cantPlay();
+		}
+		else{
+			myGame.monster=true;
+			myGame.currentPlayer.monster=true;
+			myGame.mLevel+= 1;
+		}
+			
 	}
 	
 	public void func4(boolean checkWin) {
@@ -106,10 +134,18 @@ public class CardFunc {
 	public void func5Init() {
 		//-2 against Professors
 		//+2 against Cultists
-		if(myGame.currentPlayer.className.equals("Professor")) {
-			myGame.currentPlayer.cLevel -= 2;
+		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+			cantPlay();
 		}
-		myGame.mLevel+=6;
+		else{
+			myGame.monster=true;
+			myGame.currentPlayer.monster=true;
+			if(myGame.currentPlayer.className.equals("Professor")) {
+				myGame.currentPlayer.cLevel -= 2;
+			}
+			myGame.mLevel+=6;
+		}
+		
 	}
 	
 	public void func5(boolean checkWin) {
@@ -122,7 +158,7 @@ public class CardFunc {
 			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
 			myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(false);
 			myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(false);
-			myGame.mframe.mainPanel.bCardPanel.ngb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(false);
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
 			//need cultist/you lose screen!
@@ -138,13 +174,18 @@ public class CardFunc {
 	
 	public void func7Init() {
 		//-4 against females
-		myGame.mLevel+=2;
-		if(myGame.currentPlayer.gender == 'F') {
-			myGame.mLevel += 4;
-			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("player clevel: "+myGame.mLevel);
+		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+			cantPlay();
 		}
-		//myGame.mLevel +=2; (Changed this, not sure if we need to keep it)
-		//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		else{
+			myGame.monster=true;
+			myGame.currentPlayer.monster=true;
+			myGame.mLevel+=2;
+			if(myGame.currentPlayer.gender == 'F') {
+				myGame.mLevel += 4;
+			}	
+		}
+		
 	}
 	
 	public void func7(boolean checkWin) {
@@ -167,10 +208,19 @@ public class CardFunc {
 	
 	public void func8Init() {
 		//Monster gets +3 if size of hand is even
-		myGame.mLevel+=8;
-		if(myGame.currentPlayer.pHand.size()%2 == 0) {
-			myGame.mLevel += 3;
+		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+			cantPlay();
 		}
+		else{
+			myGame.monster=true;
+			myGame.currentPlayer.monster=true;
+			myGame.mLevel+=8;
+			if(myGame.currentPlayer.pHand.size()%2 == 0) {
+				myGame.mLevel += 3;
+			}
+		}
+		
+		
 	}
 	
 	public void func8(boolean checkWin) {
@@ -183,6 +233,8 @@ public class CardFunc {
 			if(myGame.currentPlayer.pLevel<1) {//CHANGE
 				myGame.currentPlayer.pLevel = 1;
 			}
+			
+			
 			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
 			myGame.mframe.revalidate();
@@ -433,12 +485,17 @@ public class CardFunc {
 	}
 	
 	public void func27Init() {
-		if(myGame.currentPlayer.className.equals("Professor")) {
-			myGame.currentPlayer.cLevel -= 2;
-			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
+		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+			cantPlay();
 		}
-		myGame.mLevel +=1;
-	//	myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		else{
+			myGame.monster=true;
+			myGame.currentPlayer.monster=true;
+			if(myGame.currentPlayer.className.equals("Professor")) {
+				myGame.currentPlayer.cLevel -= 2;
+			}
+			myGame.mLevel +=1;
+		}		
 	}
 	
 	public void func27(boolean checkWin) {
@@ -560,18 +617,36 @@ public class CardFunc {
 	
 	public void func30Init() {
 		//-2 against Monster Whacker's
-		if(myGame.currentPlayer.className.equals("Monster Whacker")) {
-			myGame.currentPlayer.cLevel += 2;
+		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+			cantPlay();
 		}
+		else{
+			myGame.monster=true;
+			myGame.currentPlayer.monster=true;
+			myGame.mLevel+=12;
+			if(myGame.currentPlayer.className.equals("Monster Whacker")) {
+				myGame.currentPlayer.cLevel += 2;
+			}
+			
+		}
+		
 	}
 	
 	public void func30(boolean checkWin) {
 		//Draw 3 treasures
 		//Bad: You are dead
-		if(checkWin) {
-			myGame.currentPlayer.treasuresWonEachTurn += 3;
-		} else {
-			//Need to call a win method for the other player, such as playerWin(myGame.currentPlayer);
+		if(checkWin){
+			myGame.currentPlayer.treasuresWonEachTurn+=3;
+		}
+		else{
+			myGame.currentPlayer.winStatus=-1;
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(false);
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
 		}
 	}
 	
@@ -1228,30 +1303,40 @@ public class CardFunc {
 	}
 	
 	public void func84Init(){
-		int die = myGame.rollDice(0); //0 indicates return random number
-		System.out.println("dice is: "+die);
-		if (die ==6){
-			
+		if(myGame.monster){
+			int die = myGame.rollDice(0); //0 indicates return random number
+			myGame.currentPlayer.dice=die;
+			System.out.println("dice is: "+die);
+			myGame.mframe.mainPanel.bCardPanel.diceLevel.setText("num rolled is: "+die);
+			myGame.mframe.mainPanel.bCardPanel.diceLevel.setVisible(true);
+			if (die ==6){
+				myGame.currentPlayer.handLevel+=2;
+			}
+			else{
+				//myGame.ic.getCardHash().get(84).discard=false;
+				myGame.currentPlayer.handLevel+=2;
+				myGame.currentPlayer.cLevel+=4;
+				//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
+				
+			}
 		}
-		else{
-			//myGame.ic.getCardHash().get(84).discard=false;
-			myGame.currentPlayer.handLevel+=2;
-			myGame.currentPlayer.cLevel+=4;
-			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
-			
-		}
+		
 
 		
 	}
 	
 	public void func84(boolean checkwin) {
+		
 		if(checkwin){
 			myGame.ic.getCardHash().get(84).discard=false;
 			System.out.println("set discard to false");
 		}
 		else{
-			myGame.ic.getCardHash().get(84).discard=true;
-			System.out.println("set discard to true");
+			if(myGame.currentPlayer.dice==6){
+				myGame.ic.getCardHash().get(84).discard=true;
+			}
+			
+			
 		}
 		
 	}
@@ -1295,14 +1380,8 @@ public class CardFunc {
 	}
 	
 	public void func90Init(){
-		boolean hasMonster = false;
-		for(int i=0; i<myGame.currentPlayer.pPlay.size();i++){
-			if(myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).monsterLevel>0){
-				hasMonster = true; 
-			}
-		}
 		
-		if(hasMonster){
+		if(myGame.monster){
 			myGame.currentPlayer.cLevel+=3;
 			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
 			
