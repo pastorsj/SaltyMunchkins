@@ -54,7 +54,7 @@ public class CardFunc {
 	
 	public void func2Init() {
 		//+3 against Monster Whackers
-		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+		if((myGame.monster && !myGame.currentPlayer.pPlay.contains(84)) || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -97,7 +97,7 @@ public class CardFunc {
 	
 	public void func4Init() {
 		//No class abilities can be used
-		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+		if((myGame.monster && !myGame.currentPlayer.pPlay.contains(84)) || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -134,7 +134,7 @@ public class CardFunc {
 	public void func5Init() {
 		//-2 against Professors
 		//+2 against Cultists
-		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+		if((myGame.monster && !myGame.currentPlayer.pPlay.contains(84)) || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -174,7 +174,7 @@ public class CardFunc {
 	
 	public void func7Init() {
 		//-4 against females
-		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+		if((myGame.monster && !myGame.currentPlayer.pPlay.contains(84)) || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -208,7 +208,7 @@ public class CardFunc {
 	
 	public void func8Init() {
 		//Monster gets +3 if size of hand is even
-		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+		if((myGame.monster && !myGame.currentPlayer.pPlay.contains(84)) || myGame.currentPlayer.drewCard && myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -485,7 +485,7 @@ public class CardFunc {
 	}
 	
 	public void func27Init() {
-		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+		if((myGame.monster && !myGame.currentPlayer.pPlay.contains(84)) || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -617,7 +617,7 @@ public class CardFunc {
 	
 	public void func30Init() {
 		//-2 against Monster Whacker's
-		if(myGame.monster && !myGame.currentPlayer.pPlay.contains(84)){
+		if((myGame.monster && !myGame.currentPlayer.pPlay.contains(84)) || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{

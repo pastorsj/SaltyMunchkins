@@ -60,6 +60,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 		
 
 		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
+		myGame.mframe.mainPanel.bCardPanel.dcb.setVisible(false);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
 		

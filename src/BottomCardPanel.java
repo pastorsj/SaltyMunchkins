@@ -34,6 +34,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public ArrayList<BufferedImage> cardsInPlayImages = new ArrayList<BufferedImage>();
 	public ArrayList<BufferedImage> cardsInPlayImages2 = new ArrayList<BufferedImage>();
 	public NewGameButton ngb;
+	public DrawCardButton dcb;
 	public EndTurnButton etb;
 	public LetOtherPlayerPlayCardButton loppcb;
 	public DiscardButton db;
@@ -95,6 +96,10 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		ngb.setPreferredSize(new Dimension(100,30));
 		ngb.setLocation(-100,-100);
 		this.add(ngb);
+		
+		this.dcb = new DrawCardButton(game);
+		dcb.setPreferredSize(new Dimension (100,30));
+		this.add(dcb);
 		
 		this.pcb= new PlayCardButton(game);
 		pcb.setPreferredSize(new Dimension (100,30));
@@ -207,8 +212,15 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				//go.drawImage(this.cardImage3, 2*(60+180), 0, 180, 200, null);
 		//		go.drawImage(MunchBanner,550,0,null);
 				
-				for(int i =0; i<cardImages.size();i++){
+				for(int i =0; i<cardImages.size() && i<8;i++){
 					go.drawImage(cardImages.get(i),50+180*i+10*i,750,180,225,null);
+				}
+				
+				//draw extra drawn cards in top right
+				for(int i=0;i<cardImages.size()-8;i++){
+					if(cardImages.size()>i+8){
+						go.drawImage(cardImages.get(i+8),50+180*(8+i)+10*(8+i),170,180,225,null);
+					}
 				}
 //				go.drawImage(cardImages.get(1),50+180*8+10*8,200,360,610,null);
 			//
@@ -236,7 +248,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-//		System.out.println(MouseInfo.getPointerInfo().getLocation());
+		System.out.println(MouseInfo.getPointerInfo().getLocation());
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
 		if(y>780 && y<1006){
@@ -295,12 +307,32 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				}
 				
 			}
+			
+		
+			
+	
 		
 			else{
 				
 			}
 			
 			//this.repaint();
+		}
+		
+		if(y<425 && y>202){
+			if(x>1530 && x<1707){
+				if(cardImages.size()>8){
+					largeCard=cardImages.get(8);
+					largeCardPos=8;
+				}
+			}
+			
+			else if(x>1540 && x<1720){
+				if(cardImages.size()>9){
+					largeCard=cardImages.get(9);
+					largeCardPos=9;
+				}
+			}
 		}
 		
 		if(y>545 && y<770){
