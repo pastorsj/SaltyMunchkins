@@ -31,7 +31,7 @@ public class DiscardGoldButton extends JButton implements ActionListener {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
 		super.setText(buttonText);
-		this.setPreferredSize(new Dimension(100,30));
+		this.setPreferredSize(new Dimension(150,30));
 		super.setVisible(false);
 
 		

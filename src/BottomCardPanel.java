@@ -30,6 +30,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	private BufferedImage cardImage8;
 	private BufferedImage MunchBanner;
 	private BufferedImage youLoseScreen;
+	private BufferedImage youWinScreen;
 	public ArrayList<BufferedImage> cardImages= new ArrayList<BufferedImage>();
 	public ArrayList<BufferedImage> cardsInPlayImages = new ArrayList<BufferedImage>();
 	public ArrayList<BufferedImage> cardsInPlayImages2 = new ArrayList<BufferedImage>();
@@ -168,7 +169,18 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 				go.drawImage(youLoseScreen,0,0,1920,1080,null);
 			}
 			
-			//if you win/in play
+			else if(myGame.currentPlayer.winStatus==1){
+				try {
+					youWinScreen = ImageIO.read(new File ("src\\youwinscreen.jpg"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				go.drawImage(youWinScreen,0,0,1920,1080,null);
+				
+			}
+			//if you are in play
 			else{
 				try {
 					MunchBanner = ImageIO.read(new File ("src\\munchkin-cthulhu.jpg"));
@@ -248,7 +260,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		System.out.println(MouseInfo.getPointerInfo().getLocation());
+		//System.out.println(MouseInfo.getPointerInfo().getLocation());
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
 		if(y>780 && y<1006){

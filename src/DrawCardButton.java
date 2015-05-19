@@ -33,6 +33,12 @@ public class DrawCardButton extends JButton implements ActionListener{
 		myGame.doors.remove(myGame.doors.size()-1);
 		myGame.currentPlayer.pHand.add(newCard);
 		myGame.mframe.mainPanel.bCardPanel.dcb.setVisible(false);
+		if(myGame.currentPlayer.pHand.size()>8){
+			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
+		}
+		else{
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+		}
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
 		

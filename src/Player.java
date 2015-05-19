@@ -65,9 +65,13 @@ public class Player {
 			System.out.println("You rolled a " + roll);
 			if (roll>4) {
 				System.out.println("You ran away!");
+				game.mframe.mainPanel.bCardPanel.diceLevel.setText("num rolled is: "+roll);
+				game.mframe.mainPanel.bCardPanel.diceLevel.setVisible(true);
 				game.currentPlayer.consequence(game, 0);
 			} else {
 				System.out.println("You lose...");
+				game.mframe.mainPanel.bCardPanel.diceLevel.setText("num rolled is: "+roll);
+				game.mframe.mainPanel.bCardPanel.diceLevel.setVisible(true);
 				game.currentPlayer.consequence(game, -1);
 			}
 		}
@@ -83,7 +87,7 @@ public class Player {
 		//System.out.println("my monster level bonus calc is: "+game.currentPlayer.mLevelBonusCalculation());
 		//System.out.println("monster level in combat is: " + monster);
 		//game.currentPlayer.cLevelCalculation(); //me.cLevel is now set using hash
-		System.out.println("my clevel is: " + game.currentPlayer.cLevel+game.currentPlayer.pLevel);
+		System.out.println("my clevel is: " + game.currentPlayer.cLevel);
 		return (game.currentPlayer.cLevel>=monster);
 	}
 	
@@ -95,14 +99,16 @@ public class Player {
 			game.currentPlayer.pLevel++;
 			bool=true;}
 		else{
-			game.currentPlayer.treasuresWonEachTurn=0; //need this because card func 29 
+			//game.currentPlayer.treasuresWonEachTurn=0; //need this because card func 29 
 			bool=false;}
 		
 			CardFunc cf = new CardFunc(game);
+			System.out.println("current Player pPlay: "+game.currentPlayer.pPlay);
 			for (int i = 0; i<game.currentPlayer.pPlay.size();i++){
 				int methodNum=game.currentPlayer.pPlay.get(i);
 				
 				String funcToCall = "func"+methodNum;
+				System.out.println("func we are calling: "+funcToCall);
 				try {
 					Method method =CardFunc.class.getMethod(funcToCall,boolean.class);
 					try {
@@ -137,13 +143,14 @@ public class Player {
 			//else{
 				//game.p2.pLevel++;
 			//}
-			
-				
+			}
+			System.out.println("Getting # treas cards before end combat "+game.currentPlayer.treasuresWonEachTurn);
 			game.currentPlayer.endCombat(game);
 			game.otherPlayer.endCombat(game);
+			System.out.println("Getting # treas cards from win: "+game.currentPlayer.treasuresWonEachTurn);
 			cf.getTreasFromWin();
 			game.currentPlayer.treasuresWonEachTurn = 0;
-		}
+		
 	}
 	
 
@@ -160,7 +167,7 @@ public void endCombat(Game myGame){
 					myGame.ic.getCardHash().get(this.pPlay.get(i)).footGear ||
 					myGame.ic.getCardHash().get(this.pPlay.get(i)).headGear ||
 					myGame.ic.getCardHash().get(this.pPlay.get(i)).numHands>0){
-				
+			
 			}
 			else{
 				System.out.println("moving card to pHand in endCombat");

@@ -512,6 +512,7 @@ public class CardFunc {
 			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 			myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 500;
 			myGame.mframe.mainPanel.bCardPanel.dgb.setVisible(true);
+			myGame.mframe.mainPanel.bCardPanel.db.setVisible(false);
 		
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
@@ -1319,6 +1320,8 @@ public class CardFunc {
 				//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 				
 			}
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
 		}
 		
 
@@ -1379,6 +1382,10 @@ public class CardFunc {
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
+	public void func89(boolean checkWin){
+		
+	}
+	
 	public void func90Init(){
 		
 		if(myGame.monster){
@@ -1399,6 +1406,10 @@ public class CardFunc {
 	
 	public void func94Init(){
 		func89Init();
+	}
+	
+	public void func94(boolean checkWin){
+		return;
 	}
 	
 	

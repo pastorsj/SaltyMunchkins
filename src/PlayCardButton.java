@@ -43,7 +43,14 @@ public class PlayCardButton extends JButton implements ActionListener {
 			cf.cantPlay();
 		}
 		else{
+			//at this point, have checked all hands. need to re-execute the others.
+			//System.out.println("pPlay is: "+myGame.currentPlayer.pPlay);
+			System.out.println("playing card: "+cardToMove);
 			myGame.playACard(cardToMove);
+			if(myGame.currentPlayer.pPlay.contains(84)){
+				myGame.playACard(84);
+			}
+			
 			myGame.mframe.mainPanel.bCardPanel.pass.lastPass=
 					myGame.mframe.mainPanel.bCardPanel.pass.nowPass;
 			myGame.mframe.mainPanel.bCardPanel.pass.nowPass=false;

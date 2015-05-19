@@ -12,18 +12,13 @@ import javax.swing.JButton;
 public class DiscardButton extends JButton implements ActionListener {
 
 	public ArrayList<String> arrayOfCardLines;
-	public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
 	public int numDiscarded=0;
 
 	public DiscardButton(
 			Game game) {
-		if (game.turnPlayer == 1) {
-			this.turnPlayer = game.p1;
-		} else {
-			this.turnPlayer = game.p2;
-		}
+		
 
 		String buttonText = "Discard";
 
@@ -43,7 +38,7 @@ public class DiscardButton extends JButton implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		int cardToMovePos = this.myGame.mframe.mainPanel.bCardPanel.largeCardPos;
-		int cardToMove = turnPlayer.pHand.get(cardToMovePos);
+		int cardToMove = myGame.currentPlayer.pHand.get(cardToMovePos);
 		numDiscarded+=1;
 		CardFunc cf = new CardFunc(myGame);
 		cf.deleteWhenDiscard();
@@ -69,14 +64,10 @@ public class DiscardButton extends JButton implements ActionListener {
 		
 
 		
-		turnPlayer.pHand.remove(cardToMovePos);
-		turnPlayer.pDiscard.add(cardToMove);
+		myGame.currentPlayer.pHand.remove(cardToMovePos);
+		myGame.currentPlayer.pDiscard.add(cardToMove);
 
-		if (myGame.turnPlayer == 1) {
-			myGame.p1 = turnPlayer;
-		} else {
-			myGame.p2 = turnPlayer;
-		}
+		
 
 		//myGame.mframe.dispose();
 

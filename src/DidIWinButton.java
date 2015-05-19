@@ -65,7 +65,9 @@ public class DidIWinButton extends JButton implements ActionListener{
 		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
 		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: " +myGame.mLevel);
 		
-		
+		if(myGame.currentPlayer.pLevel>=10){
+			myGame.currentPlayer.winStatus=1;
+		}
 		//myGame.mframe.dispose();
 		//myGame.mframe=new MFrame(myGame);
 		myGame.mframe.revalidate();
