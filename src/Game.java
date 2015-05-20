@@ -11,6 +11,8 @@ import javax.imageio.ImageIO;
 public class Game {
 	ArrayList<Integer> doors = new ArrayList<Integer>();
 	ArrayList<Integer> treasures = new ArrayList<Integer>();
+	ArrayList<Integer> doorDiscards = new ArrayList<Integer>();
+	ArrayList<Integer> treasDiscards = new ArrayList<Integer>();
 	ArrayList<Integer> discards = new ArrayList<Integer>();
 	Player p1 = new Player("p1");
 	Player p2 = new Player("p2");
@@ -77,6 +79,7 @@ public class Game {
 			cards.set(randNum, cards.get(i));
 			cards.set(i, temp);
 		}
+		System.out.println("newly shuffled: "+cards);
 		return cards;
 	}
 	
@@ -93,8 +96,10 @@ public class Game {
 		for (int i = 0; i <= 3; i++) {
 			deal.add(doors.get(doors.size() - 1));
 			deal.add(treasures.get(treasures.size()-1));
-			doors.remove(doors.get(doors.size() - 1));
-			treasures.remove(treasures.get(treasures.size()-1));
+			doors.remove(doors.size()-1);
+			treasures.remove(treasures.size()-1);
+			//doors.remove(doors.get(doors.size() - 1));
+			//treasures.remove(treasures.get(treasures.size()-1));
 			
 		}
 		return deal;
@@ -133,6 +138,12 @@ public class Game {
 		if(p.pHand.contains(card)) {
 			p.pHand.remove(p.pHand.indexOf(card));
 			discards.add(card);
+			if(card<83){
+				this.doorDiscards.add(card);
+			}
+			else{
+				this.treasDiscards.add(card);
+			}
 			return true;
 		}return false;
 	}

@@ -66,6 +66,12 @@ public class DiscardButton extends JButton implements ActionListener {
 		
 		myGame.currentPlayer.pHand.remove(cardToMovePos);
 		myGame.currentPlayer.pDiscard.add(cardToMove);
+		if(cardToMove<83){
+			myGame.doorDiscards.add(cardToMove);
+		}
+		else{
+			myGame.treasDiscards.add(cardToMove);
+		}
 
 		
 

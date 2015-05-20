@@ -59,6 +59,11 @@ public class PlayCardButton extends JButton implements ActionListener {
 				myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
 				myGame.mframe.mainPanel.bCardPanel.pass.setVisible(true);
 			}
+		
+			else if(myGame.otherPlayer.sentCurse){
+				myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
+				
+			}
 			else{
 				myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
 			}

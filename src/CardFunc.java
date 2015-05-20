@@ -273,7 +273,7 @@ public class CardFunc {
 		//Discard your class
 		//If you don't have a class, lose a level
 		
-		if(myGame.mLevel>0){
+		if(myGame.mLevel>0 || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -305,7 +305,7 @@ public class CardFunc {
 	public void func14Init() {
 		//Curse
 		//Discard all extra cards in your hand
-		if(myGame.mLevel>0){
+		if(myGame.mLevel>0 || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -322,7 +322,7 @@ public class CardFunc {
 		//Curse
 		//Change sex
 		//-5 to your next combat
-		if(myGame.mLevel>0){
+		if(myGame.mLevel>0 || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -347,7 +347,7 @@ public class CardFunc {
 		//-3 on your next combat
 		//If you have miners helmet or two handed flashlight, discard them
 		
-		if(myGame.mLevel>0){
+		if(myGame.mLevel>0 || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		else{
@@ -373,11 +373,20 @@ public class CardFunc {
 	public void func20Init() {
 		//Curse: Discard all class cards except Cultist
 		
-		if(myGame.mLevel>0){
+		if(myGame.mLevel>0 || myGame.currentPlayer.drewCard){
 			cantPlay();
 		}
 		
 		else{
+			myGame.changePlayer();
+			myGame.mframe.revalidate();
+			myGame.mframe.repaint();
+			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(true);
+			myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(false);
+			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
+
+			
 			if(myGame.currentPlayer.pHand.contains(49)) {
 				//Discard card 49
 				myGame.discardCard(myGame.currentPlayer, 49);
@@ -418,20 +427,25 @@ public class CardFunc {
 	
 	public void func22() {
 		//Curse: Lose a level
+		if(myGame.mLevel>0 || myGame.currentPlayer.drewCard){
+			cantPlay();
+		}
+		else{
+			myGame.currentPlayer.pLevel -= 1;
+		}
 		
-		myGame.currentPlayer.pLevel -= 1;
 	}
 	
 	public void func23Init() {
 		//Curse: Must discard at least 1000 gold pieces
 		
-		if(myGame.mLevel>0){
+		if(myGame.mLevel>0 || myGame.currentPlayer.drewCard){
 			cantPlay();
 			
 		}
 		else{
+			myGame.currentPlayer.sentCurse=true;
 			myGame.changePlayer();
-			System.out.println("current player is: "+myGame.turnPlayer);
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
 			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
@@ -531,6 +545,7 @@ public class CardFunc {
 	
 	public void discardGold(){
 		myGame.mframe.mainPanel.bCardPanel.dgb.goldLeft = 0;
+		System.out.println("gold you need to discount total: "+myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard);
 		for(int i =0; i<myGame.currentPlayer.pHand.size();i++){
 			myGame.mframe.mainPanel.bCardPanel.dgb.goldLeft+=
 					myGame.ic.getCardHash().get(myGame.currentPlayer.pHand.get(i)).numGold;
@@ -1298,7 +1313,13 @@ public class CardFunc {
 	//deal cards after a win
 	public void getTreasFromWin(){
 		for(int i = 0; i<myGame.currentPlayer.treasuresWonEachTurn;i++){
-			myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
+			if(myGame.treasures.size()==0){
+				myGame.treasures=myGame.shuffle(myGame.treasDiscards);
+				
+			}
+			myGame.currentPlayer.pHand.add(myGame.treasures.get(myGame.treasures.size()-1));
+			myGame.treasures.remove(myGame.treasures.size()-1);
+			//myGame.dealNewCard(myGame.treasures, myGame.currentPlayer);
 		}
 		
 	}
@@ -1410,6 +1431,17 @@ public class CardFunc {
 	
 	public void func94(boolean checkWin){
 		return;
+	}
+	
+	public void func96Init(){
+		//if you lose, and roll dice, you get a +1. this is checked in the consequence area.
+		myGame.ic.getCardHash().get(96).headGear = true;
+		myGame.currentPlayer.headLevel+=0; // DO NOT ADJUST HEAD LEVEL.
+		
+	}
+	
+	public void func96(boolean checkWin){
+		
 	}
 	
 	

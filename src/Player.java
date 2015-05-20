@@ -24,6 +24,7 @@ public class Player {
 	public boolean monster=false;
 	public int dice=0;
 	public boolean drewCard = false;
+	public boolean sentCurse = false;
 	
 	public Player(String name){
 		this.username = name;
@@ -36,6 +37,7 @@ public class Player {
 		for(int i=0; i<this.pPlay.size();i++){
 			card = initCards.getCardHash().get(pPlay.get(i));	
 			this.cLevel+=card.pLevelBonus;
+			
 		}
 	}
 	
@@ -62,6 +64,9 @@ public class Player {
 		
 		else{
 			int roll = game.rollDice(0);
+			if(game.currentPlayer.pPlay.contains(96)){
+				roll++;
+			}
 			System.out.println("You rolled a " + roll);
 			if (roll>4) {
 				System.out.println("You ran away!");
@@ -160,7 +165,15 @@ public void endCombat(Game myGame){
 		
 			if(myGame.ic.getCardHash().get(this.pPlay.get(i)).discard){
 				System.out.println("delete pPlay in endCombat");
+				if(this.pPlay.get(i)<83){
+					myGame.doorDiscards.add(this.pPlay.get(i));
+				}
+				else{
+					myGame.treasDiscards.add(this.pPlay.get(i));
+				}
+				
 				this.pPlay.remove(i);
+				
 				i--;
 			}
 			else if(myGame.ic.getCardHash().get(this.pPlay.get(i)).armor ||

@@ -61,6 +61,7 @@ public class Main {
 		treasAv.add(89);
 		treasAv.add(90);
 		treasAv.add(94);
+		treasAv.add(96);
 		treasAv.add(97);
 		treasAv.add(98);
 		treasAv.add(99);
@@ -68,17 +69,21 @@ public class Main {
 		treasAv.add(106);
 		
 //		//double the treasures
-//		treasAv.add(84);
-//		//treasAv.add(85);
-//		treasAv.add(86);
-//		treasAv.add(87);
-//		treasAv.add(88);
-//		treasAv.add(89);
-//		treasAv.add(90);
-//		treasAv.add(94);
-//		treasAv.add(97);
-//		treasAv.add(98);
-//		treasAv.add(99);
+		treasAv.add(84);
+		//treasAv.add(85);
+		treasAv.add(86);
+		treasAv.add(87);
+		treasAv.add(88);
+		treasAv.add(89);
+		treasAv.add(90);
+		treasAv.add(94);
+		treasAv.add(97);
+		treasAv.add(98);
+		treasAv.add(99);
+		treasAv.add(100);
+		treasAv.add(106);
+		
+
 //		
 		InitializeCards ic = new InitializeCards(doorAv,treasAv);
 		

@@ -10,20 +10,10 @@ import javax.swing.JButton;
 
 
 public class EndTurnButton extends JButton implements ActionListener{
-
-
-	public Player turnPlayer;
 	
 	public Game myGame;
 	public EndTurnButton(Game game){
-		if(game.turnPlayer==1){
-			this.turnPlayer=game.p1;
-			//need to set the current player to equal game.p1, then set turn player to be current player
-		}
-		else{
-			this.turnPlayer=game.p2;
-			//Same as above, except set current player to equal game.p2
-		}
+	
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
 		super.setText("EndTurn");//Should be just Switch Sides
@@ -43,7 +33,12 @@ public class EndTurnButton extends JButton implements ActionListener{
 		if(myGame.currentPlayer.pHand.size()<=8){
 			myGame.currentPlayer.drewCard = false;
 			myGame.changePlayer();
+			if(myGame.currentPlayer.sentCurse){
+				myGame.currentPlayer.sentCurse=false;
+				myGame.changePlayer();
+			}
 			
+			//
 			for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
 				if((myGame.currentPlayer.pPlay.get(i)>=13 && 
 						myGame.currentPlayer.pPlay.get(i)<=25) ||
