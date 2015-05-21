@@ -32,6 +32,7 @@ public class EndTurnButton extends JButton implements ActionListener{
 		//if this is not true, then can't end turn. must discard first. 
 		if(myGame.currentPlayer.pHand.size()<=8){
 			myGame.currentPlayer.drewCard = false;
+			myGame.currentPlayer.playCard = false;
 			myGame.changePlayer();
 			if(myGame.currentPlayer.sentCurse){
 				myGame.currentPlayer.sentCurse=false;

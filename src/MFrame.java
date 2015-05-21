@@ -23,7 +23,7 @@ public class MFrame extends JFrame {
 		
 		
 		try {
-			this.mainPanel = new MPanel(this,game);
+			this.mainPanel = new MPanel(game.mframe,game);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

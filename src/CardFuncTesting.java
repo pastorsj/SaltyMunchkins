@@ -1290,21 +1290,21 @@ public class CardFuncTesting {
 	@Test
 	public void func102Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
-		myGame.funcs.func102();
+		myGame.funcs.func102Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}	
 	
 	@Test
 	public void func104Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
-		myGame.funcs.func104();
+		myGame.funcs.func104Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
 
 	@Test
 	public void func107Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
-		myGame.funcs.func107();
+		myGame.funcs.func107Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
 
@@ -1349,7 +1349,7 @@ public class CardFuncTesting {
 	@Test
 	public void func115Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
-		myGame.funcs.func115();
+		myGame.funcs.func115Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
 	
@@ -1385,7 +1385,7 @@ public class CardFuncTesting {
 	@Test
 	public void func129Test() {
 		int pLevel = myGame.currentPlayer.pLevel;
-		myGame.funcs.func129();
+		myGame.funcs.func129Init();
 		assertEquals(pLevel + 1, myGame.currentPlayer.pLevel);
 	}
 

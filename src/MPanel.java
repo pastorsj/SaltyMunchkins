@@ -14,8 +14,10 @@ public class MPanel extends JPanel {
 	//ButtonPanel bPanel;
 	MunchkinPanel munchPanel;
 	//DirectionsPanel dPanel;
-	CardPanel cardPanel;
-public 	BottomCardPanel bCardPanel;
+	public Game myGame;
+	public BottomCardPanel bCardPanel;
+	public WelcomePanel welcPanel;
+	
 
 	public MPanel(MFrame frame, Game game) throws IOException {
 
@@ -24,9 +26,15 @@ public 	BottomCardPanel bCardPanel;
 		
 		//this.setPreferredSize(new Dimension (1900, 700));
 		this.setPreferredSize(new Dimension (2000, 990));
+	
+
 
 		this.setLayout(new BorderLayout(5,5));
-		
+		myGame=game;
+		this.bCardPanel = new BottomCardPanel(myGame);
+		this.add(bCardPanel, BorderLayout.CENTER);
+		this.bCardPanel.setPreferredSize(new Dimension(0, 225));
+		this.bCardPanel.setVisible(true);
 
 		//this.dPanel = new DirectionsPanel(bPanel);
 	
@@ -34,12 +42,22 @@ public 	BottomCardPanel bCardPanel;
 		//this.cardPanel.setMaximumSize(new Dimension(200,200));
 
 	//	this.munchPanel = new MunchkinPanel();
-		this.bCardPanel = new BottomCardPanel(game);
+	
 		//this.bPanel = new ButtonPanel(mPanel, dPanel, pPanel,cities,US);
 	
 		//this.add(bPanel, BorderLayout.NORTH);
 		
-		this.add(bCardPanel, BorderLayout.CENTER);
+		//put these back in
+	
+	
+		
+		//this.bCardPanel = new BottomCardPanel(game);
+		//this.add(bCardPanel, BorderLayout.CENTER);
+		//this.bCardPanel.setPreferredSize(new Dimension(0, 225));
+		
+		
+	
+		
 		
 		//this.add(munchPanel, BorderLayout.CENTER);
 		
@@ -54,11 +72,24 @@ public 	BottomCardPanel bCardPanel;
 		
 		
 	   // panelCenter.setPreferredSize(new Dimension(panelCenter.getWidth(), 100));
-	    bCardPanel.setPreferredSize(new Dimension(0, 225));
+	 
 		
 		
 		
 		this.setVisible(true);
+	}
+	
+	public void addBCard(){
+		myGame.mframe.mainPanel.bCardPanel = new BottomCardPanel(myGame);
+		myGame.mframe.mainPanel.add(bCardPanel, BorderLayout.CENTER);
+		myGame.mframe.mainPanel.bCardPanel.setPreferredSize(new Dimension(0, 225));
+		
+	}
+	
+	public void addWPanel(){
+		myGame.mframe.mainPanel.welcPanel = new WelcomePanel(myGame);
+		myGame.mframe.mainPanel.add(welcPanel,BorderLayout.CENTER);
+		
 	}
 
 //	public void paintComponent(Graphics g) {

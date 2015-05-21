@@ -1335,6 +1335,8 @@ public class CardFunc {
 				myGame.currentPlayer.handLevel+=2;
 			}
 			else{
+				
+				
 				//myGame.ic.getCardHash().get(84).discard=false;
 				myGame.currentPlayer.handLevel+=2;
 				myGame.currentPlayer.cLevel+=4;
@@ -1370,8 +1372,14 @@ public class CardFunc {
 	}
 	
 	public void func86Init(){
-		myGame.currentPlayer.handLevel+=1;
-		myGame.currentPlayer.cLevel+=2;
+		if(!myGame.monster){
+			myGame.currentPlayer.handLevel+=1;
+			myGame.currentPlayer.cLevel+=2;
+		}
+		else{
+			cantPlay();
+		}
+		
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 		
 	}
@@ -1381,7 +1389,9 @@ public class CardFunc {
 	}
 	
 	public void func87Init() {
+		if(!myGame.monster)
 		myGame.currentPlayer.cLevel+=1;
+		myGame.ic.getCardHash().get(87).discard=false;
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
@@ -1409,7 +1419,7 @@ public class CardFunc {
 	
 	public void func90Init(){
 		
-		if(myGame.monster){
+		if(myGame.currentPlayer.monster){
 			myGame.currentPlayer.cLevel+=3;
 			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
 			
@@ -1446,7 +1456,13 @@ public class CardFunc {
 	
 	
 	public void func97Init(){
-		myGame.currentPlayer.cLevel+=3;
+		if(!myGame.monster){
+			myGame.currentPlayer.cLevel+=3;
+		}
+		else{
+			cantPlay();
+		}
+		
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 		
 	}
@@ -1455,8 +1471,14 @@ public class CardFunc {
 	}
 	
 	public void func98Init() {
-		myGame.currentPlayer.cLevel+=4;
-		myGame.currentPlayer.handLevel+=2;
+		if(!myGame.monster){
+			myGame.currentPlayer.cLevel+=4;
+			myGame.currentPlayer.handLevel+=2;
+		}
+		else{
+			cantPlay();
+		}
+		
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
@@ -1465,7 +1487,13 @@ public class CardFunc {
 	}
 	
 	public void func99Init() {
-		myGame.currentPlayer.cLevel+=1;
+		if(!myGame.monster){
+			myGame.currentPlayer.cLevel+=1;
+		}
+		else{
+			cantPlay();
+		}
+		
 		//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel);
 	}
 	
@@ -1483,12 +1511,18 @@ public class CardFunc {
 		
 	}
 	
-	public void func102(){
+	public void func102Init(){
 		func89Init();
 	}
+	public void func102(boolean checkWin){
+		
+	}
 	
-	public void func104(){
+	public void func104Init(){
 		func89Init();
+	}
+	public void func104(boolean checkWin){
+		
 	}
 	
 	public void func105Init() {
@@ -1504,8 +1538,11 @@ public class CardFunc {
 		
 	}
 	
-	public void func107(){
+	public void func107Init(){
 		func89Init();
+	}
+	public void func107(boolean checkWin){
+		
 	}
 	
 	public void func108Init() {
@@ -1528,20 +1565,25 @@ public class CardFunc {
 	}
 	
 	public void func111Init() {
-		if(checkHeadGear(1)) {
+		if(!myGame.monster) {
 			myGame.currentPlayer.headLevel += 1;
 			myGame.currentPlayer.cLevel += 2;
+			myGame.ic.getCardHash().get(111).discard = false;
 		} else {
-			System.out.println("You cannot use this item 111");
+			cantPlay();
 		}
 	}
 	
+	public void func111(boolean checkWin){
+		
+	}
+	
 	public void func112Init() {
-		if(checkHeadGear(1)) {
-			myGame.currentPlayer.armorLevel += 1;
+		if(!myGame.monster) {
+			myGame.ic.getCardHash().get(112).discard = false;
 			myGame.currentPlayer.cLevel += 1;
 		} else {
-			System.out.println("You cannot use this item 111");
+			cantPlay();
 		}
 	}
 	
@@ -1554,30 +1596,55 @@ public class CardFunc {
 		}
 	}
 	
+	public void func113(boolean checkWin){
+		
+	}
+	
 	public void func114Init() {
-		if(!myGame.currentPlayer.className.equals("Cultist") && checkHands(1)) {
-			myGame.currentPlayer.handLevel += 1;
+		if(!myGame.currentPlayer.className.equals("Cultist")) {
 			myGame.currentPlayer.cLevel += 2;
+			myGame.ic.getCardHash().get(114).discard = false;
 		} else {
-			System.out.println("You cannot use this item 114");
+			cantPlay();
 		}
 	}
 	
-	public void func115() {
+	public void func114(boolean checkWin){
+		
+	}
+	
+	public void func115Init() {
 		func89Init();
 	}
 	
+	public void func115(boolean checkwin){
+		
+	}
+	
 	public void func116Init() {
-		if(checkHands(1)) {
-			myGame.currentPlayer.handLevel += 1;
+		if(!myGame.monster) {
 			myGame.currentPlayer.cLevel += 1;
+			myGame.ic.getCardHash().get(116).discard = false;
 		} else {
-			System.out.println("You cannot use this item 116");
+			cantPlay();
 		}
+	}
+	public void func116(boolean checkwin){
+		
 	}
 	
 	public void func117Init() {
-		func116Init();
+		if(!myGame.monster){
+			myGame.currentPlayer.cLevel += 2;
+			myGame.ic.getCardHash().get(117).discard = false;
+		}
+		else{
+			cantPlay();
+		}
+	}
+	
+	public void func117(boolean checkwin){
+		
 	}
 	
 	public void func118Init() {
@@ -1595,11 +1662,11 @@ public class CardFunc {
 	}
 	
 	public void func120Init() {
-		if(checkHeadGear(1)) {
-			myGame.currentPlayer.headLevel += 1;
+		if(!myGame.monster) {
 			myGame.currentPlayer.cLevel += 2;
+			myGame.ic.getCardHash().get(120).discard = false;
 		} else {
-			System.out.println("You cannot use this item 120");
+			cantPlay();
 		}
 	}
 	
@@ -1638,12 +1705,14 @@ public class CardFunc {
 	}
 	
 	public void func126Init() {
-		if(checkArmor(1)) {
-			myGame.currentPlayer.armorLevel += 1;
+		if(!myGame.monster) {
 			myGame.currentPlayer.cLevel += 4;
 		} else {
-			System.out.println("You cannot use this item 126");
+			cantPlay();
 		}
+	}
+	public void func126(boolean b){
+		
 	}
 	
 	public void func127Init() {
@@ -1660,8 +1729,11 @@ public class CardFunc {
 		}
 	}
 	
-	public void func129() {
+	public void func129Init() {
 		func89Init();
+	}
+	public void func129(boolean c){
+		
 	}
 	
 	public void func130Init() {
@@ -1685,7 +1757,21 @@ public class CardFunc {
 	
 	public void func132Init() {
 		//-2 to either side of combat, usable only once.
+		if(myGame.currentPlayer.monster){
+			myGame.currentPlayer.cLevel+=2;
+			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
+			
+		}
+		else{
+			myGame.mLevel+=2;
+			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		}
 	}
+	
+	public void func132(boolean b){
+		
+	}
+	
 	
 	public void func133Init() {
 		//Immune to all ichor effect except the ones you play
@@ -1714,23 +1800,46 @@ public class CardFunc {
 	public void func137Init() {
 		//+4 to either side of combat
 		//Usable only once
+		if(myGame.currentPlayer.monster){
+			myGame.currentPlayer.cLevel+=4;
+			//myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("player clevel: "+myGame.currentPlayer.cLevel+"");
+			
+		}
+		else{
+			myGame.mLevel+=4;
+			//myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: "+myGame.mLevel);
+		}
+	}
+	
+	public void func137(boolean b){
+		
 	}
 	
 	public void func138Init() {
-		if(checkHands(1)) {
-			myGame.currentPlayer.handLevel += 1;
+		if(!myGame.monster) {
 			myGame.currentPlayer.cLevel += 2;
 		} else {
-			System.out.println("You cannot use this item 138");
+			cantPlay();
 		}
+	}
+	public void func138(boolean c){
+		
 	}
 	
 	public void func139Init() {
 		func89Init();
 	}
 	
+	public void func139(boolean c){
+		
+	}
+	
 	public void func140Init() {
 		func89Init();
+	}
+	
+	public void func140(boolean c){
+		
 	}
 	
 	public void func141Init() {
@@ -1777,12 +1886,15 @@ public class CardFunc {
 	}
 	
 	public void func146Init() {
-		if(!myGame.currentPlayer.className.equals("Professor") && checkHands(2)) {
-			myGame.currentPlayer.handLevel += 2;
+		if(!myGame.currentPlayer.className.equals("Professor") && !myGame.monster) {
 			myGame.currentPlayer.cLevel += 3;
 		} else {
-			System.out.println("You cannot use this item 146");
+			cantPlay();
 		}
+	}
+	
+	public void func146(boolean c){
+		
 	}
 	
 	public void func147Init() {
@@ -1790,11 +1902,10 @@ public class CardFunc {
 	}
 	
 	public void func148Init() {
-		if(!myGame.currentPlayer.className.equals("Investigator") && checkHands(1)) {
-			myGame.currentPlayer.handLevel += 1;
+		if(!myGame.currentPlayer.className.equals("Investigator") && !myGame.monster) {
 			myGame.currentPlayer.cLevel += 3;
 		} else {
-			System.out.println("You cannot use this item 148");
+			cantPlay();
 		}
 	}
 	
@@ -1804,6 +1915,7 @@ public class CardFunc {
 	}
 	
 	public void cantPlay(){
+		myGame.currentPlayer.playCard=false;
 		myGame.currentPlayer.pHand.add(myGame.currentPlayer.pPlay.get(myGame.currentPlayer.pPlay.size()-1));
 		myGame.currentPlayer.pPlay.remove(myGame.currentPlayer.pPlay.size()-1);
 	}

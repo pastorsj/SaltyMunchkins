@@ -66,22 +66,30 @@ public class Main {
 		treasAv.add(98);
 		treasAv.add(99);
 		treasAv.add(100);
+		treasAv.add(102);
+		treasAv.add(104);
 		treasAv.add(106);
+		treasAv.add(107);
+		treasAv.add(111);
+		treasAv.add(112);
+		treasAv.add(114);
+		treasAv.add(115);
+		treasAv.add(116);
+		treasAv.add(117);
+		treasAv.add(120);
+		treasAv.add(126);
+		treasAv.add(129);
+		treasAv.add(132);
+		treasAv.add(137);
+		treasAv.add(138);
+		treasAv.add(139);
+		treasAv.add(140);
+		treasAv.add(146);
+		treasAv.add(148);
+		
 		
 //		//double the treasures
-		treasAv.add(84);
-		//treasAv.add(85);
-		treasAv.add(86);
-		treasAv.add(87);
-		treasAv.add(88);
-		treasAv.add(89);
-		treasAv.add(90);
-		treasAv.add(94);
-		treasAv.add(97);
-		treasAv.add(98);
-		treasAv.add(99);
-		treasAv.add(100);
-		treasAv.add(106);
+	
 		
 
 //		
@@ -100,7 +108,8 @@ public class Main {
 		newGame.mframe = new MFrame(newGame);
 		newGame.mframe.setVisible(true);
 		newGame.mframe.setTitle("Munchkin");
-		newGame.mframe.mainPanel.bCardPanel.etb.disable();
+//	newGame.mframe.mainPanel.addBCard();
+	//	newGame.mframe.mainPanel.bCardPanel.etb.disable();
 		newGame.mframe.revalidate();
 		newGame.mframe.repaint();
 		

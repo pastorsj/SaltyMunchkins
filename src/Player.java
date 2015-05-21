@@ -25,6 +25,7 @@ public class Player {
 	public int dice=0;
 	public boolean drewCard = false;
 	public boolean sentCurse = false;
+	public boolean playCard = false;
 	
 	public Player(String name){
 		this.username = name;
@@ -64,11 +65,13 @@ public class Player {
 		
 		else{
 			int roll = game.rollDice(0);
+			System.out.println("you rolled a : "+roll);
 			if(game.currentPlayer.pPlay.contains(96)){
 				roll++;
+				System.out.println("Add to roll, now is: " + roll);
 			}
-			System.out.println("You rolled a " + roll);
-			if (roll>4) {
+			
+			if (roll>3) {
 				System.out.println("You ran away!");
 				game.mframe.mainPanel.bCardPanel.diceLevel.setText("num rolled is: "+roll);
 				game.mframe.mainPanel.bCardPanel.diceLevel.setVisible(true);
@@ -98,57 +101,62 @@ public class Player {
 	
 	public void consequence(Game game, int win) {
 		System.out.println("Consequence is " + win);
-		boolean bool;
-		if(win==1){
-			//game.dealNewCard(game.treasures, this);
-			game.currentPlayer.pLevel++;
-			bool=true;}
-		else{
-			//game.currentPlayer.treasuresWonEachTurn=0; //need this because card func 29 
-			bool=false;}
-		
-			CardFunc cf = new CardFunc(game);
-			System.out.println("current Player pPlay: "+game.currentPlayer.pPlay);
-			for (int i = 0; i<game.currentPlayer.pPlay.size();i++){
-				int methodNum=game.currentPlayer.pPlay.get(i);
-				
-				String funcToCall = "func"+methodNum;
-				System.out.println("func we are calling: "+funcToCall);
-				try {
-					Method method =CardFunc.class.getMethod(funcToCall,boolean.class);
+		CardFunc cf = new CardFunc(game);
+		if(win!=0){
+			boolean bool;
+			if(win==1){
+				//game.dealNewCard(game.treasures, this);
+				game.currentPlayer.pLevel++;
+				bool=true;}
+			else{
+				//game.currentPlayer.treasuresWonEachTurn=0; //need this because card func 29 
+				bool=false;}
+			
+			
+				System.out.println("current Player pPlay: "+game.currentPlayer.pPlay);
+				for (int i = 0; i<game.currentPlayer.pPlay.size();i++){
+					int methodNum=game.currentPlayer.pPlay.get(i);
+					
+					String funcToCall = "func"+methodNum;
+					System.out.println("func we are calling: "+funcToCall);
 					try {
-						method.invoke(cf, bool);
-					} catch (IllegalAccessException e) {
+						Method method =CardFunc.class.getMethod(funcToCall,boolean.class);
+						try {
+							method.invoke(cf, bool);
+						} catch (IllegalAccessException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IllegalArgumentException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (InvocationTargetException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					} catch (NoSuchMethodException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-					} catch (IllegalArgumentException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					} catch (InvocationTargetException e) {
+					} catch (SecurityException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-				} catch (NoSuchMethodException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (SecurityException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+					
+					
+				
+			
+				
+			
+				
+				//if(game.turnPlayer==1){
+					//game.p1.pLevel++;
+				//}
+				//else{
+					//game.p2.pLevel++;
+				//}
 				}
-				
-				
 			
-		
-			
-		
-			
-			//if(game.turnPlayer==1){
-				//game.p1.pLevel++;
-			//}
-			//else{
-				//game.p2.pLevel++;
-			//}
-			}
+		}
+	
 			System.out.println("Getting # treas cards before end combat "+game.currentPlayer.treasuresWonEachTurn);
 			game.currentPlayer.endCombat(game);
 			game.otherPlayer.endCombat(game);
@@ -162,7 +170,7 @@ public class Player {
 public void endCombat(Game myGame){
 		System.out.println("END COMBAT IS CALLED");
 		for(int i =0; i<this.pPlay.size();i++){
-		
+			
 			if(myGame.ic.getCardHash().get(this.pPlay.get(i)).discard){
 				System.out.println("delete pPlay in endCombat");
 				if(this.pPlay.get(i)<83){

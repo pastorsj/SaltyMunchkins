@@ -18,6 +18,9 @@ public class Card {
 	public boolean inPlay;
 	public int numGold;
 	public int numHands=0;
+	public int numFoot=0;
+	public int numHead = 0;
+	public int numArmor = 0;
 	public boolean footGear=false;
 	public boolean headGear=false;
 	public int pLevelBonus=0;

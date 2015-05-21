@@ -46,6 +46,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public DidIWinButton diwb;
 	public SellGoldButton sgb;
 	public DiscardGoldButton dgb;
+	public GenderButton mb;
+	public GenderButton gb;
 	public Player turnPlayer;
 	public Player otherPlayer;
 	public Game myGame;
@@ -56,7 +58,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	public JLabel playerCLevel;
 	public JLabel monsterLevel;
 	public JLabel diceLevel;
-	
+	public JLabel enterGender;
 
 	
 	
@@ -65,7 +67,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 	 public BottomCardPanel(Game game){
 		super();
 		this.myGame=game;
-		
+	
 		//this.myArrayOfLines=arrayOfLines;
 	
 		if(game.turnPlayer==1){
@@ -87,6 +89,8 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		}
 		
 		this.diceLevel= new JLabel("number rolled: ");
+		this.enterGender = new JLabel("SELECT P1 GENDER");
+		this.enterGender.setVisible(true);
 		this.addMouseListener(this);
         //SpringLayout layout = new SpringLayout();
         //this.setLayout(null);
@@ -133,6 +137,14 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.dgb = new DiscardGoldButton(game);
 		this.add(dgb);
 		
+		this.mb= new GenderButton(game);
+		this.mb.setBoy();
+		this.add(mb);
+		
+		this.gb = new GenderButton(game);
+		this.gb.setGirl();
+		this.add(gb);
+		
 		
 		
 		this.add(playerLabel);
@@ -143,8 +155,15 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		this.diceLevel.setVisible(false);
 		
         
-    	
-		
+		this.dcb.setVisible(false);
+		this.pcb.setVisible(false);
+		this.sgb.setVisible(false);
+		this.db.setVisible(false);
+		this.playerLabel.setVisible(false); 
+		this.playerLevel.setVisible(false);
+		this.playerCLevel.setVisible(false);
+		this.monsterLevel.setVisible(false);
+		this.enterGender.setVisible(true);
 		
 		
 		
