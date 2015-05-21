@@ -187,7 +187,8 @@ public void endCombat(Game myGame){
 			else if(myGame.ic.getCardHash().get(this.pPlay.get(i)).armor ||
 					myGame.ic.getCardHash().get(this.pPlay.get(i)).footGear ||
 					myGame.ic.getCardHash().get(this.pPlay.get(i)).headGear ||
-					myGame.ic.getCardHash().get(this.pPlay.get(i)).numHands>0){
+					myGame.ic.getCardHash().get(this.pPlay.get(i)).numHands>0 ||
+					this.pPlay.get(i)==87){
 			
 			}
 			else{

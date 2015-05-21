@@ -847,9 +847,8 @@ public class CardFunc {
 	public void func42(boolean checkWin) {
 		//Draw one fewer treasure if you win
 		if(checkWin) {
-			myGame.currentPlayer.treasuresWonEachTurn -= 1;
 			if(myGame.currentPlayer.treasuresWonEachTurn < 1) {
-				myGame.currentPlayer.treasuresWonEachTurn = 1;
+				myGame.currentPlayer.treasuresWonEachTurn = 0;
 			}
 		}
 	}
