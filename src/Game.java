@@ -25,6 +25,7 @@ public class Game {
 	MFrame mframe;
 	boolean monster=false;
 	InitializeCards ic = new InitializeCards();
+	int flag = 0;
 	
 	
 
@@ -62,12 +63,26 @@ public class Game {
 			otherPlayer = p2;
 			turnPlayer = 1; 
 		}
-		this.mframe.mainPanel.bCardPanel.playerLabel.setText("p"+this.turnPlayer);
+		this.mframe.mainPanel.bCardPanel.playerLabel.setText(this.currentPlayer.username);
 		this.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
 		this.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
 		this.mframe.revalidate();
 		this.mframe.repaint();
 		
+	}
+	//used for gender stuff
+	public void changePlayer2(){
+		if(turnPlayer == 1) {
+			p1 = currentPlayer;
+			currentPlayer = p2;
+			otherPlayer = p1;
+			turnPlayer = 2;
+		} else {
+			p2 = currentPlayer;
+			currentPlayer = p1;
+			otherPlayer = p2;
+			turnPlayer = 1; 
+		}
 	}
 	
 
@@ -79,7 +94,7 @@ public class Game {
 			cards.set(randNum, cards.get(i));
 			cards.set(i, temp);
 		}
-		System.out.println("newly shuffled: "+cards);
+		
 		return cards;
 	}
 	

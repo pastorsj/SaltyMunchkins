@@ -65,6 +65,14 @@ public class DidIWinButton extends JButton implements ActionListener{
 		myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
 		myGame.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: " +myGame.mLevel);
 		
+		myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
+		for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
+			
+			myGame.currentPlayer.cLevel+=myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).pLevelBonus;
+			myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
+		}
+		System.out.println("new clevel: "+myGame.currentPlayer.cLevel);
+		
 		if(myGame.currentPlayer.pLevel>=10){
 			myGame.currentPlayer.winStatus=1;
 		}
@@ -72,9 +80,8 @@ public class DidIWinButton extends JButton implements ActionListener{
 		//myGame.mframe=new MFrame(myGame);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
-		
-		
-		
+			
 	}
+	
 
 }

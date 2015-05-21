@@ -1430,7 +1430,7 @@ public class CardFunc {
 	}
 	
 	public void func94(boolean checkWin){
-		return;
+		
 	}
 	
 	public void func96Init(){
