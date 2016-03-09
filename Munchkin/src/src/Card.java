@@ -40,8 +40,6 @@ public class Card {
 	public Card(int num, String name) {
 		this.num = num;
 		this.name = name;
-		
-		
 			
 	}
 	
