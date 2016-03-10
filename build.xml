@@ -58,14 +58,13 @@
     </target>
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
+        <junit printsummary="withOutAndErr" haltonfailure="on" haltonerror="on">
             <formatter type="xml"/>
             <test name="test.CardFuncTesting" todir="${junit.output.dir}"/>
             <test name="test.CardTest" todir="${junit.output.dir}"/>
             <test name="test.CombatTesting" todir="${junit.output.dir}"/>
             <test name="test.GameTest" todir="${junit.output.dir}"/>
             <test name="test.Mile3Testing" todir="${junit.output.dir}"/>
-            <test name="test.RunAllTests" todir="${junit.output.dir}"/>
             <test name="test.TestInitializeAndShuffle" todir="${junit.output.dir}"/>
             <test name="test.Testing" todir="${junit.output.dir}"/>
             <classpath refid="SaltyMunchkins.classpath"/>
