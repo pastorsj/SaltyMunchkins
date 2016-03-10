@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 
 public class Player {
-	public String username;
+	public String username = "";
 	public ArrayList<Integer> pHand = new ArrayList<Integer>();
 	public boolean classAbility;
 	public ArrayList<Integer> pPlay = new ArrayList<Integer>();

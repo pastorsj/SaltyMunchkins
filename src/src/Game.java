@@ -64,6 +64,7 @@ public class Game {
 			otherPlayer = p2;
 			turnPlayer = 1; 
 		}
+		
 		this.mframe.mainPanel.bCardPanel.playerLabel.setText(this.currentPlayer.username);
 		this.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
 		this.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
