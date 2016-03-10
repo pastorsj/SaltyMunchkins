@@ -12,6 +12,7 @@
     <path id="SaltyMunchkins.classpath">
         <pathelement location="bin"/>
         <pathelement location="junit.jar"/>
+        <pathelement location="org.hamcrest.core_1.3.0.v201303031735.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
