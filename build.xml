@@ -52,14 +52,4 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="Main (2)">
-        <java classname="src.Main" failonerror="true" fork="yes">
-            <classpath refid="SaltyMunchkins.classpath"/>
-        </java>
-    </target>
-    <target name="Main (3)">
-        <java classname="src.Main" failonerror="true" fork="yes">
-            <classpath refid="SaltyMunchkins.classpath"/>
-        </java>
-    </target>
 </project>
