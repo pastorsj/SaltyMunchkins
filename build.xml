@@ -58,7 +58,7 @@
     </target>
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
-        <junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes">
+        <junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
             <formatter type="xml"/>
             <test name="test.CardFuncTesting" todir="${junit.output.dir}"/>
             <test name="test.CardTest" todir="${junit.output.dir}"/>
