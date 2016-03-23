@@ -24,6 +24,7 @@ public class Game {
 	int mInPlay = 0; //0 indicates no monster, otherwise card number goes here.
 	public int mLevel = 0; //0 indicates no monster, otherwise monster level goes here.
 	public MFrame mframe;
+	private BottomCardPanel bCardPanel;
 	boolean monster=false;
 	public InitializeCards ic = new InitializeCards();
 	int flag = 0;
@@ -31,11 +32,15 @@ public class Game {
 	
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
+		mframe = new MFrame(this);
  		this.doors = this.shuffle(doors);
 		this.treasures = this.shuffle(treasures);
 		this.turnPlayer=1;
 		p1.pHand = new ArrayList<Integer>();
 		p2.pHand = new ArrayList<Integer>();
+		p1.pHand = this.dealCards();
+		p2.pHand = this.dealCards();
+		bCardPanel = mframe.mainPanel.bCardPanel;
 	}
 	
 	public void changePlayerForTest() {
@@ -65,9 +70,9 @@ public class Game {
 			turnPlayer = 1; 
 		}
 		
-		this.mframe.mainPanel.bCardPanel.playerLabel.setText(this.currentPlayer.username);
-		this.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
-		this.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
+		this.bCardPanel.playerLabel.setText(this.currentPlayer.username);
+		this.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
+		this.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
 		this.mframe.revalidate();
 		this.mframe.repaint();
 		
@@ -127,8 +132,8 @@ public class Game {
 		if(p.pHand.size() < 8) {
 			p.pHand.add(cards.get(size));
 			try {
-				this.mframe.mainPanel.bCardPanel.largeCard = ImageIO.read(new File ("src\\m"+(cards.get(size))+".PNG"));
-				this.mframe.mainPanel.bCardPanel.repaint();
+				this.bCardPanel.largeCard = ImageIO.read(new File ("src\\m"+(cards.get(size))+".PNG"));
+				this.bCardPanel.repaint();
 			} catch (IOException e) {
 				System.out.println("error reading card in GAME");
 				e.printStackTrace();
@@ -228,9 +233,9 @@ public class Game {
 			e.printStackTrace();
 		}
 		
-		this.mframe.mainPanel.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
-		this.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
-		this.mframe.mainPanel.bCardPanel.monsterLevel.setText("monster level: " +this.mLevel);
+		this.bCardPanel.playerLevel.setText("player level: " +this.currentPlayer.pLevel);
+		this.bCardPanel.playerCLevel.setText("combat level: " +this.currentPlayer.cLevel);
+		this.bCardPanel.monsterLevel.setText("monster level: " +this.mLevel);
 		
 	}
 
