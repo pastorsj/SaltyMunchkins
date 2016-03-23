@@ -10,9 +10,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import src.Card;
-import src.Game;
-import src.Player;
+import game.Card;
+import game.Game;
+import game.Player;
 
 
 public class TestInitializeAndShuffle {

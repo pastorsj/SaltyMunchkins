@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import src.Card;
+import game.Card;
 
 
 public class CardTest {

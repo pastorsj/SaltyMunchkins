@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import src.Game;
+import game.Game;
 
 public class GameTest {
 	

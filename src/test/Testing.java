@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import src.Player;
+import game.Player;
 
 
 public class Testing {

@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import src.Game;
-import src.InitializeCards;
+import game.Game;
+import game.InitializeCards;
 
 
 public class Mile3Testing {
