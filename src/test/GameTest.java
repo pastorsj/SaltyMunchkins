@@ -1,16 +1,39 @@
 package test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import src.Game;
 
 public class GameTest {
-	ArrayList<Integer> doors = new ArrayList<Integer>();
-	ArrayList<Integer> treasures = new ArrayList<Integer>();
-	Game target = new Game(doors, treasures);
+	
+	private ArrayList<Integer> doors;
+	private ArrayList<Integer> treasures;
+	private Game target;
+	
+	@Before
+	public void setUp() {
+		this.doors = new ArrayList<Integer>();
+		this.treasures = new ArrayList<Integer>();
+		for (int i = 0; i < 10; i++) {
+			this.doors.add(i);
+			this.treasures.add(10 + i);
+		}
+		this.target = new Game(this.doors, this.treasures);
+	}
+	
+	@After
+	public void takeDown() {
+		this.doors = null;
+		this.treasures = null;
+		this.target = null;
+	}
 
 	@Test
 	public void testGameNotNull() {
@@ -19,23 +42,14 @@ public class GameTest {
 
 	@Test
 	public void testGameDealCardsReturnArrayListOfLength8() {
-		for (int i = 0; i < 10; i++) {
-			doors.add(i);
-			treasures.add(10 + i);
-		}
-		assertEquals(8, target.dealCards().size());
+		assertEquals(8, target.p1.pHand.size());
 	}
 	
 	@Test
 	public void testGameDealCardsReturnArrayListOfUniqueCards() {
-		for (int i = 0; i < 10; i++) {
-			doors.add(i);
-			treasures.add(10 + i);
-		}
-		ArrayList<Integer> resultArray = target.dealCards();
 		boolean result = true;
-		for(int j=0;j<resultArray.size();j++){
-			result &= resultArray.contains(resultArray.get(j));
+		for(int j=0;j<target.p1.pHand.size();j++){
+			result &= target.p1.pHand.contains(target.p1.pHand.get(j));
 		}
 		assertEquals(true,result);
 	}

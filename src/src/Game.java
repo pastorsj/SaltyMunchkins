@@ -10,8 +10,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 public class Game {
-	ArrayList<Integer> doors = new ArrayList<Integer>();
-	ArrayList<Integer> treasures = new ArrayList<Integer>();
+	ArrayList<Integer> doors;
+	ArrayList<Integer> treasures;
 	ArrayList<Integer> doorDiscards = new ArrayList<Integer>();
 	ArrayList<Integer> treasDiscards = new ArrayList<Integer>();
 	ArrayList<Integer> discards = new ArrayList<Integer>();
@@ -33,8 +33,10 @@ public class Game {
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
 		mframe = new MFrame(this);
- 		this.doors = this.shuffle(doors);
-		this.treasures = this.shuffle(treasures);
+		this.doors = doors;
+		this.treasures = treasures;
+ 		this.shuffle(this.doors);
+		this.shuffle(this.treasures);
 		this.turnPlayer=1;
 		p1.pHand = new ArrayList<Integer>();
 		p2.pHand = new ArrayList<Integer>();
@@ -101,7 +103,6 @@ public class Game {
 			cards.set(randNum, cards.get(i));
 			cards.set(i, temp);
 		}
-		
 		return cards;
 	}
 	
@@ -113,16 +114,11 @@ public class Game {
 	
 	public ArrayList<Integer> dealCards() {
 		ArrayList<Integer> deal = new ArrayList<Integer>();
-		doors = shuffle(doors);
-		treasures = shuffle(treasures);
+//		shuffle(doors);
+//		shuffle(treasures);
 		for (int i = 0; i <= 3; i++) {
-			deal.add(doors.get(doors.size() - 1));
-			deal.add(treasures.get(treasures.size()-1));
-			doors.remove(doors.size()-1);
-			treasures.remove(treasures.size()-1);
-			//doors.remove(doors.get(doors.size() - 1));
-			//treasures.remove(treasures.get(treasures.size()-1));
-			
+			deal.add(this.doors.remove(this.doors.size() - 1));
+			deal.add(this.treasures.remove(this.treasures.size()-1));
 		}
 		return deal;
 	}
