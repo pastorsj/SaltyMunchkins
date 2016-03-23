@@ -9,11 +9,13 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
+import src.panels.BottomCardPanel;
+
 public class Game {
-	ArrayList<Integer> doors;
+	public ArrayList<Integer> doors;
 	ArrayList<Integer> treasures;
-	ArrayList<Integer> doorDiscards = new ArrayList<Integer>();
-	ArrayList<Integer> treasDiscards = new ArrayList<Integer>();
+	public ArrayList<Integer> doorDiscards = new ArrayList<Integer>();
+	public ArrayList<Integer> treasDiscards = new ArrayList<Integer>();
 	ArrayList<Integer> discards = new ArrayList<Integer>();
 	public Player p1 = new Player("p1");
 	public Player p2 = new Player("p2");
@@ -25,9 +27,9 @@ public class Game {
 	public int mLevel = 0; //0 indicates no monster, otherwise monster level goes here.
 	public MFrame mframe;
 	private BottomCardPanel bCardPanel;
-	boolean monster=false;
+	public boolean monster=false;
 	public InitializeCards ic = new InitializeCards();
-	int flag = 0;
+	public int flag = 0;
 	
 	
 

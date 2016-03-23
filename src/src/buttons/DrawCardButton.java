@@ -1,4 +1,4 @@
-package src;
+package src.buttons;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+
+import src.Game;
 
 
 public class DrawCardButton extends JButton implements ActionListener{

@@ -1,4 +1,4 @@
-package src;
+package src.buttons;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JButton;
+
+import src.Game;
 
 
 public class DidIWinButton extends JButton implements ActionListener{

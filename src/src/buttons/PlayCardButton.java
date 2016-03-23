@@ -1,4 +1,4 @@
-package src;
+package src.buttons;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -9,6 +9,9 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+
+import src.CardFunc;
+import src.Game;
 
 public class PlayCardButton extends JButton implements ActionListener {
 

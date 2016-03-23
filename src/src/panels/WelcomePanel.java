@@ -1,4 +1,4 @@
-package src;
+package src.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -16,6 +16,9 @@ import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
+
+import src.Game;
+import src.MFrame;
 
 public class WelcomePanel extends JPanel implements MouseListener {
 	// private BufferedImage munchkinLogo;

@@ -1,4 +1,4 @@
-package src;
+package src.buttons;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+
+import src.Game;
 
 
 public class PassCombatButton extends JButton implements ActionListener{

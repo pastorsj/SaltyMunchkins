@@ -1,4 +1,4 @@
-package src;
+package src.buttons;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -8,6 +8,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+
+import src.Game;
+import src.MFrame;
+import src.Player;
 
 
 public class LetOtherPlayerPlayCardButton extends JButton implements ActionListener{

@@ -1,4 +1,4 @@
-package src;
+package src.buttons;
 
 import java.awt.Button;
 import java.awt.Dimension;
@@ -10,6 +10,9 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+
+import src.Game;
+import src.panels.BottomCardPanel;
 
 public class GenderButton extends JButton implements ActionListener {
 

@@ -1,4 +1,4 @@
-package src;
+package src.panels;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,6 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import src.MFrame;
+import src.buttons.NewGameButton;
+
 public class CardPanel extends Panel {
 
 	public JTextArea aboutOrigin;
@@ -25,7 +28,7 @@ public class CardPanel extends Panel {
 
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-		JLabel about = new JLabel("CLICK FOR NEW GAME:");
+		JLabel about = new JLabel("Restart game:");
 		this.add(about, JPanel.CENTER_ALIGNMENT);
 		// this.setMinimumSize(new Dimension (2000,2000));
 

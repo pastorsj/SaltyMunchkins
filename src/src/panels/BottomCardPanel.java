@@ -1,4 +1,4 @@
-package src;
+package src.panels;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.MouseInfo;
@@ -14,6 +14,21 @@ import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
+
+import src.Game;
+import src.MFrame;
+import src.Player;
+import src.buttons.DidIWinButton;
+import src.buttons.DiscardButton;
+import src.buttons.DiscardGoldButton;
+import src.buttons.DrawCardButton;
+import src.buttons.EndTurnButton;
+import src.buttons.GenderButton;
+import src.buttons.LetOtherPlayerPlayCardButton;
+import src.buttons.NewGameButton;
+import src.buttons.PassCombatButton;
+import src.buttons.PlayCardButton;
+import src.buttons.SellGoldButton;
 
 
 
@@ -98,7 +113,6 @@ public class BottomCardPanel extends JPanel implements MouseListener{
         this.ngb=newGameButton;
  
         //ngb.setBounds(0,0,50,50);
-		ngb.setPreferredSize(new Dimension(100,30));
 		ngb.setLocation(-100,-100);
 		this.add(ngb);
 		

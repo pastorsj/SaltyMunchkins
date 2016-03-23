@@ -1,4 +1,4 @@
-package src;
+package src.panels;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.MouseInfo;
@@ -14,6 +14,15 @@ import javax.imageio.ImageIO;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
+
+import src.Game;
+import src.MFrame;
+import src.Player;
+import src.buttons.DidIWinButton;
+import src.buttons.DiscardButton;
+import src.buttons.LetOtherPlayerPlayCardButton;
+import src.buttons.NewGameButton;
+import src.buttons.PlayCardButton;
 
 
 

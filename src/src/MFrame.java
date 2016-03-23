@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
+import src.panels.MPanel;
+
 
 public class MFrame extends JFrame {
 	public MPanel mainPanel;

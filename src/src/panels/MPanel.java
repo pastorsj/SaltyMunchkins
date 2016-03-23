@@ -1,4 +1,4 @@
-package src;
+package src.panels;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.JPanel;
+
+import src.Game;
+import src.MFrame;
 
 public class MPanel extends JPanel {
 
