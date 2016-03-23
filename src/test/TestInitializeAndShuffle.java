@@ -1,10 +1,12 @@
 package test;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -35,6 +37,14 @@ public class TestInitializeAndShuffle {
 			targetPlayer.pHand.add(i);
 		}
 		target = new Game(doorCards,treasureCards);
+	}
+	
+	@After
+	public void takeDown() {
+		this.doorCards = null;
+		this.treasureCards = null;
+		this.targetPlayer = null;
+		this.target = null;
 	}
 	@Test
 	public void TestShuffle1() {
@@ -71,9 +81,11 @@ public class TestInitializeAndShuffle {
 	}
 	@Test
 	public void TestDeal4() {
+		//game initialization deals 4 door cards to each player
 		targetPlayer.pHand.remove(7);
 		assertEquals(true, target.dealNewCard(doorCards, targetPlayer));
-		assertEquals(99, doorCards.size());
+		//deal one more card
+		assertEquals(91, doorCards.size());
 	}
 	@Test
 	public void TestDiscard1() {
