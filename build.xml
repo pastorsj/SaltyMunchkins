@@ -62,12 +62,12 @@
         <junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
             <formatter type="plain" usefile="false"/>
             <!--<test name="test.CardFuncTesting" todir="${junit.output.dir}"/> -->
-            <test name="test.CardTest" todir="${junit.output.dir}"/>
+        	<!--<test name="test.CardTest" todir="${junit.output.dir}"/> -->
             <!--<test name="test.CombatTesting" todir="${junit.output.dir}"/> -->
-            <test name="test.GameTest" todir="${junit.output.dir}"/>
+        	<!--<test name="test.GameTest" todir="${junit.output.dir}"/> -->
             <!--<test name="test.Mile3Testing" todir="${junit.output.dir}"/> -->
             <!--<test name="test.TestInitializeAndShuffle" todir="${junit.output.dir}"/> -->
-            <test name="test.Testing" todir="${junit.output.dir}"/>
+            <!--<test name="test.Testing" todir="${junit.output.dir}"/> -->
             <classpath refid="SaltyMunchkins.classpath"/>
         </junit>
     </target>
