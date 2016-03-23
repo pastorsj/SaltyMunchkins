@@ -89,22 +89,6 @@ public class Main {
 
 		Game newGame = new Game(ic.doors, ic.treasure);
 
-		newGame.shuffle(newGame.doors);
-		newGame.shuffle(newGame.treasures);
-
-		ArrayList<Integer> hand = newGame.dealCards();
-		ArrayList<Card> deal;
-		newGame.p1.pHand = hand;
-
-		newGame.p2.pHand = newGame.dealCards();
-		newGame.mframe = new MFrame(newGame);
-		newGame.mframe.setVisible(true);
-		newGame.mframe.setTitle("Munchkin");
-		// newGame.mframe.mainPanel.addBCard();
-		// newGame.mframe.mainPanel.bCardPanel.etb.disable();
-		newGame.mframe.revalidate();
-		newGame.mframe.repaint();
-
 	}
 
 }
