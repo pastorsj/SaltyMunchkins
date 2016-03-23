@@ -20,8 +20,8 @@ public class TestInitializeAndShuffle {
 	ArrayList<Integer> treasureCardArray = new ArrayList<Integer>();
 	ArrayList<Integer> doorCards = new ArrayList<Integer>(100);
 	ArrayList<Integer> treasureCards = new ArrayList<Integer>(68);
-	Game target = new Game(doorCards,treasureCards);
 	Player targetPlayer = new Player("Player1");
+	Game target;
 	
 	@Before
 	public void setUp() {
@@ -34,6 +34,7 @@ public class TestInitializeAndShuffle {
 		for(int i = 0; i < 8; i++) {
 			targetPlayer.pHand.add(i);
 		}
+		target = new Game(doorCards,treasureCards);
 	}
 	@Test
 	public void TestShuffle1() {
