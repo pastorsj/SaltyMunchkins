@@ -128,7 +128,7 @@ public class Game {
 		if(p.pHand.size() < 8) {
 			p.pHand.add(cards.get(size));
 			try {
-				this.bCardPanel.largeCard = ImageIO.read(new File ("src\\m"+(cards.get(size))+".PNG"));
+				this.bCardPanel.largeCard = ImageIO.read(new File ("resources\\m"+(cards.get(size))+".PNG"));
 				this.bCardPanel.repaint();
 			} catch (IOException e) {
 				System.out.println("error reading card in GAME");
