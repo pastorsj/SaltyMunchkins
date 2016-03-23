@@ -1,4 +1,4 @@
-package game;
+package munchkin.game;
 import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;

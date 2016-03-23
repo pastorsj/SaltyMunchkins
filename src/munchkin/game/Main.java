@@ -1,4 +1,4 @@
-package game;
+package munchkin.game;
 
 import java.io.IOException;
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package gamebuttons;
+package munchkin.game.buttons;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-import game.Game;
+import munchkin.game.Game;
 
 
 public class EndTurnButton extends JButton implements ActionListener{

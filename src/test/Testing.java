@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import org.junit.Test;
 
-import game.Player;
+import munchkin.game.Player;
 
 
 public class Testing {

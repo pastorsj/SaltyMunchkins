@@ -1,4 +1,4 @@
-package gamebuttons;
+package munchkin.game.buttons;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-import game.Game;
+import munchkin.game.Game;
 
 
 public class DrawCardButton extends JButton implements ActionListener{

@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import game.Game;
-import game.InitializeCards;
-import game.MFrame;
-import gamebuttons.DidIWinButton;
+import munchkin.game.Game;
+import munchkin.game.InitializeCards;
+import munchkin.game.MFrame;
+import munchkin.game.buttons.DidIWinButton;
 
 
 public class CombatTesting {

@@ -1,4 +1,4 @@
-package gamepanels;
+package munchkin.game.panels;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;

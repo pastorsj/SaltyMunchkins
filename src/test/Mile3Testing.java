@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import game.Game;
-import game.InitializeCards;
+import munchkin.game.Game;
+import munchkin.game.InitializeCards;
 
 
 public class Mile3Testing {

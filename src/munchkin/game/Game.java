@@ -1,4 +1,4 @@
-package game;
+package munchkin.game;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -9,7 +9,7 @@ import java.util.Random;
 
 import javax.imageio.ImageIO;
 
-import gamepanels.BottomCardPanel;
+import munchkin.game.panels.BottomCardPanel;
 
 public class Game {
 	public ArrayList<Integer> doors;

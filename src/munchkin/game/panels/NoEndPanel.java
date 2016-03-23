@@ -1,4 +1,4 @@
-package gamepanels;
+package munchkin.game.panels;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.MouseInfo;
@@ -15,14 +15,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
-import game.Game;
-import game.MFrame;
-import game.Player;
-import gamebuttons.DidIWinButton;
-import gamebuttons.DiscardButton;
-import gamebuttons.LetOtherPlayerPlayCardButton;
-import gamebuttons.NewGameButton;
-import gamebuttons.PlayCardButton;
+import munchkin.game.Game;
+import munchkin.game.MFrame;
+import munchkin.game.Player;
+import munchkin.game.buttons.DidIWinButton;
+import munchkin.game.buttons.DiscardButton;
+import munchkin.game.buttons.LetOtherPlayerPlayCardButton;
+import munchkin.game.buttons.NewGameButton;
+import munchkin.game.buttons.PlayCardButton;
 
 
 

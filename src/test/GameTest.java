@@ -9,7 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import game.Game;
+import munchkin.game.Game;
 
 public class GameTest {
 	

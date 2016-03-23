@@ -1,4 +1,4 @@
-package gamepanels;
+package munchkin.game.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.JPanel;
 
-import game.Game;
-import game.MFrame;
+import munchkin.game.Game;
+import munchkin.game.MFrame;
 
 public class MPanel extends JPanel {
 

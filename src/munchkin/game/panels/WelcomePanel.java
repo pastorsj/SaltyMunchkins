@@ -1,4 +1,4 @@
-package gamepanels;
+package munchkin.game.panels;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -17,8 +17,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SpringLayout;
 
-import game.Game;
-import game.MFrame;
+import munchkin.game.Game;
+import munchkin.game.MFrame;
 
 public class WelcomePanel extends JPanel implements MouseListener {
 	// private BufferedImage munchkinLogo;

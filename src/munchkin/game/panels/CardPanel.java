@@ -1,4 +1,4 @@
-package gamepanels;
+package munchkin.game.panels;
 
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,8 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import game.MFrame;
-import gamebuttons.NewGameButton;
+import munchkin.game.MFrame;
+import munchkin.game.buttons.NewGameButton;
 
 public class CardPanel extends Panel {
 

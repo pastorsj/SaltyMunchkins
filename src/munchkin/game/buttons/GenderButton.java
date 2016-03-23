@@ -1,4 +1,4 @@
-package gamebuttons;
+package munchkin.game.buttons;
 
 import java.awt.Button;
 import java.awt.Dimension;
@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
-import game.Game;
-import gamepanels.BottomCardPanel;
+import munchkin.game.Game;
+import munchkin.game.panels.BottomCardPanel;
 
 public class GenderButton extends JButton implements ActionListener {
 

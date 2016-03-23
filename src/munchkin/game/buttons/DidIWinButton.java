@@ -1,4 +1,4 @@
-package gamebuttons;
+package munchkin.game.buttons;
 import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 import javax.swing.JButton;
 
-import game.Game;
+import munchkin.game.Game;
 
 
 public class DidIWinButton extends JButton implements ActionListener{

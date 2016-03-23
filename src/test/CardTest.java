@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import game.Card;
+import munchkin.game.Card;
 
 
 public class CardTest {

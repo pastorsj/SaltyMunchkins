@@ -1,4 +1,4 @@
-package game;
+package munchkin.game;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -16,7 +16,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
-import gamepanels.MPanel;
+import munchkin.game.panels.MPanel;
 
 
 public class MFrame extends JFrame {

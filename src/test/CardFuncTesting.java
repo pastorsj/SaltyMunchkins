@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import org.junit.Before;
 import org.junit.Test;
 
-import game.Game;
+import munchkin.game.Game;
 
 public class CardFuncTesting {
 	public Game myGame;

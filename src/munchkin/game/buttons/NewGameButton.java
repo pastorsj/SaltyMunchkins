@@ -1,4 +1,4 @@
-package gamebuttons;
+package munchkin.game.buttons;
 
 import java.awt.Button;
 import java.awt.Dimension;
@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-import game.Game;
-import game.Main;
-import game.Player;
+import munchkin.game.Game;
+import munchkin.game.Main;
+import munchkin.game.Player;
 
 public class NewGameButton extends JButton implements ActionListener {
 
