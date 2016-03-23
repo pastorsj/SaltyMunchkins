@@ -30,6 +30,7 @@ public class MFrame extends JFrame {
 			e.printStackTrace();
 		}
 		this.add(this.mainPanel);
+		setTitle("Munchkin");
 		
 		
 		this.setVisible(true);
