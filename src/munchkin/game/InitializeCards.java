@@ -1,10 +1,7 @@
 package munchkin.game;
-import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import org.junit.Test;
 
 public class InitializeCards {
 	public HashMap<Integer, Card> cardHash = new HashMap<Integer, Card>();

@@ -1,5 +1,4 @@
 package munchkin.game;
-import java.util.HashMap;
 
 public class Card {
 	public String NotUsableBy = "";

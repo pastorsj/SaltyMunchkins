@@ -1,14 +1,13 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
-import java.util.ArrayList;
-
+import munchkin.game.Game;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.game.Game;
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CardFuncTesting {
 	public Game myGame;

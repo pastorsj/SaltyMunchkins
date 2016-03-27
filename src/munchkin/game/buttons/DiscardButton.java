@@ -1,17 +1,13 @@
 package munchkin.game.buttons;
-import java.awt.Button;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
 
 import munchkin.game.CardFunc;
 import munchkin.game.Game;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class DiscardButton extends JButton implements ActionListener {
 

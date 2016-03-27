@@ -1,18 +1,11 @@
 package munchkin.game.panels;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.swing.Box;
-import javax.swing.JPanel;
-
 import munchkin.game.Game;
 import munchkin.game.MFrame;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.IOException;
 
 public class MPanel extends JPanel {
 

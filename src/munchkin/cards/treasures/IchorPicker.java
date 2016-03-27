@@ -1,6 +1,5 @@
 package munchkin.cards.treasures;
 
-import munchkin.api.CardType;
 import munchkin.api.ICard;
 import munchkin.cards.treasures.api.AbstractTreasure;
 import munchkin.game.Game;

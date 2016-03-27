@@ -1,7 +1,5 @@
 package munchkin.api;
 
-import munchkin.game.Player;
-
 /**
  * Created by SamPastoriza on 3/26/16.
  */

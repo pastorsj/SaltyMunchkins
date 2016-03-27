@@ -1,16 +1,16 @@
 package test;
-import static org.junit.Assert.*;
-
-import java.io.IOException;
-import java.util.ArrayList;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import munchkin.game.Game;
 import munchkin.game.InitializeCards;
 import munchkin.game.MFrame;
 import munchkin.game.buttons.DidIWinButton;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class CombatTesting {

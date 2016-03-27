@@ -1,13 +1,14 @@
 package test;
-import static org.junit.Assert.*;
-
-import java.util.ArrayList;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import munchkin.game.Game;
 import munchkin.game.InitializeCards;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 
 public class Mile3Testing {

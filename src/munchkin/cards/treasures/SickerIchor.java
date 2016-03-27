@@ -2,7 +2,6 @@ package munchkin.cards.treasures;
 
 import munchkin.api.CardType;
 import munchkin.cards.treasures.api.AbstractTreasure;
-import munchkin.cards.treasures.api.Armor;
 import munchkin.game.Game;
 
 public class SickerIchor extends AbstractTreasure {

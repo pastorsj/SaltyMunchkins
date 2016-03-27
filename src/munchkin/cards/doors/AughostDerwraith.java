@@ -5,17 +5,17 @@ import munchkin.cards.doors.api.AbstractMonster;
 public class AughostDerwraith extends AbstractMonster {
 	
 	@Override
-	public void beforeCombat() {
+	public void cardInHand() {
 		//If player is monster whacker, +3 to level
 	}
 
 	@Override
-	public void duringCombat() {
+	public void cardInPlay() {
 		
 	}
 
 	@Override
-	public void afterCombat(boolean win) {
+	public void cardPlayed(boolean win) {
 		if(win) {
 			this.addTreasures(1);			
 		} else {

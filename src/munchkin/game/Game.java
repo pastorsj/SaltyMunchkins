@@ -1,15 +1,14 @@
 package munchkin.game;
+
+import munchkin.game.panels.BottomCardPanel;
+
+import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Random;
-
-import javax.imageio.ImageIO;
-
-import munchkin.game.panels.BottomCardPanel;
 
 public class Game {
 	public ArrayList<Integer> doors;

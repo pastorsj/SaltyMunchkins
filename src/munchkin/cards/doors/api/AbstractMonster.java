@@ -35,19 +35,18 @@ public abstract class AbstractMonster implements IMonster {
 	}
 
 	@Override
-	public void beforeCombat() {
+	public void cardInPlay() {
+
 	}
 
 	@Override
-	public void duringCombat() {
+	public void cardInHand() {
+
 	}
 
 	@Override
-	public void afterCombat(boolean win) {
+	public void cardPlayed(boolean win) {
+
 	}
 
-	@Override
-	public void play() {
-		this.beforeCombat();
-	}
 }

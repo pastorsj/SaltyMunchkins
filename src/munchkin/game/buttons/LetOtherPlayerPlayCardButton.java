@@ -1,17 +1,14 @@
 package munchkin.game.buttons;
-import java.awt.Button;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
 
 import munchkin.game.Game;
 import munchkin.game.MFrame;
 import munchkin.game.Player;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class LetOtherPlayerPlayCardButton extends JButton implements ActionListener{

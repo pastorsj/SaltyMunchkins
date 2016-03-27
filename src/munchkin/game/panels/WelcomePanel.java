@@ -1,24 +1,16 @@
 package munchkin.game.panels;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.MouseInfo;
-import java.awt.PointerInfo;
+import munchkin.game.Game;
+import munchkin.game.MFrame;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SpringLayout;
-
-import munchkin.game.Game;
-import munchkin.game.MFrame;
 
 public class WelcomePanel extends JPanel implements MouseListener {
 	// private BufferedImage munchkinLogo;

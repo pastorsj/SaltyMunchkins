@@ -1,6 +1,5 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.doors.api.AbstractMonster;
 import munchkin.cards.treasures.api.AbstractTreasure;
 import munchkin.game.Game;
 

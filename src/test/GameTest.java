@@ -1,15 +1,14 @@
 package test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
 
-import java.util.ArrayList;
-import java.util.List;
-
+import munchkin.game.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.game.Game;
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class GameTest {
 	

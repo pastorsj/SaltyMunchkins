@@ -1,18 +1,18 @@
 package test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+
+import munchkin.game.Card;
+import munchkin.game.Game;
+import munchkin.game.Player;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
-import munchkin.game.Card;
-import munchkin.game.Game;
-import munchkin.game.Player;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 
 public class TestInitializeAndShuffle {

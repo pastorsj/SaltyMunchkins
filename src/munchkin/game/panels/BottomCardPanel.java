@@ -1,34 +1,19 @@
 package munchkin.game.panels;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.MouseInfo;
-import java.awt.PointerInfo;
+
+import munchkin.game.Game;
+import munchkin.game.MFrame;
+import munchkin.game.Player;
+import munchkin.game.buttons.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.SpringLayout;
-
-import munchkin.game.Game;
-import munchkin.game.MFrame;
-import munchkin.game.Player;
-import munchkin.game.buttons.DidIWinButton;
-import munchkin.game.buttons.DiscardButton;
-import munchkin.game.buttons.DiscardGoldButton;
-import munchkin.game.buttons.DrawCardButton;
-import munchkin.game.buttons.EndTurnButton;
-import munchkin.game.buttons.GenderButton;
-import munchkin.game.buttons.LetOtherPlayerPlayCardButton;
-import munchkin.game.buttons.NewGameButton;
-import munchkin.game.buttons.PassCombatButton;
-import munchkin.game.buttons.PlayCardButton;
-import munchkin.game.buttons.SellGoldButton;
 
 
 

@@ -1,6 +1,7 @@
 package test;
-import org.junit.runners.Suite;
+
 import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 
 @RunWith(Suite.class)
 @Suite.SuiteClasses({Mile3Testing.class, TestInitializeAndShuffle.class, Testing.class, GameTest.class, CardTest.class, CardFuncTesting.class, CombatTesting.class})

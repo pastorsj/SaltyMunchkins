@@ -1,18 +1,15 @@
 package munchkin.game.buttons;
 
-import java.awt.Button;
-import java.awt.Dimension;
-import java.awt.Font;
+import munchkin.game.Game;
+import munchkin.game.Main;
+import munchkin.game.Player;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-
-import javax.swing.JButton;
-
-import munchkin.game.Game;
-import munchkin.game.Main;
-import munchkin.game.Player;
 
 public class NewGameButton extends JButton implements ActionListener {
 
