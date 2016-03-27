@@ -1,8 +1,8 @@
 package munchkin.cards.doors;
 
-import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.cards.doors.api.Door;
 
-public class Gnarlythotep extends AbstractMonster {
+public class Gnarlythotep extends Door {
 	
 	@Override
 	public void cardInHand() {

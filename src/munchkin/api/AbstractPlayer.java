@@ -9,6 +9,14 @@ public class AbstractPlayer implements IPlayer{
     private Faction faction;
     private IHand hand;
     private int level;
+    private int treasures;
+
+    public AbstractPlayer() {
+        this.faction = null;
+        this.hand = new Hand(this);
+        this.level = 0;
+        this.treasures = 0;
+    }
 
 
     @Override
@@ -39,5 +47,15 @@ public class AbstractPlayer implements IPlayer{
     @Override
     public void addLevel(int level) {
         this.level += level;
+    }
+
+    @Override
+    public void addTreasures(int numTreasures) {
+        this.treasures += treasures;
+    }
+
+    @Override
+    public int getNumTreasures() {
+        return this.treasures;
     }
 }

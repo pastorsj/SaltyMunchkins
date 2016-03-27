@@ -1,52 +1,16 @@
 package munchkin.cards.doors.api;
 
-public abstract class AbstractMonster implements IMonster {
-	private int level = 0;
-	private int treasures = 0;
+public abstract class AbstractMonster extends Door {
 
-	@Override
-	public void setLevel(int level) {
-		this.level = level;
-	}
+    @Override
+    public void cardPlayed(boolean win) {
+        if(win) {
+            this.getOwner().addTreasures(this.getTreasures());
+        } else {
+            this.badStuff();
+        }
+    }
 
-	@Override
-	public void setTreasures(int treasures) {
-		this.treasures = treasures;
-	}
-	
-	@Override
-	public void addTreasures(int numTreasures) {
-		this.treasures += numTreasures;
-	}
-
-	@Override
-	public int getTreasures() {
-		return this.treasures;
-	}
-
-	@Override
-	public int getLevel() {
-		return this.level;
-	}
-	
-	@Override
-	public void addLevels(int numLevels) {
-		this.level += numLevels;
-	}
-
-	@Override
-	public void cardInPlay() {
-
-	}
-
-	@Override
-	public void cardInHand() {
-
-	}
-
-	@Override
-	public void cardPlayed(boolean win) {
-
-	}
+    public abstract void badStuff();
 
 }

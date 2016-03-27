@@ -1,11 +1,11 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.treasures.api.AbstractTreasure;
 import munchkin.cards.treasures.api.Armor;
 import munchkin.cards.treasures.api.Faction;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class Tentacle extends AbstractTreasure {
+public class Tentacle extends Treasure {
 
     public Tentacle(Game game) {
         super(game);

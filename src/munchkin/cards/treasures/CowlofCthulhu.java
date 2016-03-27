@@ -1,9 +1,9 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class CowlofCthulhu extends AbstractTreasure {
+public class CowlofCthulhu extends Treasure {
 
 	public CowlofCthulhu(Game game) {
 		super(game);

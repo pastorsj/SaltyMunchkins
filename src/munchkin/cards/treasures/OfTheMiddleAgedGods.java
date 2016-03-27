@@ -1,9 +1,9 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class OfTheMiddleAgedGods extends AbstractTreasure {
+public class OfTheMiddleAgedGods extends Treasure {
 
     public OfTheMiddleAgedGods(Game game) {
         super(game);

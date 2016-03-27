@@ -1,10 +1,10 @@
 package munchkin.cards.treasures;
 
 import munchkin.api.CardType;
-import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class StickerIchor extends AbstractTreasure {
+public class StickerIchor extends Treasure {
 
     public StickerIchor(Game game) {
         super(game);

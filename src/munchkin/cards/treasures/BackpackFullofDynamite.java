@@ -1,10 +1,10 @@
 package munchkin.cards.treasures;
 
 
-import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class BackpackFullofDynamite extends AbstractTreasure {
+public class BackpackFullofDynamite extends Treasure {
 
     public BackpackFullofDynamite(Game game) {
         super(game);

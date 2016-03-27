@@ -1,7 +1,5 @@
 package munchkin.api;
 
-import munchkin.game.Player;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -11,9 +9,9 @@ import java.util.List;
  */
 public class Hand implements IHand {
     private List<ICard> hand;
-    private Player owner;
+    private IPlayer owner;
 
-    public Hand(Player player) {
+    public Hand(IPlayer player) {
         this.owner = player;
         this.hand = new ArrayList<>();
     }

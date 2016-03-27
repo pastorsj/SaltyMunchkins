@@ -1,29 +1,28 @@
 package munchkin.cards.treasures.api;
 
 import munchkin.api.AbstractCard;
+import munchkin.api.IPlayer;
 import munchkin.game.Game;
-import munchkin.game.Player;
 
-public abstract class AbstractTreasure extends AbstractCard implements ITreasure{
+import java.util.Queue;
+
+public abstract class Treasure extends AbstractCard implements ITreasure{
 	private int gold = 0;
 	private int bonus = 0;
 	private Armor armor;
 	private boolean discard = false;
 	protected Game game;
-	protected Player p1;
-	protected Player p2;
+	protected Queue<IPlayer> players;
 
 
-	public AbstractTreasure() {
+	public Treasure() {
 		this.game = null;
-		this.p1 = null;
-		this.p2 = null;
+		this.players = null;
 	}
 
-	public AbstractTreasure(Game game) {
+	public Treasure(Game game) {
 		this.game = game;
-		this.p1 = game.p1;
-		this.p2 = game.p2;
+		this.players = game.getPlayers();
 	}
 
 

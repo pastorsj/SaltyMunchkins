@@ -1,9 +1,9 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class PiercingShriek extends AbstractTreasure {
+public class PiercingShriek extends Treasure {
 
     public PiercingShriek(Game game) {
         super(game);

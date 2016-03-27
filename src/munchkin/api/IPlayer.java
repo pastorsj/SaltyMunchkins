@@ -13,4 +13,6 @@ public interface IPlayer {
     public void setHand(IHand hand);
     public int getLevel();
     public void addLevel(int level);
+    public void addTreasures(int numTreasures);
+    public int getNumTreasures();
 }

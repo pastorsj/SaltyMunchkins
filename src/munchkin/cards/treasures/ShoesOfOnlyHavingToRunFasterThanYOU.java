@@ -1,10 +1,10 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.treasures.api.AbstractTreasure;
 import munchkin.cards.treasures.api.Armor;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class ShoesOfOnlyHavingToRunFasterThanYOU extends AbstractTreasure {
+public class ShoesOfOnlyHavingToRunFasterThanYOU extends Treasure {
 
     public ShoesOfOnlyHavingToRunFasterThanYOU(Game game) {
         super(game);

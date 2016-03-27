@@ -1,5 +1,10 @@
 package munchkin.game;
 
+import munchkin.api.AbstractPlayer;
+import munchkin.api.ICard;
+import munchkin.api.IHand;
+import munchkin.api.IPlayer;
+import munchkin.game.api.IGame;
 import munchkin.game.panels.BottomCardPanel;
 
 import javax.imageio.ImageIO;
@@ -7,10 +12,23 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
-public class Game {
+public class Game implements IGame {
+
+	//Observed Value (DO NOT DELETE for now...)
+	public static String action;
+
+	//-----Potential New Implementation-----
+	private Queue<IPlayer> players;
+	private IHand handInPlay;
+	private List<ICard> doorCards;
+	private List<ICard> treasureCards;
+	private List<ICard> discardedDoorCards;
+	private List<ICard> discardedTreasureCards;
+	//----------------------
+
+	//------Current Implementation----------
 	public ArrayList<Integer> doors;
 	ArrayList<Integer> treasures;
 	public ArrayList<Integer> doorDiscards = new ArrayList<Integer>();
@@ -29,8 +47,47 @@ public class Game {
 	public boolean monster=false;
 	public InitializeCards ic = new InitializeCards();
 	public int flag = 0;
+
+	//------End Current Implementation---------
 	
-	
+	//------------Potential Implementation---------------
+	public Game(int numberOfPlayers) {
+		this.players = new LinkedList<>();
+		for(int i = 0; i < numberOfPlayers; i++) {
+			this.players.add(new AbstractPlayer());
+		}
+		this.doorCards = getDoorCards();
+		this.treasureCards = getTreasureCards();
+		this.discardedDoorCards = new ArrayList<>();
+		this.discardedTreasureCards = new ArrayList<>();
+	}
+
+	private List<ICard> getDoorCards() {
+		//Use reflection to access all door cards
+		return new ArrayList<>();
+	}
+
+	private List<ICard> getTreasureCards() {
+		//Use reflection to access all treasure cards
+		return new ArrayList<>();
+	}
+
+
+	public IPlayer getCurrentPlayer() {
+		return this.players.peek();
+	}
+
+	public void endTurn() {
+		IPlayer temp = this.players.poll();
+		this.players.add(temp);
+	}
+
+	public Queue<IPlayer> getPlayers() {
+		return this.players;
+	}
+
+
+
 
 	public Game(ArrayList<Integer> doors, ArrayList<Integer> treasures) {
 		mframe = new MFrame(this);
@@ -235,6 +292,4 @@ public class Game {
 		this.bCardPanel.monsterLevel.setText("monster level: " +this.mLevel);
 		
 	}
-
-
 }

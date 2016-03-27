@@ -1,9 +1,9 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class NonEuclideanMap extends AbstractTreasure {
+public class NonEuclideanMap extends Treasure {
 
     public NonEuclideanMap(Game game) {
         super(game);

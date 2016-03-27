@@ -1,10 +1,10 @@
 package munchkin.cards.treasures;
 
-import munchkin.cards.treasures.api.AbstractTreasure;
 import munchkin.cards.treasures.api.Faction;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
-public class CultMembershipCard extends AbstractTreasure {
+public class CultMembershipCard extends Treasure {
 
 	public CultMembershipCard(Game game) {
 		super(game);
