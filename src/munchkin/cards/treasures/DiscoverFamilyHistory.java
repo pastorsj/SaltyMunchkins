@@ -1,4 +1,10 @@
 package munchkin.cards.treasures;
 
-public class DiscoverFamilyHistory{
+import munchkin.game.Game;
+
+public class DiscoverFamilyHistory extends GoUpALevel {
+
+    public DiscoverFamilyHistory(Game game) {
+        super(game);
+    }
 }

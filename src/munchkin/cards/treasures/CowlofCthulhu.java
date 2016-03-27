@@ -1,21 +1,26 @@
 package munchkin.cards.treasures;
 
-import munchkin.api.AbstractMonster;
+import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.game.Game;
 
-public class CowlofCthulhu extends AbstractMonster{
-	
-	@Override
-	public void beforeCombat() {
+public class CowlofCthulhu extends AbstractTreasure {
 
+	public CowlofCthulhu(Game game) {
+		super(game);
 	}
 
 	@Override
-	public void duringCombat() {
-		
+	public void cardInHand() {
+		this.setGold(0);
 	}
 
 	@Override
-	public void afterCombat(boolean win) {
-		
+	public void cardInPlay() {
+//		If player has a steed or vehicle in play, bonus is +3, else +2
+//		if(p1.hand.contains('steed')) {
+//			this.setBonus(2);
+//		} else {
+//			this.setBonus(3);
+//		}
 	}
 }

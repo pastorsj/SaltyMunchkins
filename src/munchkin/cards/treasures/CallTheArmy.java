@@ -1,21 +1,10 @@
 package munchkin.cards.treasures;
 
-import munchkin.api.AbstractMonster;
+import munchkin.game.Game;
 
-public class CallTheArmy extends AbstractMonster{
-	
-	@Override
-	public void beforeCombat() {
+public class CallTheArmy extends GoUpALevel {
 
-	}
-
-	@Override
-	public void duringCombat() {
-		
-	}
-
-	@Override
-	public void afterCombat(boolean win) {
-		
+	public CallTheArmy(Game game) {
+		super(game);
 	}
 }

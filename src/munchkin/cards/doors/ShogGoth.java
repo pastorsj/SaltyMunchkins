@@ -1,8 +1,8 @@
 package munchkin.cards.doors;
 
-import munchkin.api.AbstractMonster;
+import munchkin.cards.doors.api.AbstractMonster;
 
-public class ShogGoth extends AbstractMonster{
+public class ShogGoth extends AbstractMonster {
 	
 	@Override
 	public void beforeCombat() {

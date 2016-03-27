@@ -1,4 +1,6 @@
-package munchkin.api;
+package munchkin.cards.doors.api;
+
+import munchkin.cards.treasures.api.Faction;
 
 public abstract class AbstractCharacter implements ICharacter {
 	private Faction faction;

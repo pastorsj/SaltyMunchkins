@@ -1,8 +1,8 @@
 package munchkin.cards.doors;
 
-import munchkin.api.AbstractMonster;
+import munchkin.cards.doors.api.AbstractMonster;
 
-public class CampusCrusadeforCthulhu extends AbstractMonster{
+public class CampusCrusadeforCthulhu extends AbstractMonster {
 	
 	@Override
 	public void beforeCombat() {

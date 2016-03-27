@@ -1,8 +1,8 @@
 package munchkin.cards.doors;
 
-import munchkin.api.AbstractMonster;
+import munchkin.cards.doors.api.AbstractMonster;
 
-public class CreatedUsingCinematicRules extends AbstractMonster{
+public class CreatedUsingCinematicRules extends AbstractMonster {
 	
 	@Override
 	public void beforeCombat() {

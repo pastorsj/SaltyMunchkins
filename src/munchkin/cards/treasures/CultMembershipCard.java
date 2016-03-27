@@ -1,21 +1,23 @@
 package munchkin.cards.treasures;
 
-import munchkin.api.AbstractMonster;
+import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.game.Game;
 
-public class CultMembershipCard extends AbstractMonster{
-	
-	@Override
-	public void beforeCombat() {
+public class CultMembershipCard extends AbstractTreasure {
 
+	public CultMembershipCard(Game game) {
+		super(game);
 	}
 
 	@Override
-	public void duringCombat() {
-		
+	public void cardInHand() {
+		this.setGold(100);
+		//if p1 a cultist, this card is not usable
+		//this.disable();
 	}
 
 	@Override
-	public void afterCombat(boolean win) {
-		
+	public void cardInPlay() {
+		//Become a cultist
 	}
 }

@@ -1,21 +1,22 @@
 package munchkin.cards.treasures;
 
-import munchkin.api.AbstractMonster;
+import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Armor;
 
-public class BugSpray extends AbstractMonster{
-	
-	@Override
-	public void beforeCombat() {
+public class BugSpray extends AbstractTreasure {
 
+	public BugSpray() {
+		super();
 	}
 
 	@Override
-	public void duringCombat() {
-		
+	public void cardInHand() {
+		this.setGold(200);
 	}
 
 	@Override
-	public void afterCombat(boolean win) {
-		
+	public void cardInPlay() {
+		this.setArmor(Armor.OneHand);
+		this.setBonus(2);
 	}
 }

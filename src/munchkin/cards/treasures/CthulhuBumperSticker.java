@@ -1,21 +1,23 @@
 package munchkin.cards.treasures;
 
-import munchkin.api.AbstractMonster;
+import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.game.Game;
 
-public class CthulhuBumperSticker extends AbstractMonster{
-	
-	@Override
-	public void beforeCombat() {
+public class CthulhuBumperSticker extends AbstractTreasure {
 
+	public CthulhuBumperSticker(Game game) {
+		super(game);
 	}
 
 	@Override
-	public void duringCombat() {
-		
+	public void cardInHand() {
+		this.setGold(100);
 	}
 
 	@Override
-	public void afterCombat(boolean win) {
-		
+	public void cardInPlay() {
+		// Bonus can be applied to player or monster
+		this.setBonus(3);
 	}
 }

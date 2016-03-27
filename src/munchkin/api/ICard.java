@@ -1,5 +1,7 @@
 package munchkin.api;
 
 public interface ICard {
-	public void play();
+	public void cardInHand();
+	public void cardInPlay();
+	public void cardPlayed(boolean win);
 }

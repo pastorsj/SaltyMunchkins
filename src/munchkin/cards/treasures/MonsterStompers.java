@@ -1,4 +1,27 @@
 package munchkin.cards.treasures;
 
-public class MonsterStompers{
+import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Armor;
+import munchkin.cards.treasures.api.Faction;
+import munchkin.game.Game;
+
+public class MonsterStompers extends AbstractTreasure {
+
+    public MonsterStompers(Game game) {
+        super(game);
+    }
+
+    @Override
+    public void cardInHand() {
+        this.setGold(600);
+        if(!this.getOwner().getFaction().equals(Faction.MonsterWhacker)) {
+            this.disable();
+        }
+    }
+
+    @Override
+    public void cardInPlay() {
+        this.setArmor(Armor.FootGear);
+        this.setBonus(3);
+    }
 }

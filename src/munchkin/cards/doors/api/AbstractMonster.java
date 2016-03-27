@@ -1,4 +1,4 @@
-package munchkin.api;
+package munchkin.cards.doors.api;
 
 public abstract class AbstractMonster implements IMonster {
 	private int level = 0;

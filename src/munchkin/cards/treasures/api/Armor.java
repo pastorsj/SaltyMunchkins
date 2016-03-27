@@ -1,4 +1,4 @@
-package munchkin.api;
+package munchkin.cards.treasures.api;
 
 public enum Armor {
 	HeadGear,

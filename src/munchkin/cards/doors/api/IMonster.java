@@ -1,4 +1,4 @@
-package munchkin.api;
+package munchkin.cards.doors.api;
 
 public interface IMonster extends IDoor {
 	public void setLevel(int level);

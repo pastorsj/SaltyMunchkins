@@ -1,4 +1,11 @@
 package munchkin.cards.treasures;
 
-public class InformLocalAuthorities{
+import munchkin.game.Game;
+
+public class InformLocalAuthorities extends GoUpALevel {
+
+    public InformLocalAuthorities(Game game) {
+        super(game);
+    }
+
 }
