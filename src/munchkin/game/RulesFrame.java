@@ -73,6 +73,7 @@ public class RulesFrame {
 		});
 		
 		BufferedImage rulesPic = ImageIO.read(new File(cardPaths.get(0)));
+		Image scaled = rulesPic.getScaledInstance(600, 900, 0);
 		
         icon = new ImageIcon(scaled);
         picLabel = new JLabel();
@@ -80,6 +81,7 @@ public class RulesFrame {
         panel.add(prevButton);
         panel.add(picLabel);
         panel.add(nextButton);
+        panel.setPreferredSize(new Dimension(1000,900));
         frame.add(panel);
         frame.setVisible(true);
         frame.pack();
@@ -90,6 +92,7 @@ public class RulesFrame {
 
 		System.out.println("showing " + currentCard);
 		BufferedImage rulesPic = ImageIO.read(new File(cardPaths.get(currentCard)));
+		Image scaled = rulesPic.getScaledInstance(600, 900, 0);
 		icon = new ImageIcon(scaled);
 		picLabel.setIcon(icon);
 		panel.revalidate();
