@@ -10,11 +10,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import munchkin.game.panels.MPanel;
 
@@ -65,7 +68,11 @@ public class MFrame extends JFrame {
 	        helpItem.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent event) {
-	                
+	            	try {
+						RulesFrame frame = new RulesFrame();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 	            }
 	        });
 	        
