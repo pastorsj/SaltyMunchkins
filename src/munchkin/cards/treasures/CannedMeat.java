@@ -19,4 +19,9 @@ public class CannedMeat extends Treasure {
 		// Bonus can be applied to player or monster
 		this.setBonus(3);
 	}
+
+	@Override
+	public void cardPlayed(boolean win) {
+		this.setDiscard(true);
+	}
 }

@@ -1,6 +1,11 @@
 package munchkin.cards.treasures.api;
 
+import munchkin.api.ICard;
+import munchkin.game.Action;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -8,23 +13,98 @@ import java.util.Map;
  */
 public class ArmorSet {
 
-    private int footgear;
-    private int headgear;
-    private int armor;
-    private int hands;
+    private List<ICard> footgear;
+    private List<ICard> headgear;
+    private List<ICard> armor;
+    private List<ICard> hands;
+    private int maxFootGear;
+    private int maxHeadGear;
+    private int maxArmor;
+    private int maxHands;
+    private Action action;
 
     private Map<Armor, Integer> armourToInteger;
 
     public ArmorSet() {
-        this.footgear = 0;
-        this.headgear = 0;
-        this.armor = 0;
-        this.hands = 0;
-        this.armourToInteger = new HashMap<>();
-        initializeConversion();
+        this.footgear = new ArrayList<>();
+        this.headgear = new ArrayList<>();
+        this.armor = new ArrayList<>();
+        this.hands = new ArrayList<>();
+        this.maxFootGear = 1;
+        this.maxHeadGear = 1;
+        this.maxArmor = 1;
+        this.maxHands = 2;
+        this.action = Action.getInstance();
     }
 
-    private void initializeConversion() {
-
+    public void addFootGear(ITreasure card) {
+        if(card.getArmor().equals(Armor.FootGear)) {
+            if(this.footgear.size() < maxFootGear) {
+                this.footgear.add(card);
+            } else {
+                this.action.setValue("Already at max armor for footgear");
+            }
+        } else {
+            this.action.setValue("Not Footgear armor");
+        }
     }
+
+    public void addHeadGear(ITreasure card) {
+        if(card.getArmor().equals(Armor.HeadGear)) {
+            if(this.headgear.size() < maxHeadGear) {
+                this.headgear.add(card);
+            } else {
+                this.action.setValue("Already at max armor for headgear");
+            }
+        } else {
+            this.action.setValue("Not HeadGear armor");
+        }
+    }
+
+    public void addArmor(ITreasure card) {
+        if(card.getArmor().equals(Armor.Armor)) {
+            if(this.armor.size() < maxArmor) {
+                this.armor.add(card);
+            } else {
+                this.action.setValue("Already at max armor for armor");
+            }
+        } else {
+            this.action.setValue("Not armor type");
+        }
+    }
+
+    public void addHands(ITreasure card) {
+        if(card.getArmor().equals(Armor.OneHand)) {
+            if(this.hands.size() < maxHands) {
+                this.hands.add(card);
+            } else {
+                this.action.setValue("Already at max armor for hands");
+            }
+        } else if(card.getArmor().equals(Armor.TwoHands)) {
+            if(this.hands.size() < maxHands - 1) {
+                this.hands.add(card);
+            } else {
+                this.action.setValue("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece");
+            }
+        } else {
+            this.action.setValue("Not Footgear armor");
+        }
+    }
+
+    public void setMaxFootGear(int max) {
+        this.maxFootGear = max;
+    }
+
+    public void setMaxHeadGear(int max) {
+        this.maxFootGear = max;
+    }
+
+    public void setMaxArmor(int max) {
+        this.maxFootGear = max;
+    }
+
+    public void setMaxHands(int max) {
+        this.maxFootGear = max;
+    }
+
 }

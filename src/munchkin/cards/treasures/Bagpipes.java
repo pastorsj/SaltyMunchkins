@@ -22,18 +22,20 @@ public class Bagpipes extends Treasure {
 
     @Override
     public void cardInPlay() {
-//        if(game.throwDice() == 6) {
-//            this.mating = true;
-//        } else {
-//            this.mating = false;
-//        }
+        if(game.rollDice(0) == 6) {
+            this.mating = true;
+            this.action.setValue("Dice roll was 6, The monster is attempting to mate with you");
+        } else {
+            this.mating = false;
+            this.action.setValue("Dice roll was not 6, The monster is not attempting to mate with you");
+        }
     }
 
     @Override
     public void cardPlayed(boolean win) {
         if(win) {
             if(mating) {
-                this.discard();
+                this.setDiscard(true);
             }
         }
     }

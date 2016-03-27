@@ -1,5 +1,6 @@
 package munchkin.cards.treasures;
 
+import munchkin.api.CardType;
 import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
@@ -12,6 +13,7 @@ public class BickerIchor extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(600);
+        this.setCardType(CardType.Ichor);
     }
 
     @Override
@@ -29,11 +31,15 @@ public class BickerIchor extends Treasure {
 
     private int checkNumMonsters() {
         //Go through hand and get number of monsters
-        return 1;
+        int numMonsters = 1;
+        this.action.setValue("The number of monsters on the table is " + numMonsters);
+        return numMonsters;
     }
 
     private void discardLowerLevelMonster() {
         //Get rid of the lower level monster from hand
+        this.action.setValue("Number of Monsters on the table exceeded 1, the monsters have fought and the lower level monster is discarded");
+        this.setDiscard(true);
     }
 
 

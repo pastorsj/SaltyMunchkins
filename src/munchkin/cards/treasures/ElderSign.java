@@ -1,6 +1,7 @@
 package munchkin.cards.treasures;
 
 import munchkin.cards.treasures.api.Armor;
+import munchkin.cards.treasures.api.Faction;
 import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
@@ -13,15 +14,11 @@ public class ElderSign extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(200);
-        //This card is not usable by Investigators
-//        if(this.p1.faction!=Faction.Investigator) {
-//            this.disable();
-//        }
-    }
-
-    @Override
-    public void cardInPlay() {
         this.setBonus(3);
         this.setArmor(Armor.OneHand);
+        //This card is not usable by Investigators
+        if(this.getOwner().getFaction().equals(Faction.Investigator)) {
+            this.disable();
+        }
     }
 }

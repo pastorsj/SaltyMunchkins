@@ -1,5 +1,6 @@
 package munchkin.api;
 
+import munchkin.cards.treasures.api.ArmorSet;
 import munchkin.cards.treasures.api.Faction;
 
 /**
@@ -8,6 +9,7 @@ import munchkin.cards.treasures.api.Faction;
 public class AbstractPlayer implements IPlayer{
     private Faction faction;
     private IHand hand;
+    private ArmorSet armorSet;
     private int level;
     private int treasures;
 

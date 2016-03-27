@@ -1,5 +1,7 @@
 package munchkin.api;
 
+import munchkin.game.Action;
+
 /**
  * Created by SamPastoriza on 3/26/16.
  */
@@ -7,11 +9,13 @@ public abstract class AbstractCard implements ICard{
     private boolean disabled;
     private IPlayer ownedBy;
     private CardType type;
+    public Action action;
 
     public AbstractCard() {
         this.disabled = false;
         this.ownedBy = null;
         this.type = null;
+        this.action = Action.getInstance();
     }
 
     public void setCardType(CardType type) {

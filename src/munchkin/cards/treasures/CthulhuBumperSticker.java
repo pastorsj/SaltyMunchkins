@@ -11,12 +11,16 @@ public class CthulhuBumperSticker extends Treasure {
 
 	@Override
 	public void cardInHand() {
-		this.setGold(100);
+		this.setGold(0);
 	}
 
 	@Override
 	public void cardInPlay() {
-		// Bonus can be applied to player or monster
-		this.setBonus(3);
+//		If player has a steed or vehicle in play, bonus is +3, else +2
+//		if(p1.hand.contains('steed')) {
+//			this.setBonus(2);
+//		} else {
+//			this.setBonus(3);
+//		}
 	}
 }
