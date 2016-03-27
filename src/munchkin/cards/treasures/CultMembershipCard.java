@@ -1,6 +1,7 @@
 package munchkin.cards.treasures;
 
 import munchkin.cards.treasures.api.AbstractTreasure;
+import munchkin.cards.treasures.api.Faction;
 import munchkin.game.Game;
 
 public class CultMembershipCard extends AbstractTreasure {
@@ -12,8 +13,9 @@ public class CultMembershipCard extends AbstractTreasure {
 	@Override
 	public void cardInHand() {
 		this.setGold(100);
-		//if p1 a cultist, this card is not usable
-		//this.disable();
+		if(this.getOwner().getFaction().equals(Faction.Cultist)) {
+			this.disable();
+		}
 	}
 
 	@Override

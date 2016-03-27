@@ -1,4 +1,10 @@
 package munchkin.cards.treasures;
 
-public class TargetPractice{
+import munchkin.game.Game;
+
+public class TargetPractice extends GoUpALevel {
+
+    public TargetPractice(Game game) {
+        super(game);
+    }
 }

@@ -1,4 +1,10 @@
 package munchkin.cards.treasures;
 
-public class TellThePresident{
+import munchkin.game.Game;
+
+public class TellThePresident extends GoUpALevel {
+
+    public TellThePresident(Game game) {
+        super(game);
+    }
 }

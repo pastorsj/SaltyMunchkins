@@ -5,5 +5,6 @@ public enum Armor {
 	FootGear,
 	TwoHands,
 	OneHand,
+	NegativeOneHand,
 	Armor
 }
