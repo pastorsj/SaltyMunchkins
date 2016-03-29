@@ -11,7 +11,8 @@ public class CurseLearnYetAnotherAwfulTruth extends Door {
 
 	@Override
 	public void cardInPlay() {
-		
+		//lose a level
+		this.getOwner().addLevel(-1);
 	}
 
 	@Override

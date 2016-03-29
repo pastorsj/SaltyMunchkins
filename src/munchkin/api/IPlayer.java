@@ -1,5 +1,6 @@
 package munchkin.api;
 
+import munchkin.cards.treasures.api.ArmorSet;
 import munchkin.cards.treasures.api.Faction;
 
 /**
@@ -11,16 +12,9 @@ public interface IPlayer {
     public void setFaction(Faction faction);
     public IHand getHand();
     public void setHand(IHand hand);
-    public int getPlayerLevel();
-    public void addToPlayerLevel(int level);
+    public int getLevel();
+    public void addLevel(int level);
     public void addTreasures(int numTreasures);
     public int getNumTreasures();
-    public String getGender();
-    public void setGender(String gender);
-    public void setName(String name);
-    public String getName();
-    public void setCombatLevel();
-    public int getCombatLevel();
-    public int getRunAwayLevel();
-    public void addToRunAwayLevel(int levels);
+	public ArmorSet getArmorSet();
 }

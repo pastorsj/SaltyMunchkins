@@ -37,7 +37,36 @@ public class ArmorSet {
         this.action = Action.getInstance();
     }
 
-    public void addFootGear(ITreasure card) {
+    public List<ICard> getFootgear() {
+		return footgear;
+	}
+    
+    public void removeFootgear(){
+    	this.footgear.clear();
+    }
+
+	public List<ICard> getHeadgear() {
+		return headgear;
+	}
+	
+	public void removeHeadgear(){
+		this.headgear.clear();
+	}
+
+	
+	public List<ICard> getArmor() {
+		return armor;
+	}
+
+	
+	public void removeArmor(){
+		this.armor.clear();
+	}
+	public List<ICard> getHands() {
+		return hands;
+	}
+
+	public void addFootGear(ITreasure card) {
         if(card.getArmor().equals(Armor.FootGear)) {
             if(this.footgear.size() < maxFootGear) {
                 this.footgear.add(card);

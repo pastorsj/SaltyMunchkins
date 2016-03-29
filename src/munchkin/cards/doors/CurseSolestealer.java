@@ -11,7 +11,8 @@ public class CurseSolestealer extends Door {
 
 	@Override
 	public void cardInPlay() {
-		
+		//lose the foodgear you are wearing
+		this.getOwner().getArmorSet().removeFootgear();
 	}
 
 	@Override

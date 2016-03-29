@@ -11,7 +11,8 @@ public class CurseHairStandsOnEnd extends Door {
 
 	@Override
 	public void cardInPlay() {
-		
+		//lose the headgear you are wearing
+		this.getOwner().getArmorSet().removeHeadgear();;
 	}
 
 	@Override
