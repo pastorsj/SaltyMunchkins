@@ -1,8 +1,8 @@
 package munchkin.game.panels;
 
+import munchkin.api.ICard;
 import munchkin.game.Game;
 import munchkin.game.MFrame;
-import munchkin.game.Player;
 import munchkin.game.buttons.*;
 
 import javax.imageio.ImageIO;
@@ -416,4 +416,7 @@ public class BottomCardPanel extends JPanel implements MouseListener{
 		
 	}
 
+	public void updateLargeCard(ICard card) {
+
+	}
 }

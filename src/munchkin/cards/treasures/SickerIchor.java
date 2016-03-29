@@ -1,6 +1,6 @@
 package munchkin.cards.treasures;
 
-import munchkin.api.CardType;
+import munchkin.api.SpecificCardType;
 import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
@@ -13,7 +13,7 @@ public class SickerIchor extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(100);
-        this.setCardType(CardType.Ichor);
+        this.setCardType(SpecificCardType.Ichor);
     }
 
     @Override

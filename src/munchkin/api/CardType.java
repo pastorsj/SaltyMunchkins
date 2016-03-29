@@ -1,9 +1,9 @@
 package munchkin.api;
 
 /**
- * Created by SamPastoriza on 3/26/16.
+ * Created by SamPastoriza on 3/28/16.
  */
 public enum CardType {
-    Flame,
-    Ichor
+    Treasure,
+    Door
 }

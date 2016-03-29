@@ -2,7 +2,6 @@ package munchkin.game.panels;
 
 import munchkin.game.Game;
 import munchkin.game.MFrame;
-import munchkin.game.Player;
 import munchkin.game.buttons.*;
 
 import javax.imageio.ImageIO;

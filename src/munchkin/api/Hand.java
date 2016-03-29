@@ -16,20 +16,44 @@ public class Hand implements IHand {
         this.hand = new ArrayList<>();
     }
 
-    public void insertCard(ICard card) {
-        this.hand.add(card);
+    @Override
+    public boolean insertCard(ICard card) {
+        if(sizeOfHand() < 8) {
+            this.hand.add(card);
+            //IMPORTANT: Invoke this method when a card is added to a players hand.
+            card.cardInHand();
+            card.setOwner(owner);
+            return true;
+        }
+        return false;
     }
 
+    @Override
     public boolean removeCardFromHand(ICard card) {
-        return this.hand.remove(card);
+        boolean inHand = this.hand.remove(card);
+        if(inHand) {
+            //FIXME: There needs to be a concept of Combat implemented
+            //This method must be invoked when the card is discarded
+            card.cardPlayed(true);
+            //Nobody owns this card anymore
+            card.setOwner(null);
+        }
+        return inHand;
     }
 
+    @Override
     public boolean cardInHand(ICard card) {
         return this.hand.contains(card);
     }
 
+    @Override
     public Iterator<ICard> iterator() {
         return hand.iterator();
+    }
+
+    @Override
+    public int sizeOfHand() {
+        return this.hand.size();
     }
 
 

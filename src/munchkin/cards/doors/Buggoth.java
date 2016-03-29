@@ -11,7 +11,7 @@ public class Buggoth extends AbstractMonster {
 
 	@Override
 	public void cardInPlay() {
-
+		
 	}
 
 	@Override

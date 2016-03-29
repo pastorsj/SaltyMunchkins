@@ -1,6 +1,7 @@
 package munchkin.cards.doors.api;
 
 import munchkin.api.AbstractCard;
+import munchkin.api.CardType;
 import munchkin.api.IPlayer;
 import munchkin.game.Game;
 
@@ -15,11 +16,13 @@ public abstract class Door extends AbstractCard implements IDoor {
     public Door() {
         this.game = null;
         this.players = null;
+        this.setCardType(CardType.Door);
     }
 
     public Door(Game game) {
         this.game = game;
         this.players = game.getPlayers();
+        this.setCardType(CardType.Door);
     }
 
     @Override

@@ -12,7 +12,7 @@ public class IchorPicker extends Treasure {
 
     @Override
     public void cardInPlay() {
-//        if(game.cardPlayed().getType().equals(CardType.Ichor)) {
+//        if(game.cardPlayed().getType().equals(SpecificCardType.Ichor)) {
 //            switchCards(game.cardPlayed());
 //        }
     }

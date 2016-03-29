@@ -8,8 +8,10 @@ import munchkin.game.Action;
 public abstract class AbstractCard implements ICard{
     private boolean disabled;
     private IPlayer ownedBy;
-    private CardType type;
+    private SpecificCardType type;
+    private CardType cardType;
     public Action action;
+
 
     public AbstractCard() {
         this.disabled = false;
@@ -18,11 +20,11 @@ public abstract class AbstractCard implements ICard{
         this.action = Action.getInstance();
     }
 
-    public void setCardType(CardType type) {
+    public void setCardType(SpecificCardType type) {
         this.type = type;
     }
 
-    public CardType getCardType() {
+    public SpecificCardType getSpecificCardType() {
         return this.type;
     }
 
@@ -44,5 +46,13 @@ public abstract class AbstractCard implements ICard{
 
     public IPlayer getOwner() {
         return this.ownedBy;
+    }
+
+    public void setCardType(CardType type) {
+        this.cardType = type;
+    }
+
+    public CardType getCardType() {
+        return this.cardType;
     }
 }

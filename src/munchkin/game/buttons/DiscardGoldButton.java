@@ -1,6 +1,5 @@
 package munchkin.game.buttons;
 
-import munchkin.game.CardFunc;
 import munchkin.game.Game;
 
 import javax.swing.*;

@@ -1,6 +1,5 @@
 package test;
 
-import munchkin.game.Card;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

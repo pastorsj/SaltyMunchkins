@@ -2,7 +2,6 @@ package munchkin.game.buttons;
 
 import munchkin.game.Game;
 import munchkin.game.MFrame;
-import munchkin.game.Player;
 
 import javax.swing.*;
 import java.awt.*;

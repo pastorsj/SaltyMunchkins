@@ -1,6 +1,7 @@
 package munchkin.cards.treasures.api;
 
 import munchkin.api.AbstractCard;
+import munchkin.api.CardType;
 import munchkin.api.IPlayer;
 import munchkin.game.Game;
 
@@ -18,11 +19,13 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 	public Treasure() {
 		this.game = null;
 		this.players = null;
+		this.setCardType(CardType.Treasure);
 	}
 
 	public Treasure(Game game) {
 		this.game = game;
 		this.players = game.getPlayers();
+		this.setCardType(CardType.Treasure);
 	}
 
 

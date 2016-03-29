@@ -1,8 +1,6 @@
 package test;
 
-import munchkin.game.Card;
 import munchkin.game.Game;
-import munchkin.game.Player;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

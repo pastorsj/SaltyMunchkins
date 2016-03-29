@@ -18,7 +18,12 @@ public class GoUpALevel extends Treasure {
         this.action.setValue("Go up a Level!");
     }
 
+    @Override
+    public void cardPlayed(boolean win) {
+        this.setDiscard(true);
+    }
+
     public void increaseLevel() {
-        this.getOwner().addLevel(1);
+        this.getOwner().addToPlayerLevel(1);
     }
 }
