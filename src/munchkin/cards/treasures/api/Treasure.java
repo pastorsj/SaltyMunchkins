@@ -78,4 +78,9 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 	@Override
 	public void cardPlayed(boolean win) {
 	}
+
+	@Override
+	public void setCardType() {
+		this.setCardType(CardType.Treasure);
+	}
 }

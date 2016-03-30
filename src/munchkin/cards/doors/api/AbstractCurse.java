@@ -1,5 +1,11 @@
 package munchkin.cards.doors.api;
 
-public abstract class AbstractCurse implements ICurse {
-	
+import munchkin.api.SpecificCardType;
+
+public abstract class AbstractCurse extends Door {
+
+    @Override
+    public void setCardType() {
+        this.setCardType(SpecificCardType.Curse);
+    }
 }

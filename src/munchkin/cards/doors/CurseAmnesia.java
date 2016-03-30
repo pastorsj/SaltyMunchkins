@@ -1,8 +1,9 @@
 package munchkin.cards.doors;
 
+import munchkin.cards.doors.api.AbstractCurse;
 import munchkin.cards.doors.api.Door;
 
-public class CurseAmnesia extends Door {
+public class CurseAmnesia extends AbstractCurse {
 	
 	@Override
 	public void cardInHand() {

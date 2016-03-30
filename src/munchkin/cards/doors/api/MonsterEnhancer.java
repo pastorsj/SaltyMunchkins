@@ -1,5 +1,6 @@
 package munchkin.cards.doors.api;
 
+import munchkin.api.SpecificCardType;
 import munchkin.game.Game;
 
 /**
@@ -13,5 +14,10 @@ public class MonsterEnhancer extends Door {
 
     public void addToMonsterLevel(int levels) {
         this.setLevel(this.getLevel() + levels);
+    }
+
+    @Override
+    public void setCardType() {
+        this.setCardType(SpecificCardType.MonsterEnhancer);
     }
 }

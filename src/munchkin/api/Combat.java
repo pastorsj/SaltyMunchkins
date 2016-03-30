@@ -18,6 +18,7 @@ public class Combat implements ICombat{
 
 
     public Combat(Game game) {
+        this.game = game;
         this.initializeFields();
     }
 
@@ -90,7 +91,6 @@ public class Combat implements ICombat{
     @Override
     public void runAway() {
         //If you run away, does the turn just end?
-
         game.endTurn();
     }
 

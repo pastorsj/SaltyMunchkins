@@ -1,9 +1,10 @@
 package munchkin.cards.doors;
 
+import munchkin.cards.doors.api.AbstractCurse;
 import munchkin.cards.doors.api.Door;
 import munchkin.cards.treasures.api.Faction;
 
-public class CurseHairTurnsWhiteWithHorror extends Door {
+public class CurseHairTurnsWhiteWithHorror extends AbstractCurse {
 	
 	@Override
 	public void cardInHand() {

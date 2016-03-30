@@ -7,7 +7,6 @@ import java.util.Random;
  */
 public class Utility {
 
-
     public static int rollDice() {
         Action action = Action.getInstance();
         Random rand = new Random();

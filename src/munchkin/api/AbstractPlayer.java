@@ -10,8 +10,12 @@ public class AbstractPlayer implements IPlayer{
     private Faction faction;
     private IHand hand;
     private ArmorSet armorSet;
+    private String name;
+    private String gender;
     private int level;
     private int treasures;
+    private int combatLevel;
+    private int runAwayLevel;
     
     public AbstractPlayer() {
         this.faction = null;
@@ -43,8 +47,13 @@ public class AbstractPlayer implements IPlayer{
     }
 
     @Override
-    public int getLevel() {
+    public int getPlayerLevel() {
         return level;
+    }
+
+    @Override
+    public void addToPlayerLevel(int level) {
+        this.level += level;
     }
 
     @Override
@@ -62,9 +71,55 @@ public class AbstractPlayer implements IPlayer{
         return this.treasures;
     }
 
-
+    @Override
 	public ArmorSet getArmorSet() {
 		return armorSet;
 	}
+
+    @Override
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    @Override
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    @Override
+    public String getGender() {
+        return this.gender;
+    }
+
+    @Override
+    public void setCombatLevel() {
+        this.combatLevel = this.getPlayerLevel();
+    }
+
+    @Override
+    public void addToCombatLevel(int levels) {
+        this.combatLevel += levels;
+    }
+
+    @Override
+    public int getCombatLevel() {
+        return this.combatLevel;
+    }
+
+    @Override
+    public int getRunAwayLevel() {
+        return this.runAwayLevel;
+    }
+
+    @Override
+    public void addToRunAwayLevel(int levels) {
+        this.runAwayLevel += levels;
+    }
+
 
 }

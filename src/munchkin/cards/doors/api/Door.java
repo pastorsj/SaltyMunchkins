@@ -65,5 +65,10 @@ public abstract class Door extends AbstractCard implements IDoor {
 
     }
 
+    @Override
+    public void setCardType() {
+        this.setCardType(CardType.Door);
+    }
+
 
 }

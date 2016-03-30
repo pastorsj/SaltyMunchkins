@@ -34,7 +34,7 @@ public class Game implements IGame {
 
 	public Game(int numberOfPlayers) {
 
-		InitializeCards initializeCards = new InitializeCards();
+		InitializeCards initializeCards = new InitializeCards(this);
 		this.doorCards = initializeCards.getDoorCards();
 		this.treasureCards = initializeCards.getTreasureCards();
 		this.allCards = initializeCards.getAllCards();
@@ -66,7 +66,7 @@ public class Game implements IGame {
 		//FIXME
 		this.bottomCardPanel.playerLabel.setText(this.getCurrentPlayer().getName());
 		this.bottomCardPanel.playerLevel.setText("player level: " + getCurrentPlayer().getPlayerLevel());
-		this.bottomCardPanel.playerCLevel.setText("combat level: " +getCurrentPlayer().getCombatLevel());
+//		this.bottomCardPanel.playerCLevel.setText("combat level: " + getCurrentPlayer().getCombatLevel());
 		this.mainFrame.revalidate();
 		this.mainFrame.repaint();
 		//Add Action here
@@ -135,7 +135,7 @@ public class Game implements IGame {
 		this.cardsInPlay.addCardsToPlay(card);
 		
 		this.bottomCardPanel.playerLevel.setText("player level: " +this.getCurrentPlayer().getPlayerLevel());
-		this.bottomCardPanel.playerCLevel.setText("combat level: " +this.getCurrentPlayer().getCombatLevel());
+//		this.bottomCardPanel.playerCLevel.setText("combat level: " +this.getCurrentPlayer().getCombatLevel());
 //		this.bottomCardPanel.monsterLevel.setText("monster level: " +this.getMonsterLevel());
 		
 	}

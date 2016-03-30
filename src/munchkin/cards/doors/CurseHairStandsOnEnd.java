@@ -1,8 +1,9 @@
 package munchkin.cards.doors;
 
+import munchkin.cards.doors.api.AbstractCurse;
 import munchkin.cards.doors.api.Door;
 
-public class CurseHairStandsOnEnd extends Door {
+public class CurseHairStandsOnEnd extends AbstractCurse {
 	
 	@Override
 	public void cardInHand() {
@@ -12,7 +13,7 @@ public class CurseHairStandsOnEnd extends Door {
 	@Override
 	public void cardInPlay() {
 		//lose the headgear you are wearing
-		this.getOwner().getArmorSet().removeHeadgear();;
+		this.getOwner().getArmorSet().removeHeadgear();
 	}
 
 	@Override

@@ -5,5 +5,7 @@ package munchkin.api;
  */
 public enum SpecificCardType {
     Flame,
-    Ichor
+    Ichor,
+    MonsterEnhancer,
+    Curse
 }

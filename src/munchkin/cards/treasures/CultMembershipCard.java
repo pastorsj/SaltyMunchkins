@@ -20,6 +20,6 @@ public class CultMembershipCard extends Treasure {
 
 	@Override
 	public void cardInPlay() {
-		//Become a cultist
+		this.getOwner().setFaction(Faction.Cultist);
 	}
 }

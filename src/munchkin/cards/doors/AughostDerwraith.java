@@ -7,11 +7,11 @@ public class AughostDerwraith extends AbstractMonster {
 
 	@Override
 	public void cardInHand() {
-		this.setTreasures(1);
 	}
 
 	@Override
 	public void cardInPlay() {
+		this.setTreasures(1);
 		this.setLevel(2);
 		//If owner is the only munchkin fighting the monster
 		if(this.getOwner().getFaction().equals(Faction.MonsterWhacker)) {

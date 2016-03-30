@@ -8,8 +8,8 @@ import munchkin.game.Game;
  */
 public class GoUpALevel extends Treasure {
 
-    public GoUpALevel(Game game) {
-        super(game);
+    public GoUpALevel() {
+        super();
     }
 
     @Override
