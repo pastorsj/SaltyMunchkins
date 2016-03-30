@@ -4,8 +4,8 @@ import munchkin.game.Game;
 
 public class SoleSurvivor extends GoUpALevel {
 
-    public SoleSurvivor(Game game) {
-        super(game);
+    public SoleSurvivor() {
+        super();
     }
 
     @Override

@@ -21,6 +21,6 @@ public class Tentacle extends Treasure {
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.NegativeOneHand);
+       // this.setArmor(Armor.NegativeOneHand);
     }
 }
