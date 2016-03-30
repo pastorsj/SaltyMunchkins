@@ -45,6 +45,7 @@ public class Game {
 		p1.pHand = this.dealCards();
 		p2.pHand = this.dealCards();
 		bCardPanel = mframe.mainPanel.bCardPanel;
+		LogWindow log = LogWindow.getInstance();
 	}
 	
 	public void changePlayerForTest() {

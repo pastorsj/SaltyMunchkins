@@ -1,4 +1,5 @@
 package munchkin.game;
+
 import java.io.IOException;
 import java.io.FileReader;
 import java.io.BufferedReader;
@@ -23,6 +24,7 @@ public class ReadFile {
 		for (int i = 0; i < numberOfLines; i++) {
 			textData.add(textReader1.readLine());
 		}
+
 		textReader1.close();
 		return textData;
 	}

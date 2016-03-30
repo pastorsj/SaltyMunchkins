@@ -12,6 +12,7 @@ import javax.swing.JButton;
 
 import munchkin.game.CardFunc;
 import munchkin.game.Game;
+import munchkin.game.LogWindow;
 
 public class PlayCardButton extends JButton implements ActionListener {
 
@@ -45,6 +46,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 		int cardToMove = myGame.currentPlayer.pHand.get(cardToMovePos);
 		myGame.currentPlayer.pHand.remove(cardToMovePos);
 		myGame.currentPlayer.pPlay.add(cardToMove);
+		LogWindow.getInstance().logMessage(myGame.currentPlayer.username + " played a card! Either play another card or end your turn");
 		int curHandLevel=0;
 		int curFootLevel = 0;
 		int curHeadLevel = 0;
