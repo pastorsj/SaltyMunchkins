@@ -12,8 +12,10 @@ public class AbstractPlayer implements IPlayer{
     private ArmorSet armorSet;
     private String name;
     private String gender;
-    private int level;
+    private boolean alive = true;
+    //Not sure if this field is necessary
     private int treasures;
+    private int level;
     private int combatLevel;
     private int runAwayLevel;
     
@@ -119,6 +121,11 @@ public class AbstractPlayer implements IPlayer{
     @Override
     public void addToRunAwayLevel(int levels) {
         this.runAwayLevel += levels;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return this.alive;
     }
 
 

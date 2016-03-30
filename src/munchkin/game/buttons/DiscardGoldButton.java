@@ -16,12 +16,15 @@ public class DiscardGoldButton extends JButton implements ActionListener {
 	public int goldCount = 0;
 	public int goldLeft =0;
 	public int goldToDiscard = 0;
+	private String buttonText;
 
 	public DiscardGoldButton(
-			Game game) {
+			String buttonText, Game game) {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
-		super.setText("Discard >="+goldToDiscard+ "Gold ");
+		this.buttonText = buttonText;
+		//Will be be replaced later
+		this.setText(buttonText);
 		this.setPreferredSize(new Dimension(200,30));
 		super.setVisible(false);
 

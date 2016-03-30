@@ -1,7 +1,7 @@
 package munchkin.game.buttons;
 
 import munchkin.game.Game;
-import munchkin.game.panels.BottomCardPanel;
+import munchkin.game.panels.MainCardPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,9 +12,9 @@ public class GenderButton extends JButton implements ActionListener {
 
 	public Game myGame;
 	public String gender;
-	private BottomCardPanel bCardPanel;
+	private MainCardPanel bCardPanel;
 
-	public GenderButton(Game game) {
+	public GenderButton(String buttonText, Game game) {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
 

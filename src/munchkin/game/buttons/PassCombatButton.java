@@ -14,7 +14,7 @@ public class PassCombatButton extends JButton implements ActionListener{
 
 	
 	public Game myGame;
-	public PassCombatButton(Game game){
+	public PassCombatButton(String s, Game game){
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
 		super.setText("Pass");//Should be just Switch Sides
@@ -49,10 +49,10 @@ public class PassCombatButton extends JButton implements ActionListener{
 		}
 		
 
-		//myGame.mframe.dispose();
+		//game.mframe.dispose();
 		
 		
-		//myGame.mframe=new MFrame(myGame);
+		//game.mframe=new MFrame(game);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
 		

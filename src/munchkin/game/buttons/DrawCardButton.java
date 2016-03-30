@@ -14,7 +14,7 @@ public class DrawCardButton extends JButton implements ActionListener{
 	public ArrayList<String> arrayOfCardLines;
 	public Game myGame;
 	public ArrayList<String> arrayOfLines;
-	public DrawCardButton(Game game){
+	public DrawCardButton(String buttonText, Game game){
 		
 		this.arrayOfCardLines=arrayOfLines;
 		this.myGame=game;

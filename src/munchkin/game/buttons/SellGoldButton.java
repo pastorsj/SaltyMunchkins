@@ -17,7 +17,7 @@ public class SellGoldButton extends JButton implements ActionListener {
 	
 
 	public SellGoldButton(
-			Game game) {
+			String buttonText, Game game) {
 		
 
 		String buttonText = "Sell";

@@ -16,7 +16,7 @@ public class NewGameButton extends JButton implements ActionListener {
 	public Game myGame;
 	public Player turnPlayer;
 
-	public NewGameButton(Game game) {
+	public NewGameButton(String buttonText, Game game) {
 		if (game.turnPlayer == 1) {
 			this.turnPlayer = game.p1;
 		} else {

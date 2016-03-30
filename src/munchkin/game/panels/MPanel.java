@@ -11,7 +11,7 @@ public class MPanel extends JPanel {
 
 	MunchkinPanel munchPanel;
 	public Game myGame;
-	public BottomCardPanel bCardPanel;
+	public MainCardPanel bCardPanel;
 	public WelcomePanel welcPanel;
 
 	public MPanel(MFrame frame, Game game) throws IOException {
@@ -21,7 +21,7 @@ public class MPanel extends JPanel {
 
 		this.setLayout(new BorderLayout(5, 5));
 		myGame = game;
-		this.bCardPanel = new BottomCardPanel(myGame);
+		this.bCardPanel = new MainCardPanel(myGame);
 		this.add(bCardPanel, BorderLayout.CENTER);
 		this.bCardPanel.setPreferredSize(new Dimension(0, 225));
 		this.bCardPanel.setVisible(true);
@@ -30,7 +30,7 @@ public class MPanel extends JPanel {
 	}
 
 	public void addBCard() {
-		this.bCardPanel = new BottomCardPanel(myGame);
+		this.bCardPanel = new MainCardPanel(myGame);
 		this.add(bCardPanel, BorderLayout.CENTER);
 		this.bCardPanel.setPreferredSize(new Dimension(0, 225));
 

@@ -78,7 +78,7 @@ public class Mile3Testing {
 	public void setValuesForC4(){
 		assertEquals(1,init.cardHash.get(4).monsterLevel);
 		assertEquals(1, init.cardHash.get(4).numTreas);
-		//assertEquals(false,myGame.p1.classAbility);
+		//assertEquals(false,game.p1.classAbility);
 	}
 	
 	@Test

@@ -14,15 +14,13 @@ public class DiscardButton extends JButton implements ActionListener {
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
 	public int numDiscarded=0;
+	private String buttonText;
 
-	public DiscardButton(
-			Game game) {
-		
-
-		String buttonText = "Discard";
+	public DiscardButton(String buttonText, Game game) {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
-		super.setText(buttonText);
+		this.buttonText = buttonText;
+		this.setText(this.buttonText);
 		this.setPreferredSize(new Dimension(100,30));
 		super.setVisible(true);
 
@@ -43,19 +41,19 @@ public class DiscardButton extends JButton implements ActionListener {
 		cf.deleteWhenDiscard();
 		
 		
-		//myGame.playACard(cardToMove);
-		//myGame.updateMLevel(cardToMove);
+		//game.playACard(cardToMove);
+		//game.updateMLevel(cardToMove);
 			
 //		if (cardToMove < 83) { //if the card is a door card being put in play: 
 //			Card cardInPlay = ic.getCardHash().get(cardToMove);
-//			if(myGame.mLevel==0){ //if a monster is in play, don't want to override
+//			if(game.mLevel==0){ //if a monster is in play, don't want to override
 //									//with another door card.
-//				//myGame.mInPlay=cardInPlay.num;
-//				myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel;
+//				//game.mInPlay=cardInPlay.num;
+//				game.mLevel = ic.getCardHash().get(cardToMove).monsterLevel;
 //						
 //			}
-//			if (myGame.mInPlay != 0) {
-//				//myGame.mLevel = ic.getCardHash().get(cardToMove).monsterLevel+myGame.mLevel;
+//			if (game.mInPlay != 0) {
+//				//game.mLevel = ic.getCardHash().get(cardToMove).monsterLevel+game.mLevel;
 //					
 //			}
 //
@@ -74,9 +72,9 @@ public class DiscardButton extends JButton implements ActionListener {
 
 		
 
-		//myGame.mframe.dispose();
+		//game.mframe.dispose();
 
-		//myGame.mframe = new MFrame(myGame);
+		//game.mframe = new MFrame(game);
 		
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();

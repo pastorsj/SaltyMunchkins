@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 public class EndTurnButton extends JButton implements ActionListener{
 	
 	public Game myGame;
-	public EndTurnButton(Game game){
+	public EndTurnButton(String buttonText, Game game){
 	
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
@@ -73,10 +73,10 @@ public class EndTurnButton extends JButton implements ActionListener{
 			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
 			myGame.mframe.mainPanel.bCardPanel.diceLevel.setVisible(false);
 
-			//myGame.mframe.dispose();
+			//game.mframe.dispose();
 			
 			
-			//myGame.mframe=new MFrame(myGame);
+			//game.mframe=new MFrame(game);
 			myGame.mframe.revalidate();
 			myGame.mframe.repaint();
 		}

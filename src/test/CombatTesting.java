@@ -69,7 +69,7 @@ public class CombatTesting {
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
-		DidIWinButton diwb1 = new DidIWinButton(myGame);
+		DidIWinButton diwb1 = new DidIWinButton("Did I Win?", myGame);
 		handInPlay.add(2);
 		handInPlay.add(88);
 		myGame.p1.pHand=hand;
@@ -91,7 +91,7 @@ public class CombatTesting {
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
-		DidIWinButton diwb1 = new DidIWinButton(myGame);
+		DidIWinButton diwb1 = new DidIWinButton("Did I Win?", myGame);
 		handInPlay.add(27); //level 1 monster
 		myGame.p1.pHand=hand;
 		myGame.p1.pPlay=handInPlay;
@@ -114,7 +114,7 @@ public class CombatTesting {
 		ArrayList<Integer> hand = new ArrayList<Integer>();
 		ArrayList<Integer> handInPlay = new ArrayList<Integer>();
 		ArrayList<Integer> hand2 = new ArrayList<Integer>();
-		DidIWinButton diwb1 = new DidIWinButton(myGame);
+		DidIWinButton diwb1 = new DidIWinButton("Did I Win?", myGame);
 		handInPlay.add(27); //level 1 monster
 		myGame.playACard(27);
 		myGame.p1.pHand=hand;

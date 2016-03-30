@@ -26,25 +26,25 @@ public class InitializeCards {
 
 
 	public InitializeCards(Game game) {
+		this.game = game;
 		this.doorCards = new ArrayList<>();
 		this.treasureCards = new ArrayList<>();
 		initializeSelectTreasureCards();
 		initializeSelectDoorCards();
 		this.allCards.addAll(doorCards);
 		this.allCards.addAll(treasureCards);
-		this.game = game;
 
 	}
 
 	//---- Temperary Methods -----
 	private void initializeSelectTreasureCards() {
 		initializeTreasure(new BowlingPin());
-		initializeTreasure(new Necrocomicon(game));
+		initializeTreasure(new Necrocomicon(this.game));
 		initializeTreasure(new BrassKnucks());
 		initializeTreasure(new CallTheArmy());
 		initializeTreasure(new Flamethrower());
-		initializeTreasure(new TwoHandedFlashlight(game));
-		initializeTreasure(new WandOfWalloping(game));
+		initializeTreasure(new TwoHandedFlashlight(this.game));
+		initializeTreasure(new WandOfWalloping(this.game));
 		initializeTreasure(new ReportCreaturestoFBI());
 	}
 
@@ -53,7 +53,7 @@ public class InitializeCards {
 	}
 
 	private void initializeSelectDoorCards() {
-		initializeDoor(new AndItsSpawn(game));
+		initializeDoor(new AndItsSpawn(this.game));
 		initializeDoor(new CurseGetAllBlobby());
 		initializeDoor(new CurseHairStandsOnEnd());
 		initializeDoor(new AughostDerwraith());

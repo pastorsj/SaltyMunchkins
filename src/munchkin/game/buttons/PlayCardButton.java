@@ -15,7 +15,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 	public ArrayList<Integer> mCards = new ArrayList<Integer>();
 
 	public PlayCardButton(
-			Game game) {
+			String buttonText, Game game) {
 		
 
 		String buttonText = "PlayCard";
@@ -56,7 +56,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 		}
 		else{
 			//at this point, have checked all hands/armor/etc.
-			//System.out.println("pPlay is: "+myGame.currentPlayer.pPlay);
+			//System.out.println("pPlay is: "+game.currentPlayer.pPlay);
 			System.out.println("playing card: "+cardToMove);
 		
 			if(myGame.currentPlayer.playCard && mCards.contains(cardToMove)){

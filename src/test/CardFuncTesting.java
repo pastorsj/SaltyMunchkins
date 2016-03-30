@@ -436,13 +436,13 @@ public class CardFuncTesting {
 	// Once we implement the Ichor cards, this test will work :)
 	// @Test
 	// public void func28InitTest2() {
-	// int cLevel = myGame.currentPlayer.cLevel;
-	// myGame.currentPlayer.pPlay.add(137);
-	// myGame.changePlayerForTest();
-	// myGame.currentPlayer.pPlay.add(100);
-	// myGame.changePlayerForTest();
-	// myGame.funcs.func28Init();
-	// assertEquals(cLevel+1, myGame.currentPlayer.cLevel);
+	// int cLevel = game.currentPlayer.cLevel;
+	// game.currentPlayer.pPlay.add(137);
+	// game.changePlayerForTest();
+	// game.currentPlayer.pPlay.add(100);
+	// game.changePlayerForTest();
+	// game.funcs.func28Init();
+	// assertEquals(cLevel+1, game.currentPlayer.cLevel);
 	// }
 
 	@Test
@@ -1198,7 +1198,7 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pLevel = 1;
 		myGame.currentPlayer.pPlay.add(86);
 		myGame.playACard(86);
-		// assertEquals(1, myGame.currentPlayer.hLevel);
+		// assertEquals(1, game.currentPlayer.hLevel);
 		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
 
 	}
@@ -1220,7 +1220,7 @@ public class CardFuncTesting {
 		myGame.currentPlayer.pLevel = 1;
 		myGame.currentPlayer.pPlay.add(88);
 		myGame.playACard(88);
-		// assertEquals(1, myGame.currentPlayer.hLevel);
+		// assertEquals(1, game.currentPlayer.hLevel);
 		assertEquals(true, myGame.currentPlayer.didIwin(myGame));
 	}
 

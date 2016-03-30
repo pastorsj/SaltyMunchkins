@@ -10,36 +10,17 @@ import java.util.ArrayList;
 
 
 public class DidIWinButton extends JButton implements ActionListener{
-	//public MFrame frame;
 	public ArrayList<String> arrayOfCardLines;
-	//public Player turnPlayer;
 	public ArrayList<String> arrayOfLines;
 	public Game myGame;
-	public DidIWinButton(Game game){
-	//	if(game.turnPlayer==1){
-	//		this.turnPlayer=game.p1;
-	//	}
-	//	else{
-	//		this.turnPlayer=game.p2;
-	//	}
-		
-
-		
+	private String buttonText;
+	public DidIWinButton(String buttonText, Game game){
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
-		super.setText("WIN?");//Should be End Turn
-		
-		//this.frame=mframe;
-		this.arrayOfCardLines=arrayOfLines;
+		this.setText(buttonText);
 		this.setMaximumSize(new Dimension(100,50));
-		this.arrayOfLines=arrayOfLines;
 		this.myGame=game;
 		this.setVisible(false);
 		addActionListener(this);
-	}
-	
-	public void didIWin(){
-		boolean bool = myGame.currentPlayer.didIwin(myGame);
-	//	myGame.mframe.repaint();
 	}
 	
 		
@@ -75,8 +56,8 @@ public class DidIWinButton extends JButton implements ActionListener{
 		if(myGame.currentPlayer.pLevel>=10){
 			myGame.currentPlayer.winStatus=1;
 		}
-		//myGame.mframe.dispose();
-		//myGame.mframe=new MFrame(myGame);
+		//game.mframe.dispose();
+		//game.mframe=new MFrame(game);
 		myGame.mframe.revalidate();
 		myGame.mframe.repaint();
 			

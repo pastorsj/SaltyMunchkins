@@ -2,19 +2,18 @@ package munchkin.game;
 
 import munchkin.api.*;
 import munchkin.game.api.IGame;
-import munchkin.game.panels.BottomCardPanel;
+import munchkin.game.panels.MainCardPanel;
 
 import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 import java.util.*;
 
 public class Game implements IGame {
 
 	//Observed Value (DO NOT DELETE for now...)
 	public static String action;
+	private static final int WIN_LEVEL = 10;
 
 	//-----Potential New Implementation-----
 	private Queue<IPlayer> players;
@@ -26,10 +25,6 @@ public class Game implements IGame {
 	private List<ICard> discardedDoorCards;
 	private List<ICard> discardedTreasureCards;
 	private Combat combat;
-	//----------- Required Graphic Fields -----------
-	private MFrame mainFrame;
-	private BottomCardPanel bottomCardPanel;
-	//-----------------------------------------------
 
 
 	public Game(int numberOfPlayers) {
@@ -51,8 +46,6 @@ public class Game implements IGame {
 		//Constructs the idea of Combat, which will always have an referenced instance of the game
 		this.combat = new Combat(this);
 
-		//Deal with graphics here at the end of all things
-
 	}
 
 	public IPlayer getCurrentPlayer() {
@@ -64,11 +57,11 @@ public class Game implements IGame {
 		this.players.add(temp);
 
 		//FIXME
-		this.bottomCardPanel.playerLabel.setText(this.getCurrentPlayer().getName());
-		this.bottomCardPanel.playerLevel.setText("player level: " + getCurrentPlayer().getPlayerLevel());
+//		this.bottomCardPanel.playerLabel.setText(this.getCurrentPlayer().getName());
+//		this.bottomCardPanel.playerLevel.setText("player level: " + getCurrentPlayer().getPlayerLevel());
 //		this.bottomCardPanel.playerCLevel.setText("combat level: " + getCurrentPlayer().getCombatLevel());
-		this.mainFrame.revalidate();
-		this.mainFrame.repaint();
+//		this.mainFrame.revalidate();
+//		this.mainFrame.repaint();
 		//Add Action here
 
 	}
@@ -133,10 +126,18 @@ public class Game implements IGame {
 	public void playACard(ICard card) {
 
 		this.cardsInPlay.addCardsToPlay(card);
-		
-		this.bottomCardPanel.playerLevel.setText("player level: " +this.getCurrentPlayer().getPlayerLevel());
+
+//		this.bottomCardPanel.playerLevel.setText("player level: " +this.getCurrentPlayer().getPlayerLevel());
 //		this.bottomCardPanel.playerCLevel.setText("combat level: " +this.getCurrentPlayer().getCombatLevel());
 //		this.bottomCardPanel.monsterLevel.setText("monster level: " +this.getMonsterLevel());
 		
+	}
+
+	public boolean checkWin() {
+		return this.getCurrentPlayer().getPlayerLevel() == WIN_LEVEL;
+	}
+
+	public Combat getCombat() {
+		return this.combat;
 	}
 }

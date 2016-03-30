@@ -15,6 +15,7 @@ public class Combat implements ICombat{
     private List<AbstractMonster> monsters;
     private List<IPlayer> fighters;
     private Game game;
+    private List<Integer> monsterLevels;
 
 
     public Combat(Game game) {
@@ -104,6 +105,10 @@ public class Combat implements ICombat{
         this.initializeFields();
     }
 
+    public int getMonsterLevel() {
+        //Assuming there is only one monster
+        return this.monsterLevels.get(0);
+    }
 }
 //
 //
