@@ -4,6 +4,7 @@ package munchkin.cards.treasures;
 import munchkin.cards.treasures.api.Armor;
 import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
+import munchkin.game.Utility;
 
 public class Bagpipes extends Treasure {
 
@@ -22,7 +23,7 @@ public class Bagpipes extends Treasure {
 
     @Override
     public void cardInPlay() {
-        if(game.rollDice(0) == 6) {
+        if(Utility.rollDice() == 6) {
             this.mating = true;
             this.action.setValue("Dice roll was 6, The monster is attempting to mate with you");
         } else {

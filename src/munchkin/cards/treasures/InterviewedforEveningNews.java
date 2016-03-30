@@ -4,8 +4,8 @@ import munchkin.game.Game;
 
 public class InterviewedforEveningNews extends GoUpALevel {
 
-    public InterviewedforEveningNews(Game game) {
-        super(game);
+    public InterviewedforEveningNews() {
+        super();
     }
 
 }

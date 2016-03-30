@@ -4,8 +4,8 @@ import munchkin.game.Game;
 
 public class InformLocalAuthorities extends GoUpALevel {
 
-    public InformLocalAuthorities(Game game) {
-        super(game);
+    public InformLocalAuthorities() {
+        super();
     }
 
 }
