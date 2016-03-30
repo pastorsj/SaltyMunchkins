@@ -22,11 +22,6 @@ import java.util.List;
 
 public class MainCardPanel extends JPanel implements MouseListener{
 	//Current Implementation
-	private BufferedImage youLoseScreen;
-	private BufferedImage youWinScreen;
-	public ArrayList<BufferedImage> cardImages;
-	public ArrayList<BufferedImage> cardsInPlayImages;
-	public ArrayList<BufferedImage> cardsInPlayImages2;
 	public int largeCardPos;
 	public BufferedImage largeCard;
 
@@ -37,6 +32,8 @@ public class MainCardPanel extends JPanel implements MouseListener{
 	private Map<String, JLabel> labels;
 	private Map<String, String> partialLabel;
 	private Map<String, BufferedImage> images;
+	private List<BufferedImage> cardsInHand;
+	private List<BufferedImage> cardsInPlay;
 	
 	
 
@@ -130,9 +127,6 @@ public class MainCardPanel extends JPanel implements MouseListener{
 
 
 	public void paintComponent(Graphics g) {
-			cardImages = new ArrayList<BufferedImage>();
-			cardsInPlayImages = new ArrayList<BufferedImage>();
-			cardsInPlayImages2 = new ArrayList<BufferedImage>();
 			super.paintComponents(g);
 			
 			//if you lose
@@ -141,48 +135,26 @@ public class MainCardPanel extends JPanel implements MouseListener{
 			} else if(game.checkWin()){
 				g.drawImage(this.images.get("WinnerScreen"),0,0,1920,1080,null);
 			} else{
-				try {
-					//TODO: Crossroads, rename all images
-					MunchBanner = ImageIO.read(new File ("resources/munchkin-cthulhu.jpg"));
-					
-					//i<this.turnPlayer.pHand.size()
-					for(int i = 0; i< game.currentPlayer.pHand.size(); i++){
-						BufferedImage cardImage = ImageIO.read(new File ("resources/m"+ game.currentPlayer.pHand.get(i)+".PNG"));
-						cardImages.add(cardImage);
-					
-					}
-					
-					for(int i = 0; i< game.currentPlayer.pPlay.size(); i++){
-						BufferedImage playImage = ImageIO.read(new File("resources/m"+ game.currentPlayer.pPlay.get(i)+".PNG"));
-						cardsInPlayImages.add(playImage);
-					}
-					
-					for(int i = 0; i< game.otherPlayer.pPlay.size(); i++){
-						BufferedImage playImage2 = ImageIO.read(new File("resources/m"+ game.otherPlayer.pPlay.get(i)+".PNG"));
-						cardsInPlayImages2.add(playImage2);
-					}
-					
-					
-				
-				
-				} catch (IOException ex) {
-					System.out.println("Error reading card file in MainCardPanel");
-					// handle exception...
+				populateCurrentHandImages();
+				populateInPlayImages();
+				for(int i = 0; i< game.currentPlayer.pHand.size(); i++){
+					BufferedImage cardImage = ImageIO.read(new File ("resources/m"+ game.currentPlayer.pHand.get(i)+".PNG"));
+					cardImages.add(cardImage);
+
+				}
+
+				for(int i = 0; i< game.currentPlayer.pPlay.size(); i++){
+					BufferedImage playImage = ImageIO.read(new File("resources/m"+ game.currentPlayer.pPlay.get(i)+".PNG"));
+					cardsInPlayImages.add(playImage);
+				}
+
+				for(int i = 0; i< game.otherPlayer.pPlay.size(); i++){
+					BufferedImage playImage2 = ImageIO.read(new File("resources/m"+ game.otherPlayer.pPlay.get(i)+".PNG"));
+					cardsInPlayImages2.add(playImage2);
 				}
 				//this.setPreferredSize(new Dimension(2000, 1000));
 				this.setMinimumSize(new Dimension(2000,500));
 				this.setVisible(true);
-				//this.repaint();
-				
-				
-				
-				//go.drawImage(this.munchkinLogo,0,0,null);
-				//go.drawImage(this.cardImage,0,400, 180, 180, null);
-				
-				//go.drawImage(this.cardImage1,50,0,180,200,null);
-				//go.drawImage(this.cardImage2, 60+180,0,180,200,null);
-				//go.drawImage(this.cardImage3, 2*(60+180), 0, 180, 200, null);
-		//		go.drawImage(MunchBanner,550,0,null);
 				
 				for(int i =0; i<cardImages.size() && i<8;i++){
 					go.drawImage(cardImages.get(i),50+180*i+10*i,750,180,225,null);
@@ -212,8 +184,16 @@ public class MainCardPanel extends JPanel implements MouseListener{
 
 
 		}
-	 
-	 public void removeETB(){
+
+	private void populateInPlayImages() {
+
+	}
+
+	private void populateCurrentHandImages() {
+
+	}
+
+	public void removeETB(){
 		 this.etb.setVisible(false);
 	
 	 }
