@@ -31,11 +31,14 @@ public class Hand implements IHand {
     public boolean removeCardFromHand(ICard card) {
         boolean inHand = this.hand.remove(card);
         if(inHand) {
-            //FIXME: There needs to be a concept of Combat implemented
-            //This method must be invoked when the card is discarded
-            card.cardPlayed(true);
             //Nobody owns this card anymore
             card.setOwner(null);
+            //Add card to either treasure or door discard set
+            if(card.getCardType().equals(CardType.Door)) {
+            	//Game must become singleton
+            } else {
+            	
+            }
         }
         return inHand;
     }

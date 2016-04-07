@@ -19,7 +19,6 @@ public abstract class AbstractCard implements ICard{
         this.ownedBy = null;
         this.type = null;
         this.action = Action.getInstance();
-        System.out.println(getClass().getCanonicalName());
     }
 
     @Override

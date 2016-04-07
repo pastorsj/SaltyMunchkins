@@ -1,5 +1,6 @@
 package munchkin.game.panels;
 
+
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.MouseInfo;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -24,7 +26,6 @@ import munchkin.api.IHand;
 import munchkin.api.IPlayer;
 import munchkin.game.Game;
 import munchkin.game.MFrame;
-import munchkin.game.buttons.ResolveConflictButton;
 import munchkin.game.buttons.DiscardButton;
 import munchkin.game.buttons.DiscardGoldButton;
 import munchkin.game.buttons.DrawCardButton;
@@ -33,22 +34,23 @@ import munchkin.game.buttons.GenderButton;
 import munchkin.game.buttons.NewGameButton;
 import munchkin.game.buttons.PassCombatButton;
 import munchkin.game.buttons.PlayCardButton;
+import munchkin.game.buttons.ResolveConflictButton;
 import munchkin.game.buttons.SellGoldButton;
 
 public class MainCardPanel extends JPanel implements MouseListener {
 	private final String IMAGE_PATH = "resources/pictures/";
 	private final String PNG_EXTENSION = ".png";
-	
-	// Current Implementation
-	public int largeCardPos;
-	public BufferedImage largeCard;
 
-	private List<IPlayer> players;
+	// Current Implementation
+	private BufferedImage largeCard;
+	private ICard selectedCard;
+
 	private Game game;
 	private Map<String, JButton> buttons;
 	private Map<String, JLabel> labels;
 	private Map<String, String> partialLabel;
 	private Map<String, BufferedImage> images;
+	private Map<BufferedImage, String> revImageMap;
 	private List<BufferedImage> cardsInHand;
 	private Map<IPlayer, List<BufferedImage>> cardsInPlay;
 	private MFrame frame;
@@ -56,12 +58,11 @@ public class MainCardPanel extends JPanel implements MouseListener {
 	public MainCardPanel(Game game, MFrame frame) {
 		this.frame = frame;
 		this.game = game;
-		this.players = new ArrayList<>(this.game.getPlayers());
-		
+
 		initializeLabels();
 		initializeButtons();
 		initializeImages();
-		
+
 		this.updateLabels();
 		this.addInitialLabelsToPanel();
 		this.addInitialButtonsToPanel();
@@ -71,9 +72,6 @@ public class MainCardPanel extends JPanel implements MouseListener {
 	private void initializeLabels() {
 		this.labels = new HashMap<>();
 		this.partialLabel = new HashMap<>();
-		System.out.println("Game" + this.game);
-		System.out.println("Player: " + this.game.getCurrentPlayer());
-		System.out.println(this.game.getCurrentPlayer().getName());
 		this.labels.put("PlayerLabel", new JLabel("Current Player: " + this.game.getCurrentPlayer().getName()));
 		this.partialLabel.put("PlayerLabel", "Current Player: ");
 		this.labels.put("PlayerLevelLabel",
@@ -99,7 +97,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.buttons.put("Discard", new DiscardButton("Discard", this.game, this));
 		this.buttons.put("Play Card", new PlayCardButton("Play Card", this.game, this));
 		this.buttons.put("Pass Combat", new PassCombatButton("Pass Combat", this.game, this));
-		this.buttons.put("Resolve Conflict", new ResolveConflictButton("Did I Win?", this.game, this));
+		this.buttons.put("Resolve Conflict", new ResolveConflictButton("Resolve Conflict", this.game, this));
 		this.buttons.put("Sell Gold", new SellGoldButton("Sell Gold", this.game, this));
 		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
 		this.buttons.put("Male", new GenderButton("Male", this.game, this));
@@ -151,6 +149,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	public void updateLabel(String label, Integer updatedValue) {
 		this.labels.get(label).setText(this.partialLabel.get(label) + updatedValue);
+		this.repaint();
 	}
 
 	public void paintComponent(Graphics g) {
@@ -183,36 +182,41 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			}
 
 			// In play for current player
-			if(!this.cardsInPlay.isEmpty()) {
+			if (!this.cardsInPlay.isEmpty()) {
 				List<BufferedImage> imageList = this.cardsInPlay.get(this.game.getCurrentPlayer());
 				for (int i = 0; i < imageList.size(); i++) {
-					g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225,
-							null);
+					g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225, null);
 				}
-				
+
 				// In play for other player
 				imageList = this.cardsInPlay.get(this.game.getOtherPlayer());
 				for (int i = 0; i < imageList.size(); i++) {
 					g.drawImage(imageList.get(i), 50 + 100 * i, 50, 180, 225, null);
-				}	
+				}
 			}
 			g.drawImage(largeCard, 50 + 180 * 8 + 10 * 8, 400, 360, 570, null);
+			this.updateRevImageMap();
 			this.setMinimumSize(new Dimension(2000, 500));
 			this.setVisible(true);
-
 		}
 
+	}
+
+	private void updateRevImageMap() {
+		//The simplest to reverse a map with unique keys and values
+		this.revImageMap = this.images.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
 	}
 
 	private void populateInPlayImages() throws IOException {
 		CardsInPlay cards = this.game.getCardsInPlay();
 		this.cardsInPlay = new HashMap<>();
-		System.out.println("Initialized");
 		for (ICard card : cards.getCardsInPlay()) {
 			if (!this.cardsInPlay.containsKey(card.getOwner())) {
 				this.cardsInPlay.put(card.getOwner(), new ArrayList<BufferedImage>());
 			}
-			this.cardsInPlay.get(card.getOwner()).add(ImageIO.read(new File(IMAGE_PATH + card.getName() + PNG_EXTENSION)));
+			BufferedImage inPlayImage = ImageIO.read(new File(IMAGE_PATH + card.getName() + PNG_EXTENSION));
+			this.cardsInPlay.get(card.getOwner()).add(inPlayImage);
+			this.images.put(card.getName(), inPlayImage);
 		}
 	}
 
@@ -220,65 +224,55 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		IHand currentPlayersHand = this.game.getCurrentPlayer().getHand();
 		this.cardsInHand = new ArrayList<>();
 		for (ICard card : currentPlayersHand.getCards()) {
-			System.out.println(card.getName());
-			this.cardsInHand.add(ImageIO.read(new File(IMAGE_PATH + card.getName() + PNG_EXTENSION)));
+			BufferedImage inHandImage = ImageIO.read(new File(IMAGE_PATH + card.getName() + PNG_EXTENSION));
+			this.cardsInHand.add(inHandImage);
+			this.images.put(card.getName(), inHandImage);
 		}
 	}
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// System.out.println(MouseInfo.getPointerInfo().getLocation());
+//		System.out.println(MouseInfo.getPointerInfo().getLocation());
+		//TODO: There may be some magic numbers here...
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
 		if (y > 780 && y < 1006) {
 			if (x > 10 && x < 185) {
 				largeCard = cardsInHand.get(0);
-				largeCardPos = 0;
 			} else if (x > 200 && x < 374) {
 				if (cardsInHand.size() > 1) {
 					largeCard = cardsInHand.get(1);
-					largeCardPos = 1;
-
 				}
-
-			}
-
-			else if (x > 393 && x < 564) {
+				
+			} else if (x > 393 && x < 564) {
 				if (cardsInHand.size() > 2) {
 					largeCard = cardsInHand.get(2);
-					largeCardPos = 2;
 				}
 
 			} else if (x > 582 && x < 753) {
 				if (cardsInHand.size() > 3) {
 					largeCard = cardsInHand.get(3);
-					largeCardPos = 3;
 				}
 
 			} else if (x > 773 && x < 946) {
 				if (cardsInHand.size() > 4) {
 					largeCard = cardsInHand.get(4);
-					largeCardPos = 4;
 				}
 
 			} else if (x > 960 && x < 1137) {
 				if (cardsInHand.size() > 5) {
 					largeCard = cardsInHand.get(5);
-					largeCardPos = 5;
 				}
 
 			} else if (x > 1151 && x < 1324) {
 				if (cardsInHand.size() > 6) {
 					largeCard = cardsInHand.get(6);
-					largeCardPos = 6;
 				}
 
 			} else if (x > 1340 && x < 1517) {
 				if (cardsInHand.size() > 7) {
 					largeCard = cardsInHand.get(7);
-					largeCardPos = 7;
 				}
-
 			}
 		}
 
@@ -286,14 +280,12 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			if (x > 1530 && x < 1707) {
 				if (cardsInHand.size() > 8) {
 					largeCard = cardsInHand.get(8);
-					largeCardPos = 8;
 				}
 			}
 
 			else if (x > 1540 && x < 1720) {
 				if (cardsInHand.size() > 9) {
 					largeCard = cardsInHand.get(9);
-					largeCardPos = 9;
 				}
 			}
 		}
@@ -302,29 +294,33 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			for (int i = 0; i < this.cardsInPlay.get(this.game.getCurrentPlayer()).size(); i++) {
 				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
 					largeCard = this.cardsInPlay.get(this.game.getCurrentPlayer()).get(i);
-					largeCardPos = i;
-
 				}
 			}
 
 		}
-		// added this to click other cards
+
 		if (y > 50 && y < 300) {
 			for (int i = 0; i < this.cardsInPlay.get(this.game.getOtherPlayer()).size(); i++) {
 				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
 					largeCard = this.cardsInPlay.get(this.game.getOtherPlayer()).get(i);
-					largeCardPos = i;
-
 				}
 			}
 
 		}
-
-		// FIXME: not sure
-		// game.mframe.repaint();//This blows everything up...
-
+		this.updateSelectedCard();
+		this.frame.repaint();
 	}
 
+	private void updateSelectedCard() {
+		String cardSelected = this.revImageMap.get(largeCard);
+		for(ICard card : this.game.getAllCards()) {
+			if(card.getName().equals(cardSelected)) {
+				this.selectedCard = card;
+				return;
+			}
+		}
+	}
+	
 	public Map<String, JButton> getButtonSet() {
 		return this.buttons;
 	}
@@ -357,7 +353,17 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	}
 
+	public ICard getSelectedCard() {
+		return this.selectedCard;
+	}
+	
 	public void updateLargeCard(ICard card) {
-
+		this.largeCard = this.images.get(card.getName());
+		this.selectedCard = card;
+	}
+	
+	public void repaintFrame() {
+		this.frame.revalidate();
+		this.frame.repaint();
 	}
 }

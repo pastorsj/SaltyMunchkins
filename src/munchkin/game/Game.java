@@ -152,4 +152,8 @@ public class Game {
 	public CardsInPlay getCardsInPlay() {
 		return this.cardsInPlay;
 	}
+	
+	public List<ICard> getAllCards() {
+		return this.allCards;
+	}
 }

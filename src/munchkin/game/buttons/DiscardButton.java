@@ -14,18 +14,13 @@ import munchkin.game.panels.MainCardPanel;
 
 public class DiscardButton extends JButton implements ActionListener {
 
-	public ArrayList<String> arrayOfCardLines;
-	public ArrayList<String> arrayOfLines;
-	public int numDiscarded = 0;
 	private Game game;
-	private String buttonText;
 	private MainCardPanel mainCardPanel;
 
 	public DiscardButton(String buttonText, Game game, MainCardPanel panel) {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
-		this.buttonText = buttonText;
-		this.setText(this.buttonText);
+		this.setText(buttonText);
 		this.setPreferredSize(new Dimension(100, 30));
 		super.setVisible(true);
 
@@ -36,21 +31,9 @@ public class DiscardButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		int cardToMovePos = this.mainCardPanel.largeCardPos;
-		ICard cardToMove;
-		numDiscarded += 1;
-		System.out.println("Discard " + cardToMovePos);
-		
-//		this.game.currentPlayer.pDiscard.add(cardToMove);
-//		if (cardToMove < 83) {
-//			this.game.doorDiscards.add(cardToMove);
-//		} else {
-//			this.game.treasDiscards.add(cardToMove);
-//		}
-//
-//		this.game.mframe.revalidate();
-//		this.game.mframe.repaint();
-
+		ICard cardToMove = this.mainCardPanel.getSelectedCard();
+		this.game.getCurrentPlayer().getHand().removeCardFromHand(cardToMove);
+		this.mainCardPanel.repaintFrame();
 	}
 
 }
