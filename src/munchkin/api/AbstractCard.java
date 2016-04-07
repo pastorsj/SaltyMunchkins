@@ -11,8 +11,6 @@ public abstract class AbstractCard implements ICard{
     private SpecificCardType type;
     private CardType cardType;
     public Action action;
-    private String cardName;
-
 
     public AbstractCard() {
         this.disabled = false;
