@@ -163,8 +163,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			g.drawImage(this.images.get("WinnerScreen"), 0, 0, 1920, 1080, null);
 		} else {
 			try {
-				populateInPlayImages();
 				populateCurrentHandImages();
+				populateInPlayImages();
 			} catch (IOException e) {
 				System.err.println("Error reading image files");
 				e.printStackTrace();
@@ -183,18 +183,19 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			}
 
 			// In play for current player
-			List<BufferedImage> imageList = this.cardsInPlay.get(this.game.getCurrentPlayer());
-			for (int i = 0; i < imageList.size(); i++) {
-				g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225,
-						null);
+			if(!this.cardsInPlay.isEmpty()) {
+				List<BufferedImage> imageList = this.cardsInPlay.get(this.game.getCurrentPlayer());
+				for (int i = 0; i < imageList.size(); i++) {
+					g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225,
+							null);
+				}
+				
+				// In play for other player
+				imageList = this.cardsInPlay.get(this.game.getOtherPlayer());
+				for (int i = 0; i < imageList.size(); i++) {
+					g.drawImage(imageList.get(i), 50 + 100 * i, 50, 180, 225, null);
+				}	
 			}
-
-			// In play for other player
-			imageList = this.cardsInPlay.get(this.game.getOtherPlayer());
-			for (int i = 0; i < imageList.size(); i++) {
-				g.drawImage(imageList.get(i), 50 + 100 * i, 50, 180, 225, null);
-			}
-
 			g.drawImage(largeCard, 50 + 180 * 8 + 10 * 8, 400, 360, 570, null);
 			this.setMinimumSize(new Dimension(2000, 500));
 			this.setVisible(true);
@@ -206,6 +207,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 	private void populateInPlayImages() throws IOException {
 		CardsInPlay cards = this.game.getCardsInPlay();
 		this.cardsInPlay = new HashMap<>();
+		System.out.println("Initialized");
 		for (ICard card : cards.getCardsInPlay()) {
 			if (!this.cardsInPlay.containsKey(card.getOwner())) {
 				this.cardsInPlay.put(card.getOwner(), new ArrayList<BufferedImage>());

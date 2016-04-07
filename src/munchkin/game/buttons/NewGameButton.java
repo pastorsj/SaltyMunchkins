@@ -21,6 +21,8 @@ public class NewGameButton extends JButton implements ActionListener {
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
 		super.setText("Reset Game");
 
+		this.frame = frame;
+		
 		addActionListener(this);
 	}
 
