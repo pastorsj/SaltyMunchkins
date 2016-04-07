@@ -4,5 +4,6 @@ public enum Faction {
 	Professor,
 	Investigator,
 	MonsterWhacker,
-	Cultist
+	Cultist,
+	UNAFFILIATED
 }

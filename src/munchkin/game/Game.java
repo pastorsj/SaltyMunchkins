@@ -1,7 +1,6 @@
 package munchkin.game;
 
 import munchkin.api.*;
-import munchkin.game.api.IGame;
 import munchkin.game.panels.MainCardPanel;
 
 import javax.imageio.ImageIO;
@@ -9,13 +8,14 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
-public class Game implements IGame {
+public class Game {
 
 	//Observed Value (DO NOT DELETE for now...)
 	public static String action;
 	private static final int WIN_LEVEL = 10;
 
 	//-----Potential New Implementation-----
+	//Assume only two players
 	private Queue<IPlayer> players;
 	//IMPORTANT: The concept of the hand in play
 	private CardsInPlay cardsInPlay;
@@ -51,6 +51,14 @@ public class Game implements IGame {
 	public IPlayer getCurrentPlayer() {
 		return this.players.peek();
 	}
+	
+	public IPlayer getOtherPlayer() {
+		IPlayer first = this.players.poll();
+		IPlayer second  = this.players.poll();
+		this.players.offer(first);
+		this.players.offer(second);
+		return second;
+	}
 
 	public void endTurn() {
 		IPlayer temp = this.players.poll();
@@ -84,20 +92,20 @@ public class Game implements IGame {
 	public void dealInitialCards() {
 		for(IPlayer player : this.players) {
 			for(int i = 0; i < 4; i++) {
-				player.getHand().insertCard(this.doorCards.remove(i));
-				player.getHand().insertCard(this.treasureCards.remove(i));
+				player.getHand().insertCard(this.doorCards.remove(0));
+				player.getHand().insertCard(this.treasureCards.remove(0));
 			}
 		}
 	}
 
 	public boolean dealNewCard(List<ICard> cards, IPlayer p) {
 		if(p.getHand().insertCard(cards.get(0))) {
-			try {
-				this.bottomCardPanel.largeCard = ImageIO.read(new File ("resources\\m"+(cards.get(0)).getClass().getName()+".PNG"));
-				this.bottomCardPanel.repaint();
-			} catch(IOException e) {
-				e.printStackTrace();
-			}
+//			try {
+//				this.bottomCardPanel.largeCard = ImageIO.read(new File ("resources\\m"+(cards.get(0)).getClass().getName()+".PNG"));
+//				this.bottomCardPanel.repaint();
+//			} catch(IOException e) {
+//				e.printStackTrace();
+//			}
 //			FIXME: Replace above with
 //			this.bottomCardPanel.updateLargeCard(cards.get(0));
 			return true;
@@ -139,5 +147,9 @@ public class Game implements IGame {
 
 	public Combat getCombat() {
 		return this.combat;
+	}
+	
+	public CardsInPlay getCardsInPlay() {
+		return this.cardsInPlay;
 	}
 }

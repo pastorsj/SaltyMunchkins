@@ -29,6 +29,7 @@ public class InitializeCards {
 		this.game = game;
 		this.doorCards = new ArrayList<>();
 		this.treasureCards = new ArrayList<>();
+		this.allCards = new ArrayList<>();
 		initializeSelectTreasureCards();
 		initializeSelectDoorCards();
 		this.allCards.addAll(doorCards);
@@ -36,7 +37,7 @@ public class InitializeCards {
 
 	}
 
-	//---- Temperary Methods -----
+	//---- Temporary Methods -----
 	private void initializeSelectTreasureCards() {
 		initializeTreasure(new BowlingPin());
 		initializeTreasure(new Necrocomicon(this.game));
@@ -57,10 +58,14 @@ public class InitializeCards {
 		initializeDoor(new CurseGetAllBlobby());
 		initializeDoor(new CurseHairStandsOnEnd());
 		initializeDoor(new AughostDerwraith());
+		initializeDoor(new AndItsSpawn(this.game));
+		initializeDoor(new CurseGetAllBlobby());
+		initializeDoor(new CurseHairStandsOnEnd());
+		initializeDoor(new AughostDerwraith());
 	}
 
 	private void initializeDoor(ICard card) {
-		this.treasureCards.add(card);
+		this.doorCards.add(card);
 	}
 
 	//TODO: Implement these after we finish the rest of the cards

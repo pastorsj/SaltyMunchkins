@@ -15,16 +15,19 @@ public class AbstractPlayer implements IPlayer{
     private boolean alive = true;
     //Not sure if this field is necessary
     private int treasures;
+    //-----------------------------------
     private int level;
     private int combatLevel;
     private int runAwayLevel;
     
     public AbstractPlayer() {
-        this.faction = null;
+        this.faction = Faction.UNAFFILIATED;
         this.hand = new Hand(this);
         this.level = 0;
         this.treasures = 0;
         this.armorSet = new ArmorSet();
+        this.name = "";
+        this.gender = "";
     }
 
 

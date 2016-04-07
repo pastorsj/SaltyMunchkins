@@ -8,6 +8,7 @@ public interface ICard {
 	public void setOwner(IPlayer player);
 	public void setCardType(CardType type);
 	public void setCardType(SpecificCardType type);
+	public void setCardType();
 	public CardType getCardType();
 	public String getName();
 	public boolean isDisabled();

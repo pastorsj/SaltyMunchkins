@@ -14,7 +14,7 @@ public class Maaaaaaster extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(0);
-        if(!this.ownedBy.getFaction().equals(Faction.Cultist)) {
+        if(!this.getOwner().getFaction().equals(Faction.Cultist)) {
             this.disable();
         }
     }

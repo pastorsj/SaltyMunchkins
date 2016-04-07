@@ -1,7 +1,6 @@
 package munchkin.api;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -21,8 +20,8 @@ public class Hand implements IHand {
         if(sizeOfHand() < 8) {
             this.hand.add(card);
             //IMPORTANT: Invoke this method when a card is added to a players hand.
-            card.cardInHand();
             card.setOwner(owner);
+            card.cardInHand();
             return true;
         }
         return false;
@@ -47,14 +46,14 @@ public class Hand implements IHand {
     }
 
     @Override
-    public Iterator<ICard> iterator() {
-        return hand.iterator();
-    }
-
-    @Override
     public int sizeOfHand() {
         return this.hand.size();
     }
+
+	@Override
+	public List<ICard> getCards() {
+		return this.hand;
+	}
 
 
 

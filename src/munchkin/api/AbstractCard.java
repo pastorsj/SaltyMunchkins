@@ -69,6 +69,7 @@ public abstract class AbstractCard implements ICard{
 
     @Override
     public String getName() {
-        return this.getClass().getCanonicalName();
+    	String canonicalName = this.getClass().getCanonicalName();
+        return canonicalName.substring(canonicalName.lastIndexOf(".")+1);
     }
 }

@@ -107,6 +107,9 @@ public class Combat implements ICombat{
 
     public int getMonsterLevel() {
         //Assuming there is only one monster
+    	if(this.monsters.size() < 1) {
+    		return 0;
+    	}
         return this.monsterLevels.get(0);
     }
 }
