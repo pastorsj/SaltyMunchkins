@@ -362,6 +362,12 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.selectedCard = card;
 	}
 	
+	public void resetLargeCard() {
+		//This seems to not work
+		this.largeCard = null;
+		this.selectedCard = null;
+	}
+	
 	public void repaintFrame() {
 		this.frame.revalidate();
 		this.frame.repaint();

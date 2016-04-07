@@ -29,13 +29,18 @@ public class Hand implements IHand {
 
     @Override
     public boolean removeCardFromHand(ICard card) {
+    	if(!this.hand.contains(card)) {
+    		//Add Action
+    		System.err.println("This card has already been discarded");
+    		return false;
+    	}
         boolean inHand = this.hand.remove(card);
         if(inHand) {
             //Nobody owns this card anymore
             card.setOwner(null);
             //Add card to either treasure or door discard set
             if(card.getCardType().equals(CardType.Door)) {
-            	//Game must become singleton
+            	
             } else {
             	
             }

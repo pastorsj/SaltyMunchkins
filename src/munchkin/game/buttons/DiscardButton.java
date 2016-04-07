@@ -33,6 +33,7 @@ public class DiscardButton extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		ICard cardToMove = this.mainCardPanel.getSelectedCard();
 		this.game.getCurrentPlayer().getHand().removeCardFromHand(cardToMove);
+		this.mainCardPanel.resetLargeCard();
 		this.mainCardPanel.repaintFrame();
 	}
 
