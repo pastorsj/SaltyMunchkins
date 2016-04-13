@@ -7,8 +7,8 @@
     <property environment="env"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.7"/>
-    <property name="source" value="1.7"/>
+    <property name="target" value="1.8"/>
+    <property name="source" value="1.8"/>
     <path id="SaltyMunchkins.classpath">
         <pathelement location="bin"/>
         <pathelement location="junit.jar"/>
@@ -49,25 +49,17 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="CombatTesting">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="src/test/CombatTesting.java" todir="${junit.output.dir}"/>
-            <classpath refid="SaltyMunchkins.classpath"/>
-        </junit>
-    </target>
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>
         <junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
             <formatter type="plain" usefile="false"/>
             <!--<test name="test.CardFuncTesting" todir="${junit.output.dir}"/> -->
         	<!--<test name="test.CardTest" todir="${junit.output.dir}"/> -->
-            <!--<test name="src/test/CombatTesting.java" todir="${junit.output.dir}"/> -->
+            <test name="test.CombatTesting" todir="${junit.output.dir}"/>
         	<!--<test name="test.GameTest" todir="${junit.output.dir}"/> -->
             <!--<test name="test.Mile3Testing" todir="${junit.output.dir}"/> -->
             <!--<test name="test.TestInitializeAndShuffle" todir="${junit.output.dir}"/> -->
-            <!--<test name="test.Testing" todir="${junit.output.dir}"/> -->
+        	<!--<test name="test.Testing" todir="${junit.output.dir}"/> -->
             <classpath refid="SaltyMunchkins.classpath"/>
         </junit>
     </target>
