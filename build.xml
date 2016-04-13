@@ -49,11 +49,11 @@
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
     </target>
-    <target name="CardFuncTesting">
+    <target name="CombatTesting">
         <mkdir dir="${junit.output.dir}"/>
         <junit fork="yes" printsummary="withOutAndErr">
             <formatter type="xml"/>
-            <test name="test.CardFuncTesting" todir="${junit.output.dir}"/>
+            <test name="test.CombatTesting" todir="${junit.output.dir}"/>
             <classpath refid="SaltyMunchkins.classpath"/>
         </junit>
     </target>

@@ -79,6 +79,11 @@ public class CombatTesting {
 		assertEquals(5,players.get(0).getCombatLevel());
 	}
 
+	
+	@Test
+	public void testSingleMonsterSingleFighter(){
+		
+	}
 
 
 
