@@ -6,7 +6,7 @@ import munchkin.cards.treasures.api.Faction;
 /**
  * Created by SamPastoriza on 3/25/16.
  */
-public class AbstractPlayer implements IPlayer{
+public class Player implements IPlayer{
     private Faction faction;
     private IHand hand;
     private ArmorSet armorSet;
@@ -20,7 +20,7 @@ public class AbstractPlayer implements IPlayer{
     private int combatLevel;
     private int runAwayLevel;
     
-    public AbstractPlayer() {
+    public Player() {
         this.faction = Faction.UNAFFILIATED;
         this.hand = new Hand(this);
         this.level = 0;

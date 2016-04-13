@@ -40,7 +40,7 @@ public class Game {
 
 		this.players = new LinkedList<>();
 		for(int i = 0; i < numberOfPlayers; i++) {
-			this.players.add(new AbstractPlayer());
+			this.players.add(new Player());
 		}
 		this.dealInitialCards();
 
