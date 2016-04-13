@@ -32,7 +32,6 @@ public class NewGameButton extends JButton implements ActionListener {
 		try {
 			Main.initMain();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

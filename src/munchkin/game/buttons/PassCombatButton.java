@@ -35,7 +35,6 @@ public class PassCombatButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		//TODO
 		this.game.pass();
 		this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(false);
 		this.lastPass = this.nowPass;

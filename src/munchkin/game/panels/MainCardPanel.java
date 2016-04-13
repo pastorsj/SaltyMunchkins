@@ -64,8 +64,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		initializeImages();
 
 		this.updateLabels();
-		this.addInitialLabelsToPanel();
 		this.addInitialButtonsToPanel();
+		this.addInitialLabelsToPanel();
 		this.addMouseListener(this);
 	}
 
@@ -130,11 +130,10 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	private void addInitialButtonsToPanel() {
 		for (String key : this.buttons.keySet()) {
-			this.buttons.get(key).setPreferredSize(new Dimension(100, 30));
+			this.buttons.get(key).setPreferredSize(new Dimension(130, 30));
 			this.add(this.buttons.get(key));
 			//FIXME
-			if (!(key.equals("Draw Card") || key.equals("Play Card") || key.equals("Sell Gold")
-					|| key.equals("Discard"))) {
+			if ((key.equals("Male")) || (key.equals("Female"))) {
 				this.buttons.get(key).setVisible(true);
 			} else {
 				this.buttons.get(key).setVisible(false);
