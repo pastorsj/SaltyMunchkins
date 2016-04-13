@@ -19,19 +19,16 @@ public class PassCombatButton extends JButton implements ActionListener{
 
 	private Game game;
 	private MainCardPanel mainCardPanel;
-	private String buttonText;
 	
 	public PassCombatButton(String buttonText, Game game, MainCardPanel panel){
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
-		super.setText("Pass");//Should be just Switch Sides
+		super.setText(buttonText);//Should be just Switch Sides
 		this.setVisible(false);
 		this.setMaximumSize(new Dimension(100,50));
 
 		this.game=game;
-		this.mainCardPanel = panel;
-		this.buttonText = buttonText;
-		
+		this.mainCardPanel = panel;		
 		addActionListener(this);
 	}
 
@@ -39,35 +36,20 @@ public class PassCombatButton extends JButton implements ActionListener{
 	public void actionPerformed(ActionEvent arg0) {
 		
 		//TODO
-		
-//		myGame.changePlayer();
-//		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
-//		
-//		
-//		myGame.mframe.mainPanel.bCardPanel.pass.lastPass=
-//				this.myGame.mframe.mainPanel.bCardPanel.pass.nowPass;
-//		myGame.mframe.mainPanel.bCardPanel.pass.nowPass=true;
-//		
-//		if(myGame.mframe.mainPanel.bCardPanel.pass.lastPass&&
-//				myGame.mframe.mainPanel.bCardPanel.pass.nowPass && 
-//				myGame.currentPlayer.monster){
-//			System.out.println("last and now pass both true");
-//			myGame.mframe.mainPanel.bCardPanel.pass.setVisible(false);
-//			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(true);
-//			myGame.mframe.revalidate();
-//			myGame.mframe.repaint();
-//		}
-//		
-//
-//		//game.mframe.dispose();
-//		
-//		
-//		//game.mframe=new MFrame(game);
-//		myGame.mframe.revalidate();
-//		myGame.mframe.repaint();
-		
-		
-		
+		this.game.pass();
+		this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(false);
+		this.lastPass = this.nowPass;
+		this.nowPass = true;
+		if(this.lastPass && this.nowPass) {
+			this.setVisible(false);
+			this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(true);
+		}
+		this.mainCardPanel.repaintFrame();
+	}
+	
+	public void resetButton() {
+		this.lastPass = false;
+		this.nowPass = false;
 	}
 
 }

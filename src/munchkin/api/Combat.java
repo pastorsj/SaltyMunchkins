@@ -92,7 +92,7 @@ public class Combat implements ICombat{
     @Override
     public void runAway() {
         //If you run away, does the turn just end?
-        game.endTurn();
+        game.pass();
     }
 
     @Override

@@ -61,18 +61,9 @@ public class Game {
 		return second;
 	}
 
-	public void endTurn() {
+	public void pass() {
 		IPlayer temp = this.players.poll();
 		this.players.add(temp);
-
-		//FIXME
-//		this.bottomCardPanel.playerLabel.setText(this.getCurrentPlayer().getName());
-//		this.bottomCardPanel.playerLevel.setText("player level: " + getCurrentPlayer().getPlayerLevel());
-//		this.bottomCardPanel.playerCLevel.setText("combat level: " + getCurrentPlayer().getCombatLevel());
-//		this.mainFrame.revalidate();
-//		this.mainFrame.repaint();
-		//Add Action here
-
 	}
 
 	public Queue<IPlayer> getPlayers() {

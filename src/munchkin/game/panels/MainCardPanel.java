@@ -132,6 +132,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		for (String key : this.buttons.keySet()) {
 			this.buttons.get(key).setPreferredSize(new Dimension(100, 30));
 			this.add(this.buttons.get(key));
+			//FIXME
 			if (!(key.equals("Draw Card") || key.equals("Play Card") || key.equals("Sell Gold")
 					|| key.equals("Discard"))) {
 				this.buttons.get(key).setVisible(true);
