@@ -24,8 +24,12 @@ public class Combat implements ICombat{
     }
 
     private void initializeFields() {
-        this.monsters = new ArrayList<>();
-        this.fighters = new ArrayList<>();
+    	if(this.monsters == null && this.fighters == null){
+	        this.monsters = new ArrayList<AbstractMonster>();
+	        this.fighters = new ArrayList<IPlayer>();
+    	}else {
+    		this.resetCombat();
+    	}
     }
 
     @Override
@@ -45,18 +49,8 @@ public class Combat implements ICombat{
 
     @Override
     public void resolveFight() {
-        if(this.monsters.size()>1) {
-            if(this.fighters.size()>1) {
-                resolveMultipleMonstersMultipleFighters();
-            } else {
-                resolveMultipleMonstersSingleFighter();
-            }
-        } else if(monsters.size()==1) {
-            if(this.fighters.size()>1) {
-                resolveSingleMonsterMultipleFighters();
-            } else {
-                resolveSingleMonsterSingleFighter();
-            }
+        if(this.monsters.size()==1 && this.fighters.size() == 1) {
+            resolveSingleMonsterSingleFighter();
         } else {
             System.err.println("Error in Combat: " + this.monsters.size() + " monsters and " + this.fighters.size() + " fighters");
         }
@@ -77,32 +71,20 @@ public class Combat implements ICombat{
         }
     }
 
-    private void resolveSingleMonsterMultipleFighters() {
-        //Not sure how to implement
-    }
-
-    private void resolveMultipleMonstersMultipleFighters() {
-        //Not sure how to implement
-    }
-
-    private void resolveMultipleMonstersSingleFighter() {
-        //Not sure how to implement
-    }
-
     @Override
     public void runAway() {
-        //If you run away, does the turn just end?
         game.pass();
     }
 
     @Override
     public void finish() {
-
+    	this.resetCombat();
     }
 
     @Override
     public void resetCombat() {
-        this.initializeFields();
+        this.monsters.clear();
+        this.fighters.clear();
     }
 
     public int getMonsterLevel() {
