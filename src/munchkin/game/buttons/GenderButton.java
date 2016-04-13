@@ -1,13 +1,17 @@
 package munchkin.game.buttons;
 
-import munchkin.game.Game;
-import munchkin.game.MFrame;
-import munchkin.game.panels.MainCardPanel;
-
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+import munchkin.game.Game;
+import munchkin.game.panels.MainCardPanel;
 
 public class GenderButton extends JButton implements ActionListener {
 
@@ -19,6 +23,7 @@ public class GenderButton extends JButton implements ActionListener {
 	public GenderButton(String buttonText, Game game, MainCardPanel panel) {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
+		super.setText(buttonText);
 
 		this.setMaximumSize(new Dimension(100, 50));
 
@@ -31,52 +36,54 @@ public class GenderButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
-		//TODO
-		
-//		bCardPanel = myGame.mframe.mainPanel.bCardPanel;
-//		
-//		if (this.gender == "Male") {
-//			myGame.currentPlayer.gender = 'M';
-//
-//		}
-//
-//		else if (this.gender == "Female") {
-//			myGame.currentPlayer.gender = 'F';
-//
-//		}
-//
-//		else {
-//			System.out.println("NO GENDER MATCH");
-//		}
-//
-//		if (myGame.flag == 0) {
-//			myGame.flag = 1;
-//			System.out.println("Got to set flag to 1");
-//			myGame.changePlayer();
-//			bCardPanel.enterGender.setText("SELECT P2 GENDER");
-//			bCardPanel.enterGender.setVisible(true);
-//			bCardPanel.mb.setBoy();
-//			bCardPanel.gb.setGirl();
-//			myGame.mframe.revalidate();
-//			myGame.mframe.repaint();
-//		}
-//
-//		else if (myGame.flag == 1) {
-//			myGame.changePlayer();
-//			bCardPanel.mb.setVisible(false);
-//			bCardPanel.gb.setVisible(false);
-//			bCardPanel.dcb.setVisible(true);
-//			bCardPanel.pcb.setVisible(true);
-//			bCardPanel.sgb.setVisible(true);
-//			bCardPanel.db.setVisible(true);
-//
-//			bCardPanel.playerLabel.setVisible(true);
-//			bCardPanel.playerLevel.setVisible(true);
-//			bCardPanel.playerCLevel.setVisible(true);
-//			bCardPanel.monsterLevel.setVisible(true);
-//			bCardPanel.enterGender.setVisible(true);
-//		}
+				
+		this.game.getCurrentPlayer().setGender(this.gender);
+		Map<String, JLabel> labelSet = this.mainCardPanel.getLabels();
+		Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
 
+		if(!Game.gameSetUp) {
+			Game.gameSetUp = true;
+			this.game.endTurn();
+			labelSet.get("GenderLabel").setText("Select P2 Gender");
+			labelSet.get("GenderLabel").setVisible(true);
+			((GenderButton)buttonSet.get("Male")).setMaleGender();
+			((GenderButton)buttonSet.get("Female")).setFemaleGender();
+			this.mainCardPanel.repaintFrame();
+		} else {
+			this.game.endTurn();
+
+			buttonSet.get("Male").setVisible(false);
+			buttonSet.get("Female").setVisible(false);
+			buttonSet.get("Discard Gold").setVisible(true);
+			buttonSet.get("Pass Combat").setVisible(true);
+			buttonSet.get("Sell Gold").setVisible(true);
+			buttonSet.get("Discard").setVisible(true);
+
+			
+			labelSet.get("PlayerLabel").setVisible(true);
+			labelSet.get("PlayerLevelLabel").setVisible(true);
+			labelSet.get("CombatLevelLabel").setVisible(true);
+			labelSet.get("MonsterLevelLabel").setVisible(true);
+			labelSet.get("GenderLabel").setVisible(true);
+
+		}
+	}
+	
+	public void setMaleGender() {
+		if(!Game.gameSetUp) {
+			super.setText("P1: Male");
+		} else {
+			super.setText("P2: Male");
+		}
+		this.gender = "Male";
+	}
+	
+	public void setFemaleGender() {
+		if(!Game.gameSetUp) {
+			super.setText("P1: Female");
+		} else {
+			super.setText("P2: Female");
+		}
+		this.gender = "Female";
 	}
 }

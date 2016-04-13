@@ -101,7 +101,9 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.buttons.put("Sell Gold", new SellGoldButton("Sell Gold", this.game, this));
 		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
 		this.buttons.put("Male", new GenderButton("Male", this.game, this));
+		((GenderButton)this.buttons.get("Male")).setMaleGender();
 		this.buttons.put("Female", new GenderButton("Female", this.game, this));
+		((GenderButton)this.buttons.get("Female")).setFemaleGender();
 	}
 
 	private void initializeImages() {
@@ -130,7 +132,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		for (String key : this.buttons.keySet()) {
 			this.buttons.get(key).setPreferredSize(new Dimension(100, 30));
 			this.add(this.buttons.get(key));
-			if (!(key.equals("Draw Card") || key.equals("Play Card") || key.equals("Sell gld")
+			if (!(key.equals("Draw Card") || key.equals("Play Card") || key.equals("Sell Gold")
 					|| key.equals("Discard"))) {
 				this.buttons.get(key).setVisible(true);
 			} else {

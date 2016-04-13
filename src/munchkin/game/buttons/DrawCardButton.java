@@ -8,8 +8,8 @@ import java.util.ArrayList;
 
 import javax.swing.JButton;
 
+import munchkin.api.ICard;
 import munchkin.game.Game;
-import munchkin.game.MFrame;
 import munchkin.game.panels.MainCardPanel;
 
 
@@ -37,7 +37,15 @@ public class DrawCardButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		
+		try {
+			ICard card = this.game.dealNewCard("Door", this.game.getCurrentPlayer());
+			if(card != null) {
+				this.mainCardPanel.updateLargeCard(card);
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 //		myGame.currentPlayer.drewCard = true;

@@ -11,8 +11,9 @@ import java.util.*;
 public class Game {
 
 	//Observed Value (DO NOT DELETE for now...)
-	public static String action;
+	private Action action = Action.getInstance();
 	private static final int WIN_LEVEL = 10;
+	public static boolean gameSetUp = false;
 
 	//-----Potential New Implementation-----
 	//Assume only two players
@@ -98,19 +99,23 @@ public class Game {
 		}
 	}
 
-	public boolean dealNewCard(List<ICard> cards, IPlayer p) {
-		if(p.getHand().insertCard(cards.get(0))) {
-//			try {
-//				this.bottomCardPanel.largeCard = ImageIO.read(new File ("resources\\m"+(cards.get(0)).getClass().getName()+".PNG"));
-//				this.bottomCardPanel.repaint();
-//			} catch(IOException e) {
-//				e.printStackTrace();
-//			}
-//			FIXME: Replace above with
-//			this.bottomCardPanel.updateLargeCard(cards.get(0));
-			return true;
+	public ICard dealNewCard(String cardPileType, IPlayer p) throws Exception {
+		List<ICard> cards;
+		ICard card;
+		if(cardPileType.equals("Door")) {
+			cards = this.doorCards;
+		} else if(cardPileType.equals("Treasure")) {
+			cards = this.treasureCards;
+		} else {
+			throw new Exception("No such card pile type. Must be either treasure or door");
 		}
-		return false;
+		card = cards.get(0);
+		if(p.getHand().insertCard(cards.get(0))) {
+			return card;
+		} else {
+			action.setValue("Insert failed, too many cards in hand");
+			return null;
+		}
 	}
 	
 	public boolean discardCard(IPlayer p, ICard card) throws Exception {
