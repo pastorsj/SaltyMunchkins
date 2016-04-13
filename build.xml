@@ -3,7 +3,8 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="SaltyMunchkins">
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="SaltyMunchkins">
     <property environment="env"/>
     <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
@@ -11,8 +12,11 @@
     <property name="source" value="1.8"/>
     <path id="SaltyMunchkins.classpath">
         <pathelement location="bin"/>
+    	<pathelement location="test"/>
+    	<pathelement location = "src/"/>
         <pathelement location="junit.jar"/>
         <pathelement location="org.hamcrest.core_1.3.0.v201303031735.jar"/>
+    	
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -34,20 +38,6 @@
             <src path="src"/>
             <classpath refid="SaltyMunchkins.classpath"/>
         </javac>
-    </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
-        <copy todir="${ant.library.dir}">
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </copy>
-        <unzip dest="${ant.library.dir}">
-            <patternset includes="jdtCompilerAdapter.jar"/>
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </unzip>
-    </target>
-    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
-        <antcall target="build"/>
     </target>
     <target name="test">
         <mkdir dir="${junit.output.dir}"/>

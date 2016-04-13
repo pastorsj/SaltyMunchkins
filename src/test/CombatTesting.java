@@ -1,21 +1,19 @@
 package test;
 
+import static org.junit.Assert.assertEquals;
+
+import java.lang.reflect.Field;
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.api.Player;
 import munchkin.api.Combat;
+import munchkin.api.Player;
 import munchkin.cards.doors.AughostDerwraith;
 import munchkin.cards.doors.api.AbstractMonster;
 import munchkin.cards.treasures.api.Faction;
 import munchkin.game.Game;
-
-import java.io.IOException;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertEquals;
 
 
 public class CombatTesting {
