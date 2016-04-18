@@ -206,7 +206,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	private void updateRevImageMap() {
 		//The simplest to reverse a map with unique keys and values
-		this.revImageMap = this.images.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+		//this.revImageMap = this.images.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
 	}
 
 	private void populateInPlayImages() throws IOException {
