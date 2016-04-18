@@ -1,2 +1,7 @@
 # SassyMunchkins
-An awesome rendition of Munchkins
+[![Build Status](https://travis-ci.org/pastorsj/SaltyMunchkins.svg?branch=Refactor-Connection)](https://travis-ci.org/pastorsj/SaltyMunchkins)  
+## Authors
+Sam Pastoriza  
+Trent Punt  
+Lexi Harris  
+Addison Zhang  
