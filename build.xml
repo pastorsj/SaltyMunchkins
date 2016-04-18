@@ -49,6 +49,7 @@
   	            <formatter type="plain" usefile="false"/>
   	            <!--<test name="test.CardFuncTesting" todir="${junit.output.dir}"/> -->
   	        	<!--<test name="test.CardTest" todir="${junit.output.dir}"/> -->
+  	        	<test name="test.ArmorTesting" todir="${junit.output.dir}"/>
   	            <test name="test.CombatTesting" todir="${junit.output.dir}"/>
   	        	<!--<test name="test.GameTest" todir="${junit.output.dir}"/> -->
   	            <!--<test name="test.Mile3Testing" todir="${junit.output.dir}"/> -->
