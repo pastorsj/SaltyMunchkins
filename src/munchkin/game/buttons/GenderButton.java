@@ -54,17 +54,18 @@ public class GenderButton extends JButton implements ActionListener {
 
 			buttonSet.get("Male").setVisible(false);
 			buttonSet.get("Female").setVisible(false);
-			buttonSet.get("Discard Gold").setVisible(true);
-			buttonSet.get("Pass Combat").setVisible(true);
+			buttonSet.get("Draw Card").setVisible(true);
+			buttonSet.get("Pass Combat").setVisible(false);
 			buttonSet.get("Sell Gold").setVisible(true);
-			buttonSet.get("Discard").setVisible(true);
+			buttonSet.get("Discard").setVisible(false);
+			buttonSet.get("Play Card").setVisible(true);
 
 			
 			labelSet.get("PlayerLabel").setVisible(true);
 			labelSet.get("PlayerLevelLabel").setVisible(true);
 			labelSet.get("CombatLevelLabel").setVisible(true);
 			labelSet.get("MonsterLevelLabel").setVisible(true);
-			labelSet.get("GenderLabel").setVisible(true);
+			labelSet.get("GenderLabel").setVisible(false);
 
 		}
 	}

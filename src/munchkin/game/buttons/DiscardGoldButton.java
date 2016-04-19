@@ -33,12 +33,15 @@ public class DiscardGoldButton extends JButton implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-//		super.setText("Discard >="+goldToDiscard+ "Gold");
+		super.setText("Discard >="+goldAmount+ "Gold");
 		
 		//Exactly the same issue as the discard button
 		ICard cardToMove = this.mainCardPanel.getSelectedCard();
-		this.game.getCurrentPlayer().getHand().removeCardFromHand(cardToMove);
-		this.mainCardPanel.repaintFrame();
+		try {
+			this.game.discardCard(this.game.getCurrentPlayer(), cardToMove);
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
 
 		this.mainCardPanel.repaintFrame();
 

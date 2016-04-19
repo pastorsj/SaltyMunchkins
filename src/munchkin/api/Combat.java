@@ -25,8 +25,8 @@ public class Combat implements ICombat{
 
     private void initializeFields() {
     	if(this.monsters == null && this.fighters == null){
-	        this.monsters = new ArrayList<AbstractMonster>();
-	        this.fighters = new ArrayList<IPlayer>();
+	        this.monsters = new ArrayList<>();
+	        this.fighters = new ArrayList<>();
     	}else {
     		this.resetCombat();
     	}

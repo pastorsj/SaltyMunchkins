@@ -136,4 +136,23 @@ public class ArmorSet {
         this.maxFootGear = max;
     }
 
+    public boolean checkArmor(ICard card) {
+        //TODO: This makes sure that I can add this card to the armor set (for hand in play)
+
+        //		int curHandLevel = 0;
+        //		int curFootLevel = 0;
+        //		int curHeadLevel = 0;
+        //		int curArmorLevel = 0;
+        //		for (int i = 0; i < myGame.currentPlayer.pPlay.size(); i++) {
+        //			curHandLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHands;
+        //			curFootLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numFoot;
+        //			curHeadLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHead;
+        //			curArmorLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numArmor;
+        //		}
+        //		if (curHandLevel > 2 || curFootLevel > 1 || curHeadLevel > 1 || curArmorLevel > 1) {
+        //			CardFunc cf = new CardFunc(myGame);
+        //			cf.cantPlay();
+        return true;
+    }
+
 }

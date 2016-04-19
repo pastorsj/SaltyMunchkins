@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.swing.*;
 
+import munchkin.api.ICard;
 import munchkin.game.Game;
 import munchkin.game.panels.MainCardPanel;
 
@@ -38,6 +39,8 @@ public class PlayCardButton extends JButton implements ActionListener {
 		Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
 		
 		((PassCombatButton) buttonSet.get("Pass Combat")).setNowPass(false);
+		ICard cardToMove = this.mainCardPanel.getSelectedCard();
+		this.game.playACard(cardToMove);
 //
 //				if (myGame.monster) {
 //					myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);

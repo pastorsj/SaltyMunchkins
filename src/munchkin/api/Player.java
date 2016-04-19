@@ -133,14 +133,14 @@ public class Player implements IPlayer{
 
     @Override
     public void sellGold(ICard card) {
-        //		myGame.currentPlayer.goldSold += myGame.ic.getCardHash().get(cardToSell).numGold;
-        //		myGame.currentPlayer.pHand.remove(cardToSellPos);
-        //		myGame.currentPlayer.pDiscard.add(cardToSell);
-        //
-        //		int levelBonus = myGame.currentPlayer.goldSold;
-        //		int divis = (int) levelBonus / 1000;
-        //		myGame.currentPlayer.pLevel += (int) levelBonus / 1000;
-        //		System.out.println("level bonus is: " + divis);
+//        		myGame.currentPlayer.goldSold += myGame.ic.getCardHash().get(cardToSell).numGold;
+//        		myGame.currentPlayer.pHand.remove(cardToSellPos);
+//        		myGame.currentPlayer.pDiscard.add(cardToSell);
+//
+//        		int levelBonus = myGame.currentPlayer.goldSold;
+//        		int divis = (int) levelBonus / 1000;
+//        		myGame.currentPlayer.pLevel += (int) levelBonus / 1000;
+//        		System.out.println("level bonus is: " + divis);
     }
 
 }
