@@ -37,19 +37,19 @@ public class TestInitializeCards {
 	public void TestAllCardsInit() {
 		List<ICard> treasures = this.initCards.getAllCards();
 		//TODO: hard coded 16 cards for testing purpose
-		assertEquals(treasures.size(), 16);
+		assertEquals(treasures.size(), 32);
 	}
 	@Test
 	public void TestTreasureCardsInit() {
 		List<ICard> treasures = this.initCards.getTreasureCards();
 		//TODO: hard coded 8 treasure cards for testing purpose
-		assertEquals(treasures.size(), 8);
+		assertEquals(treasures.size(), 16);
 	}
 	
 	@Test
 	public void TestDoorCardsInit() {
 		List<ICard> treasures = this.initCards.getDoorCards();
 		//TODO: hard coded 8 door cards for testing purpose
-		assertEquals(treasures.size(), 8);
+		assertEquals(treasures.size(), 16);
 	}
 }
