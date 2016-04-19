@@ -40,7 +40,6 @@ public class HandTesting {
 	public void addTooManyCards() {
 		ITreasure knucks = new BrassKnucks();
 		for (int i = 0; i < 8; i++) {
-			System.out.println(i);
 			assertTrue(hand.insertCard(knucks));
 			assertEquals("inserted BrassKnucks into your hand", action.getAction());
 			assertEquals(i + 1, hand.sizeOfHand());

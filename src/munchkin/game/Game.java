@@ -137,23 +137,6 @@ public class Game {
 		if(this.getCurrentPlayer().getArmorSet().checkArmor(card) && !card.isDisabled()) {
 			this.getCurrentPlayer().getHand().removeCardFromHand(card);
 			this.cardsInPlay.addCardsToPlay(card);
-
-
-			//		} else {
-			//			// at this point, have checked all hands/armor/etc.
-			//			// System.out.println("pPlay is: "+game.currentPlayer.pPlay);
-			//			System.out.println("playing card: " + cardToMove);
-			//
-			//			if (myGame.currentPlayer.playCard && mCards.contains(cardToMove)) {
-			//				CardFunc cf = new CardFunc(myGame);
-			//				cf.cantPlay();
-			//			} else {
-			//				myGame.currentPlayer.playCard = true;
-			//				myGame.playACard(cardToMove);
-			//				if (myGame.currentPlayer.pPlay.contains(84)) {
-			//					myGame.playACard(84);
-			//				}
-			//
 			return true;
 		} else {
 			this.action.setValue("Due to the current conditions, you are unable to play this card");

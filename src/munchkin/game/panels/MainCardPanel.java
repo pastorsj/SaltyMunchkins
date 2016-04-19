@@ -187,7 +187,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 						g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225, null);
 					}
 				} else {
-					System.err.println("Image lis tis null for current player");
+					System.err.println("Image list is null for current player");
 				}
 
 				// In play for other player

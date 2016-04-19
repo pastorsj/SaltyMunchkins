@@ -3,6 +3,7 @@ package test;
 import munchkin.api.ICard;
 import munchkin.api.Player;
 import munchkin.cards.doors.CurseHairStandsOnEnd;
+import munchkin.cards.treasures.GoUpALevel;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -54,5 +55,20 @@ public class IntegrationTesting {
         this.a.getHand().insertCard(this.card);
         this.a.getHand().removeCardFromHand(this.card);
         assertEquals(this.a, this.card.getOwner());
+    }
+
+    @Test
+    public void testGoUpALevel() {
+        boolean check = true;
+        int level = this.a.getPlayerLevel();
+        ICard levelCard = new GoUpALevel();
+        try {
+            this.a.getHand().insertCard(levelCard);
+            levelCard.cardInPlay();
+        } catch (Exception e) {
+            check = false;
+        }
+        assertTrue(check);
+        assertEquals(level + 1, this.a.getPlayerLevel());
     }
 }
