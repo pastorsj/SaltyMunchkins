@@ -68,7 +68,7 @@ public class Player implements IPlayer{
 
     @Override
     public void addTreasures(int numTreasures) {
-        this.treasures += treasures;
+        this.treasures += numTreasures;
     }
 
     @Override
