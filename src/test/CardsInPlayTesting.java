@@ -26,10 +26,10 @@ public class CardsInPlayTesting {
 	public void testAddCardToPlay() {
 		cards.addCardsToPlay(knucks);
 		assertTrue(cards.contains(knucks));
-		assertEquals("added BrassKnucks to play", action.getAction());
+		assertEquals("Added BrassKnucks to play", action.getAction());
 		
 		cards.addCardsToPlay(knucks);
-		assertEquals("Cant add the card to play: card already in play!", action.getAction());
+		assertEquals("Can't add the card to play: Card already in play!", action.getAction());
 	}
 	
 	@Test
@@ -39,9 +39,9 @@ public class CardsInPlayTesting {
 		
 		cards.addCardsToPlay(knucks);
 		assertTrue(cards.contains(knucks));
-		assertEquals("added BrassKnucks to play", action.getAction());
+		assertEquals("Added BrassKnucks to play", action.getAction());
 		cards.removeCardFromPlay(knucks);
-		assertEquals("removed card from play successfully", action.getAction());
+		assertEquals("Removed card from play successfully", action.getAction());
 	}
 
 }
