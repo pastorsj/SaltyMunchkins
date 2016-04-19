@@ -17,6 +17,7 @@ public class CardsInPlay {
     public void addCardsToPlay(ICard card) {
         if(!this.cardsInPlay.contains(card)) {
             this.cardsInPlay.add(card);
+            System.out.println(card.getOwner());
             //IMPORTANT: This method must be called when a card added to the play set
             card.cardInPlay();
         } else {

@@ -58,7 +58,7 @@ public class PlayCardButton extends JButton implements ActionListener {
 //		}
 //
 		buttonSet.get("Resolve Conflict").setVisible(false);
-		buttonSet.get("Discard Card").setVisible(false);
+		buttonSet.get("Discard").setVisible(false);
 		this.mainCardPanel.repaintFrame();
 
 	}

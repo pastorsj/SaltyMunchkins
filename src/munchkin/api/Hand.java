@@ -20,7 +20,7 @@ public class Hand implements IHand {
         if(sizeOfHand() < 8) {
             this.hand.add(card);
             //IMPORTANT: Invoke this method when a card is added to a players hand.
-            card.setOwner(owner);
+            card.setOwner(this.owner);
             card.cardInHand();
             return true;
         }
@@ -36,8 +36,6 @@ public class Hand implements IHand {
     	}
         boolean inHand = this.hand.remove(card);
         if(inHand) {
-            //Nobody owns this card anymore
-            card.setOwner(null);
             //Add card to either treasure or door discard set
             if(card.getCardType().equals(CardType.Door)) {
             	

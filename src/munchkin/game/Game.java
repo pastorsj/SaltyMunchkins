@@ -100,17 +100,24 @@ public class Game {
 		} else {
 			throw new Exception("No such card pile type. Must be either treasure or door");
 		}
-		card = cards.get(0);
-		if(p.getHand().insertCard(cards.get(0))) {
-			return card;
-		} else {
-			action.setValue("Insert failed, too many cards in hand");
+		if(cards.size() < 1) {
+			action.setValue("No cards left to draw");
+			//FIXME: Eventually, we want to just reshuffle the discarded piles and continue the game
 			return null;
+		} else {
+			card = cards.get(0);
+			if(p.getHand().insertCard(cards.get(0))) {
+				return card;
+			} else {
+				action.setValue("You can only have eight cards in your hand. Please discard any extras");
+				return null;
+			}
 		}
 	}
 	
 	public boolean discardCard(IPlayer p, ICard card) throws Exception {
 		if(p.getHand().removeCardFromHand(card)) {
+			card.setOwner(null);
 			if (card.getCardType().equals(CardType.Door)) {
 				this.discardedDoorCards.add(card);
 				return true;
