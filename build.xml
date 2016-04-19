@@ -53,6 +53,7 @@
 			<!--<test name="test.PlayerTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.UtilityTesting" todir="${junit.output.dir}"/>-->
 			<test name="test.ArmorTesting" todir="${junit.output.dir}" />
+			<test name="test.HandTesting" todir="${junit.output.dir}" />
 			<test name="test.CombatTesting" todir="${junit.output.dir}" />
 			<test name="test.TestPlayer" todir="${junit.output.dir}" />
 			<test name="test.TestDoor" todir="${junit.output.dir}" />
