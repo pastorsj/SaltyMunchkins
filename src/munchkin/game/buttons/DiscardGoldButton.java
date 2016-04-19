@@ -14,9 +14,7 @@ import munchkin.game.panels.MainCardPanel;
 
 public class DiscardGoldButton extends JButton implements ActionListener {
 
-	public int goldCount = 0;
-	public int goldLeft =0;
-	public int goldToDiscard = 0;
+	private int goldAmount;
 	private Game game;
 	private MainCardPanel mainCardPanel;
 
@@ -41,20 +39,19 @@ public class DiscardGoldButton extends JButton implements ActionListener {
 		ICard cardToMove = this.mainCardPanel.getSelectedCard();
 		this.game.getCurrentPlayer().getHand().removeCardFromHand(cardToMove);
 		this.mainCardPanel.repaintFrame();
-		
-//		goldCount+=myGame.ic.getCardHash().get(cardToMove).numGold;
-//		CardFunc cf = new CardFunc(myGame);
-//		cf.discardGold();
-//		
-//		myGame.mframe.revalidate();
-//		myGame.mframe.repaint();
+
+		this.mainCardPanel.repaintFrame();
 
 	}
 	
 	@Override
 	public void setVisible(boolean bool){
-		super.setText("Discard >="+goldToDiscard+ "Gold ");
+		super.setText("Discard >="+goldAmount+ "Gold ");
 		super.setVisible(bool);
+	}
+
+	public void setGoldAmount(int goldAmount) {
+		this.goldAmount = goldAmount;
 	}
 
 }

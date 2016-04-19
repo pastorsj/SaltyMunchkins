@@ -4,8 +4,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map;
 
-import javax.swing.JButton;
+import javax.swing.*;
 
 import munchkin.game.Game;
 import munchkin.game.panels.MainCardPanel;
@@ -17,22 +18,12 @@ public class PlayCardButton extends JButton implements ActionListener {
 	
 	private MainCardPanel mainCardPanel;
 	private Game game;
-	private String buttonText;
 
 	public PlayCardButton(String buttonText, Game game, MainCardPanel panel) {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
-		super.setText("Play Card");
-		
-//		mCards.add(2);
-//		mCards.add(4);
-//		mCards.add(5);
-//		mCards.add(7);
-//		mCards.add(8);
-//		mCards.add(27);
-//		mCards.add(30);
+		super.setText(buttonText);
 
-		this.buttonText = buttonText;
 		this.game = game;
 		this.mainCardPanel = panel;
 		
@@ -43,41 +34,10 @@ public class PlayCardButton extends JButton implements ActionListener {
 	public void actionPerformed(ActionEvent arg0) {
 		
 		//TODO
+
+		Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
 		
-//		int cardToMovePos = myGame.mframe.mainPanel.bCardPanel.largeCardPos;
-//		int cardToMove = myGame.currentPlayer.pHand.get(cardToMovePos);
-//		myGame.currentPlayer.pHand.remove(cardToMovePos);
-//		myGame.currentPlayer.pPlay.add(cardToMove);
-//		int curHandLevel = 0;
-//		int curFootLevel = 0;
-//		int curHeadLevel = 0;
-//		int curArmorLevel = 0;
-//		for (int i = 0; i < myGame.currentPlayer.pPlay.size(); i++) {
-//			curHandLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHands;
-//			curFootLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numFoot;
-//			curHeadLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHead;
-//			curArmorLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numArmor;
-//		}
-//		if (curHandLevel > 2 || curFootLevel > 1 || curHeadLevel > 1 || curArmorLevel > 1) {
-//			CardFunc cf = new CardFunc(myGame);
-//			cf.cantPlay();
-//		} else {
-//			// at this point, have checked all hands/armor/etc.
-//			// System.out.println("pPlay is: "+game.currentPlayer.pPlay);
-//			System.out.println("playing card: " + cardToMove);
-//
-//			if (myGame.currentPlayer.playCard && mCards.contains(cardToMove)) {
-//				CardFunc cf = new CardFunc(myGame);
-//				cf.cantPlay();
-//			} else {
-//				myGame.currentPlayer.playCard = true;
-//				myGame.playACard(cardToMove);
-//				if (myGame.currentPlayer.pPlay.contains(84)) {
-//					myGame.playACard(84);
-//				}
-//
-//				myGame.mframe.mainPanel.bCardPanel.pass.lastPass = myGame.mframe.mainPanel.bCardPanel.pass.nowPass;
-//				myGame.mframe.mainPanel.bCardPanel.pass.nowPass = false;
+		((PassCombatButton) buttonSet.get("Pass Combat")).setNowPass(false);
 //
 //				if (myGame.monster) {
 //					myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
@@ -94,10 +54,9 @@ public class PlayCardButton extends JButton implements ActionListener {
 //
 //		}
 //
-//		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
-//		myGame.mframe.mainPanel.bCardPanel.dcb.setVisible(false);
-//		myGame.mframe.revalidate();
-//		myGame.mframe.repaint();
+		buttonSet.get("Resolve Conflict").setVisible(false);
+		buttonSet.get("Discard Card").setVisible(false);
+		this.mainCardPanel.repaintFrame();
 
 	}
 

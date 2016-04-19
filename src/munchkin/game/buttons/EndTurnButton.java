@@ -4,8 +4,9 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Map;
 
-import javax.swing.JButton;
+import javax.swing.*;
 
 import munchkin.game.Game;
 import munchkin.game.MFrame;
@@ -22,9 +23,8 @@ public class EndTurnButton extends JButton implements ActionListener{
 	
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
-		super.setText("EndTurn");//Should be just Switch Sides
-		//super.setVisible(false);
-		this.setVisible(false);
+		super.setText("EndTurn");
+		super.setVisible(false);
 		this.setMaximumSize(new Dimension(100,50));
 	
 		this.game=game;
@@ -35,68 +35,18 @@ public class EndTurnButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		//if this is not true, then can't end turn. must discard first.
-		
-		//TODO
-		
-//		if(myGame.currentPlayer.pHand.size()<=8){
-//			myGame.currentPlayer.drewCard = false;
-//			myGame.currentPlayer.playCard = false;
-//			myGame.changePlayer();
-//			if(myGame.currentPlayer.sentCurse){
-//				myGame.currentPlayer.sentCurse=false;
-//				myGame.changePlayer();
-//			}
-//			
-//			
-//			myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
-//			for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
-//				if((myGame.currentPlayer.pPlay.get(i)>=13 && 
-//						myGame.currentPlayer.pPlay.get(i)<=25) ||
-//						myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
-//					myGame.currentPlayer.pPlay.remove(i);
-//					i--;
-//				}
-//				
-//				myGame.currentPlayer.cLevel+=myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).pLevelBonus;
-//				myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
-//
-//
-//				
-//			}
-//			System.out.println("new clevel: "+myGame.currentPlayer.cLevel);
-//			
-//			for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
-//				if(myGame.otherPlayer.pPlay.get(i)>=13 &&
-//						myGame.otherPlayer.pPlay.get(i)<=25){
-//					myGame.otherPlayer.pPlay.remove(i);
-//					i--;
-//				}
-//			}
-//			
-//			myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard=0;
-//			myGame.mframe.mainPanel.bCardPanel.etb.setVisible(false);
-//			myGame.mframe.mainPanel.bCardPanel.pcb.setVisible(true);
-//			myGame.mframe.mainPanel.bCardPanel.sgb.setVisible(true);
-//			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
-//			myGame.mframe.mainPanel.bCardPanel.dcb.setVisible(true);
-//			myGame.mframe.mainPanel.bCardPanel.db.setVisible(true);
-//			myGame.mframe.mainPanel.bCardPanel.diceLevel.setVisible(false);
-//
-//			//game.mframe.dispose();
-//			
-//			
-//			//game.mframe=new MFrame(game);
-//			myGame.mframe.revalidate();
-//			myGame.mframe.repaint();
-//		}
-//		else{
-//			System.out.println("Can't end turn; too many cards in hand.");
-//		}
-//		
-//		
-//		
-//		
+		if(this.game.endTurn()) {
+			Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
+			Map<String, JLabel> labelSet = this.mainCardPanel.getLabels();
+			((DiscardGoldButton) buttonSet.get("Discard Gold")).setGoldAmount(0);
+			buttonSet.get("End Turn").setVisible(false);
+			buttonSet.get("Pass Combat").setVisible(true);
+			buttonSet.get("Sell Gold").setVisible(true);
+			buttonSet.get("Resolve Conflict").setVisible(false);
+			buttonSet.get("Draw Card").setVisible(true);
+			buttonSet.get("Discard").setVisible(true);
+			labelSet.get("DiceRollLabel").setVisible(false);
+			this.mainCardPanel.repaintFrame();
+		}
 	}
-
 }

@@ -1,6 +1,5 @@
 package munchkin.game.buttons;
 
-import munchkin.game.Game;
 import munchkin.game.MFrame;
 import munchkin.game.Main;
 
@@ -9,7 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class NewGameButton extends JButton implements ActionListener {
 

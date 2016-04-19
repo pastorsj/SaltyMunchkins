@@ -9,10 +9,7 @@ import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import javax.imageio.ImageIO;
 import javax.swing.JButton;
@@ -196,16 +193,29 @@ public class MainCardPanel extends JPanel implements MouseListener {
 				}
 			}
 			g.drawImage(largeCard, 50 + 180 * 8 + 10 * 8, 400, 360, 570, null);
-			this.updateRevImageMap();
+			try {
+				this.updateRevImageMap();
+			} catch(Exception e) {
+				e.printStackTrace();
+			}
 			this.setMinimumSize(new Dimension(2000, 500));
 			this.setVisible(true);
 		}
 
 	}
 
-	private void updateRevImageMap() {
-		//The simplest to reverse a map with unique keys and values
-		//this.revImageMap = this.images.entrySet().stream().collect(Collectors.toMap(Map.Entry::getValue, Map.Entry::getKey));
+	private void updateRevImageMap() throws Exception{
+		this.revImageMap = new HashMap<>();
+		Set<BufferedImage> keySet = new HashSet<>(this.images.values());
+		Set<String> valueSet = new HashSet<>(this.images.keySet());
+		List<BufferedImage> imageSet = new ArrayList<>(this.images.values());
+		List<String> imageNameSet = new ArrayList<>(this.images.keySet());
+		if(!(keySet.size() == valueSet.size())) {
+			throw new Exception("The Image HashMap does not have unique key-value pairs (updateRevImageMap() in Game.java)");
+		}
+		for(int i = 0; i < imageSet.size(); i++) {
+			this.revImageMap.put(imageSet.get(i), imageNameSet.get(i));
+		}
 	}
 
 	private void populateInPlayImages() throws IOException {
@@ -370,7 +380,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 	}
 	
 	public void repaintFrame() {
-		this.frame.revalidate();
+//		this.frame.revalidate();
 		this.frame.repaint();
 	}
 }

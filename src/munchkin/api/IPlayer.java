@@ -28,4 +28,5 @@ public interface IPlayer {
     public int getRunAwayLevel();
     public void addToRunAwayLevel(int levels);
     public boolean isAlive();
+    public void sellGold(ICard card);
 }

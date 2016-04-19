@@ -125,16 +125,85 @@ public class Game {
 		return false;
 	}
 
+	public boolean playACard(ICard card) {
 
+		if(!card.isDisabled()) {
+			this.cardsInPlay.addCardsToPlay(card);
+			//		int cardToMovePos = myGame.mframe.mainPanel.bCardPanel.largeCardPos;
+			//		int cardToMove = myGame.currentPlayer.pHand.get(cardToMovePos);
+			//		myGame.currentPlayer.pHand.remove(cardToMovePos);
+			//		myGame.currentPlayer.pPlay.add(cardToMove);
+			//		int curHandLevel = 0;
+			//		int curFootLevel = 0;
+			//		int curHeadLevel = 0;
+			//		int curArmorLevel = 0;
+			//		for (int i = 0; i < myGame.currentPlayer.pPlay.size(); i++) {
+			//			curHandLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHands;
+			//			curFootLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numFoot;
+			//			curHeadLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHead;
+			//			curArmorLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numArmor;
+			//		}
+			//		if (curHandLevel > 2 || curFootLevel > 1 || curHeadLevel > 1 || curArmorLevel > 1) {
+			//			CardFunc cf = new CardFunc(myGame);
+			//			cf.cantPlay();
+			//		} else {
+			//			// at this point, have checked all hands/armor/etc.
+			//			// System.out.println("pPlay is: "+game.currentPlayer.pPlay);
+			//			System.out.println("playing card: " + cardToMove);
+			//
+			//			if (myGame.currentPlayer.playCard && mCards.contains(cardToMove)) {
+			//				CardFunc cf = new CardFunc(myGame);
+			//				cf.cantPlay();
+			//			} else {
+			//				myGame.currentPlayer.playCard = true;
+			//				myGame.playACard(cardToMove);
+			//				if (myGame.currentPlayer.pPlay.contains(84)) {
+			//					myGame.playACard(84);
+			//				}
+			//
+			return true;
+		} else {
+			this.action.setValue("Due to the current conditions, you are unable to play this card");
+			return false;
+		}
+	}
 
-	public void playACard(ICard card) {
-
-		this.cardsInPlay.addCardsToPlay(card);
-
-//		this.bottomCardPanel.playerLevel.setText("player level: " +this.getCurrentPlayer().getPlayerLevel());
-//		this.bottomCardPanel.playerCLevel.setText("combat level: " +this.getCurrentPlayer().getCombatLevel());
-//		this.bottomCardPanel.monsterLevel.setText("monster level: " +this.getMonsterLevel());
-		
+	public boolean endTurn() {
+//		if(myGame.currentPlayer.pHand.size()<=8){
+//			myGame.currentPlayer.drewCard = false;
+//			myGame.currentPlayer.playCard = false;
+//			myGame.changePlayer();
+//			if(myGame.currentPlayer.sentCurse){
+//				myGame.currentPlayer.sentCurse=false;
+//				myGame.changePlayer();
+//			}
+//
+//
+//			myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
+//			for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
+//				if((myGame.currentPlayer.pPlay.get(i)>=13 &&
+//						myGame.currentPlayer.pPlay.get(i)<=25) ||
+//						myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
+//					myGame.currentPlayer.pPlay.remove(i);
+//					i--;
+//				}
+//
+//				myGame.currentPlayer.cLevel+=myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).pLevelBonus;
+//				myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
+//
+//
+//
+//			}
+//			System.out.println("new clevel: "+myGame.currentPlayer.cLevel);
+//
+//			for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
+//				if(myGame.otherPlayer.pPlay.get(i)>=13 &&
+//						myGame.otherPlayer.pPlay.get(i)<=25){
+//					myGame.otherPlayer.pPlay.remove(i);
+//					i--;
+//				}
+//			}
+		return true;
 	}
 
 	public boolean checkWin() {

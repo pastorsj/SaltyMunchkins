@@ -23,7 +23,7 @@ public class PassCombatButton extends JButton implements ActionListener{
 	public PassCombatButton(String buttonText, Game game, MainCardPanel panel){
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
-		super.setText(buttonText);//Should be just Switch Sides
+		super.setText(buttonText);
 		this.setVisible(false);
 		this.setMaximumSize(new Dimension(100,50));
 
@@ -37,8 +37,7 @@ public class PassCombatButton extends JButton implements ActionListener{
 		
 		this.game.pass();
 		this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(false);
-		this.lastPass = this.nowPass;
-		this.nowPass = true;
+		this.setNowPass(true);
 		if(this.lastPass && this.nowPass) {
 			this.setVisible(false);
 			this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(true);
@@ -49,6 +48,11 @@ public class PassCombatButton extends JButton implements ActionListener{
 	public void resetButton() {
 		this.lastPass = false;
 		this.nowPass = false;
+	}
+
+	public void setNowPass(boolean pass) {
+		this.lastPass = this.nowPass;
+		this.nowPass = pass;
 	}
 
 }
