@@ -145,40 +145,18 @@ public class Game {
 	}
 
 	public boolean endTurn() {
-//		if(myGame.currentPlayer.pHand.size()<=8){
-//			myGame.currentPlayer.drewCard = false;
-//			myGame.currentPlayer.playCard = false;
-//			myGame.changePlayer();
-//			if(myGame.currentPlayer.sentCurse){
-//				myGame.currentPlayer.sentCurse=false;
-//				myGame.changePlayer();
-//			}
-//
-//
-//			myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
-//			for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
-//				if((myGame.currentPlayer.pPlay.get(i)>=13 &&
-//						myGame.currentPlayer.pPlay.get(i)<=25) ||
-//						myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
-//					myGame.currentPlayer.pPlay.remove(i);
-//					i--;
-//				}
-//
-//				myGame.currentPlayer.cLevel+=myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).pLevelBonus;
-//				myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
-//
-//
-//
-//			}
-//			System.out.println("new clevel: "+myGame.currentPlayer.cLevel);
-//
-//			for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
-//				if(myGame.otherPlayer.pPlay.get(i)>=13 &&
-//						myGame.otherPlayer.pPlay.get(i)<=25){
-//					myGame.otherPlayer.pPlay.remove(i);
-//					i--;
-//				}
-//			}
+		//TODO: Several things must happen when ending a turn
+		// Resolve conflict
+		this.combat.resolveFight();
+		// Discard all changes that are set to be discarded
+		for(ICard c : this.cardsInPlay.getCardsInPlay()) {
+			if(c.checkDiscard()) {
+				this.cardsInPlay.removeCardFromPlay(c);
+			}
+		}
+		// Reset Combat
+		this.combat.finish();
+		this.combat.resetCombat();
 		return true;
 	}
 

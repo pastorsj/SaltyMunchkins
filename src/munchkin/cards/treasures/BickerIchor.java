@@ -26,7 +26,7 @@ public class BickerIchor extends Treasure {
 
     @Override
     public void cardPlayed(boolean win) {
-        this.discard();
+        this.setDiscard();
     }
 
     private int checkNumMonsters() {
@@ -39,7 +39,7 @@ public class BickerIchor extends Treasure {
     private void discardLowerLevelMonster() {
         //Get rid of the lower level monster from hand
         this.action.setValue("Number of Monsters on the table exceeded 1, the monsters have fought and the lower level monster is discarded");
-        this.setDiscard(true);
+        this.setDiscard();
     }
 
 

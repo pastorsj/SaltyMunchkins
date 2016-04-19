@@ -38,12 +38,9 @@ public class TestTreasure {
 
 	
 	@Test
-	public void testSetAndGetDiscard(){
-		this.treasure.setDiscard(true);
-		assertTrue(this.treasure.discard());
-		
-		this.treasure.setDiscard(false);
-		assertFalse(this.treasure.discard());
+	public void testSetAndGetDiscard() {
+		this.treasure.setDiscard();
+		assertTrue(this.treasure.checkDiscard());
 	}
 	
 	@Test

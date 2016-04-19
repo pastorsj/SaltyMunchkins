@@ -17,4 +17,6 @@ public interface ICard {
 	public void enable();
 	public void disable();
 	public SpecificCardType getSpecificCardType();
+	public void setDiscard();
+	public boolean checkDiscard();
 }

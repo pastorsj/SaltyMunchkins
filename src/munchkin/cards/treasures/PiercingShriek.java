@@ -17,7 +17,7 @@ public class PiercingShriek extends Treasure {
 
     @Override
     public void cardPlayed(boolean win) {
-        this.setDiscard(true);
+        this.setDiscard();
         //If player to the right has a lower level, he can take the card from the discard pile
     }
 }

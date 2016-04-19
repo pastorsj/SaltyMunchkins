@@ -20,7 +20,7 @@ public class GoUpALevel extends Treasure {
 
     @Override
     public void cardPlayed(boolean win) {
-        this.setDiscard(true);
+        this.setDiscard();
     }
 
     public void increaseLevel() {

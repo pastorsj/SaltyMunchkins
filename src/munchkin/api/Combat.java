@@ -1,6 +1,7 @@
 package munchkin.api;
 
 import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.game.Action;
 import munchkin.game.Game;
 import munchkin.game.Utility;
 
@@ -16,10 +17,12 @@ public class Combat implements ICombat{
     private List<IPlayer> fighters;
     private Game game;
     private List<Integer> monsterLevels;
+    private Action action;
 
 
     public Combat(Game game) {
         this.game = game;
+        this.action = Action.getInstance();
         this.initializeFields();
     }
 
@@ -61,11 +64,15 @@ public class Combat implements ICombat{
         AbstractMonster singleMonster = this.monsters.get(0);
         if(singlePlayer.getCombatLevel() > singleMonster.getLevel()) {
             //Win Condition: Fighters draw treasure cards and turn is ended
+            this.action.setValue("You have won! You have recevied the appropriate number of treasures for your victory. Discard the excess cards.");
         } else {
             //Lose Condition: Must roll to attempt to run away
+            this.action.setValue("Attempting to run away");
             if(Utility.rollDice() + singlePlayer.getRunAwayLevel() > 3) {
+                this.action.setValue("Running Away!");
                 runAway();
             } else {
+                this.action.setValue("Oh no, you could not run away");
                 singleMonster.badStuff();
             }
         }

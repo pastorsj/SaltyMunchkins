@@ -11,7 +11,6 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 	private int gold = 0;
 	private int bonus = 0;
 	private Armor armor;
-	private boolean discard = false;
 	protected Game game;
 	protected Queue<IPlayer> players;
 
@@ -26,15 +25,6 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 		this.game = game;
 		this.players = game.getPlayers();
 		this.setCardType(CardType.Treasure);
-	}
-
-
-	public boolean discard() {
-		return this.discard;
-	}
-
-	public void setDiscard(boolean discard) {
-		this.discard = discard;
 	}
 
 	@Override
