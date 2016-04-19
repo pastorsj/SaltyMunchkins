@@ -1,6 +1,7 @@
 package munchkin.game;
 
 import munchkin.api.*;
+import munchkin.cards.doors.api.AbstractMonster;
 import munchkin.game.panels.MainCardPanel;
 
 import javax.imageio.ImageIO;
@@ -137,6 +138,10 @@ public class Game {
 		if(this.getCurrentPlayer().getArmorSet().checkArmor(card) && !card.isDisabled()) {
 			this.getCurrentPlayer().getHand().removeCardFromHand(card);
 			this.cardsInPlay.addCardsToPlay(card);
+			if(card instanceof AbstractMonster) {
+				this.action.setValue("Added " + card.getName() + " monster to combat");
+				this.combat.addMonsterToFight((AbstractMonster) card);
+			}
 			return true;
 		} else {
 			this.action.setValue("Due to the current conditions, you are unable to play this card");

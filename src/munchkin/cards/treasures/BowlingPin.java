@@ -12,7 +12,11 @@ public class BowlingPin extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(200);
+    }
+
+    @Override
+    public void cardInPlay() {
+        this.setBonus(2);
         this.setArmor(Armor.OneHand);
-        this.setBonus(1);
     }
 }

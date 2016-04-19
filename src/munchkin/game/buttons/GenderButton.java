@@ -73,8 +73,10 @@ public class GenderButton extends JButton implements ActionListener {
 	public void setMaleGender() {
 		if(!Game.gameSetUp) {
 			super.setText("P1: Male");
+			this.game.getCurrentPlayer().setName("P1");
 		} else {
 			super.setText("P2: Male");
+			this.game.getCurrentPlayer().setName("P2");
 		}
 		this.gender = "Male";
 	}
@@ -82,8 +84,10 @@ public class GenderButton extends JButton implements ActionListener {
 	public void setFemaleGender() {
 		if(!Game.gameSetUp) {
 			super.setText("P1: Female");
+			this.game.getCurrentPlayer().setName("P1");
 		} else {
 			super.setText("P2: Female");
+			this.game.getCurrentPlayer().setName("P2");
 		}
 		this.gender = "Female";
 	}

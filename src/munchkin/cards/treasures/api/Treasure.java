@@ -36,12 +36,14 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 	public int getGold() {
 		return this.gold;
 	}
-	
+
 	@Override
 	public void setBonus(int bonus) {
 		this.bonus = bonus;
+		this.action.setValue("Added " + bonus + " to the players combat level from the " + this.getName() + " card");
+		this.getOwner().addToCombatLevel(this.bonus);
 	}
-	
+
 	@Override
 	public int getBonus() {
 		return this.bonus;

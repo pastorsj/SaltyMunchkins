@@ -13,5 +13,5 @@ public interface ICombat {
     public void runAway();
     public void resetCombat();
     public void finish();
-
+    public boolean containsMonster();
 }
