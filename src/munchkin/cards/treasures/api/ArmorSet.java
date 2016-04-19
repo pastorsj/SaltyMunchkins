@@ -42,7 +42,9 @@ public class ArmorSet {
 	}
     
     public void removeFootgear(){
-    	this.footgear.clear();
+        if(this.footgear.size()>0) {
+            this.footgear.clear();
+        }
     }
 
 	public List<ICard> getHeadgear() {
@@ -50,7 +52,9 @@ public class ArmorSet {
 	}
 	
 	public void removeHeadgear(){
-		this.headgear.clear();
+		if(this.headgear.size()>0) {
+            this.headgear.clear();
+        }
 	}
 
 	
@@ -60,7 +64,9 @@ public class ArmorSet {
 
 	
 	public void removeArmor(){
-		this.armor.clear();
+        if(this.armor.size()>0) {
+            this.armor.clear();
+        }
 	}
 	public List<ICard> getHands() {
 		return hands;
