@@ -1,6 +1,5 @@
 package munchkin.game.panels;
 
-
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.MouseInfo;
@@ -97,9 +96,9 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.buttons.put("Sell Gold", new SellGoldButton("Sell Gold", this.game, this));
 		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
 		this.buttons.put("Male", new GenderButton("Male", this.game, this));
-		((GenderButton)this.buttons.get("Male")).setMaleGender();
+		((GenderButton) this.buttons.get("Male")).setMaleGender();
 		this.buttons.put("Female", new GenderButton("Female", this.game, this));
-		((GenderButton)this.buttons.get("Female")).setFemaleGender();
+		((GenderButton) this.buttons.get("Female")).setFemaleGender();
 	}
 
 	private void initializeImages() {
@@ -128,7 +127,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		for (String key : this.buttons.keySet()) {
 			this.buttons.get(key).setPreferredSize(new Dimension(130, 30));
 			this.add(this.buttons.get(key));
-			//FIXME
+			// FIXME
 			if ((key.equals("Male")) || (key.equals("Female"))) {
 				this.buttons.get(key).setVisible(true);
 			} else {
@@ -195,7 +194,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			g.drawImage(largeCard, 50 + 180 * 8 + 10 * 8, 400, 360, 570, null);
 			try {
 				this.updateRevImageMap();
-			} catch(Exception e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 			this.setMinimumSize(new Dimension(2000, 500));
@@ -204,16 +203,17 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	}
 
-	private void updateRevImageMap() throws Exception{
+	private void updateRevImageMap() throws Exception {
 		this.revImageMap = new HashMap<>();
 		Set<BufferedImage> keySet = new HashSet<>(this.images.values());
 		Set<String> valueSet = new HashSet<>(this.images.keySet());
 		List<BufferedImage> imageSet = new ArrayList<>(this.images.values());
 		List<String> imageNameSet = new ArrayList<>(this.images.keySet());
-		if(!(keySet.size() == valueSet.size())) {
-			throw new Exception("The Image HashMap does not have unique key-value pairs (updateRevImageMap() in Game.java)");
+		if (!(keySet.size() == valueSet.size())) {
+			throw new Exception(
+					"The Image HashMap does not have unique key-value pairs (updateRevImageMap() in Game.java)");
 		}
-		for(int i = 0; i < imageSet.size(); i++) {
+		for (int i = 0; i < imageSet.size(); i++) {
 			this.revImageMap.put(imageSet.get(i), imageNameSet.get(i));
 		}
 	}
@@ -243,51 +243,36 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-//		System.out.println(MouseInfo.getPointerInfo().getLocation());
-		//TODO: There may be some magic numbers here...
+		// System.out.println(MouseInfo.getPointerInfo().getLocation());
+		// TODO: There may be some magic numbers here...
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
 		if (y > 780 && y < 1006) {
-			if (x > 10 && x < 185) {
-				largeCard = cardsInHand.get(0);
-			} else if (x > 200 && x < 374) {
-				if (cardsInHand.size() > 1) {
-					largeCard = cardsInHand.get(1);
+			//new stuff here
+			int j = 10;
+			int k = 185;
+			
+			System.out.println("x is: " + x);
+			for(int i = 0; i<8; i++){
+				System.out.println("i is: " + i);
+				if(x>j && x<k){
+					System.out.println("j is: " + j);
+					System.out.println("k is: " + k);
+					if(cardsInHand.size() > i){
+						largeCard = cardsInHand.get(i);
+						//break;
+					}
 				}
-				
-			} else if (x > 393 && x < 564) {
-				if (cardsInHand.size() > 2) {
-					largeCard = cardsInHand.get(2);
-				}
-
-			} else if (x > 582 && x < 753) {
-				if (cardsInHand.size() > 3) {
-					largeCard = cardsInHand.get(3);
-				}
-
-			} else if (x > 773 && x < 946) {
-				if (cardsInHand.size() > 4) {
-					largeCard = cardsInHand.get(4);
-				}
-
-			} else if (x > 960 && x < 1137) {
-				if (cardsInHand.size() > 5) {
-					largeCard = cardsInHand.get(5);
-				}
-
-			} else if (x > 1151 && x < 1324) {
-				if (cardsInHand.size() > 6) {
-					largeCard = cardsInHand.get(6);
-				}
-
-			} else if (x > 1340 && x < 1517) {
-				if (cardsInHand.size() > 7) {
-					largeCard = cardsInHand.get(7);
-				}
+				//else{
+				//	System.out.println("executing else");
+					j+=190;
+					k+=190;
+				//}
 			}
 		}
 
-		if (y < 425 && y > 202) {
+		//used to be just if
+		else if (y < 425 && y > 202) {
 			if (x > 1530 && x < 1707) {
 				if (cardsInHand.size() > 8) {
 					largeCard = cardsInHand.get(8);
@@ -301,7 +286,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			}
 		}
 
-		if (y > 545 && y < 770) {
+		//used to be just if
+		else if (y > 545 && y < 770) {
 			for (int i = 0; i < this.cardsInPlay.get(this.game.getCurrentPlayer()).size(); i++) {
 				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
 					largeCard = this.cardsInPlay.get(this.game.getCurrentPlayer()).get(i);
@@ -310,7 +296,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 		}
 
-		if (y > 50 && y < 300) {
+		//used to be just if
+		else if (y > 50 && y < 300) {
 			for (int i = 0; i < this.cardsInPlay.get(this.game.getOtherPlayer()).size(); i++) {
 				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
 					largeCard = this.cardsInPlay.get(this.game.getOtherPlayer()).get(i);
@@ -324,14 +311,14 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	private void updateSelectedCard() {
 		String cardSelected = this.revImageMap.get(largeCard);
-		for(ICard card : this.game.getAllCards()) {
-			if(card.getName().equals(cardSelected)) {
+		for (ICard card : this.game.getAllCards()) {
+			if (card.getName().equals(cardSelected)) {
 				this.selectedCard = card;
 				return;
 			}
 		}
 	}
-	
+
 	public Map<String, JButton> getButtonSet() {
 		return this.buttons;
 	}
@@ -367,20 +354,20 @@ public class MainCardPanel extends JPanel implements MouseListener {
 	public ICard getSelectedCard() {
 		return this.selectedCard;
 	}
-	
+
 	public void updateLargeCard(ICard card) {
 		this.largeCard = this.images.get(card.getName());
 		this.selectedCard = card;
 	}
-	
+
 	public void resetLargeCard() {
-		//This seems to not work
+		// This seems to not work
 		this.largeCard = null;
 		this.selectedCard = null;
 	}
-	
+
 	public void repaintFrame() {
-//		this.frame.revalidate();
+		// this.frame.revalidate();
 		this.frame.repaint();
 	}
 }
