@@ -67,6 +67,14 @@ public class Combat implements ICombat{
         AbstractMonster singleMonster = this.monsters.get(0);
         if(singlePlayer.getCombatLevel() > singleMonster.getLevel()) {
             //Win Condition: Fighters draw treasure cards and turn is ended
+            //FIXME: Use single monster treasures to deal new treasures
+            try {
+                for (int i = 0; i < singleMonster.getTreasures(); i++) {
+                    this.game.dealNewCard("Treasure", this.game.getCurrentPlayer());
+                }
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
             this.action.setValue("You have won! You have received the appropriate number of treasures for your victory. Discard the excess cards.");
         } else {
             //Lose Condition: Must roll to attempt to run away
