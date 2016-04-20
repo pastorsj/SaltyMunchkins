@@ -40,13 +40,7 @@ public class IntegrationTesting {
     @Test
     public void testNoException() {
         this.a.getHand().insertCard(this.card);
-        boolean check = true;
-        try{
-            this.card.cardInPlay();
-        } catch(Exception e) {
-            e.printStackTrace();
-            check = false;
-        }
+        boolean check = this.checkInPlay(this.card);
         assertTrue(check);
     }
 
@@ -59,16 +53,22 @@ public class IntegrationTesting {
 
     @Test
     public void testGoUpALevel() {
-        boolean check = true;
+        boolean check;
         int level = this.a.getPlayerLevel();
         ICard levelCard = new GoUpALevel();
-        try {
-            this.a.getHand().insertCard(levelCard);
-            levelCard.cardInPlay();
-        } catch (Exception e) {
-            check = false;
-        }
+        this.a.getHand().insertCard(levelCard);
+        check  = this.checkInPlay(levelCard);
         assertTrue(check);
         assertEquals(level + 1, this.a.getPlayerLevel());
+    }
+
+    public boolean checkInPlay(ICard c) {
+        try{
+            c.cardInPlay();
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }
