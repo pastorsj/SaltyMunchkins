@@ -315,7 +315,6 @@ public class MainCardPanel extends JPanel implements MouseListener {
 					largeCard = this.cardsInPlay.get(this.game.getCurrentPlayer()).get(i);
 				}
 			}
-
 		}
 
 		if (y > 50 && y < 300) {
@@ -324,7 +323,6 @@ public class MainCardPanel extends JPanel implements MouseListener {
 					largeCard = this.cardsInPlay.get(this.game.getOtherPlayer()).get(i);
 				}
 			}
-
 		}
 		this.updateSelectedCard();
 		this.frame.repaint();

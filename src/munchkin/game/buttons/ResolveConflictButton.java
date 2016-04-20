@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map;
 
 import javax.swing.JButton;
 
@@ -31,11 +32,17 @@ public class ResolveConflictButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 
-		this.mainCardPanel.getButtonSet().get("End Turn").setVisible(true);
-		this.mainCardPanel.getButtonSet().get("Pass Combat").setVisible(false);
-		this.mainCardPanel.getButtonSet().get("Sell Gold").setVisible(false);
-		this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(false);
+		Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
+
 		this.game.getCombat().resolveFight();
+		if(this.game.getCurrentPlayer().getHand().checkSizeOfHand()) {
+			buttonSet.get("Discard").setVisible(true);
+		} else {
+			buttonSet.get("End Turn").setVisible(true);
+		}
+		buttonSet.get("Pass Combat").setVisible(false);
+		buttonSet.get("Sell Gold").setVisible(false);
+		buttonSet.get("Resolve Conflict").setVisible(false);
 		this.mainCardPanel.updateLabels();
 
 		if(this.game.checkWin()) {

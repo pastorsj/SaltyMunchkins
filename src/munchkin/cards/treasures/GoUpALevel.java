@@ -15,6 +15,7 @@ public class GoUpALevel extends Treasure {
     @Override
     public void cardInPlay() {
         increaseLevel();
+        this.getOwner().addToCombatLevel(1);
         this.action.setValue("Go up a Level!");
     }
 

@@ -29,12 +29,6 @@ public class CardsInPlay {
             //IMPORTANT: This method must be called when a card added to the play set
             action.setValue("Added " + card.getName() + " to play");
             card.cardInPlay();
-            if(card instanceof ITreasure) {
-                action.setValue("Increased combat level");
-                this.game.getCurrentPlayer().addToCombatLevel(((ITreasure)card).getBonus());
-            } else if(card instanceof GoUpALevel) {
-                this.game.getCurrentPlayer().addToCombatLevel(1);
-            }
         } else {
             this.action.setValue("Can't add the card to play: Card already in play!");
         }

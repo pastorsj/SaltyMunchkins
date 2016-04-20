@@ -51,6 +51,7 @@ public class GenderButton extends JButton implements ActionListener {
 			this.mainCardPanel.repaintFrame();
 		} else {
 			this.game.pass();
+			this.mainCardPanel.repaintFrame();
 
 			buttonSet.get("Male").setVisible(false);
 			buttonSet.get("Female").setVisible(false);

@@ -108,6 +108,7 @@ public class Player implements IPlayer{
 
     @Override
     public void addToCombatLevel(int levels) {
+        System.err.println("Added " + levels + " to combat level");
         this.combatLevel += levels;
     }
 

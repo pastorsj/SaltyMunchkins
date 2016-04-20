@@ -12,6 +12,7 @@ public class Hand implements IHand {
     private List<ICard> hand;
     private IPlayer owner;
     private Action action;
+    private boolean largeHand = false;
 
     public Hand(IPlayer player) {
         this.owner = player;
@@ -21,16 +22,18 @@ public class Hand implements IHand {
 
     @Override
     public boolean insertCard(ICard card) {
-        if(sizeOfHand() < 8) {
+        if(this.hand.contains(card)) {
+            this.action.setValue("The hand already contains this card");
+            return false;
+        } else {
             this.hand.add(card);
             //IMPORTANT: Invoke this method when a card is added to a players hand.
             card.setOwner(this.owner);
             card.cardInHand();
             this.action.setValue("inserted " + card.getName() + " into your hand");
-            return true;
         }
-        this.action.setValue("Couldnt insert " + card.getName() + " into the hand: you have too many cards");
-        return false;
+        this.setLargeHand();
+        return true;
     }
 
     @Override
@@ -49,12 +52,22 @@ public class Hand implements IHand {
             action.setValue("Discarded " + card.getName() + " from your hand");
             //Add card to either treasure or door discard set
             if(card.getCardType().equals(CardType.Door)) {
-            
+
             } else {
             	
             }
         }
+        this.setLargeHand();
         return inHand;
+    }
+
+    public void setLargeHand() {
+        if(this.hand.size() > 8) {
+            this.largeHand = true;
+            this.action.setValue("You have " + this.hand.size() + " cards in your hand. Discard until your hand size is 8");
+        } else {
+            this.largeHand = false;
+        }
     }
 
     @Override
@@ -67,7 +80,12 @@ public class Hand implements IHand {
         return this.hand.size();
     }
 
-	@Override
+    @Override
+    public boolean checkSizeOfHand() {
+        return this.largeHand;
+    }
+
+    @Override
 	public List<ICard> getCards() {
 		return this.hand;
 	}
