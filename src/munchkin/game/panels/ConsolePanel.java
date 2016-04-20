@@ -1,15 +1,44 @@
 package munchkin.game.panels;
 
-import java.util.Observable;
-import java.util.Observer;
+import java.awt.Dimension;
 
-/**
- * Created by SamPastoriza on 3/27/16.
- */
-public class ConsolePanel implements Observer{
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-    @Override
-    public void update(Observable o, Object arg) {
-        System.out.println("Update to observed var: " + arg);
-    }
+public class ConsolePanel {
+	
+	
+	private static ConsolePanel instance;
+	private JFrame frame;
+	private JLabel statusLabel;
+	
+	private ConsolePanel(){
+		
+		frame = new JFrame("Game Log");
+		JPanel panel = new JPanel();
+		statusLabel = new JLabel();
+		
+		panel.add(statusLabel);
+		
+		frame.setPreferredSize(new Dimension(400,200));
+		frame.pack();
+		frame.add(panel);
+		frame.setVisible(true);
+	}
+	
+	public static ConsolePanel getInstance(){
+		if(instance == null){
+			instance = new ConsolePanel();
+		}
+		
+		return instance;
+		
+	}
+	
+	public void logMessage(String message){
+		statusLabel.setText(message);
+		frame.repaint();
+	}
+	
 }

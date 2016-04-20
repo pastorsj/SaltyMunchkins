@@ -20,22 +20,24 @@ public class ArmorTesting {
 	private Action action;
 	private ArmorSet armor;
 	private Game game;
+	private ITreasure helmet;
 	
 	@Before
 	public void setUp(){
 		action = Action.getInstance();
 		armor = new ArmorSet();
 		game = new Game(2);
+
+		helmet = new MinersHelmet();
+		helmet.cardInPlay();
 	}
 	
 	@Test
 	public void testAddFootGear() {
 		armor.removeFootgear();
 		
-		ITreasure notboots = new MinersHelmet();
-		notboots.cardInPlay();
 		ITreasure boots = new MonsterStompers(game);
-		armor.addFootGear(notboots);
+		armor.addFootGear(helmet);
 		assertEquals("Not Footgear armor",action.getAction());
 		assertEquals(0, armor.getFootgear().size());
 		
@@ -58,7 +60,6 @@ public class ArmorTesting {
 	public void testAddHeadGear(){
 		armor.removeHeadgear();
 		
-		ITreasure headGear = new MinersHelmet();
 		ITreasure notHeadGear = new MonsterStompers(game);
 		notHeadGear.cardInPlay();
 		
@@ -66,29 +67,26 @@ public class ArmorTesting {
 		assertEquals("Not HeadGear armor",action.getAction());
 		assertEquals(0, armor.getHeadgear().size());
 		
-		headGear.cardInPlay();
-		armor.addHeadGear(headGear);
+		armor.addHeadGear(helmet);
 		assertEquals(1, armor.getHeadgear().size());
-		assertEquals(headGear, armor.getHeadgear().get(0));
+		assertEquals(helmet, armor.getHeadgear().get(0));
 		
-		armor.addHeadGear(headGear);
+		armor.addHeadGear(helmet);
 		assertEquals("Already at max armor for headgear", action.getAction());
 		assertEquals(1, armor.getHeadgear().size());
 		
 		armor.removeHeadgear();
-		armor.addHeadGear(headGear);
+		armor.addHeadGear(helmet);
 		assertEquals(1, armor.getHeadgear().size());
-		assertEquals(headGear, armor.getHeadgear().get(0));
+		assertEquals(helmet, armor.getHeadgear().get(0));
 	}
 	
 	@Test
 	public void testAddArmor(){
 		
 		ITreasure chest = new MiskatonicUniversityTShirt(game);
-		ITreasure notArmor = new MinersHelmet();
-		notArmor.cardInPlay();
 		
-		armor.addArmor(notArmor);
+		armor.addArmor(helmet);
 		assertEquals("Not armor type",action.getAction());
 		assertEquals(0, armor.getArmor().size());
 		
@@ -112,10 +110,8 @@ public class ArmorTesting {
 	public void testAddHands(){
 		ITreasure twoHand = new BrassKnucks();
 		ITreasure oneHand = new BowlingPin();
-		ITreasure notHands = new MinersHelmet();
 		
-		notHands.cardInPlay();
-		armor.addHands(notHands);
+		armor.addHands(helmet);
 		assertEquals("Not hands armor",action.getAction());
 		assertEquals(0, armor.getArmor().size());
 		
