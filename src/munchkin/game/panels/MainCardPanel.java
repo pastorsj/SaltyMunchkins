@@ -35,17 +35,16 @@ import munchkin.game.buttons.SellGoldButton;
 public class MainCardPanel extends JPanel implements MouseListener {
 	private final String IMAGE_PATH = "resources/pictures/";
 	private final String PNG_EXTENSION = ".png";
-	
+
 	private final int Y_PHAND_MIN = 780;
 	private final int Y_PHAND_MAX = 1030;
 	private final int Y_PHAND_EXTRA_MIN = 170;
 	private final int Y_PHAND_EXTRA_MAX = 395;
-	
+
 	private final int Y_PPLAY_MIN = 515;
-	private final int Y_PPLAY_MAX = 740;
+	private final int Y_PPLAY_MAX = 820;
 	private final int Y_OPLAY_MIN = 50;
-	private final int Y_OPLAY_MAX = 275;
-	
+	private final int Y_OPLAY_MAX = 300;
 
 	// Current Implementation
 	private BufferedImage largeCard;
@@ -192,7 +191,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			// In play for current player
 			if (!this.cardsInPlay.isEmpty()) {
 				List<BufferedImage> imageList = this.cardsInPlay.get(this.game.getCurrentPlayer());
-				if(imageList != null) {
+				if (imageList != null) {
 					for (int i = 0; i < imageList.size(); i++) {
 						g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225, null);
 					}
@@ -202,7 +201,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 				// In play for other player
 				imageList = this.cardsInPlay.get(this.game.getOtherPlayer());
-				if(imageList != null) {
+				if (imageList != null) {
 					for (int i = 0; i < imageList.size(); i++) {
 						g.drawImage(imageList.get(i), 50 + 100 * i, 50, 180, 225, null);
 					}
@@ -262,75 +261,39 @@ public class MainCardPanel extends JPanel implements MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// System.out.println(MouseInfo.getPointerInfo().getLocation());
 		// TODO: There may be some magic numbers here...
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
-		System.out.println("x is: " + x);
-		System.out.println("y is: " + y);
-//		if (y > 780 && y < 1006) {
-//			//new stuff here
-//			int j = 10;
-//			int k = 185;
-//			
-//			for(int i = 0; i<8; i++){
-//				System.out.println("i is: " + i);
-//				if(x>j && x<k){
-//					if(cardsInHand.size() > i){
-//						largeCard = cardsInHand.get(i);
-//					}
-//				}
-//				j+=190;
-//				k+=190;
-//			}
-//		}
-//
-//		//used to be just if
-//		else if (y < 425 && y > 202) {
-//			if (x > 1530 && x < 1707) {
-//				if (cardsInHand.size() > 8) {
-//					largeCard = cardsInHand.get(8);
-//				}
-//			}
-//
-//			else if (x > 1540 && x < 1720) {
-//				if (cardsInHand.size() > 9) {
-//					largeCard = cardsInHand.get(9);
-//				}
-//			}
-//		}
 
-		//used to be just if
-		if (y > 545 && y < 770) {
+		//cards current player has in play
+		if (y > Y_PPLAY_MIN && y < Y_PPLAY_MAX) {
 			for (int i = 0; i < this.cardsInPlay.get(this.game.getCurrentPlayer()).size(); i++) {
 				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
 					largeCard = this.cardsInPlay.get(this.game.getCurrentPlayer()).get(i);
 				}
 			}
-		}
-
-		//used to be just if
-		else if (y > 50 && y < 300) {
+		} 
+		
+		//cards other player played
+		else if (y > Y_OPLAY_MIN && y < Y_OPLAY_MAX) {
 			for (int i = 0; i < this.cardsInPlay.get(this.game.getOtherPlayer()).size(); i++) {
 				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
 					largeCard = this.cardsInPlay.get(this.game.getOtherPlayer()).get(i);
 				}
 			}
 		}
-		
-		//current cards in hand
-		else if(y > Y_PHAND_MIN && y < Y_PHAND_MAX){
-			for(int i = 0; i<this.cardsInHand.size() && i < 8;i++){
-				if(x >= 10 + 190*i && x <= 10+190*(i+1)) {
+		// current cards in hand on bottom panel
+		else if (y > Y_PHAND_MIN && y < Y_PHAND_MAX) {
+			for (int i = 0; i < this.cardsInHand.size() && i < 8; i++) {
+				if (x >= 10 + 190 * i && x <= 10 + 190 * (i + 1)) {
 					largeCard = this.cardsInHand.get(i);
 				}
 			}
 		}
-		
-		//overflow cards in hand
-		else if (y > Y_PHAND_EXTRA_MIN && y < Y_PHAND_EXTRA_MAX){
-			for(int i =8 ; this.cardsInHand.size()>i && i<10 ; i++){
-				if(x >= 10 + 190* i && x <= 10 + 190*(i+1)){
+		// overflow cards in hand above large card
+		else if (y > Y_PHAND_EXTRA_MIN && y < Y_PHAND_EXTRA_MAX) {
+			for (int i = 8; this.cardsInHand.size() > i && i < 10; i++) {
+				if (x >= 10 + 190 * i && x <= 10 + 190 * (i + 1)) {
 					largeCard = this.cardsInHand.get(i);
 				}
 			}
