@@ -26,6 +26,7 @@ public class ArmorTesting {
 		action = Action.getInstance();
 		armor = new ArmorSet();
 		game = new Game(2);
+		
 	}
 	
 	@Test
