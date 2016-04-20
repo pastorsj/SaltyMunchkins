@@ -181,14 +181,22 @@ public class MainCardPanel extends JPanel implements MouseListener {
 			// In play for current player
 			if (!this.cardsInPlay.isEmpty()) {
 				List<BufferedImage> imageList = this.cardsInPlay.get(this.game.getCurrentPlayer());
-				for (int i = 0; i < imageList.size(); i++) {
-					g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225, null);
+				if(imageList != null) {
+					for (int i = 0; i < imageList.size(); i++) {
+						g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225, null);
+					}
+				} else {
+					System.err.println("Image list is null for current player");
 				}
 
 				// In play for other player
 				imageList = this.cardsInPlay.get(this.game.getOtherPlayer());
-				for (int i = 0; i < imageList.size(); i++) {
-					g.drawImage(imageList.get(i), 50 + 100 * i, 50, 180, 225, null);
+				if(imageList != null) {
+					for (int i = 0; i < imageList.size(); i++) {
+						g.drawImage(imageList.get(i), 50 + 100 * i, 50, 180, 225, null);
+					}
+				} else {
+					System.err.println("Image list is null for other player");
 				}
 			}
 			g.drawImage(largeCard, 50 + 180 * 8 + 10 * 8, 400, 360, 570, null);
@@ -293,7 +301,6 @@ public class MainCardPanel extends JPanel implements MouseListener {
 					largeCard = this.cardsInPlay.get(this.game.getCurrentPlayer()).get(i);
 				}
 			}
-
 		}
 
 		//used to be just if
@@ -303,7 +310,6 @@ public class MainCardPanel extends JPanel implements MouseListener {
 					largeCard = this.cardsInPlay.get(this.game.getOtherPlayer()).get(i);
 				}
 			}
-
 		}
 		this.updateSelectedCard();
 		this.frame.repaint();

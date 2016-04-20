@@ -11,7 +11,6 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 	private int gold = 0;
 	private int bonus = 0;
 	private Armor armor;
-	private boolean discard = false;
 	protected Game game;
 	protected Queue<IPlayer> players;
 
@@ -28,15 +27,6 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 		this.setCardType(CardType.Treasure);
 	}
 
-
-	public boolean discard() {
-		return this.discard;
-	}
-
-	public void setDiscard(boolean discard) {
-		this.discard = discard;
-	}
-
 	@Override
 	public void setGold(int gold) {
 		this.gold = gold;
@@ -46,12 +36,18 @@ public abstract class Treasure extends AbstractCard implements ITreasure{
 	public int getGold() {
 		return this.gold;
 	}
-	
+
 	@Override
 	public void setBonus(int bonus) {
 		this.bonus = bonus;
+//		this.action.setValue("Added " + bonus + " to the players combat level from the " + this.getName() + " card");
+		if(this.getOwner() != null) {
+			this.getOwner().addToCombatLevel(this.bonus);
+		} else {
+			System.err.println("The owner of this card is not set");
+		}
 	}
-	
+
 	@Override
 	public int getBonus() {
 		return this.bonus;

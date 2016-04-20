@@ -11,6 +11,7 @@ public abstract class AbstractCard implements ICard{
     private SpecificCardType type;
     private CardType cardType;
     public Action action;
+    private boolean discard = false;
 
     public AbstractCard() {
         this.disabled = false;
@@ -68,5 +69,15 @@ public abstract class AbstractCard implements ICard{
     public String getName() {
     	String canonicalName = this.getClass().getCanonicalName();
         return canonicalName.substring(canonicalName.lastIndexOf(".")+1);
+    }
+
+    @Override
+    public void setDiscard() {
+        this.discard = true;
+    }
+
+    @Override
+    public boolean checkDiscard() {
+        return this.discard;
     }
 }

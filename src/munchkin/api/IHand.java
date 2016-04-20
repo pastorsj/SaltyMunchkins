@@ -11,4 +11,6 @@ public interface IHand {
     public boolean cardInHand(ICard card);
     public List<ICard> getCards();
     public int sizeOfHand();
+    //True means the hand is too large (ie greater than 8) and the turn cannot end
+    public boolean checkSizeOfHand();
 }

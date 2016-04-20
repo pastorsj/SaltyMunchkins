@@ -22,6 +22,6 @@ public class IchorLiquor extends Treasure {
 
     @Override
     public void cardPlayed(boolean win) {
-        this.setDiscard(true);
+        this.setDiscard();
     }
 }

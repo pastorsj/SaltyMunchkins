@@ -3,49 +3,71 @@ package munchkin.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import munchkin.game.Action;
+
 /**
  * Created by SamPastoriza on 3/26/16.
  */
 public class Hand implements IHand {
     private List<ICard> hand;
     private IPlayer owner;
+    private Action action;
+    private boolean largeHand = false;
 
     public Hand(IPlayer player) {
         this.owner = player;
         this.hand = new ArrayList<>();
+        this.action = Action.getInstance();
     }
 
     @Override
     public boolean insertCard(ICard card) {
-        if(sizeOfHand() < 8) {
+        if(this.hand.contains(card)) {
+            this.action.setValue("The hand already contains this card");
+            return false;
+        } else {
             this.hand.add(card);
             //IMPORTANT: Invoke this method when a card is added to a players hand.
-            card.setOwner(owner);
+            card.setOwner(this.owner);
             card.cardInHand();
-            return true;
+            this.action.setValue("inserted " + card.getName() + " into your hand");
         }
-        return false;
+        this.setLargeHand();
+        return true;
     }
 
     @Override
     public boolean removeCardFromHand(ICard card) {
+    	if(sizeOfHand() == 0){
+    		this.action.setValue("You have no cards to discard!");
+    		return false;
+    	}
+    	
     	if(!this.hand.contains(card)) {
-    		//Add Action
-    		System.err.println("This card has already been discarded");
+    		this.action.setValue("This hand does not contain the card to be discarded");
     		return false;
     	}
         boolean inHand = this.hand.remove(card);
         if(inHand) {
-            //Nobody owns this card anymore
-            card.setOwner(null);
+            action.setValue("Discarded " + card.getName() + " from your hand");
             //Add card to either treasure or door discard set
             if(card.getCardType().equals(CardType.Door)) {
-            	
+
             } else {
             	
             }
         }
+        this.setLargeHand();
         return inHand;
+    }
+
+    public void setLargeHand() {
+        if(this.hand.size() > 8) {
+            this.largeHand = true;
+            this.action.setValue("You have " + this.hand.size() + " cards in your hand. Discard until your hand size is 8");
+        } else {
+            this.largeHand = false;
+        }
     }
 
     @Override
@@ -58,11 +80,14 @@ public class Hand implements IHand {
         return this.hand.size();
     }
 
-	@Override
+    @Override
+    public boolean checkSizeOfHand() {
+        return this.largeHand;
+    }
+
+    @Override
 	public List<ICard> getCards() {
 		return this.hand;
 	}
-
-
-
+	
 }

@@ -1,6 +1,7 @@
 package munchkin.game;
 
 import munchkin.api.*;
+import munchkin.cards.doors.api.AbstractMonster;
 import munchkin.game.panels.MainCardPanel;
 
 import javax.imageio.ImageIO;
@@ -36,7 +37,7 @@ public class Game {
 		this.allCards = initializeCards.getAllCards();
 		this.discardedDoorCards = new ArrayList<>();
 		this.discardedTreasureCards = new ArrayList<>();
-		this.cardsInPlay = new CardsInPlay();
+		this.cardsInPlay = new CardsInPlay(this);
 
 		this.players = new LinkedList<>();
 		for(int i = 0; i < numberOfPlayers; i++) {
@@ -100,17 +101,24 @@ public class Game {
 		} else {
 			throw new Exception("No such card pile type. Must be either treasure or door");
 		}
-		card = cards.get(0);
-		if(p.getHand().insertCard(cards.get(0))) {
-			return card;
-		} else {
-			action.setValue("Insert failed, too many cards in hand");
+		if(cards.size() < 1) {
+			action.setValue("No cards left to draw");
+			//FIXME: Eventually, we want to just reshuffle the discarded piles and continue the game
 			return null;
+		} else {
+			card = cards.get(0);
+			if(p.getHand().insertCard(cards.get(0))) {
+				return card;
+			} else {
+				action.setValue("You can only have eight cards in your hand. Please discard any extras");
+				return null;
+			}
 		}
 	}
 	
 	public boolean discardCard(IPlayer p, ICard card) throws Exception {
 		if(p.getHand().removeCardFromHand(card)) {
+			card.setOwner(null);
 			if (card.getCardType().equals(CardType.Door)) {
 				this.discardedDoorCards.add(card);
 				return true;
@@ -126,27 +134,13 @@ public class Game {
 	}
 
 	public boolean playACard(ICard card) {
-
 		if(this.getCurrentPlayer().getArmorSet().checkArmor(card) && !card.isDisabled()) {
 			this.getCurrentPlayer().getHand().removeCardFromHand(card);
 			this.cardsInPlay.addCardsToPlay(card);
-
-
-			//		} else {
-			//			// at this point, have checked all hands/armor/etc.
-			//			// System.out.println("pPlay is: "+game.currentPlayer.pPlay);
-			//			System.out.println("playing card: " + cardToMove);
-			//
-			//			if (myGame.currentPlayer.playCard && mCards.contains(cardToMove)) {
-			//				CardFunc cf = new CardFunc(myGame);
-			//				cf.cantPlay();
-			//			} else {
-			//				myGame.currentPlayer.playCard = true;
-			//				myGame.playACard(cardToMove);
-			//				if (myGame.currentPlayer.pPlay.contains(84)) {
-			//					myGame.playACard(84);
-			//				}
-			//
+			if(card instanceof AbstractMonster) {
+				this.action.setValue("Added " + card.getName() + " monster to combat");
+				this.combat.addMonsterToFight((AbstractMonster) card);
+			}
 			return true;
 		} else {
 			this.action.setValue("Due to the current conditions, you are unable to play this card");
@@ -155,40 +149,18 @@ public class Game {
 	}
 
 	public boolean endTurn() {
-//		if(myGame.currentPlayer.pHand.size()<=8){
-//			myGame.currentPlayer.drewCard = false;
-//			myGame.currentPlayer.playCard = false;
-//			myGame.changePlayer();
-//			if(myGame.currentPlayer.sentCurse){
-//				myGame.currentPlayer.sentCurse=false;
-//				myGame.changePlayer();
-//			}
-//
-//
-//			myGame.currentPlayer.cLevel=myGame.currentPlayer.pLevel;
-//			for (int i=0; i<myGame.currentPlayer.pPlay.size();i++){
-//				if((myGame.currentPlayer.pPlay.get(i)>=13 &&
-//						myGame.currentPlayer.pPlay.get(i)<=25) ||
-//						myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).discard){
-//					myGame.currentPlayer.pPlay.remove(i);
-//					i--;
-//				}
-//
-//				myGame.currentPlayer.cLevel+=myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).pLevelBonus;
-//				myGame.mframe.mainPanel.bCardPanel.playerCLevel.setText("combat level: " +myGame.currentPlayer.cLevel);
-//
-//
-//
-//			}
-//			System.out.println("new clevel: "+myGame.currentPlayer.cLevel);
-//
-//			for(int i =0; i<myGame.otherPlayer.pPlay.size();i++){
-//				if(myGame.otherPlayer.pPlay.get(i)>=13 &&
-//						myGame.otherPlayer.pPlay.get(i)<=25){
-//					myGame.otherPlayer.pPlay.remove(i);
-//					i--;
-//				}
-//			}
+		//TODO: Several things must happen when ending a turn
+		// Resolve conflict
+		this.combat.resolveFight();
+		// Discard all changes that are set to be discarded
+		for(ICard c : this.cardsInPlay.getCardsInPlay()) {
+			if(c.checkDiscard()) {
+				this.cardsInPlay.removeCardFromPlay(c);
+			}
+		}
+		// Reset Combat
+		this.combat.finish();
+		this.combat.resetCombat();
 		return true;
 	}
 

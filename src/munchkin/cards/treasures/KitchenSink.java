@@ -24,7 +24,7 @@ public class KitchenSink extends Treasure {
 
     @Override
     public void cardPlayed(boolean win) {
-        this.setDiscard(true);
+        this.setDiscard();
     }
 
 }

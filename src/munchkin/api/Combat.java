@@ -1,6 +1,7 @@
 package munchkin.api;
 
 import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.game.Action;
 import munchkin.game.Game;
 import munchkin.game.Utility;
 
@@ -16,17 +17,20 @@ public class Combat implements ICombat{
     private List<IPlayer> fighters;
     private Game game;
     private List<Integer> monsterLevels;
+    private Action action;
 
 
     public Combat(Game game) {
         this.game = game;
+        this.action = Action.getInstance();
         this.initializeFields();
     }
 
     private void initializeFields() {
-    	if(this.monsters == null && this.fighters == null){
+    	if(this.monsters == null && this.fighters == null && this.monsterLevels == null){
 	        this.monsters = new ArrayList<>();
 	        this.fighters = new ArrayList<>();
+            this.monsterLevels = new ArrayList<>();
     	}else {
     		this.resetCombat();
     	}
@@ -35,7 +39,9 @@ public class Combat implements ICombat{
     @Override
     public void addMonsterToFight(AbstractMonster monster) {
         if(!this.monsters.contains(monster)) {
+            this.monsterLevels.add(monster.getLevel());
             this.monsters.add(monster);
+            this.addPlayerToFight(this.game.getCurrentPlayer());
         }
     }
 
@@ -43,7 +49,7 @@ public class Combat implements ICombat{
     public void addPlayerToFight(IPlayer player) {
         if(!this.fighters.contains(player)) {
             this.fighters.add(player);
-            player.setCombatLevel();
+            player.addToCombatLevel(player.getPlayerLevel());
         }
     }
 
@@ -61,11 +67,15 @@ public class Combat implements ICombat{
         AbstractMonster singleMonster = this.monsters.get(0);
         if(singlePlayer.getCombatLevel() > singleMonster.getLevel()) {
             //Win Condition: Fighters draw treasure cards and turn is ended
+            this.action.setValue("You have won! You have received the appropriate number of treasures for your victory. Discard the excess cards.");
         } else {
             //Lose Condition: Must roll to attempt to run away
+            this.action.setValue("Attempting to run away");
             if(Utility.rollDice() + singlePlayer.getRunAwayLevel() > 3) {
+                this.action.setValue("Running Away!");
                 runAway();
             } else {
+                this.action.setValue("Oh no, you could not run away");
                 singleMonster.badStuff();
             }
         }
@@ -82,9 +92,19 @@ public class Combat implements ICombat{
     }
 
     @Override
+    public boolean containsMonster() {
+        return this.monsters.size() > 0;
+    }
+
+    @Override
     public void resetCombat() {
         this.monsters.clear();
         this.fighters.clear();
+        this.monsterLevels.clear();
+    }
+
+    public void addToMonsterLevel(int level) {
+        this.monsterLevels.set(0, this.monsterLevels.get(0) + level);
     }
 
     public int getMonsterLevel() {

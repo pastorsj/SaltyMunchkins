@@ -42,6 +42,7 @@ public class PassCombatButton extends JButton implements ActionListener{
 			this.setVisible(false);
 			this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(true);
 		}
+		this.mainCardPanel.updateLabels();
 		this.mainCardPanel.repaintFrame();
 	}
 	

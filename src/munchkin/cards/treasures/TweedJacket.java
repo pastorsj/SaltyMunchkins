@@ -29,7 +29,7 @@ public class TweedJacket extends Treasure {
     @Override
     public void cardPlayed(boolean win) {
         if(!win) {
-            this.setDiscard(true);
+            this.setDiscard();
         }
     }
 }

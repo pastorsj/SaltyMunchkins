@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import munchkin.cards.treasures.BowlingPin;
+import munchkin.cards.treasures.BrassKnucks;
 import munchkin.cards.treasures.MinersHelmet;
 import munchkin.cards.treasures.MiskatonicUniversityTShirt;
 import munchkin.cards.treasures.MonsterStompers;
@@ -104,5 +106,45 @@ public class ArmorTesting {
 		assertEquals(1, armor.getArmor().size());
 		assertEquals(chest, armor.getArmor().get(0));
 		
+	}
+	
+	@Test
+	public void testAddHands(){
+		ITreasure twoHand = new BrassKnucks();
+		ITreasure oneHand = new BowlingPin();
+		ITreasure notHands = new MinersHelmet();
+		
+		notHands.cardInPlay();
+		armor.addHands(notHands);
+		assertEquals("Not hands armor",action.getAction());
+		assertEquals(0, armor.getArmor().size());
+		
+		twoHand.cardInPlay();
+		armor.addHands(twoHand);
+		assertEquals(1, armor.getHands().size());
+		assertEquals(twoHand, armor.getHands().get(0));
+		
+		armor.addHands(twoHand);
+		assertEquals("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece", action.getAction());
+		assertEquals(1, armor.getHands().size());
+		
+		armor.removeHands();
+		
+		oneHand.cardInPlay();
+		armor.addHands(oneHand);
+		assertEquals(1, armor.getHands().size());
+		assertEquals(oneHand, armor.getHands().get(0));
+		
+		armor.addHands(twoHand);
+		assertEquals("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece", action.getAction());
+		assertEquals(1, armor.getHands().size());
+		
+		armor.addHands(oneHand);
+		assertEquals(2, armor.getHands().size());
+		assertEquals(oneHand, armor.getHands().get(1));
+		
+		armor.addHands(oneHand);
+		assertEquals(2, armor.getHands().size());
+		assertEquals("Already at max armor for hands",action.getAction());
 	}
 }

@@ -36,7 +36,7 @@ public class Bagpipes extends Treasure {
     public void cardPlayed(boolean win) {
         if(win) {
             if(mating) {
-                this.setDiscard(true);
+                this.setDiscard();
             }
         }
     }

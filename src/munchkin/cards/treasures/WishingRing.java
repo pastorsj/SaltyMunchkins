@@ -21,6 +21,6 @@ public class WishingRing extends Treasure {
 
     @Override
     public void cardPlayed(boolean win) {
-        this.setDiscard(true);
+        this.setDiscard();
     }
 }

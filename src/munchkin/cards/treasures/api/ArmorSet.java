@@ -23,8 +23,6 @@ public class ArmorSet {
     private int maxHands;
     private Action action;
 
-    private Map<Armor, Integer> armourToInteger;
-
     public ArmorSet() {
         this.footgear = new ArrayList<>();
         this.headgear = new ArrayList<>();
@@ -42,7 +40,9 @@ public class ArmorSet {
 	}
     
     public void removeFootgear(){
-    	this.footgear.clear();
+        if(this.footgear.size()>0) {
+            this.footgear.clear();
+        }
     }
 
 	public List<ICard> getHeadgear() {
@@ -50,7 +50,9 @@ public class ArmorSet {
 	}
 	
 	public void removeHeadgear(){
-		this.headgear.clear();
+		if(this.headgear.size()>0) {
+            this.headgear.clear();
+        }
 	}
 
 	
@@ -60,10 +62,16 @@ public class ArmorSet {
 
 	
 	public void removeArmor(){
-		this.armor.clear();
+        if(this.armor.size()>0) {
+            this.armor.clear();
+        }
 	}
 	public List<ICard> getHands() {
 		return hands;
+	}
+	
+	public void removeHands(){
+		this.hands.clear();
 	}
 
 	public void addFootGear(ITreasure card) {
@@ -116,7 +124,7 @@ public class ArmorSet {
                 this.action.setValue("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece");
             }
         } else {
-            this.action.setValue("Not Footgear armor");
+            this.action.setValue("Not hands armor");
         }
     }
 
