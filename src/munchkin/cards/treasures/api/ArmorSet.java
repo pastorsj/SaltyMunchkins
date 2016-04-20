@@ -69,6 +69,10 @@ public class ArmorSet {
 	public List<ICard> getHands() {
 		return hands;
 	}
+	
+	public void removeHands(){
+		this.hands.clear();
+	}
 
 	public void addFootGear(ITreasure card) {
         if(card.getArmor().equals(Armor.FootGear)) {
@@ -120,7 +124,7 @@ public class ArmorSet {
                 this.action.setValue("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece");
             }
         } else {
-            this.action.setValue("Not Footgear armor");
+            this.action.setValue("Not hands armor");
         }
     }
 
