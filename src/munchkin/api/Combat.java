@@ -41,6 +41,7 @@ public class Combat implements ICombat{
         if(!this.monsters.contains(monster)) {
             this.monsterLevels.add(monster.getLevel());
             this.monsters.add(monster);
+            this.addPlayerToFight(this.game.getCurrentPlayer());
         }
     }
 
@@ -48,7 +49,7 @@ public class Combat implements ICombat{
     public void addPlayerToFight(IPlayer player) {
         if(!this.fighters.contains(player)) {
             this.fighters.add(player);
-            player.setCombatLevel();
+            player.addToCombatLevel(player.getPlayerLevel());
         }
     }
 

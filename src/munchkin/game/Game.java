@@ -37,7 +37,7 @@ public class Game {
 		this.allCards = initializeCards.getAllCards();
 		this.discardedDoorCards = new ArrayList<>();
 		this.discardedTreasureCards = new ArrayList<>();
-		this.cardsInPlay = new CardsInPlay();
+		this.cardsInPlay = new CardsInPlay(this);
 
 		this.players = new LinkedList<>();
 		for(int i = 0; i < numberOfPlayers; i++) {
@@ -134,7 +134,6 @@ public class Game {
 	}
 
 	public boolean playACard(ICard card) {
-
 		if(this.getCurrentPlayer().getArmorSet().checkArmor(card) && !card.isDisabled()) {
 			this.getCurrentPlayer().getHand().removeCardFromHand(card);
 			this.cardsInPlay.addCardsToPlay(card);

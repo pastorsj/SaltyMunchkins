@@ -23,8 +23,6 @@ public class ArmorSet {
     private int maxHands;
     private Action action;
 
-    private Map<Armor, Integer> armourToInteger;
-
     public ArmorSet() {
         this.footgear = new ArrayList<>();
         this.headgear = new ArrayList<>();

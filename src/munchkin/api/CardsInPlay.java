@@ -3,7 +3,10 @@ package munchkin.api;
 import java.util.ArrayList;
 import java.util.List;
 
+import munchkin.cards.treasures.GoUpALevel;
+import munchkin.cards.treasures.api.ITreasure;
 import munchkin.game.Action;
+import munchkin.game.Game;
 
 /**
  * Created by SamPastoriza on 3/28/16.
@@ -12,10 +15,12 @@ public class CardsInPlay {
 
     private List<ICard> cardsInPlay;
     private Action action;
+    private Game game;
 
-    public CardsInPlay() {
+    public CardsInPlay(Game game) {
         this.cardsInPlay = new ArrayList<>();
         this.action = Action.getInstance();
+        this.game = game;
     }
 
     public void addCardsToPlay(ICard card) {
@@ -24,6 +29,12 @@ public class CardsInPlay {
             //IMPORTANT: This method must be called when a card added to the play set
             action.setValue("Added " + card.getName() + " to play");
             card.cardInPlay();
+            if(card instanceof ITreasure) {
+                action.setValue("Increased combat level");
+                this.game.getCurrentPlayer().addToCombatLevel(((ITreasure)card).getBonus());
+            } else if(card instanceof GoUpALevel) {
+                this.game.getCurrentPlayer().addToCombatLevel(1);
+            }
         } else {
             this.action.setValue("Can't add the card to play: Card already in play!");
         }

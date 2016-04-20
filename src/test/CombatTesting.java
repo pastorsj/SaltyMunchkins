@@ -19,10 +19,11 @@ import munchkin.game.Game;
 public class CombatTesting {
 	
 	private Combat combat;
+	private Game game;
 
 	@Before
 	public void setUp() {
-		Game game = new Game(2);
+		game = new Game(2);
 		combat = new Combat(game);
 	}
 	@Test
@@ -90,10 +91,10 @@ public class CombatTesting {
 		m1.setOwner(p1);
 		combat.addMonsterToFight(m1);
 		
-		assertEquals(p1.getFaction(), Faction.Professor);
+		assertEquals(Faction.Professor,p1.getFaction());
 		p1.addToRunAwayLevel(-10);
 		combat.resolveFight();
-		assertEquals(p1.getFaction(), Faction.UNAFFILIATED);
+		assertEquals(Faction.UNAFFILIATED, game.getCurrentPlayer().getFaction());
 		
 	}
 	
@@ -112,7 +113,7 @@ public class CombatTesting {
 		p1.addToRunAwayLevel(10);
 		combat.resolveFight();
 		assertEquals(p1.getFaction(), Faction.Professor);
-		
+
 	}
 	
 	@Test
@@ -128,8 +129,7 @@ public class CombatTesting {
 		Player p1 = new Player();
 		p1.addLevel(-1);
 		p1.setFaction(Faction.Professor);
-		combat.addPlayerToFight(p1);
-		
+
 		AbstractMonster m1 = new AughostDerwraith();
 		m1.setOwner(p1);
 		combat.addMonsterToFight(m1);
