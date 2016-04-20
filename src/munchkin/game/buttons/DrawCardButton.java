@@ -46,6 +46,7 @@ public class DrawCardButton extends JButton implements ActionListener{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		this.mainCardPanel.repaintFrame();
 	}
 
 }
