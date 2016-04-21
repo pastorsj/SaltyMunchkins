@@ -112,5 +112,11 @@ public class InitializeCards {
 		return this.allCards;
 	}
 
-
+	public ICard removeDoorCard(int i){
+		return this.doorCards.remove(i);
+	}
+	
+	public ICard removeTreasureCard(int i){
+		return this.treasureCards.remove(i);
+	}
 }
