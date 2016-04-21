@@ -57,21 +57,10 @@ public class TestTreasure {
 	
 	@Test
 	public void testSetAndGetArmor(){
-		this.treasure.setArmor(Armor.HeadGear);
-		assertEquals(Armor.HeadGear, this.treasure.getArmor());
-		
-		this.treasure.setArmor(Armor.FootGear);
-		assertEquals(Armor.FootGear, this.treasure.getArmor());
-		
-		this.treasure.setArmor(Armor.Armor);
-		assertEquals(Armor.Armor, this.treasure.getArmor());
-		
-		this.treasure.setArmor(Armor.OneHand);
-		assertEquals(Armor.OneHand, this.treasure.getArmor());
-		
-		this.treasure.setArmor(Armor.TwoHands);
-		assertEquals(Armor.TwoHands, this.treasure.getArmor());
+		Armor[] armors= Armor.values();
+		for(Armor a : armors){
+			this.treasure.setArmor(a);
+			assertEquals(a, this.treasure.getArmor());
+		}
 	}
-	
-	
 }

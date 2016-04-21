@@ -30,20 +30,11 @@ public class TestPlayer {
 
 	@Test
 	public void testSetAndGetFaction() {
-		this.player.setFaction(Faction.Cultist);
-		assertEquals(Faction.Cultist, this.player.getFaction());
-	
-		this.player.setFaction(Faction.Investigator);
-		assertEquals(Faction.Investigator, this.player.getFaction());
-	
-		this.player.setFaction(Faction.MonsterWhacker);
-		assertEquals(Faction.MonsterWhacker, this.player.getFaction());
-		
-		this.player.setFaction(Faction.Professor);
-		assertEquals(Faction.Professor, this.player.getFaction());
-
-		this.player.setFaction(Faction.UNAFFILIATED);
-		assertEquals(Faction.UNAFFILIATED, this.player.getFaction());
+		Faction[] factions = Faction.values();
+		for(Faction f : factions){
+			this.player.setFaction(f);
+			assertEquals(f, this.player.getFaction());
+		}
 	}
 	
 	@Test
