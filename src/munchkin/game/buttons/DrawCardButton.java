@@ -38,7 +38,7 @@ public class DrawCardButton extends JButton implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		try {
-			ICard card = this.game.dealNewCard("Door", this.game.getCurrentPlayer());
+			ICard card = this.game.dealNewDoorCard(this.game.getCurrentPlayer());
 			if(card != null) {
 				this.mainCardPanel.updateLargeCard(card);
 			}

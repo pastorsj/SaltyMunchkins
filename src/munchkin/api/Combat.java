@@ -70,7 +70,7 @@ public class Combat implements ICombat{
             //FIXME: Use single monster treasures to deal new treasures
             try {
                 for (int i = 0; i < singleMonster.getTreasures(); i++) {
-                    this.game.dealNewCard("Treasure", this.game.getCurrentPlayer());
+                    this.game.dealNewTreasureCard(this.game.getCurrentPlayer());
                 }
             } catch(Exception e) {
                 e.printStackTrace();
