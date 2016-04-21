@@ -50,7 +50,11 @@ public class Player implements IPlayer{
     public void setHand(IHand hand) {
         this.hand = hand;
     }
-
+    
+    @Override
+    public void addCardToHand(ICard card){
+    	this.hand.insertCard(card);
+    }
     @Override
     public int getPlayerLevel() {
         return level;
@@ -132,6 +136,7 @@ public class Player implements IPlayer{
         return this.alive;
     }
 
+    
     @Override
     public void sellGold(ICard card) {
 //        		myGame.currentPlayer.goldSold += myGame.ic.getCardHash().get(cardToSell).numGold;
