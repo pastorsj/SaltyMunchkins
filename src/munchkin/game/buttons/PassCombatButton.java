@@ -1,67 +1,59 @@
 package munchkin.game.buttons;
-import java.awt.Button;
+
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
 
 import javax.swing.JButton;
 
 import munchkin.game.Game;
+import munchkin.game.MFrame;
+import munchkin.game.panels.MainCardPanel;
 
 
 public class PassCombatButton extends JButton implements ActionListener{
+	
 	public boolean lastPass = false;
 	public boolean nowPass = false;
 
+	private Game game;
+	private MainCardPanel mainCardPanel;
 	
-	public Game myGame;
-	public PassCombatButton(Game game){
+	public PassCombatButton(String buttonText, Game game, MainCardPanel panel){
 		
 		super.setFont(new Font("Arial",Font.PLAIN, 15));
-		super.setText("Pass");//Should be just Switch Sides
+		super.setText(buttonText);
 		this.setVisible(false);
-		//super.setVisible(false);
-	
-		
 		this.setMaximumSize(new Dimension(100,50));
-	
-		this.myGame=game;
+
+		this.game=game;
+		this.mainCardPanel = panel;		
 		addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		myGame.changePlayer();
-		myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(false);
 		
-		
-		myGame.mframe.mainPanel.bCardPanel.pass.lastPass=
-				this.myGame.mframe.mainPanel.bCardPanel.pass.nowPass;
-		myGame.mframe.mainPanel.bCardPanel.pass.nowPass=true;
-		
-		if(myGame.mframe.mainPanel.bCardPanel.pass.lastPass&&
-				myGame.mframe.mainPanel.bCardPanel.pass.nowPass && 
-				myGame.currentPlayer.monster){
-			System.out.println("last and now pass both true");
-			myGame.mframe.mainPanel.bCardPanel.pass.setVisible(false);
-			myGame.mframe.mainPanel.bCardPanel.diwb.setVisible(true);
-			myGame.mframe.revalidate();
-			myGame.mframe.repaint();
+		this.game.pass();
+		this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(false);
+		this.setNowPass(true);
+		if(this.lastPass && this.nowPass) {
+			this.setVisible(false);
+			this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(true);
 		}
-		
+		this.mainCardPanel.updateLabels();
+		this.mainCardPanel.repaintFrame();
+	}
+	
+	public void resetButton() {
+		this.lastPass = false;
+		this.nowPass = false;
+	}
 
-		//myGame.mframe.dispose();
-		
-		
-		//myGame.mframe=new MFrame(myGame);
-		myGame.mframe.revalidate();
-		myGame.mframe.repaint();
-		
-		
-		
+	public void setNowPass(boolean pass) {
+		this.lastPass = this.nowPass;
+		this.nowPass = pass;
 	}
 
 }

@@ -1,2 +1,6 @@
 language: java
 sudo: false
+script:
+- ant clean
+- ant build
+- ant test

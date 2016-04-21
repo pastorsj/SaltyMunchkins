@@ -1,20 +1,14 @@
 package munchkin.game.panels;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Panel;
+import munchkin.game.MFrame;
+import munchkin.game.buttons.NewGameButton;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-import javax.imageio.ImageIO;
-import javax.swing.BoxLayout;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-
-import munchkin.game.MFrame;
-import munchkin.game.buttons.NewGameButton;
 
 public class CardPanel extends Panel {
 

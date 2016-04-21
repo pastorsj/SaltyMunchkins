@@ -3,80 +3,73 @@
               Any modifications will be overwritten.
               To include a user specific buildfile here, simply create one in the same
               directory with the processing instruction <?eclipse.ant.import?>
-              as the first entry and export the buildfile again. --><project basedir="." default="build" name="SaltyMunchkins">
-    <property environment="env"/>
-    <property name="junit.output.dir" value="junit"/>
-    <property name="debuglevel" value="source,lines,vars"/>
-    <property name="target" value="1.7"/>
-    <property name="source" value="1.7"/>
-    <path id="SaltyMunchkins.classpath">
-        <pathelement location="bin"/>
-        <pathelement location="junit.jar"/>
-        <pathelement location="org.hamcrest.core_1.3.0.v201303031735.jar"/>
-    </path>
-    <target name="init">
-        <mkdir dir="bin"/>
-        <copy includeemptydirs="false" todir="bin">
-            <fileset dir="src">
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-    </target>
-    <target name="clean">
-        <delete dir="bin"/>
-    </target>
-    <target depends="clean" name="cleanall"/>
-    <target depends="build-subprojects,build-project" name="build"/>
-    <target name="build-subprojects"/>
-    <target depends="init" name="build-project">
-        <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
-            <src path="src"/>
-            <classpath refid="SaltyMunchkins.classpath"/>
-        </javac>
-    </target>
-    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
-        <copy todir="${ant.library.dir}">
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </copy>
-        <unzip dest="${ant.library.dir}">
-            <patternset includes="jdtCompilerAdapter.jar"/>
-            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
-        </unzip>
-    </target>
-    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
-        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
-        <antcall target="build"/>
-    </target>
-    <target name="CardFuncTesting">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit fork="yes" printsummary="withOutAndErr">
-            <formatter type="xml"/>
-            <test name="test.CardFuncTesting" todir="${junit.output.dir}"/>
-            <classpath refid="SaltyMunchkins.classpath"/>
-        </junit>
-    </target>
-    <target name="test">
-        <mkdir dir="${junit.output.dir}"/>
-        <junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
-            <formatter type="plain" usefile="false"/>
-            <!--<test name="test.CardFuncTesting" todir="${junit.output.dir}"/> -->
-        	<!--<test name="test.CardTest" todir="${junit.output.dir}"/> -->
-            <!--<test name="test.CombatTesting" todir="${junit.output.dir}"/> -->
-        	<!--<test name="test.GameTest" todir="${junit.output.dir}"/> -->
-            <!--<test name="test.Mile3Testing" todir="${junit.output.dir}"/> -->
-            <!--<test name="test.TestInitializeAndShuffle" todir="${junit.output.dir}"/> -->
-            <!--<test name="test.Testing" todir="${junit.output.dir}"/> -->
-            <classpath refid="SaltyMunchkins.classpath"/>
-        </junit>
-    </target>
-    <target name="junitreport">
-        <junitreport todir="${junit.output.dir}">
-            <fileset dir="${junit.output.dir}">
-                <include name="TEST-*.xml"/>
-            </fileset>
-            <report format="frames" todir="${junit.output.dir}"/>
-        </junitreport>
-    </target>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="SaltyMunchkins">
+	<property environment="env" />
+	<property name="junit.output.dir" value="junit" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.7" />
+	<property name="source" value="1.7" />
+	<path id="JUnit 4.libraryclasspath">
+		<pathelement location="../../../../.p2/pool/plugins/org.junit_4.12.0.v201504281640/junit.jar" />
+		<pathelement location="../../../../.p2/pool/plugins/org.hamcrest.core_1.3.0.v201303031735.jar" />
+	</path>
+	<path id="SaltyMunchkins.classpath">
+		<pathelement location="bin" />
+		<path refid="JUnit 4.libraryclasspath" />
+		<pathelement location="junit.jar" />
+		<pathelement location="org.hamcrest.core_1.3.0.v201303031735.jar" />
+	</path>
+	<target name="init">
+		<mkdir dir="bin" />
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.ucls" />
+				<exclude name="**/*.useq" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+	<target depends="clean" name="cleanall" />
+	<target depends="build-subprojects,build-project" name="build" />
+	<target name="build-subprojects" />
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src" />
+			<classpath refid="SaltyMunchkins.classpath" />
+		</javac>
+	</target>
+	<target name="test">
+		<mkdir dir="${junit.output.dir}" />
+		<junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
+			<formatter type="plain" usefile="false" />
+			<!--<test name="test.AbstractCardTesting" todir="${junit.output.dir}"/>-->
+			<!--<test name="test.CardFunctionalityTesting" todir="${junit.output.dir}"/>-->
+			<!--<test name="test.InitializeCardsTesting" todir="${junit.output.dir}"/>-->
+			<!--<test name="test.PlayerTesting" todir="${junit.output.dir}"/>-->
+			<!--<test name="test.UtilityTesting" todir="${junit.output.dir}"/>-->
+			<test name="test.ArmorTesting" todir="${junit.output.dir}" />
+			<test name="test.CardsInPlayTesting" todir="${junit.output.dir}" />
+			<test name="test.HandTesting" todir="${junit.output.dir}" />
+			<test name="test.CombatTesting" todir="${junit.output.dir}" />
+			<test name="test.TestPlayer" todir="${junit.output.dir}" />
+			<test name="test.TestDoor" todir="${junit.output.dir}" />
+			<test name="test.TestInitializeCards" todir="${junit.output.dir}" />
+			<test name="test.TestTreasure" todir="${junit.output.dir}" />
+			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
+			<classpath refid="SaltyMunchkins.classpath" />
+		</junit>
+	</target>
+	<target name="junitreport">
+		<junitreport todir="${junit.output.dir}">
+			<fileset dir="${junit.output.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${junit.output.dir}" />
+		</junitreport>
+	</target>
 </project>

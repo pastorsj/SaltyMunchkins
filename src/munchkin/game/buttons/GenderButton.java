@@ -1,100 +1,95 @@
 package munchkin.game.buttons;
 
-import java.awt.Button;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 
 import munchkin.game.Game;
-import munchkin.game.panels.BottomCardPanel;
+import munchkin.game.panels.MainCardPanel;
 
 public class GenderButton extends JButton implements ActionListener {
 
-	public Game myGame;
-	public String gender;
-	private BottomCardPanel bCardPanel;
+	private String gender;
+	private MainCardPanel mainCardPanel;
+	private Game game;
+	private String buttonText;
 
-	public GenderButton(Game game) {
+	public GenderButton(String buttonText, Game game, MainCardPanel panel) {
 
 		super.setFont(new Font("Arial", Font.PLAIN, 15));
+		super.setText(buttonText);
 
 		this.setMaximumSize(new Dimension(100, 50));
 
-		this.myGame = game;
+		this.game = game;
+		this.mainCardPanel = panel;
+		this.buttonText = buttonText;
 		
 		addActionListener(this);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		bCardPanel = myGame.mframe.mainPanel.bCardPanel;
-		
-		if (this.gender == "Male") {
-			myGame.currentPlayer.gender = 'M';
+				
+		this.game.getCurrentPlayer().setGender(this.gender);
+		Map<String, JLabel> labelSet = this.mainCardPanel.getLabels();
+		Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
+
+		if(!Game.gameSetUp) {
+			Game.gameSetUp = true;
+			this.game.pass();
+			labelSet.get("GenderLabel").setText("Select P2 Gender");
+			labelSet.get("GenderLabel").setVisible(true);
+			((GenderButton)buttonSet.get("Male")).setMaleGender();
+			((GenderButton)buttonSet.get("Female")).setFemaleGender();
+			this.mainCardPanel.repaintFrame();
+		} else {
+			this.game.pass();
+			this.mainCardPanel.repaintFrame();
+
+			buttonSet.get("Male").setVisible(false);
+			buttonSet.get("Female").setVisible(false);
+			buttonSet.get("Draw Card").setVisible(true);
+			buttonSet.get("Pass Combat").setVisible(false);
+			buttonSet.get("Sell Gold").setVisible(true);
+			buttonSet.get("Discard").setVisible(false);
+			buttonSet.get("Play Card").setVisible(true);
+
+			
+			labelSet.get("PlayerLabel").setVisible(true);
+			labelSet.get("PlayerLevelLabel").setVisible(true);
+			labelSet.get("CombatLevelLabel").setVisible(true);
+			labelSet.get("MonsterLevelLabel").setVisible(true);
+			labelSet.get("GenderLabel").setVisible(false);
 
 		}
-
-		else if (this.gender == "Female") {
-			myGame.currentPlayer.gender = 'F';
-
-		}
-
-		else {
-			System.out.println("NO GENDER MATCH");
-		}
-
-		if (myGame.flag == 0) {
-			myGame.flag = 1;
-			System.out.println("Got to set flag to 1");
-			myGame.changePlayer();
-			bCardPanel.enterGender.setText("SELECT P2 GENDER");
-			bCardPanel.enterGender.setVisible(true);
-			bCardPanel.mb.setBoy();
-			bCardPanel.gb.setGirl();
-			myGame.mframe.revalidate();
-			myGame.mframe.repaint();
-		}
-
-		else if (myGame.flag == 1) {
-			myGame.changePlayer();
-			bCardPanel.mb.setVisible(false);
-			bCardPanel.gb.setVisible(false);
-			bCardPanel.dcb.setVisible(true);
-			bCardPanel.pcb.setVisible(true);
-			bCardPanel.sgb.setVisible(true);
-			bCardPanel.db.setVisible(true);
-
-			bCardPanel.playerLabel.setVisible(true);
-			bCardPanel.playerLevel.setVisible(true);
-			bCardPanel.playerCLevel.setVisible(true);
-			bCardPanel.monsterLevel.setVisible(true);
-			bCardPanel.enterGender.setVisible(true);
-		}
-
 	}
-
-	public void setBoy() {
-		if (myGame.flag == 0) {
+	
+	public void setMaleGender() {
+		if(!Game.gameSetUp) {
 			super.setText("P1: Male");
+			this.game.getCurrentPlayer().setName("P1");
 		} else {
 			super.setText("P2: Male");
+			this.game.getCurrentPlayer().setName("P2");
 		}
 		this.gender = "Male";
 	}
-
-	public void setGirl() {
-		if (myGame.flag == 0) {
+	
+	public void setFemaleGender() {
+		if(!Game.gameSetUp) {
 			super.setText("P1: Female");
+			this.game.getCurrentPlayer().setName("P1");
 		} else {
 			super.setText("P2: Female");
+			this.game.getCurrentPlayer().setName("P2");
 		}
 		this.gender = "Female";
 	}
-
 }

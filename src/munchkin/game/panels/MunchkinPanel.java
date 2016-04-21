@@ -1,14 +1,11 @@
 package munchkin.game.panels;
-import java.awt.Dimension;
-import java.awt.Graphics;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-
-import javax.imageio.ImageIO;
-import javax.swing.JPanel;
-import javax.swing.SpringLayout;
 
 
 public class MunchkinPanel extends JPanel {
