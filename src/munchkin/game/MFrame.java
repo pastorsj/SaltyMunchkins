@@ -56,7 +56,11 @@ public class MFrame extends JFrame {
 	        helpItem.addActionListener(new ActionListener() {
 	            @Override
 	            public void actionPerformed(ActionEvent event) {
-	                
+	            	try {
+						RulesFrame frame = new RulesFrame();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 	            }
 	        });
 	        
