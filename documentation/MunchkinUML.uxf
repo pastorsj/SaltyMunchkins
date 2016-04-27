@@ -1,0 +1,1723 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.1">
+  <zoom_level>1</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>500</x>
+      <y>360</y>
+      <w>28</w>
+      <h>62</h>
+    </coordinates>
+    <panel_attributes>munchkin.api::Player
+--
+-faction: Faction
+-hand: IHand
+-armorSet: ArmorSet
+-name: String
+-gender: String
+-alive = true: boolean
+-treasures: int
+-level: int
+-combatLevel: int
+-runAwayLevel: int
+--
++Player(): ctor
++getFaction(): Faction
++setFaction(Faction faction): void
++getHand(): IHand
++setHand(IHand hand): void
++addCardToHand(ICard card): void
++getPlayerLevel(): int
++addToPlayerLevel(int level): void
++addLevel(int level): void
++addTreasures(int numTreasures): void
++getNumTreasures(): int
++getArmorSet(): ArmorSet
++setName(String name): void
++getName(): String
++setGender(String gender): void
++getGender(): String
++setCombatLevel(): void
++addToCombatLevel(int levels): void
++getCombatLevel(): int
++getRunAwayLevel(): int
++addToRunAwayLevel(int levels): void
++isAlive(): boolean
++sellGold(ICard card): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>501</x>
+      <y>306</y>
+      <w>28</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+munchkin.api::IPlayer
+--
+--
++getFaction(): Faction
++setFaction(Faction faction): void
++getHand(): IHand
++setHand(IHand hand): void
++getPlayerLevel(): int
++addToPlayerLevel(int level): void
++addLevel(int level): void
++addTreasures(int numTreasures): void
++getNumTreasures(): int
++getArmorSet(): ArmorSet
++setName(String name): void
++getName(): String
++setGender(String gender): void
++getGender(): String
++setCombatLevel(): void
++addToCombatLevel(int levels): void
++getCombatLevel(): int
++getRunAwayLevel(): int
++addToRunAwayLevel(int levels): void
++isAlive(): boolean
++sellGold(ICard card): void
++addCardToHand(ICard card): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>408</x>
+      <y>365</y>
+      <w>31</w>
+      <h>38</h>
+    </coordinates>
+    <panel_attributes>/munchkin.api::AbstractCard/
+--
+-disabled: boolean
+-ownedBy: IPlayer
+-type: SpecificCardType
+-cardType: CardType
++action: Action
+-discard = false: boolean
+--
++AbstractCard(): ctor
++setCardType(SpecificCardType type): void
++getSpecificCardType(): SpecificCardType
++disable(): void
++enable(): void
++isDisabled(): boolean
++setOwner(IPlayer player): void
++getOwner(): IPlayer
++setCardType(CardType type): void
++getCardType(): CardType
++getName(): String
++setDiscard(): void
++checkDiscard(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>453</x>
+      <y>365</y>
+      <w>38</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>munchkin.api::Combat
+--
+-monsters: List&lt;AbstractMonster&gt;
+-fighters: List&lt;IPlayer&gt;
+-game: Game
+-monsterLevels: List&lt;Integer&gt;
+-action: Action
+--
++Combat(Game game): ctor
+-initializeFields(): void
++addMonsterToFight(AbstractMonster monster): void
++addPlayerToFight(IPlayer player): void
++resolveFight(): void
+-resolveSingleMonsterSingleFighter(): void
++runAway(): void
++finish(): void
++containsMonster(): boolean
++resetCombat(): void
++addToMonsterLevel(int level): void
++getMonsterLevel(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>409</x>
+      <y>320</y>
+      <w>31</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+munchkin.api::ICard
+--
+--
++cardInHand(): void
++cardInPlay(): void
++cardPlayed(boolean win): void
++getOwner(): IPlayer
++setOwner(IPlayer player): void
++setCardType(CardType type): void
++setCardType(SpecificCardType type): void
++setCardType(): void
++getCardType(): CardType
++getName(): String
++isDisabled(): boolean
++enable(): void
++disable(): void
++getSpecificCardType(): SpecificCardType
++setDiscard(): void
++checkDiscard(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>368</y>
+      <w>32</w>
+      <h>26</h>
+    </coordinates>
+    <panel_attributes>munchkin.api::Hand
+--
+-hand: List&lt;ICard&gt;
+-owner: IPlayer
+-action: Action
+-largeHand = false: boolean
+--
++Hand(IPlayer player): ctor
++insertCard(ICard card): boolean
++removeCardFromHand(ICard card): boolean
++setLargeHand(): void
++cardInHand(ICard card): boolean
++sizeOfHand(): int
++checkSizeOfHand(): boolean
++getCards(): List&lt;ICard&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>325</x>
+      <y>334</y>
+      <w>29</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>munchkin.api::CardsInPlay
+--
+-cardsInPlay: List&lt;ICard&gt;
+-action: Action
+-game: Game
+--
++CardsInPlay(Game game): ctor
++addCardsToPlay(ICard card): void
++removeCardFromPlay(ICard card): void
++removeAllCards(): void
++getCardsInPlay(): List&lt;ICard&gt;
++contains(ICard card): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>453</x>
+      <y>327</y>
+      <w>38</w>
+      <h>19</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+munchkin.api::ICombat
+--
+--
++addMonsterToFight(AbstractMonster monster): void
++addPlayerToFight(IPlayer player): void
++resolveFight(): void
++runAway(): void
++resetCombat(): void
++finish(): void
++containsMonster(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>364</x>
+      <y>334</y>
+      <w>32</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+munchkin.api::IHand
+--
+--
++insertCard(ICard card): boolean
++removeCardFromHand(ICard card): boolean
++cardInHand(ICard card): boolean
++getCards(): List&lt;ICard&gt;
++sizeOfHand(): int
++checkSizeOfHand(): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>161</x>
+      <y>138</y>
+      <w>28</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>/munchkin.cards.doors.api::Door/
+--
+-level = 0: int
+-treasures = 0: int
+-game: Game
+-players: Queue&lt;IPlayer&gt;
+--
++Door(): ctor
++Door(Game game): ctor
++setLevel(int level): void
++setTreasures(int treasures): void
++addTreasures(int numTreasures): void
++getTreasures(): int
++getLevel(): int
++cardInPlay(): void
++cardInHand(): void
++cardPlayed(boolean win): void
++setCardType(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>114</y>
+      <w>28</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+munchkin.cards.doors.api::IDoor
+--
+--
++setLevel(int level): void
++setTreasures(int treasures): void
++getTreasures(): int
++getLevel(): int
++addTreasures(int numTreasures): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>165</y>
+      <w>32</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>munchkin.cards.doors.api::MonsterEnhancer
+--
+--
++MonsterEnhancer(Game game): ctor
++addToMonsterLevel(int levels): void
++setCardType(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>142</y>
+      <w>32</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>/munchkin.cards.doors.api::AbstractMonster/
+--
+--
++cardPlayed(boolean win): void
++badStuff(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>215</x>
+      <y>119</y>
+      <w>30</w>
+      <h>7</h>
+    </coordinates>
+    <panel_attributes>/munchkin.cards.doors.api::AbstractCurse/
+--
+--
++setCardType(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>184</x>
+      <y>275</y>
+      <w>29</w>
+      <h>52</h>
+    </coordinates>
+    <panel_attributes>munchkin.cards.treasures.api::ArmorSet
+--
+-footgear: List&lt;ICard&gt;
+-headgear: List&lt;ICard&gt;
+-armor: List&lt;ICard&gt;
+-hands: List&lt;ICard&gt;
+-maxFootGear: int
+-maxHeadGear: int
+-maxArmor: int
+-maxHands: int
+-action: Action
+--
++ArmorSet(): ctor
++getFootgear(): List&lt;ICard&gt;
++removeFootgear(): void
++getHeadgear(): List&lt;ICard&gt;
++removeHeadgear(): void
++getArmor(): List&lt;ICard&gt;
++removeArmor(): void
++getHands(): List&lt;ICard&gt;
++removeHands(): void
++addFootGear(ITreasure card): void
++addHeadGear(ITreasure card): void
++addArmor(ITreasure card): void
++addHands(ITreasure card): void
++setMaxFootGear(int max): void
++setMaxHeadGear(int max): void
++setMaxArmor(int max): void
++setMaxHands(int max): void
++checkArmor(ICard card): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>128</x>
+      <y>300</y>
+      <w>29</w>
+      <h>35</h>
+    </coordinates>
+    <panel_attributes>/munchkin.cards.treasures.api::Treasure/
+--
+-gold = 0: int
+-bonus = 0: int
+-armor: Armor
+#game: Game
+#players: Queue&lt;IPlayer&gt;
+--
++Treasure(): ctor
++Treasure(Game game): ctor
++setGold(int gold): void
++getGold(): int
++setBonus(int bonus): void
++getBonus(): int
++setArmor(Armor armor): void
++getArmor(): Armor
++cardInHand(): void
++cardInPlay(): void
++cardPlayed(boolean win): void
++setCardType(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>129</x>
+      <y>270</y>
+      <w>29</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+munchkin.cards.treasures.api::ITreasure
+--
+--
++setGold(int gold): void
++getGold(): int
++setBonus(int gold): void
++getBonus(): int
++setArmor(Armor armor): void
++getArmor(): Armor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>175</y>
+      <w>53</w>
+      <h>19</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::GenderButton
+--
+-gender: String
+-mainCardPanel: MainCardPanel
+-game: Game
+-buttonText: String
+--
++GenderButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
++setMaleGender(): void
++setFemaleGender(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>647</x>
+      <y>223</y>
+      <w>56</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::PassCombatButton
+--
++lastPass = false: boolean
++nowPass = false: boolean
+-game: Game
+-mainCardPanel: MainCardPanel
+--
++PassCombatButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
++resetButton(): void
++setNowPass(boolean pass): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>647</x>
+      <y>105</y>
+      <w>56</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::DiscardGoldButton
+--
+-goldAmount: int
+-game: Game
+-mainCardPanel: MainCardPanel
+--
++DiscardGoldButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
++setVisible(boolean bool): void
++setGoldAmount(int goldAmount): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>646</x>
+      <y>254</y>
+      <w>54</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::DrawCardButton
+--
++arrayOfCardLines: ArrayList&lt;String&gt;
++arrayOfLines: ArrayList&lt;String&gt;
+-game: Game
+-buttonText: String
+-mainCardPanel: MainCardPanel
+--
++DrawCardButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>129</y>
+      <w>54</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::PlayCardButton
+--
++arrayOfLines: ArrayList&lt;String&gt;
++mCards = new ArrayList&lt;Integer&gt;(): ArrayList&lt;Integer&gt;
+-mainCardPanel: MainCardPanel
+-game: Game
+--
++PlayCardButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>649</x>
+      <y>81</y>
+      <w>53</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::EndTurnButton
+--
+-game: Game
+-buttonText: String
+-mainCardPanel: MainCardPanel
+--
++EndTurnButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>649</x>
+      <y>59</y>
+      <w>53</w>
+      <h>14</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::SellGoldButton
+--
+-game: Game
+-mainCardPanel: MainCardPanel
+-buttonText: String
+--
++SellGoldButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>154</y>
+      <w>53</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::DiscardButton
+--
+-game: Game
+-mainCardPanel: MainCardPanel
+--
++DiscardButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>648</x>
+      <y>204</y>
+      <w>58</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::ResolveConflictButton
+--
+-game: Game
+-mainCardPanel: MainCardPanel
+--
++ResolveConflictButton(String buttonText, Game game, MainCardPanel panel): ctor
++actionPerformed(ActionEvent arg0): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>42</y>
+      <w>30</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.buttons::NewGameButton
+--
+-frame: MFrame
+--
++NewGameButton(MFrame frame): ctor
++actionPerformed(ActionEvent arg0): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>631</x>
+      <y>344</y>
+      <w>39</w>
+      <h>82</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.panels::MainCardPanel
+--
+-IMAGE_PATH = "resources/pictures/": String
+-PNG_EXTENSION = ".png": String
+-Y_PHAND_MIN = 780: int
+-Y_PHAND_MAX = 1030: int
+-Y_PHAND_EXTRA_MIN = 170: int
+-Y_PHAND_EXTRA_MAX = 395: int
+-Y_PPLAY_MIN = 515: int
+-Y_PPLAY_MAX = 820: int
+-Y_OPLAY_MIN = 50: int
+-Y_OPLAY_MAX = 300: int
+-largeCard: BufferedImage
+-selectedCard: ICard
+-game: Game
+-buttons: Map&lt;String, JButton&gt;
+-labels: Map&lt;String, JLabel&gt;
+-partialLabel: Map&lt;String, String&gt;
+-images: Map&lt;String, BufferedImage&gt;
+-revImageMap: Map&lt;BufferedImage, String&gt;
+-cardsInHand: List&lt;BufferedImage&gt;
+-cardsInPlay: Map&lt;IPlayer, List&lt;BufferedImage&gt;&gt;
+-frame: MFrame
+--
++MainCardPanel(Game game, MFrame frame): ctor
+-initializeLabels(): void
+-initializeButtons(): void
+-initializeImages(): void
+-addInitialLabelsToPanel(): void
+-addInitialButtonsToPanel(): void
++updateLabels(): void
++updateLabel(String label, Integer updatedValue): void
++paintComponent(Graphics g): void
+-updateRevImageMap(): void
+-populateInPlayImages(): void
+-populateCurrentHandImages(): void
++mouseClicked(MouseEvent e): void
+-updateSelectedCard(): void
++getButtonSet(): Map&lt;String, JButton&gt;
++getLabels(): Map&lt;String, JLabel&gt;
++mouseEntered(MouseEvent e): void
++mouseExited(MouseEvent e): void
++mousePressed(MouseEvent e): void
++mouseReleased(MouseEvent e): void
++getSelectedCard(): ICard
++updateLargeCard(ICard card): void
++resetLargeCard(): void
++repaintFrame(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>344</y>
+      <w>27</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.panels::CardPanel
+--
++aboutOrigin: JTextArea
++aboutDest: JTextArea
++largeCard: BufferedImage
++ngb: NewGameButton
+--
++CardPanel(MFrame frame): ctor
++paintComponent(Graphics go): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>693</x>
+      <y>368</y>
+      <w>27</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.panels::ConsolePanel
+--
+-instance: ConsolePanel
+-frame: JFrame
+-statusLabel: JLabel
+--
+-ConsolePanel(): ctor
++getInstance(): ConsolePanel
++logMessage(String message): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>691</x>
+      <y>394</y>
+      <w>31</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.panels::MPanel
+--
+-mainCardPanel: MainCardPanel
+-game: Game
+--
++MPanel(MFrame frame, Game game): ctor
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>692</x>
+      <y>414</y>
+      <w>28</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>munchkin.game.panels::MunchkinPanel
+--
+-munchkinLogo: BufferedImage
+--
++MunchkinPanel(): ctor
++paintComponent(Graphics go): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>410</x>
+      <y>144</y>
+      <w>33</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::Game
+--
+-action = Action.getInstance(): Action
+-WIN_LEVEL = 10: int
++gameSetUp = false: boolean
+-players: Queue&lt;IPlayer&gt;
+-cardsInPlay: CardsInPlay
+-initializeCards: InitializeCards
+-discardedCards: DiscardedCards
+-combat: Combat
+--
++Game(int numberOfPlayers): ctor
++getCurrentPlayer(): IPlayer
++getOtherPlayer(): IPlayer
++pass(): void
++getPlayers(): Queue&lt;IPlayer&gt;
++shuffle(ArrayList&lt;ICard&gt; cards): List&lt;ICard&gt;
++dealInitialCards(): void
++dealNewDoorCard(IPlayer p): ICard
++dealNewTreasureCard(IPlayer p): ICard
++drawACard(List&lt;ICard&gt; cards, IPlayer p): ICard
++discardCard(IPlayer p, ICard card): boolean
++playACard(ICard card): boolean
++endTurn(): boolean
++checkWin(): boolean
++getCombat(): Combat
++getCardsInPlay(): CardsInPlay
++getAllCards(): List&lt;ICard&gt;
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>467</x>
+      <y>127</y>
+      <w>35</w>
+      <h>41</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::InitializeCards
+--
+-NUMBER_TREASURES = 67: int
+-NUMBER_DOORS = 83: int
+-DOORS_PATH = "../cards/doors": String
+-TREASURES_PATH = "../cards/treasures": String
+-game: Game
++cardHash: Map&lt;Integer, ICard&gt;
+-allCards: List&lt;ICard&gt;
+-doorCards: List&lt;ICard&gt;
+-treasureCards: List&lt;ICard&gt;
+--
++InitializeCards(Game game): ctor
+-initializeSelectTreasureCards(): void
+-initializeTreasure(ICard card): void
+-initializeSelectDoorCards(): void
+-initializeDoor(ICard card): void
+-initializeTreasureCards(): void
+-initializeDoorCards(): void
++getDoorCards(): List&lt;ICard&gt;
++getTreasureCards(): List&lt;ICard&gt;
++getAllCards(): List&lt;ICard&gt;
++removeDoorCard(int i): ICard
++removeTreasureCard(int i): ICard
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>367</x>
+      <y>142</y>
+      <w>21</w>
+      <h>21</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::RulesFrame
+--
+-cardPaths: ArrayList&lt;String&gt;
+-currentCard: int
+-prevButton: JButton
+-nextButton: JButton
+-panel: JPanel
+-icon: ImageIcon
+-picLabel: JLabel
+--
++RulesFrame(): ctor
+-showCard(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>466</x>
+      <y>179</y>
+      <w>35</w>
+      <h>19</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::DiscardedCards
+--
+-discardedDoorCards: List&lt;ICard&gt;
+-discardedTreasureCards: List&lt;ICard&gt;
+--
++DiscardedCards(): ctor
++getDiscardedDoorCards(): List&lt;ICard&gt;
+-addToDiscardedDoorCards(ICard card): void
++getDiscardedTreasureCards(): List&lt;ICard&gt;
+-addToDiscardedTreasureCards(ICard card): void
++addToDiscardedCards(ICard card): boolean
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>470</x>
+      <y>96</y>
+      <w>22</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::Action
+--
+-action: String
+-instance: Action
+-logger: ConsolePanel
+--
+-Action(): ctor
++getInstance(): Action
++setValue(String action): void
++getAction(): String
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>427</x>
+      <y>97</y>
+      <w>26</w>
+      <h>16</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::LogWindow
+--
+-instance: LogWindow
+-frame: JFrame
+-statusLabel: JLabel
+--
+-LogWindow(): ctor
++getInstance(): LogWindow
++logMessage(String message): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>366</x>
+      <y>172</y>
+      <w>21</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::MFrame
+--
++mainPanel: MPanel
+--
++MFrame(Game game): ctor
+-createMenuBar(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>368</x>
+      <y>126</y>
+      <w>19</w>
+      <h>9</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::Main
+--
+--
++main(String[] args): void
++initMain(): void
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>394</x>
+      <y>100</y>
+      <w>17</w>
+      <h>7</h>
+    </coordinates>
+    <panel_attributes>munchkin.game::Utility
+--
+--
++rollDice(): int
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>359</x>
+      <y>91</y>
+      <w>160</w>
+      <h>115</h>
+    </coordinates>
+    <panel_attributes>Game Framework
+bg=yellow
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>600</x>
+      <y>37</y>
+      <w>150</w>
+      <h>247</h>
+    </coordinates>
+    <panel_attributes>Button Framework
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>623</x>
+      <y>333</y>
+      <w>112</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Panel Framework
+bg=green</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>318</x>
+      <y>299</y>
+      <w>230</w>
+      <h>133</h>
+    </coordinates>
+    <panel_attributes>Munchkin API Framework
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>107</x>
+      <y>247</y>
+      <w>130</w>
+      <h>105</h>
+    </coordinates>
+    <panel_attributes>Treasure API Framework
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>144</x>
+      <y>105</y>
+      <w>125</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>Munchkin Door API Framework
+bg=yellow</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>262</y>
+      <w>8</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;820.0;10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>233</y>
+      <w>9</w>
+      <h>113</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1110.0;10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>209</y>
+      <w>10</w>
+      <h>137</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1350.0;10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>183</y>
+      <w>10</w>
+      <h>163</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1610.0;10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>159</y>
+      <w>10</w>
+      <h>187</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1850.0;10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>135</y>
+      <w>10</w>
+      <h>211</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;2090.0;10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>112</y>
+      <w>9</w>
+      <h>234</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;2320.0;10.0;10.0;70.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>87</y>
+      <w>11</w>
+      <h>259</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;2570.0;10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>65</y>
+      <w>11</w>
+      <h>281</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;2790.0;10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>47</y>
+      <w>22</w>
+      <h>299</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;2970.0;10.0;10.0;200.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>47</y>
+      <w>237</w>
+      <h>208</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1450.0;10.0;2060.0;1570.0;2060.0;1570.0;10.0;2350.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>65</y>
+      <w>226</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1270.0;10.0;1880.0;1570.0;1880.0;1570.0;10.0;2240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>87</y>
+      <w>226</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1050.0;10.0;1660.0;1570.0;1660.0;1570.0;10.0;2240.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>112</y>
+      <w>224</w>
+      <h>143</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;800.0;10.0;1410.0;1570.0;1410.0;1570.0;10.0;2220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>135</y>
+      <w>225</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;570.0;10.0;1180.0;1570.0;1180.0;1570.0;10.0;2230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>159</y>
+      <w>225</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;330.0;10.0;940.0;1570.0;940.0;1570.0;10.0;2230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>183</y>
+      <w>225</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;700.0;1570.0;700.0;1570.0;10.0;2230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>191</y>
+      <w>225</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;620.0;1570.0;620.0;1570.0;190.0;2230.0;190.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>191</y>
+      <w>224</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;620.0;1570.0;620.0;1570.0;430.0;2220.0;430.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>191</y>
+      <w>223</w>
+      <h>74</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;620.0;1570.0;620.0;1570.0;720.0;2210.0;720.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>491</x>
+      <y>99</y>
+      <w>9</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;90.0;70.0;90.0;70.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>452</x>
+      <y>100</y>
+      <w>8</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;60.0;80.0;60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>386</x>
+      <y>176</y>
+      <w>26</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>197</y>
+      <w>60</w>
+      <h>125</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1230.0;10.0;910.0;580.0;910.0;580.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>442</x>
+      <y>153</y>
+      <w>27</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>425</x>
+      <y>145</y>
+      <w>110</w>
+      <h>177</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;1750.0;10.0;1430.0;1080.0;1430.0;1080.0;10.0;770.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>423</x>
+      <y>191</y>
+      <w>3</w>
+      <h>131</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;1290.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>689</x>
+      <y>46</y>
+      <w>92</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;900.0;10.0;900.0;2700.0;190.0;2700.0;190.0;2980.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>719</x>
+      <y>372</y>
+      <w>8</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;80.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>669</x>
+      <y>398</y>
+      <w>24</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>429</x>
+      <y>191</y>
+      <w>204</w>
+      <h>167</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;870.0;1530.0;860.0;1530.0;1650.0;2020.0;1650.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>528</x>
+      <y>338</y>
+      <w>105</w>
+      <h>23</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;330.0;10.0;330.0;210.0;1030.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLFrame</id>
+    <coordinates>
+      <x>570</x>
+      <y>22</y>
+      <w>217</w>
+      <h>425</h>
+    </coordinates>
+    <panel_attributes>Front End
+bg=pink</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>129</y>
+      <w>3</w>
+      <h>11</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>142</x>
+      <y>287</y>
+      <w>3</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>423</x>
+      <y>354</y>
+      <w>3</w>
+      <h>13</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;110.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>345</y>
+      <w>3</w>
+      <h>22</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>379</x>
+      <y>351</y>
+      <w>3</w>
+      <h>19</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>513</x>
+      <y>350</y>
+      <w>3</w>
+      <h>12</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>338</x>
+      <y>311</y>
+      <w>78</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>760.0;90.0;760.0;10.0;10.0;10.0;10.0;230.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>338</x>
+      <y>191</y>
+      <w>90</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>880.0;10.0;880.0;620.0;10.0;620.0;10.0;1430.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>379</x>
+      <y>326</y>
+      <w>32</w>
+      <h>10</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;80.0;10.0;10.0;300.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>288</x>
+      <y>191</y>
+      <w>140</w>
+      <h>194</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>1380.0;10.0;1380.0;620.0;10.0;620.0;10.0;1920.0;760.0;1920.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>188</x>
+      <y>122</y>
+      <w>29</w>
+      <h>31</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;290.0;120.0;290.0;120.0;10.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>188</x>
+      <y>147</y>
+      <w>29</w>
+      <h>6</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;40.0;120.0;40.0;120.0;10.0;270.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>188</x>
+      <y>150</y>
+      <w>29</w>
+      <h>23</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0;120.0;210.0;270.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>195</x>
+      <y>268</y>
+      <w>233</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>2310.0;520.0;2310.0;10.0;10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>157</x>
+      <y>285</y>
+      <w>29</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>270.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>93</x>
+      <y>191</y>
+      <w>335</w>
+      <h>131</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>3330.0;10.0;3330.0;440.0;10.0;440.0;10.0;1290.0;350.0;1290.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>174</x>
+      <y>168</y>
+      <w>254</w>
+      <h>69</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>2520.0;240.0;2520.0;670.0;10.0;670.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>181</x>
+      <y>168</y>
+      <w>338</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>3360.0;1380.0;3360.0;530.0;10.0;530.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>439</x>
+      <y>191</y>
+      <w>24</w>
+      <h>138</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.</panel_attributes>
+    <additional_attributes>220.0;1360.0;220.0;500.0;10.0;500.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>299</x>
+      <y>191</y>
+      <w>120</w>
+      <h>157</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>260.0;1550.0;10.0;1550.0;10.0;550.0;1180.0;550.0;1180.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>442</x>
+      <y>149</y>
+      <w>27</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>250.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>442</x>
+      <y>184</y>
+      <w>26</w>
+      <h>3</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
