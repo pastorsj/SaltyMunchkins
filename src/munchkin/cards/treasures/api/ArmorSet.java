@@ -167,10 +167,13 @@ public class ArmorSet {
     		ITreasure armorCard = (ITreasure) card;
     		int numHands = 0;
     		
+    		Armor type = armorCard.getArmor();
+    		
     		if(armorCard.getArmor().equals(Armor.TwoHands))
     			numHands = 1;
     		
-    		return (canAddArmor() || canAddFoot() || canAddHead() || canAddHands(numHands));
+    		return ((type.equals(Armor.Armor) && canAddArmor()) || (type.equals(Armor.FootGear) &&canAddFoot()) || 
+    				(type.equals(Armor.HeadGear) && canAddHead()) || ((type.equals(Armor.OneHand) || type.equals(Armor.TwoHands)) && canAddHands(numHands)));
     	}
         
         return false;
