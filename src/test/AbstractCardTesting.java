@@ -1,22 +1,19 @@
 package test;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.*;
 
+import org.junit.Test;
+
+import munchkin.api.AbstractCard;
+import munchkin.cards.doors.AndItsSpawn;
+import munchkin.cards.doors.AughostDerwraith;
 
 public class AbstractCardTesting {
 
-    public AbstractCardTesting() {
+	@Test
+	public void testGetName() {
+		AbstractCard c = new AughostDerwraith();
+		assertEquals("AughostDerwraith",c.getName());
+	}
 
-    }
-
-    @Before
-    public void setUp() {
-
-    }
-
-    @After
-    public void takeDown() {
-
-    }
 }
