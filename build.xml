@@ -47,7 +47,7 @@
 		<mkdir dir="${junit.output.dir}" />
 		<junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
 			<formatter type="plain" usefile="false" />
-			<!--<test name="test.AbstractCardTesting" todir="${junit.output.dir}"/>-->
+			<test name="test.AbstractCardTesting" todir="${junit.output.dir}"/>
 			<!--<test name="test.CardFunctionalityTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.InitializeCardsTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.PlayerTesting" todir="${junit.output.dir}"/>-->
