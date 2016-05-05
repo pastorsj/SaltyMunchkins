@@ -76,7 +76,7 @@ public class ArmorSet {
 
 	public void addFootGear(ITreasure card) {
         if(card.getArmor().equals(Armor.FootGear)) {
-            if(canAddFoot()) {
+            if(this.footgear.size() < maxFootGear) {
                 this.footgear.add(card);
             } else {
                 this.action.setValue("Already at max armor for footgear");
@@ -88,7 +88,7 @@ public class ArmorSet {
 
     public void addHeadGear(ITreasure card) {
         if(card.getArmor().equals(Armor.HeadGear)) {
-            if(canAddHead()) {
+            if(this.headgear.size() < maxHeadGear) {
                 this.headgear.add(card);
             } else {
                 this.action.setValue("Already at max armor for headgear");
@@ -100,7 +100,7 @@ public class ArmorSet {
 
     public void addArmor(ITreasure card) {
         if(card.getArmor().equals(Armor.Armor)) {
-            if(canAddArmor()) {
+            if(this.armor.size() < maxArmor) {
                 this.armor.add(card);
             } else {
                 this.action.setValue("Already at max armor for armor");
@@ -112,13 +112,13 @@ public class ArmorSet {
 
     public void addHands(ITreasure card) {
         if(card.getArmor().equals(Armor.OneHand)) {
-            if(canAddHands(0)) {
+            if(this.hands.size() < maxHands) {
                 this.hands.add(card);
             } else {
                 this.action.setValue("Already at max armor for hands");
             }
         } else if(card.getArmor().equals(Armor.TwoHands)) {
-            if(canAddHands(1)) {
+            if(this.hands.size() < maxHands - 1) {
                 this.hands.add(card);
             } else {
                 this.action.setValue("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece");
@@ -133,50 +133,50 @@ public class ArmorSet {
     }
 
     public void setMaxHeadGear(int max) {
-        this.maxFootGear = max;
+        this.maxHeadGear = max;
     }
 
     public void setMaxArmor(int max) {
-        this.maxFootGear = max;
+        this.maxArmor = max;
     }
 
     public void setMaxHands(int max) {
-        this.maxFootGear = max;
+        this.maxHands = max;
     }
-    
-    private boolean canAddArmor(){
-    	return this.armor.size() < maxArmor;
-    }
-    
-    private boolean canAddHands(int numHands){
-    	return this.hands.size() < (maxHands-numHands);
-    }
-    
-    private boolean canAddFoot(){
-    	return this.footgear.size() < maxFootGear;
-    }
-    
-    private boolean canAddHead(){
-    	return this.headgear.size() < maxHeadGear;
-    }
-    
 
-    public boolean checkArmor(ICard card) {
+    public int getMaxFootGear() {
+		return maxFootGear;
+	}
+
+	public int getMaxHeadGear() {
+		return maxHeadGear;
+	}
+
+	public int getMaxArmor() {
+		return maxArmor;
+	}
+
+	public int getMaxHands() {
+		return maxHands;
+	}
+
+	public boolean checkArmor(ICard card) {
         //TODO: This makes sure that I can add this card to the armor set (for hand in play)
-    	if(card instanceof ITreasure) {
-    		ITreasure armorCard = (ITreasure) card;
-    		int numHands = 0;
-    		
-    		Armor type = armorCard.getArmor();
-    		
-    		if(armorCard.getArmor().equals(Armor.TwoHands))
-    			numHands = 1;
-    		
-    		return ((type.equals(Armor.Armor) && canAddArmor()) || (type.equals(Armor.FootGear) &&canAddFoot()) || 
-    				(type.equals(Armor.HeadGear) && canAddHead()) || ((type.equals(Armor.OneHand) || type.equals(Armor.TwoHands)) && canAddHands(numHands)));
-    	}
-        
-        return false;
+
+        //		int curHandLevel = 0;
+        //		int curFootLevel = 0;
+        //		int curHeadLevel = 0;
+        //		int curArmorLevel = 0;
+        //		for (int i = 0; i < myGame.currentPlayer.pPlay.size(); i++) {
+        //			curHandLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHands;
+        //			curFootLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numFoot;
+        //			curHeadLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numHead;
+        //			curArmorLevel += myGame.ic.getCardHash().get(myGame.currentPlayer.pPlay.get(i)).numArmor;
+        //		}
+        //		if (curHandLevel > 2 || curFootLevel > 1 || curHeadLevel > 1 || curArmorLevel > 1) {
+        //			CardFunc cf = new CardFunc(myGame);
+        //			cf.cantPlay();
+        return true;
     }
 
 }
