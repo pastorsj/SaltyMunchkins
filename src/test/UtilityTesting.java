@@ -1,22 +1,19 @@
 package test;
 
-import org.junit.After;
-import org.junit.Before;
+import static org.junit.Assert.*;
 
+import org.junit.Test;
+
+import munchkin.game.Utility;
 
 public class UtilityTesting {
 
-    public UtilityTesting() {
+	@Test
+	public void testRollDice() {
+		for(int i = 0; i < 100; i++){
+			int num = Utility.rollDice();
+			assertTrue(num <= 6 && num >=1);
+		}
+	}
 
-    }
-
-    @Before
-    public void setUp() {
-
-    }
-
-    @After
-    public void takeDown() {
-
-    }
 }
