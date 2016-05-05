@@ -51,7 +51,7 @@
 			<!--<test name="test.CardFunctionalityTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.InitializeCardsTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.PlayerTesting" todir="${junit.output.dir}"/>-->
-			<test name="test.UtilityTesting" todir="${junit.output.dir}"/>
+			<!--<test name="test.UtilityTesting" todir="${junit.output.dir}"/>-->
 			<test name="test.ArmorTesting" todir="${junit.output.dir}" />
 			<test name="test.CardsInPlayTesting" todir="${junit.output.dir}" />
 			<test name="test.HandTesting" todir="${junit.output.dir}" />
@@ -67,6 +67,12 @@
 			<test name="test.CreatedUsingCinematicRulesTesting" todir="${junit.output.dir}" />
 			<test name="test.CurseDraggedOffToSnarkhamAsylumTesting" todir="${junit.output.dir}" />
 			<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
+			<test name="test.TheKinginPinkTesting" todir="${junit.output.dir}" />
+			<test name="test.ThtWhchHsNVwlsTesting" todir="${junit.output.dir}" />
+			<test name="test.UnnameableTesting" todir="${junit.output.dir}" />
+
+	<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
+
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
 		</junit>
