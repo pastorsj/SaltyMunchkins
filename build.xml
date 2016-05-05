@@ -47,7 +47,7 @@
 		<mkdir dir="${junit.output.dir}" />
 		<junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
 			<formatter type="plain" usefile="false" />
-			<test name="test.AbstractCardTesting" todir="${junit.output.dir}"/>
+			<!--<test name="test.AbstractCardTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.CardFunctionalityTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.InitializeCardsTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.PlayerTesting" todir="${junit.output.dir}"/>-->
@@ -60,6 +60,11 @@
 			<test name="test.TestDoor" todir="${junit.output.dir}" />
 			<test name="test.TestInitializeCards" todir="${junit.output.dir}" />
 			<test name="test.TestTreasure" todir="${junit.output.dir}" />
+			
+			<test name="test.CoggothTesting" todir="${junit.output.dir}" />
+			<test name="test.BuggothTesting" todir="${junit.output.dir}" />
+			<test name="test.CampusCrusadeForCthulhuTesting" todir="${junit.output.dir}" />
+
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
 		</junit>
