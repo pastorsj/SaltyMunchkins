@@ -64,7 +64,9 @@
 			<test name="test.CoggothTesting" todir="${junit.output.dir}" />
 			<test name="test.BuggothTesting" todir="${junit.output.dir}" />
 			<test name="test.CampusCrusadeForCthulhuTesting" todir="${junit.output.dir}" />
-
+			<test name="test.CreatedUsingCinematicRulesTesting" todir="${junit.output.dir}" />
+			<test name="test.CurseDraggedOffToSnarkhamAsylumTesting" todir="${junit.output.dir}" />
+			<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
 		</junit>
