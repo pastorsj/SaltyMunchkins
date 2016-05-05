@@ -11,7 +11,7 @@ public class CreatedUsingCinematicRules extends Door {
 
 	@Override
 	public void cardInPlay() {
-		
+		this.getOwner().getArmorSet().setMaxHands(3);
 	}
 
 	@Override
