@@ -79,6 +79,7 @@ public class GenderButton extends JButton implements ActionListener {
 			super.setText("P2: Male");
 			this.game.getCurrentPlayer().setName("P2");
 		}
+		this.game.getCurrentPlayer().setGender("Male");
 		this.gender = "Male";
 	}
 	
@@ -90,6 +91,7 @@ public class GenderButton extends JButton implements ActionListener {
 			super.setText("P2: Female");
 			this.game.getCurrentPlayer().setName("P2");
 		}
+		this.game.getCurrentPlayer().setGender("Female");
 		this.gender = "Female";
 	}
 }

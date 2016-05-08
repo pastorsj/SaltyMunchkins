@@ -4,19 +4,19 @@ import munchkin.cards.doors.api.AbstractCurse;
 import munchkin.cards.doors.api.Door;
 
 public class CurseChangeSex extends AbstractCurse {
-	
-	@Override
-	public void cardInHand() {
 
-	}
+	private int timesPlayed = 0;
 
 	@Override
 	public void cardInPlay() {
-		
+		if(timesPlayed == 0) {
+			this.switchGender();
+			this.getOwner().addToCombatLevel(-5);
+			timesPlayed++;
+		}
 	}
 
-	@Override
-	public void cardPlayed(boolean win) {
-		
+	private void switchGender() {
+		this.getOwner().setGender(this.getOwner().getGender().equals("Male") ? "Female" : "Male");
 	}
 }

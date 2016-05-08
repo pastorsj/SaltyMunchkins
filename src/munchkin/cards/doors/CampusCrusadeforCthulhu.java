@@ -6,11 +6,6 @@ import munchkin.cards.treasures.api.Faction;
 public class CampusCrusadeforCthulhu extends AbstractMonster {
 
 	@Override
-	public void cardInHand() {
-
-	}
-
-	@Override
 	public void cardInPlay() {
 		// Level 6;
 		// -2 against Professor; +2 against Cultists
@@ -26,6 +21,10 @@ public class CampusCrusadeforCthulhu extends AbstractMonster {
 
 	@Override
 	public void badStuff() {
-		this.getOwner().setFaction(Faction.Cultist);
+		if(this.getOwner().getFaction().equals(Faction.Cultist)) {
+			this.getOwner().addGoldToDiscard(1000);
+		} else {
+			this.getOwner().setFaction(Faction.Cultist);
+		}
 	}
 }

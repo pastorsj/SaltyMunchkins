@@ -17,6 +17,5 @@ public class BrassKnucks extends Treasure {
     @Override
     public void cardInPlay() {
         this.setBonus(1);
-        this.setArmor(Armor.TwoHands);
     }
 }

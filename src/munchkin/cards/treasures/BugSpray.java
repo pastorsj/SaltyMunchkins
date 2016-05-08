@@ -11,7 +11,7 @@ public class BugSpray extends Treasure {
 
 	@Override
 	public void cardInHand() {
-		this.setGold(200);
+		this.setGold(300);
 		this.setArmor(Armor.OneHand);
 		this.setBonus(2);
 	}

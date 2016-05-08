@@ -2,6 +2,7 @@ package munchkin.api;
 
 import munchkin.cards.treasures.api.ArmorSet;
 import munchkin.cards.treasures.api.Faction;
+import munchkin.cards.treasures.api.Treasure;
 
 /**
  * Created by SamPastoriza on 3/25/16.
@@ -19,6 +20,7 @@ public class Player implements IPlayer{
     private int level;
     private int combatLevel;
     private int runAwayLevel;
+    private int discardGoldAmount;
     
     public Player() {
         this.faction = Faction.UNAFFILIATED;
@@ -28,6 +30,7 @@ public class Player implements IPlayer{
         this.armorSet = new ArmorSet();
         this.name = "";
         this.gender = "";
+        this.discardGoldAmount = 0;
     }
 
 
@@ -55,6 +58,12 @@ public class Player implements IPlayer{
     public void addCardToHand(ICard card){
     	this.hand.insertCard(card);
     }
+
+    @Override
+    public void addGoldToDiscard(int gold) {
+        this.discardGoldAmount += gold;
+    }
+
     @Override
     public int getPlayerLevel() {
         return level;
@@ -138,15 +147,15 @@ public class Player implements IPlayer{
 
     
     @Override
-    public void sellGold(ICard card) {
-//        		myGame.currentPlayer.goldSold += myGame.ic.getCardHash().get(cardToSell).numGold;
-//        		myGame.currentPlayer.pHand.remove(cardToSellPos);
-//        		myGame.currentPlayer.pDiscard.add(cardToSell);
-//
-//        		int levelBonus = myGame.currentPlayer.goldSold;
-//        		int divis = (int) levelBonus / 1000;
-//        		myGame.currentPlayer.pLevel += (int) levelBonus / 1000;
-//        		System.out.println("level bonus is: " + divis);
+    public boolean sellGold(ICard card) {
+        if(card instanceof Treasure) {
+            Treasure tCard = (Treasure) card;
+            int amount = tCard.getGold();
+            this.discardGoldAmount -= amount;
+        } else {
+            //Add action saying no gold was discard since card was not of type treasure
+        }
+        return this.discardGoldAmount < 0;
     }
 
 }

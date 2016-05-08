@@ -47,14 +47,6 @@ public class InitializeCards {
 		initializeTreasure(new TwoHandedFlashlight(this.game));
 		initializeTreasure(new WandOfWalloping(this.game));
 		initializeTreasure(new ReportCreaturestoFBI());
-		initializeTreasure(new BowlingPin());
-		initializeTreasure(new Necrocomicon(this.game));
-		initializeTreasure(new BrassKnucks());
-		initializeTreasure(new CallTheArmy());
-		initializeTreasure(new Flamethrower());
-		initializeTreasure(new TwoHandedFlashlight(this.game));
-		initializeTreasure(new WandOfWalloping(this.game));
-		initializeTreasure(new ReportCreaturestoFBI());
 	}
 
 	private void initializeTreasure(ICard card) {
@@ -66,17 +58,6 @@ public class InitializeCards {
 		initializeDoor(new CurseGetAllBlobby());
 		initializeDoor(new CurseHairStandsOnEnd());
 		initializeDoor(new AughostDerwraith());
-		initializeDoor(new AndItsSpawn(this.game));
-		initializeDoor(new CurseGetAllBlobby());
-		initializeDoor(new CurseHairStandsOnEnd());
-		initializeDoor(new AughostDerwraith());
-		initializeDoor(new AndItsSpawn(this.game));
-		initializeDoor(new CurseGetAllBlobby());
-		initializeDoor(new CurseHairStandsOnEnd());
-		initializeDoor(new AughostDerwraith());
-		initializeDoor(new AndItsSpawn(this.game));
-		initializeDoor(new CurseGetAllBlobby());
-		initializeDoor(new CurseHairStandsOnEnd());
 		initializeDoor(new AughostDerwraith());
 	}
 

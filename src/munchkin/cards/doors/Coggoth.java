@@ -5,11 +5,6 @@ import munchkin.cards.doors.api.AbstractMonster;
 public class Coggoth extends AbstractMonster {
 
 	@Override
-	public void cardInHand() {
-
-	}
-
-	@Override
 	public void cardInPlay() {
 		int numSize = this.getOwner().getHand().getCards().size();
 		if (numSize % 2 == 0) {
@@ -22,7 +17,7 @@ public class Coggoth extends AbstractMonster {
 
 	@Override
 	public void badStuff() {
-		// lose two levels
+		//TODO: Add action saying you lost two levels, no need to discard a card
 		this.getOwner().addLevel(-2);
 	}
 

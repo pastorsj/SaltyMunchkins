@@ -9,9 +9,6 @@ public class Buggoth extends AbstractMonster {
 	public Buggoth(){
 		this.playerFaction=null;
 	}
-	@Override
-	public void cardInHand() {
-	}
 
 	@Override
 	public void cardInPlay() {
@@ -19,7 +16,7 @@ public class Buggoth extends AbstractMonster {
 		this.setLevel(1);
 		//no class abilities are allowed in the combat
 		this.playerFaction=this.getOwner().getFaction();
-		this.getOwner().setFaction(null);
+		this.getOwner().setFaction(Faction.UNAFFILIATED);
 	}
 
 	@Override

@@ -1,22 +1,20 @@
 package munchkin.cards.doors;
 
+import munchkin.api.ICard;
+import munchkin.api.IHand;
 import munchkin.cards.doors.api.AbstractCurse;
-import munchkin.cards.doors.api.Door;
+import munchkin.game.Game;
 
 public class CurseBackpackEaten extends AbstractCurse {
-	
-	@Override
-	public void cardInHand() {
-
-	}
 
 	@Override
 	public void cardInPlay() {
-		
-	}
-
-	@Override
-	public void cardPlayed(boolean win) {
-		
+		IHand hand = this.getOwner().getHand();
+		for(ICard card : hand.getCards()) {
+			if(card.isDisabled()) {
+				//Add actions for each card
+				card.setDiscard();
+			}
+		}
 	}
 }

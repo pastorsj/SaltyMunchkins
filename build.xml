@@ -60,7 +60,6 @@
 			<test name="test.TestDoor" todir="${junit.output.dir}" />
 			<test name="test.TestInitializeCards" todir="${junit.output.dir}" />
 			<test name="test.TestTreasure" todir="${junit.output.dir}" />
-			
 			<test name="test.CoggothTesting" todir="${junit.output.dir}" />
 			<test name="test.BuggothTesting" todir="${junit.output.dir}" />
 			<test name="test.CampusCrusadeForCthulhuTesting" todir="${junit.output.dir}" />
