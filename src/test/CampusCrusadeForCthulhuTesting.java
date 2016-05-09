@@ -1,15 +1,15 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import munchkin.api.IPlayer;
 import munchkin.api.Player;
 import munchkin.cards.doors.CampusCrusadeforCthulhu;
 import munchkin.cards.treasures.api.Faction;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CampusCrusadeForCthulhuTesting {
 	private CampusCrusadeforCthulhu card;

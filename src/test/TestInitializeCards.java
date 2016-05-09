@@ -3,7 +3,6 @@ package test;
 import munchkin.api.ICard;
 import munchkin.game.Game;
 import munchkin.game.InitializeCards;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,21 +34,18 @@ public class TestInitializeCards {
 	}
 	@Test
 	public void TestAllCardsInit() {
-		List<ICard> treasures = this.initCards.getAllCards();
-		//TODO: hard coded 16 cards for testing purpose
-		assertEquals(treasures.size(), 32);
+		List<ICard> allCards = this.initCards.getAllCards();
+		assertEquals(94, allCards.size());
 	}
 	@Test
 	public void TestTreasureCardsInit() {
-		List<ICard> treasures = this.initCards.getTreasureCards();
-		//TODO: hard coded 8 treasure cards for testing purpose
-		assertEquals(treasures.size(), 16);
+		List<ICard> treasureCards = this.initCards.getTreasureCards();
+		assertEquals(47, treasureCards.size());
 	}
 	
 	@Test
 	public void TestDoorCardsInit() {
-		List<ICard> treasures = this.initCards.getDoorCards();
-		//TODO: hard coded 8 door cards for testing purpose
-		assertEquals(treasures.size(), 16);
+		List<ICard> doorCards = this.initCards.getDoorCards();
+		assertEquals(47, doorCards.size());
 	}
 }

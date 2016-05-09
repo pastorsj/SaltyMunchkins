@@ -1,9 +1,9 @@
 package munchkin.api;
 
+import munchkin.game.Action;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import munchkin.game.Action;
 
 /**
  * Created by SamPastoriza on 3/26/16.

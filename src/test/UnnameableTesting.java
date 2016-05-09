@@ -1,16 +1,16 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import munchkin.api.IPlayer;
 import munchkin.api.Player;
 import munchkin.cards.doors.Unnameable;
 import munchkin.cards.treasures.api.Faction;
+import munchkin.game.Game;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class UnnameableTesting {
 	private Unnameable card;
@@ -18,7 +18,7 @@ public class UnnameableTesting {
 	
 	@Before
 	public void setUp() {
-		this.card = new Unnameable();
+		this.card = new Unnameable(new Game(2));
 		this.player = new Player();
 		this.player.setFaction(Faction.Professor);
 		this.player.addCardToHand(this.card);
@@ -41,6 +41,8 @@ public class UnnameableTesting {
 	public void testCardInPlay(){
 		this.card.cardInPlay();
 		assertEquals(10,this.card.getLevel());
+		//Need to reset since card adds levels, not sets them
+		this.card.setLevel(0);
 		
 		this.card.getOwner().setFaction(Faction.UNAFFILIATED);
 		this.card.cardInPlay();

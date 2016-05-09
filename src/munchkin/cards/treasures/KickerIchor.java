@@ -1,13 +1,19 @@
 package munchkin.cards.treasures;
 
+import munchkin.api.CardsInPlay;
+import munchkin.api.ICard;
 import munchkin.api.SpecificCardType;
+import munchkin.cards.treasures.api.Armor;
 import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
 public class KickerIchor extends Treasure {
 
+//    private Game game;
+
     public KickerIchor(Game game) {
         super(game);
+//        this.game = game;
     }
 
     @Override
@@ -27,6 +33,18 @@ public class KickerIchor extends Treasure {
     }
 
     private void tripleCombatBonusForFootgear() {
-        //Combat bonus triples for all footgear
+        CardsInPlay cardsInPlay = this.game.getCardsInPlay();
+        int addedBonus = 0;
+        for(ICard card : cardsInPlay.getCardsInPlay()) {
+            if(card instanceof Treasure && card.getOwner().equals(this.getOwner())) {
+                Treasure tCard = (Treasure) card;
+                if(tCard.getArmor().equals(Armor.FootGear)) {
+                    addedBonus += tCard.getBonus() * 2;
+                } else if(tCard.getArmor().equals(Armor.PseudoFootGear)) {
+                    addedBonus += tCard.getBonus() * 2;
+                }
+            }
+        }
+        this.setBonus(addedBonus);
     }
 }

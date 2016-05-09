@@ -1,15 +1,12 @@
 package munchkin.game.buttons;
 
-import java.awt.Dimension;
-import java.awt.Font;
+import munchkin.game.Game;
+import munchkin.game.panels.MainCardPanel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-
-import munchkin.game.Game;
-import munchkin.game.MFrame;
-import munchkin.game.panels.MainCardPanel;
 
 
 public class PassCombatButton extends JButton implements ActionListener{

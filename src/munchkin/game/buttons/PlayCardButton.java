@@ -1,16 +1,15 @@
 package munchkin.game.buttons;
 
-import java.awt.Font;
+import munchkin.api.ICard;
+import munchkin.game.Game;
+import munchkin.game.panels.MainCardPanel;
+
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Map;
-
-import javax.swing.*;
-
-import munchkin.api.ICard;
-import munchkin.game.Game;
-import munchkin.game.panels.MainCardPanel;
 
 public class PlayCardButton extends JButton implements ActionListener {
 

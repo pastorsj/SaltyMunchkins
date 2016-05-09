@@ -18,7 +18,8 @@ public class QuickerIchor extends Treasure {
 
     @Override
     public void cardInPlay() {
-        //Set run away bonus to + - 2, depending on the user
+        this.action.setValue("Run away bonus increase by 2");
+        this.getOwner().addToRunAwayLevel(2);
     }
 
     @Override

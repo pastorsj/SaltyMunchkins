@@ -10,6 +10,13 @@ import org.junit.Test;
 public class GoUpALevelTesting {
 
     //CallTheArmy
+    //DiscoverFamilyHistory
+    //InformLocalAuthorities
+    //InterviewedforEveningNews
+    //LearnThingsManWasNotMeantToKnow
+    //MysticVisions
+    //ReportCreaturesToFBI
+    //TargetPractice
 
     @Before
     public void setUp() {
@@ -28,6 +35,46 @@ public class GoUpALevelTesting {
 
     @Test
     public void CallTheArmy() {
+
+    }
+
+    @Test
+    public void DiscoverFamilyHistory() {
+        
+    }
+
+    @Test
+    public void InformLocalAuthorities() {
+
+    }
+
+    @Test
+    public void InterviewforEveningNews() {
+
+    }
+
+    @Test
+    public void LearnThingsManWasNotMeantToKnow() {
+
+    }
+
+    @Test
+    public void MysticVisions() {
+
+    }
+
+    @Test
+    public void ReportCreaturesToFBI() {
+
+    }
+
+    @Test
+    public void TargetPractice() {
+
+    }
+
+    @Test
+    public void TellThePresident() {
 
     }
 }

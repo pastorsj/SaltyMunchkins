@@ -1,21 +1,21 @@
 package munchkin.cards.doors;
 
-import munchkin.cards.doors.api.Door;
+import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.cards.treasures.api.Faction;
 
-public class EldridgeHawrer extends Door {
-	
-	@Override
-	public void cardInHand() {
-
-	}
+public class EldridgeHawrer extends AbstractMonster {
 
 	@Override
 	public void cardInPlay() {
-		
+		if(this.getOwner().getFaction().equals(Faction.Investigator)) {
+			this.setLevel(3);
+		} else {
+			this.setLevel(1);
+		}
 	}
 
 	@Override
-	public void cardPlayed(boolean win) {
-		
+	public void badStuff() {
+		this.getOwner().addGoldToDiscard(500);
 	}
 }

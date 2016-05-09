@@ -1,10 +1,10 @@
 package munchkin.cards.doors;
 
-import java.util.List;
-
 import munchkin.api.ICard;
 import munchkin.api.IHand;
 import munchkin.cards.doors.api.AbstractMonster;
+
+import java.util.List;
 
 public class ThtWhchHsNVwls extends AbstractMonster {
 

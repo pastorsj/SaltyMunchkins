@@ -3,7 +3,6 @@ package munchkin.cards.doors;
 import munchkin.api.ICard;
 import munchkin.api.IHand;
 import munchkin.cards.doors.api.AbstractCurse;
-import munchkin.game.Game;
 
 public class CurseBackpackEaten extends AbstractCurse {
 

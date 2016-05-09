@@ -1,17 +1,15 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
+import munchkin.api.IPlayer;
+import munchkin.api.Player;
+import munchkin.cards.doors.CurseAmnesia;
+import munchkin.cards.treasures.api.Faction;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.api.IPlayer;
-import munchkin.api.Player;
-import munchkin.cards.doors.CreatedUsingCinematicRules;
-import munchkin.cards.doors.CurseAmnesia;
-import munchkin.cards.treasures.api.Faction;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CurseAmnesiaTesting {
 	private CurseAmnesia card;

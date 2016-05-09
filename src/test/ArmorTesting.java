@@ -1,19 +1,14 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import org.junit.Before;
-import org.junit.Test;
-
-import munchkin.cards.treasures.BowlingPin;
-import munchkin.cards.treasures.BrassKnucks;
-import munchkin.cards.treasures.MinersHelmet;
-import munchkin.cards.treasures.MiskatonicUniversityTShirt;
-import munchkin.cards.treasures.MonsterStompers;
+import munchkin.cards.treasures.*;
 import munchkin.cards.treasures.api.ArmorSet;
 import munchkin.cards.treasures.api.ITreasure;
 import munchkin.game.Action;
 import munchkin.game.Game;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class ArmorTesting {
 

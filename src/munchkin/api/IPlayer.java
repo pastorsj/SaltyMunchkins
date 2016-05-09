@@ -31,4 +31,5 @@ public interface IPlayer {
     public boolean sellGold(ICard card);
     public void addCardToHand(ICard card);
     public void addGoldToDiscard(int gold);
+    public void kill();
 }

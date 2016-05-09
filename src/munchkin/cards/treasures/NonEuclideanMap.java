@@ -16,13 +16,13 @@ public class NonEuclideanMap extends Treasure {
 
     @Override
     public void cardInPlay() {
-        //run away bonus += -1
+        this.getOwner().addToRunAwayLevel(-1);
     }
 
     @Override
     public void cardPlayed(boolean win) {
         if(win) {
-            //Draw extra treasure
+            this.getOwner().addTreasures(1);
         }
     }
 }

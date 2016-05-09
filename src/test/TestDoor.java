@@ -1,19 +1,13 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
+import munchkin.cards.doors.api.Door;
+import munchkin.game.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.cards.doors.api.Door;
-import munchkin.cards.treasures.api.Armor;
-import munchkin.cards.treasures.api.Treasure;
-import munchkin.game.Game;
-import test.TestTreasure.TreasureMock;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class TestDoor {
 	class DoorMock extends Door{

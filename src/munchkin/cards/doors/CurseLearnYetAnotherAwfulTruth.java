@@ -1,14 +1,8 @@
 package munchkin.cards.doors;
 
 import munchkin.cards.doors.api.AbstractCurse;
-import munchkin.cards.doors.api.Door;
 
 public class CurseLearnYetAnotherAwfulTruth extends AbstractCurse {
-	
-	@Override
-	public void cardInHand() {
-
-	}
 
 	@Override
 	public void cardInPlay() {
@@ -16,8 +10,4 @@ public class CurseLearnYetAnotherAwfulTruth extends AbstractCurse {
 		this.getOwner().addLevel(-1);
 	}
 
-	@Override
-	public void cardPlayed(boolean win) {
-		
-	}
 }

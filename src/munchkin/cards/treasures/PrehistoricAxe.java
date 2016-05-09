@@ -18,9 +18,12 @@ public class PrehistoricAxe extends Treasure {
     @Override
     public void cardInPlay() {
         this.setArmor(Armor.OneHand);
-        //If level of monster is greater than level 15
-        this.setBonus(5);
-        //Else
-        this.setBonus(2);
+        //FIXME: What happens when a monster is played after this card
+        if(this.game.getCombat().getMonsterLevel()>15) {
+            //If level of monster is greater than level 15
+            this.setBonus(5);
+        } else {
+            this.setBonus(2);
+        }
     }
 }

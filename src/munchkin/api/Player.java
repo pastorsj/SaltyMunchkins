@@ -145,6 +145,11 @@ public class Player implements IPlayer{
         return this.alive;
     }
 
+    @Override
+    public void kill() {
+        this.alive = false;
+    }
+
     
     @Override
     public boolean sellGold(ICard card) {

@@ -1,8 +1,8 @@
 package munchkin.cards.doors;
 
-import munchkin.cards.doors.api.Door;
+import munchkin.cards.doors.api.AbstractMonster;
 
-public class NightieGaunts extends Door {
+public class NightieGaunts extends AbstractMonster {
 	
 	@Override
 	public void cardInHand() {
@@ -11,11 +11,16 @@ public class NightieGaunts extends Door {
 
 	@Override
 	public void cardInPlay() {
-		
+		this.setTreasures(4);
+		if(this.getOwner().getGender().equals("Male")) {
+			this.setLevel(17);
+		} else {
+			this.setLevel(14);
+		}
 	}
 
 	@Override
-	public void cardPlayed(boolean win) {
-		
+	public void badStuff() {
+		//TODO: Discard Three Items
 	}
 }

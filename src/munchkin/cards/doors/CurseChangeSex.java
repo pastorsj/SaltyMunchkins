@@ -1,7 +1,6 @@
 package munchkin.cards.doors;
 
 import munchkin.cards.doors.api.AbstractCurse;
-import munchkin.cards.doors.api.Door;
 
 public class CurseChangeSex extends AbstractCurse {
 

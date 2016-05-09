@@ -4,9 +4,7 @@ import munchkin.api.ICard;
 import munchkin.game.Action;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by SamPastoriza on 3/26/16.

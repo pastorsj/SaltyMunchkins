@@ -1,14 +1,14 @@
 package test;
 
-import static org.junit.Assert.*;
-
+import munchkin.api.IPlayer;
+import munchkin.api.Player;
+import munchkin.cards.doors.CreatedUsingCinematicRules;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.api.IPlayer;
-import munchkin.api.Player;
-import munchkin.cards.doors.CreatedUsingCinematicRules;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CreatedUsingCinematicRulesTesting {
 	private CreatedUsingCinematicRules card;

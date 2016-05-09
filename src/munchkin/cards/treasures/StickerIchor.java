@@ -18,8 +18,8 @@ public class StickerIchor extends Treasure {
 
     @Override
     public void cardInPlay() {
+        this.action.setValue("A bonus of 4 was applied during combat");
         this.setBonus(4);
-        //Either side of combat
     }
 
     @Override

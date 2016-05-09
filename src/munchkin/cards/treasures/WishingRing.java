@@ -1,5 +1,8 @@
 package munchkin.cards.treasures;
 
+import munchkin.api.CardsInPlay;
+import munchkin.api.ICard;
+import munchkin.cards.doors.api.AbstractCurse;
 import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 
@@ -16,7 +19,18 @@ public class WishingRing extends Treasure {
 
     @Override
     public void cardInPlay() {
-        //Cancels any curse
+        CardsInPlay inPlay = this.game.getCardsInPlay();
+        for(ICard card : inPlay.getCardsInPlay()) {
+            if(card instanceof AbstractCurse) {
+                try {
+                    this.game.discardCard(card.getOwner(), card);
+                } catch(Exception e) {
+                    System.out.println("cardInPlay():WishingRing");
+                    e.printStackTrace();
+                }
+                return;
+            }
+        }
     }
 
     @Override

@@ -1,14 +1,13 @@
 package test;
 
-import static org.junit.Assert.*;
-
+import munchkin.cards.treasures.api.Armor;
+import munchkin.cards.treasures.api.Treasure;
+import munchkin.game.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.cards.treasures.api.Armor;
-import munchkin.cards.treasures.api.Treasure;
-import munchkin.game.Game;
+import static org.junit.Assert.*;
 
 public class TestTreasure {
 	class TreasureMock extends Treasure{

@@ -10,7 +10,7 @@ import java.util.Queue;
 public abstract class Door extends AbstractCard implements IDoor {
     private int level = 0;
     private int treasures = 0;
-    private Game game;
+    public Game game;
     private Queue<IPlayer> players;
 
     public Door() {

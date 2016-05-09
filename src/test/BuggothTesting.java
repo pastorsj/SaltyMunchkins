@@ -1,14 +1,14 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import munchkin.api.IPlayer;
 import munchkin.api.Player;
 import munchkin.cards.doors.Buggoth;
 import munchkin.cards.treasures.api.Faction;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class BuggothTesting {
 	private Buggoth card;
@@ -41,7 +41,7 @@ public class BuggothTesting {
 		this.card.cardInPlay();
 		assertEquals(1, this.card.getTreasures());
 		assertEquals(1, this.card.getLevel());
-		assertNull(this.card.getOwner().getFaction());
+		assertEquals(Faction.UNAFFILIATED, this.card.getOwner().getFaction());
 	}
 	
 	@Test

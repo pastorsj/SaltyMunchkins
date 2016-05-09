@@ -18,6 +18,5 @@ public class Flamethrower extends Treasure {
     public void cardInPlay() {
         this.setArmor(Armor.TwoHands);
         this.setBonus(4);
-//        this.setAttackType(AttackType.Flame);
     }
 }

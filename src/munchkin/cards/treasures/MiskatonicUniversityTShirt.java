@@ -17,14 +17,12 @@ public class MiskatonicUniversityTShirt extends Treasure {
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.Armor);
+        this.setArmor(Armor.PseudoArmor);
         this.setBonus(1);
     }
 
     @Override
     public void cardPlayed(boolean win) {
-        if(!win) {
-            this.setDiscard();
-        }
+        //TODO: Implement armor
     }
 }

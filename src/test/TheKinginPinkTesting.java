@@ -1,15 +1,14 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
+import munchkin.api.IPlayer;
+import munchkin.api.Player;
+import munchkin.cards.doors.TheKinginPink;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.api.IPlayer;
-import munchkin.api.Player;
-import munchkin.cards.doors.TheKinginPink;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class TheKinginPinkTesting {
 	private TheKinginPink card;

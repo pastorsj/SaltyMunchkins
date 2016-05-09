@@ -1,10 +1,9 @@
 package test;
 
-import static org.junit.Assert.*;
-
+import munchkin.game.Utility;
 import org.junit.Test;
 
-import munchkin.game.Utility;
+import static org.junit.Assert.assertTrue;
 
 public class UtilityTesting {
 

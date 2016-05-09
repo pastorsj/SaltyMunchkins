@@ -22,14 +22,7 @@ public class TweedJacket extends Treasure {
     @Override
     public void cardInPlay() {
         this.setBonus(2);
-        this.setArmor(Armor.Armor);
         //Can be used with more than one piece of armor
-    }
-
-    @Override
-    public void cardPlayed(boolean win) {
-        if(!win) {
-            this.setDiscard();
-        }
+        this.setArmor(Armor.PseudoArmor);
     }
 }

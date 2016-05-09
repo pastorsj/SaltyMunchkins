@@ -1,12 +1,10 @@
 package test;
 
-import static org.junit.Assert.*;
-
+import munchkin.api.AbstractCard;
+import munchkin.cards.doors.AughostDerwraith;
 import org.junit.Test;
 
-import munchkin.api.AbstractCard;
-import munchkin.cards.doors.AndItsSpawn;
-import munchkin.cards.doors.AughostDerwraith;
+import static org.junit.Assert.assertEquals;
 
 public class AbstractCardTesting {
 

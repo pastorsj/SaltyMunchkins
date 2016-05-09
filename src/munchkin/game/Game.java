@@ -2,6 +2,7 @@ package munchkin.game;
 
 import munchkin.api.*;
 import munchkin.cards.doors.api.AbstractMonster;
+
 import java.util.*;
 
 public class Game {
@@ -140,6 +141,10 @@ public class Game {
 		this.combat.finish();
 		this.combat.resetCombat();
 		return true;
+	}
+
+	public DiscardedCards getDiscardedCards() {
+		return this.discardedCards;
 	}
 
 	public boolean checkWin() {

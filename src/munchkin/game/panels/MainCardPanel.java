@@ -1,36 +1,23 @@
 package munchkin.game.panels;
 
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.MouseInfo;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
-
-import javax.imageio.ImageIO;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-
 import munchkin.api.CardsInPlay;
 import munchkin.api.ICard;
 import munchkin.api.IHand;
 import munchkin.api.IPlayer;
 import munchkin.game.Game;
 import munchkin.game.MFrame;
-import munchkin.game.buttons.DiscardButton;
-import munchkin.game.buttons.DiscardGoldButton;
-import munchkin.game.buttons.DrawCardButton;
-import munchkin.game.buttons.EndTurnButton;
-import munchkin.game.buttons.GenderButton;
-import munchkin.game.buttons.NewGameButton;
-import munchkin.game.buttons.PassCombatButton;
-import munchkin.game.buttons.PlayCardButton;
-import munchkin.game.buttons.ResolveConflictButton;
-import munchkin.game.buttons.SellGoldButton;
+import munchkin.game.buttons.*;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
+import java.util.List;
 
 public class MainCardPanel extends JPanel implements MouseListener {
 	private final String IMAGE_PATH = "resources/pictures/";

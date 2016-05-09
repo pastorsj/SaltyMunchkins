@@ -1,13 +1,12 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
 import munchkin.api.Player;
 import munchkin.cards.doors.AughostDerwraith;
 import munchkin.cards.doors.api.AbstractMonster;
 import munchkin.cards.treasures.api.Faction;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
 
 public class AbstractMonsterTesting {
 

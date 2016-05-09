@@ -1,12 +1,10 @@
 package munchkin.api;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import munchkin.cards.treasures.GoUpALevel;
-import munchkin.cards.treasures.api.ITreasure;
 import munchkin.game.Action;
 import munchkin.game.Game;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by SamPastoriza on 3/28/16.

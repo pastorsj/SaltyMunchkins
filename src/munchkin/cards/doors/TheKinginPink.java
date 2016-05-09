@@ -12,12 +12,11 @@ public class TheKinginPink extends AbstractMonster {
 	@Override
 	public void cardInPlay() {
 		if(this.getOwner().getPlayerLevel()<=3){
-			return;
+			this.getOwner().addToRunAwayLevel(10000);
 		}else{
+			this.setLevel(16);
 			if(this.getOwner().getGender().equals("Male")){
 				this.setLevel(14);
-			}else{
-				this.setLevel(16);
 			}
 			this.setTreasures(4);
 		}

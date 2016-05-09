@@ -1,16 +1,16 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import munchkin.api.ICard;
 import munchkin.api.IPlayer;
 import munchkin.api.Player;
 import munchkin.cards.doors.Buggoth;
 import munchkin.cards.doors.Coggoth;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class CoggothTesting {
 	private Coggoth card;

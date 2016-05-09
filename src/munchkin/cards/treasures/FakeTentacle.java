@@ -17,7 +17,15 @@ public class FakeTentacle extends Treasure {
 
     @Override
     public void cardInPlay() {
+        //TODO: Add pseudo armor
         this.setArmor(Armor.HeadGear);
-        //Set Run Away Bonus to 1
+        this.getOwner().addToRunAwayLevel(1);
+    }
+
+    @Override
+    public void cardPlayed(boolean win) {
+        if(!win) {
+            //If removed headgear, remove this card
+        }
     }
 }

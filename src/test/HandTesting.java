@@ -1,11 +1,5 @@
 package test;
 
-import static org.junit.Assert.*;
-
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-
 import munchkin.api.Hand;
 import munchkin.api.IPlayer;
 import munchkin.api.Player;
@@ -13,6 +7,11 @@ import munchkin.cards.treasures.BowlingPin;
 import munchkin.cards.treasures.BrassKnucks;
 import munchkin.cards.treasures.api.ITreasure;
 import munchkin.game.Action;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.*;
 
 public class HandTesting {
 

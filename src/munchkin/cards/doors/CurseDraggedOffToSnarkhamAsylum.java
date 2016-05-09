@@ -1,16 +1,11 @@
 package munchkin.cards.doors;
 
-import java.util.Random;
-
 import munchkin.cards.doors.api.AbstractCurse;
 import munchkin.cards.treasures.api.Faction;
 
-public class CurseDraggedOffToSnarkhamAsylum extends AbstractCurse {
-	
-	@Override
-	public void cardInHand() {
+import java.util.Random;
 
-	}
+public class CurseDraggedOffToSnarkhamAsylum extends AbstractCurse {
 
 	@Override
 	public void cardInPlay() {
@@ -33,10 +28,5 @@ public class CurseDraggedOffToSnarkhamAsylum extends AbstractCurse {
 			return randomFaction();
 		}
 		return list[num];
-	}
-	
-	@Override
-	public void cardPlayed(boolean win) {
-		
 	}
 }

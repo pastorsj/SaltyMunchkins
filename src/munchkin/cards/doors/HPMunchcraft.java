@@ -1,21 +1,22 @@
 package munchkin.cards.doors;
 
-import munchkin.cards.doors.api.Door;
+import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.cards.treasures.api.Faction;
 
-public class HPMunchcraft extends Door {
-	
-	@Override
-	public void cardInHand() {
-
-	}
+public class HPMunchcraft extends AbstractMonster {
 
 	@Override
 	public void cardInPlay() {
-		
+		if(this.getOwner().getFaction().equals(Faction.Investigator)) {
+			this.setLevel(9);
+		}
+		this.action.setValue("From meeting HP Munchcraft, you are now a Cultist no matter if you win or not");
+		this.getOwner().setFaction(Faction.Cultist);
+		this.addTreasures(2);
 	}
 
 	@Override
-	public void cardPlayed(boolean win) {
-		
+	public void badStuff() {
+		//Nothing, you are just a cultist
 	}
 }

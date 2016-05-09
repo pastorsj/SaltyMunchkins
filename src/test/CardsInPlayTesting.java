@@ -1,15 +1,15 @@
 package test;
 
-import static org.junit.Assert.*;
-
+import munchkin.api.CardsInPlay;
 import munchkin.api.Player;
+import munchkin.cards.treasures.BrassKnucks;
+import munchkin.game.Action;
 import munchkin.game.Game;
 import org.junit.Before;
 import org.junit.Test;
 
-import munchkin.api.CardsInPlay;
-import munchkin.cards.treasures.BrassKnucks;
-import munchkin.game.Action;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class CardsInPlayTesting {
 

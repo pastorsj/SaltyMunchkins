@@ -1,17 +1,13 @@
 package munchkin.game.buttons;
 
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.swing.JButton;
-import javax.swing.JLabel;
-
 import munchkin.game.Game;
 import munchkin.game.panels.MainCardPanel;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Map;
 
 public class GenderButton extends JButton implements ActionListener {
 
