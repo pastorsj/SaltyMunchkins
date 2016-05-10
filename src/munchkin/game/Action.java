@@ -24,7 +24,7 @@ public class Action {
 
     public void setValue(String action) {
         this.action = action;
-        logger.logMessage(action);
+        //logger.logMessage(action);
         System.out.println(this.action);
     }
 
