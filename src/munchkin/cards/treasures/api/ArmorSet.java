@@ -19,6 +19,7 @@ public class ArmorSet {
     private int maxHeadGear;
     private int maxArmor;
     private int maxHands;
+    private int currentHands;
     private Action action;
 
     public ArmorSet() {
@@ -30,6 +31,7 @@ public class ArmorSet {
         this.maxHeadGear = 1;
         this.maxArmor = 1;
         this.maxHands = 2;
+        this.currentHands = 0;
         this.action = Action.getInstance();
     }
 
@@ -70,6 +72,7 @@ public class ArmorSet {
 
     public void removeHands(){
         this.hands.clear();
+        this.currentHands = 0;
     }
 
     public void addFootGear(ITreasure card) {
@@ -121,12 +124,14 @@ public class ArmorSet {
         if(card.getArmor().equals(Armor.OneHand)) {
             if(canAddHands(0)) {
                 this.hands.add(card);
+                this.currentHands++;
             } else {
                 this.action.setValue("Already at max armor for hands");
             }
         } else if(card.getArmor().equals(Armor.TwoHands)) {
             if(canAddHands(1)) {
                 this.hands.add(card);
+                this.currentHands+=2;
             } else {
                 this.action.setValue("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece");
             }
@@ -174,7 +179,7 @@ public class ArmorSet {
     }
 
     private boolean canAddHands(int numHands){
-        return this.hands.size() < (maxHands-numHands);
+        return this.currentHands < (maxHands-numHands);
     }
 
     private boolean canAddFoot(){
