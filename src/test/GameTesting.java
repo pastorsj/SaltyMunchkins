@@ -80,13 +80,6 @@ public class GameTesting {
 	}
 	
 	@Test
-	public void testDrawCardButTooManyCardsInHand(){
-		ICard card = g.drawACard(g.getAllCards(), g.getCurrentPlayer());
-		assertTrue(card == null);
-		assertEquals("You can only have eight cards in your hand. Please discard any extras",Action.getInstance().getAction());
-	}
-	
-	@Test
 	public void testDiscardSuccessfully(){
 		IPlayer p = g.getCurrentPlayer();
 		ICard c = p.getHand().getCards().get(0);

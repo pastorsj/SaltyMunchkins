@@ -7,6 +7,9 @@ import munchkin.cards.treasures.BowlingPin;
 import munchkin.cards.treasures.BrassKnucks;
 import munchkin.cards.treasures.api.ITreasure;
 import munchkin.game.Action;
+import munchkin.game.Game;
+import munchkin.game.InitializeCards;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -40,19 +43,6 @@ public class HandTesting {
 		assertEquals("inserted BrassKnucks into your hand", action.getAction());
 		assertEquals(knucks, hand.getCards().get(0));
 	}
-
-	//FIXME: This test fails because there are no enough cards to use, so I repeated the set of cards
-//	@Test
-//	public void addTooManyCards() {
-//		hand = new Hand(player);
-//		ITreasure knucks = new BrassKnucks();
-//		for (int i = 0; i < 8; i++) {
-//			assertTrue(hand.insertCard(knucks));
-//			assertEquals("inserted BrassKnucks into your hand", action.getAction());
-//			assertEquals(i + 1, hand.sizeOfHand());
-//		}
-//		assertEquals("Couldn't insert BrassKnucks into the hand: you have too many cards", action.getAction());
-//	}
 
 	@Test
 	public void removeCardFromHand() {
