@@ -178,10 +178,15 @@ public class ArmorSet {
     public boolean checkArmor(ICard card) {
         //TODO: This makes sure that I can add this card to the armor set (for hand in play)
         if(card instanceof ITreasure) {
+        	
             ITreasure armorCard = (ITreasure) card;
             int numHands = 0;
 
             Armor type = armorCard.getArmor();
+            
+            if (type == null){
+        		return true;
+        	}
 
             if(armorCard.getArmor().equals(Armor.TwoHands))
                 numHands = 1;
@@ -190,6 +195,6 @@ public class ArmorSet {
                     (type.equals(Armor.HeadGear) && canAddHead()) || ((type.equals(Armor.OneHand) || type.equals(Armor.TwoHands)) && canAddHands(numHands)));
         }
 
-        return false;
+        return true;
     }
 }
