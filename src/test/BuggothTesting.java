@@ -20,8 +20,6 @@ public class BuggothTesting {
 		this.card = new Buggoth();
 		this.player = new Player();
 		this.player.addCardToHand(this.card);
-		this.player.setFaction(Faction.Investigator);
-		this.playerFaction = Faction.Investigator;
 		this.card.setOwner(this.player);
 	}
 
