@@ -11,6 +11,7 @@ public abstract class AbstractMonster extends Door {
         } else {
             this.badStuff();
         }
+        this.setDiscard();
     }
 
     public abstract void badStuff();
