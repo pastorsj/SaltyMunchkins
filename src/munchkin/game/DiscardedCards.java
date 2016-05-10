@@ -60,4 +60,10 @@ public class DiscardedCards {
 			return false;
 		}
 	}
+
+	public void addManyCards(List<ICard> cardsInPlay) {
+		for(ICard c : cardsInPlay){
+			this.addToDiscardedCards(c);
+		}
+	}
 }

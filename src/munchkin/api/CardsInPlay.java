@@ -36,8 +36,9 @@ public class CardsInPlay {
 
     public boolean removeCardFromPlay(ICard card) {
         if(this.cardsInPlay.contains(card)) {
-            this.cardsInPlay.remove(this.cardsInPlay.indexOf(card));
+            ICard removedCard = this.cardsInPlay.remove(this.cardsInPlay.indexOf(card));
             this.action.setValue("Removed card from play successfully");
+            this.game.getDiscardedCards().addToDiscardedCards(removedCard);
             return true;
         } else {
             this.action.setValue("Attempting to remove card that does not exist!");
@@ -46,6 +47,7 @@ public class CardsInPlay {
     }
 
     public void removeAllCards() {
+    	this.game.getDiscardedCards().addManyCards(this.cardsInPlay);
         this.cardsInPlay = new ArrayList<>();
     }
 

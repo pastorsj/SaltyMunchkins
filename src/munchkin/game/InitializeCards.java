@@ -41,8 +41,11 @@ public class InitializeCards {
 		for(int i = 0;  i < listOfFiles.length; i++) {
 			if(listOfFiles[i].isFile()) {
 				String className = listOfFiles[i].getName();
-				className = className.substring(0, className.indexOf(".java"));
-				System.out.println(className);
+				if(className.contains(".java")) {
+					className = className.substring(0, className.indexOf(".java"));					
+				} else {
+					continue;
+				}
 				try {
 					Class<?> clazz = Class.forName("munchkin.cards.treasures." + className);
 					Constructor[] allConstructors = clazz.getDeclaredConstructors();
@@ -77,7 +80,11 @@ public class InitializeCards {
 		for(int i = 0;  i < listOfFiles.length; i++) {
 			if(listOfFiles[i].isFile()) {
 				String className = listOfFiles[i].getName();
-				className = className.substring(0, className.indexOf(".java"));
+				if(className.contains(".java")) {
+					className = className.substring(0, className.indexOf(".java"));					
+				} else {
+					continue;
+				}
 				System.out.println(className);
 				try {
 					Class<?> clazz = Class.forName("munchkin.cards.doors." + className);
