@@ -3,16 +3,12 @@ package munchkin.cards.doors;
 import munchkin.api.ICard;
 import munchkin.api.IHand;
 import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.game.Game;
 
 import java.util.List;
 
 public class ThtWhchHsNVwls extends AbstractMonster {
-
-	@Override
-	public void cardInHand() {
-
-	}
-
+	
 	@Override
 	public void cardInPlay() {
 		//do nothing if the player level is <= 4

@@ -2,6 +2,8 @@ package munchkin.api;
 
 import java.util.List;
 
+import munchkin.game.DiscardedCards;
+
 /**
  * Created by SamPastoriza on 3/26/16.
  */

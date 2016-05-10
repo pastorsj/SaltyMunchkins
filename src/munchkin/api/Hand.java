@@ -1,6 +1,7 @@
 package munchkin.api;
 
 import munchkin.game.Action;
+import munchkin.game.DiscardedCards;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,11 +14,13 @@ public class Hand implements IHand {
     private IPlayer owner;
     private Action action;
     private boolean largeHand = false;
+    private DiscardedCards discard;
 
     public Hand(IPlayer player) {
         this.owner = player;
         this.hand = new ArrayList<>();
         this.action = Action.getInstance();
+        this.discard = DiscardedCards.getInstance();
     }
 
     @Override
@@ -48,14 +51,11 @@ public class Hand implements IHand {
     		return false;
     	}
         boolean inHand = this.hand.remove(card);
+        System.out.println(this.hand.size());
         if(inHand) {
             action.setValue("Discarded " + card.getName() + " from your hand");
             //Add card to either treasure or door discard set
-            if(card.getCardType().equals(CardType.Door)) {
-
-            } else {
-            	
-            }
+            	discard.addToDiscardedCards(card);
         }
         this.setLargeHand();
         return inHand;
