@@ -79,7 +79,10 @@ public class ArmorSet {
             } else {
                 this.action.setValue("Already at max armor for footgear");
             }
-        } else {
+        } else if (card.getArmor().equals(Armor.PseudoFootGear)){
+        	this.footgear.add(card);
+        }
+        else {
             this.action.setValue("Not Footgear armor");
         }
     }
@@ -91,7 +94,10 @@ public class ArmorSet {
             } else {
                 this.action.setValue("Already at max armor for headgear");
             }
-        } else {
+        }else if(card.getArmor().equals(Armor.PseudoHeadGear)){
+        	this.headgear.add(card);
+        }
+        else {
             this.action.setValue("Not HeadGear armor");
         }
     }
@@ -103,7 +109,10 @@ public class ArmorSet {
             } else {
                 this.action.setValue("Already at max armor for armor");
             }
-        } else {
+        } else if(card.getArmor().equals(Armor.PseudoArmor)){
+        	this.armor.add(card);
+        }
+        else {
             this.action.setValue("Not armor type");
         }
     }
@@ -121,7 +130,9 @@ public class ArmorSet {
             } else {
                 this.action.setValue("Either you are at max armor for hand gear or you are attempting to add a piece of two handed armor to an already equipped one handed piece");
             }
-        } else {
+        } else if(card.getArmor().equals(Armor.PseudoHandGear)){
+        	this.hands.add(card);
+        }else {
             this.action.setValue("Not hands armor");
         }
     }
@@ -192,7 +203,8 @@ public class ArmorSet {
                 numHands = 1;
 
             return ((type.equals(Armor.Armor) && canAddArmor()) || (type.equals(Armor.FootGear) &&canAddFoot()) ||
-                    (type.equals(Armor.HeadGear) && canAddHead()) || ((type.equals(Armor.OneHand) || type.equals(Armor.TwoHands)) && canAddHands(numHands)));
+                    (type.equals(Armor.HeadGear) && canAddHead()) || ((type.equals(Armor.OneHand) || type.equals(Armor.TwoHands)) && canAddHands(numHands))
+                    || (type.equals(Armor.PseudoArmor)) || (type.equals(Armor.PseudoFootGear)) || (type.equals(Armor.PseudoHandGear)) || (type.equals(Armor.PseudoHeadGear)));
         }
 
         return true;
