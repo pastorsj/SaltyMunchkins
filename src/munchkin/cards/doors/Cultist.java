@@ -16,14 +16,10 @@ public class Cultist extends Door {
 	@Override
 	public void cardInPlay() {
 		this.getOwner().setFaction(Faction.Cultist);
-		if(this.game.getCurrentPlayer().equals(this.getOwner())) {
-			if(this.game.getOtherPlayer().getFaction().equals(Faction.Cultist)) {
-				this.getOwner().addToCombatLevel(2);
-			}
-		} else {
-			if(this.game.getCurrentPlayer().getFaction().equals(Faction.Cultist)) {
-				this.getOwner().addToCombatLevel(2);
-			}
+		//not sure if this is treated as a monster level or a combat bonus
+		if(this.game.getCurrentPlayer().getFaction().equals(Faction.Cultist) 
+				&& this.game.getOtherPlayer().getFaction().equals(Faction.Cultist)){
+			this.setLevel(2);
 		}
 	}
 }
