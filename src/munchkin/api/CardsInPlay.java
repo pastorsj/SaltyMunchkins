@@ -12,7 +12,7 @@ import java.util.List;
 public class CardsInPlay {
 
     private List<ICard> cardsInPlay;
-    private Action action;
+    public Action action;
     private Game game;
 
     public CardsInPlay(Game game) {
