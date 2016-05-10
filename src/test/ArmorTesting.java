@@ -79,7 +79,7 @@ public class ArmorTesting {
 	@Test
 	public void testAddArmor(){
 		
-		ITreasure chest = new MiskatonicUniversityTShirt(game);
+		ITreasure chest = new ProfessorTeslasElectricalProtectiveDevice(game);
 		
 		armor.addArmor(helmet);
 		assertEquals("Not armor type",action.getAction());
@@ -103,7 +103,7 @@ public class ArmorTesting {
 	
 	@Test
 	public void testAddHands(){
-		ITreasure twoHand = new BrassKnucks();
+		ITreasure twoHand = new TripleBarreledShotgun(game);
 		ITreasure oneHand = new BowlingPin();
 		
 		armor.addHands(helmet);
