@@ -13,7 +13,7 @@ public class Action {
 
     private Action() {
         this.action = "";
-        this.logger = logger.getInstance();
+        //this.logger = logger.getInstance();
     }
 
     public static Action getInstance() {
