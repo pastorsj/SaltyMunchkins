@@ -1,15 +1,21 @@
 package test;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+
+import munchkin.api.Player;
+import munchkin.cards.treasures.*;
+import munchkin.cards.treasures.api.Treasure;
 
 /**
  * Created by SamPastoriza on 5/8/16.
  */
 public class GoUpALevelTesting {
 
-    //CallTheArmy
+    private CallTheArmy cta;
     //DiscoverFamilyHistory
     //InformLocalAuthorities
     //InterviewedforEveningNews
@@ -18,24 +24,26 @@ public class GoUpALevelTesting {
     //ReportCreaturesToFBI
     //TargetPractice
 
+	
     @Before
     public void setUp() {
-
+    	cta = new CallTheArmy();
+    	cta.setOwner(new Player());
+    	
     }
 
     @After
     public void takeDown() {
-
+    	this.cta = null;
     }
 
-    @Test
-    public void testInit() {
-
-    }
 
     @Test
     public void CallTheArmy() {
-
+    	this.cta.cardInHand();
+    	this.cta.cardInPlay();
+    	this.cta.cardPlayed(true);
+    	assertTrue(this.cta.checkDiscard());
     }
 
     @Test

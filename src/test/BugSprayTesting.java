@@ -10,7 +10,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import munchkin.api.Player;
-import munchkin.cards.treasures.BowlingPin;
 import munchkin.cards.treasures.BugSpray;
 import munchkin.cards.treasures.api.Armor;
 import munchkin.cards.treasures.api.Treasure;
@@ -22,10 +21,8 @@ import munchkin.game.Game;
 public class BugSprayTesting {
 
 	private Treasure treasure;
-	private Game game;
 	@Before
 	public void setUp() {
-		this.game = new Game(2);
 		this.treasure = new BugSpray();		
 		this.treasure.setOwner(new Player());
 		this.treasure.cardInHand();
