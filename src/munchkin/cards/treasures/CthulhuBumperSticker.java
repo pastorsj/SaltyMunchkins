@@ -18,4 +18,9 @@ public class CthulhuBumperSticker extends Treasure {
 	public void cardInPlay() {
 		this.setBonus(2);
 	}
+	
+	@Override
+	public void cardPlayed(boolean win){
+		this.setDiscard();
+	}
 }
