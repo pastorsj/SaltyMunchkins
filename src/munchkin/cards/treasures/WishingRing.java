@@ -23,7 +23,7 @@ public class WishingRing extends Treasure {
         for(ICard card : inPlay.getCardsInPlay()) {
             if(card instanceof AbstractCurse) {
                 try {
-                    this.game.discardCard(card.getOwner(), card);
+                	this.game.getCardsInPlay().removeCardFromPlay(card);
                 } catch(Exception e) {
                     System.out.println("cardInPlay():WishingRing");
                     e.printStackTrace();
