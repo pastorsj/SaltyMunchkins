@@ -89,22 +89,20 @@ public class Game {
 
 	public ICard drawACard(List<ICard> cards, IPlayer p) {
 		if (cards.size() < 1) {
-			action.setValue("No cards left to draw");
-			// FIXME: Eventually, we want to just reshuffle the discarded piles
-			// and continue the game
-			return null;
+			action.setValue("No cards left to draw. Reshuffling...");
+			this.initializeCards = new InitializeCards(this);
+		}
+		
+		ICard card = cards.get(0);
+		if (p.getHand().insertCard(card)) {
+			return card;
 		} else {
-			ICard card = cards.get(0);
-			if (p.getHand().insertCard(card)) {
-				return card;
-			} else {
-				action.setValue("You can only have eight cards in your hand. Please discard any extras");
-				return null;
-			}
+			action.setValue("You can only have eight cards in your hand. Please discard any extras");
+			return null;
 		}
 	}
 
-	public boolean discardCard(IPlayer p, ICard card) throws Exception {
+	public boolean discardCard(IPlayer p, ICard card) {
 		if (p.getHand().removeCardFromHand(card)) {
 			card.setOwner(null);
 			return this.discardedCards.addToDiscardedCards(card);
