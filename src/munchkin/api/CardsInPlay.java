@@ -21,23 +21,27 @@ public class CardsInPlay {
         this.game = game;
     }
 
-    public void addCardsToPlay(ICard card) {
+    public boolean addCardsToPlay(ICard card) {
         if(!this.cardsInPlay.contains(card)) {
             this.cardsInPlay.add(card);
             //IMPORTANT: This method must be called when a card added to the play set
             action.setValue("Added " + card.getName() + " to play");
             card.cardInPlay();
+            return true;
         } else {
             this.action.setValue("Can't add the card to play: Card already in play!");
+            return false;
         }
     }
 
-    public void removeCardFromPlay(ICard card) {
+    public boolean removeCardFromPlay(ICard card) {
         if(this.cardsInPlay.contains(card)) {
             this.cardsInPlay.remove(this.cardsInPlay.indexOf(card));
             this.action.setValue("Removed card from play successfully");
+            return true;
         } else {
             this.action.setValue("Attempting to remove card that does not exist!");
+            return false;
         }
     }
 
