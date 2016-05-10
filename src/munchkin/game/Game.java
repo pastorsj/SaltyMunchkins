@@ -25,8 +25,6 @@ public class Game {
 		this.initializeCards = new InitializeCards(this);
 		this.discardedCards = new DiscardedCards();
 		this.cardsInPlay = new CardsInPlay(this);
-		
-		LogWindow log = LogWindow.getInstance();
 
 		this.players = new LinkedList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {
@@ -61,7 +59,7 @@ public class Game {
 		return this.players;
 	}
 
-	public List<ICard> shuffle(ArrayList<ICard> cards) {
+	public List<ICard> shuffle(List<ICard> cards) {
 		Random rand = new Random();
 		for (int i = cards.size() - 1; i > 0; i--) {
 			int randNum = rand.nextInt(i);
@@ -73,6 +71,9 @@ public class Game {
 	}
 
 	public void dealInitialCards() {
+		shuffle(this.initializeCards.getTreasureCards());
+		shuffle(this.initializeCards.getDoorCards());
+		
 		for (IPlayer player : this.players) {
 			for (int i = 0; i < 4; i++) {
 				player.addCardToHand(this.initializeCards.removeDoorCard(0));
