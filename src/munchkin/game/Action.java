@@ -1,6 +1,5 @@
 package munchkin.game;
 
-import munchkin.game.panels.ConsolePanel;
 
 /**
  * Created by SamPastoriza on 3/27/16.
