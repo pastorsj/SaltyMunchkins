@@ -10,11 +10,11 @@ public class Action {
     //Will turn into an observer/observed pattern
     private static String action;
     private static Action instance;
-    private ConsolePanel logger;
+    private LogWindow logger;
 
     private Action() {
         this.action = "";
-        //this.logger = logger.getInstance();
+        this.logger = logger.getInstance();
     }
 
     public static Action getInstance() {
@@ -25,7 +25,7 @@ public class Action {
 
     public void setValue(String action) {
         this.action = action;
-        //logger.logMessage(action);
+        logger.logMessage(action);
         System.out.println(this.action);
     }
 
