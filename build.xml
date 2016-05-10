@@ -72,6 +72,7 @@
 			<test name="test.UnnameableTesting" todir="${junit.output.dir}" />
 
 			<test name="test.WishingRingTesting" todir="${junit.output.dir}" />
+			<test name="test.WandOfWallopingTesting" todir="${junit.output.dir}" />
 
 	<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
 
