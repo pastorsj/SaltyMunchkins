@@ -31,7 +31,6 @@ public class Game {
 			this.players.add(new Player());
 		}
 		this.dealInitialCards();
-
 		// Constructs the idea of Combat, which will always have an referenced
 		// instance of the game
 		this.combat = new Combat(this);
@@ -98,6 +97,7 @@ public class Game {
 		
 		ICard card = cards.get(0);
 		if (p.getHand().insertCard(card)) {
+			cards.remove(0);
 			return card;
 		} else {
 			action.setValue("You can only have eight cards in your hand. Please discard any extras");
@@ -114,9 +114,17 @@ public class Game {
 	}
 
 	public boolean playACard(ICard card) {
+		for(ICard c: this.cardsInPlay.getCardsInPlay()){
+			if (c instanceof AbstractMonster){
+				if(card instanceof AbstractMonster){
+					return false;
+				}
+			}
+		}
+		
 		if (this.getCurrentPlayer().getArmorSet().checkArmor(card) && !card.isDisabled()) {
-			this.getCurrentPlayer().getHand().removeCardFromHand(card);
 			this.cardsInPlay.addCardsToPlay(card);
+			this.getCurrentPlayer().getHand().removeCardFromHand(card);
 			if (card instanceof AbstractMonster) {
 				this.action.setValue("Added " + card.getName() + " monster to combat");
 				this.combat.addMonsterToFight((AbstractMonster) card);
