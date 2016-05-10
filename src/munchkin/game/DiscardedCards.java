@@ -10,11 +10,20 @@ public class DiscardedCards {
 	private List<ICard> discardedDoorCards;
 	private List<ICard> discardedTreasureCards;
 	private List<ICard> discardedCards;
+	private static DiscardedCards instance;
 	
 	public DiscardedCards(){
 		this.discardedDoorCards = new ArrayList<>();
 		this.discardedTreasureCards = new ArrayList<>();
 		this.discardedCards = new ArrayList<>();
+	}
+	
+	public static DiscardedCards getInstance(){
+		if(instance == null){
+			instance = new DiscardedCards();
+		}
+		
+		return instance;
 	}
 
 	public List<ICard> getDiscardedDoorCards() {
