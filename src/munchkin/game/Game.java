@@ -25,6 +25,8 @@ public class Game {
 		this.initializeCards = new InitializeCards(this);
 		this.discardedCards = new DiscardedCards();
 		this.cardsInPlay = new CardsInPlay(this);
+		
+		LogWindow log = LogWindow.getInstance();
 
 		this.players = new LinkedList<>();
 		for (int i = 0; i < numberOfPlayers; i++) {
