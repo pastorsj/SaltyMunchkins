@@ -73,7 +73,8 @@
 
 			<test name="test.WishingRingTesting" todir="${junit.output.dir}" />
 			<test name="test.WandOfWallopingTesting" todir="${junit.output.dir}" />
-		
+			<test name="test.TweedJacketTesting" todir="${junit.output.dir}" />
+
 			<test name="test.TwoHandedFlashlightTesting" todir="${junit.output.dir}" />
 	<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
 
