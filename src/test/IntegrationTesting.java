@@ -3,7 +3,8 @@ package test;
 import munchkin.api.ICard;
 import munchkin.api.Player;
 import munchkin.cards.doors.CurseHairStandsOnEnd;
-import munchkin.cards.treasures.GoUpALevel;
+import munchkin.cards.treasures.api.GoUpALevel;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

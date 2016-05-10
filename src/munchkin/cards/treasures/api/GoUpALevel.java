@@ -1,6 +1,4 @@
-package munchkin.cards.treasures;
-
-import munchkin.cards.treasures.api.Treasure;
+package munchkin.cards.treasures.api;
 
 /**
  * Created by SamPastoriza on 3/26/16.
