@@ -51,6 +51,7 @@ public class BowlingPinTesting {
 		this.treasure.cardInPlay();
 		assertEquals(2, this.treasure.getBonus());
 		assertEquals(Armor.OneHand, this.treasure.getArmor());
+		assertEquals(200, this.treasure.getGold());
 	}
 	
 	@Test
