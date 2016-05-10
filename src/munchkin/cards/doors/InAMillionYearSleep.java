@@ -1,12 +1,18 @@
 package munchkin.cards.doors;
 
 import munchkin.cards.doors.api.Door;
+import munchkin.cards.doors.api.MonsterEnhancer;
+import munchkin.game.Game;
 
-public class InAMillionYearSleep extends Door {
+public class InAMillionYearSleep extends MonsterEnhancer {
+
+	public InAMillionYearSleep(Game game) {
+		super(game);
+	}
 
 	@Override
 	public void cardInPlay() {
-		this.setLevel(-5);
+		this.addToMonsterLevel(-5);
 	}
 
 	@Override
