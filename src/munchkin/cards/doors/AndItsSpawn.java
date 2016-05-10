@@ -19,5 +19,6 @@ public class AndItsSpawn extends MonsterEnhancer {
         if (win) {
             this.setTreasures(1);
         }
+        this.setDiscard();
     }
 }

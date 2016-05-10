@@ -183,7 +183,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 						g.drawImage(imageList.get(i), 50 + 100 * i, 515, 180, 225, null);
 					}
 				} else {
-					System.err.println("Image list is null for current player");
+					
+					System.err.println("Current Player does not have any cards in play");
 				}
 
 				// In play for other player
@@ -193,7 +194,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 						g.drawImage(imageList.get(i), 50 + 100 * i, 50, 180, 225, null);
 					}
 				} else {
-					System.err.println("Image list is null for other player");
+					System.err.println("Other player does not have any cards in play");
 				}
 			}
 			g.drawImage(largeCard, 50 + 180 * 8 + 10 * 8, 400, 360, 570, null);
