@@ -79,6 +79,7 @@
 			<test name="test.SushiKnifeofDoomTesting" todir="${junit.output.dir}" />
 			<test name="test.SuddenHeadBlowTesting" todir="${junit.output.dir}" />
 			<test name="test.StickerIchorTesting" todir="${junit.output.dir}" />
+			<test name="test.SquamousTesting" todir="${junit.output.dir}" />
 
 			<test name="test.TwoHandedFlashlightTesting" todir="${junit.output.dir}" />
 	<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
