@@ -13,6 +13,7 @@ public class CurseChangeSex extends AbstractCurse {
 			this.getOwner().addToCombatLevel(-5);
 			timesPlayed++;
 		}
+		this.setDiscard();
 	}
 
 	private void switchGender() {
