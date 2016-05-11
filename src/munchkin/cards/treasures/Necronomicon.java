@@ -17,11 +17,11 @@ public class Necronomicon extends Treasure {
         if(!this.getOwner().getFaction().equals(Faction.Professor)) {
             this.disable();
         }
+        this.setArmor(Armor.TwoHands);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.TwoHands);
         this.setBonus(5);
     }
 }

@@ -17,11 +17,11 @@ public class MysticScribble extends Treasure {
         if(this.getOwner().getFaction().equals(Faction.Cultist)) {
             this.disable();
         }
+        this.setArmor(Armor.OneHand);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.OneHand);
         this.setBonus(2);
     }
 }

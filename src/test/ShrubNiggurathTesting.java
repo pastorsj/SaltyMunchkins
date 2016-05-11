@@ -61,6 +61,8 @@ public class ShrubNiggurathTesting {
 	@Test
 	public void testCardPlayedLose(){
 		MonsterStompers m = new MonsterStompers(this.game);
+		m.setOwner(this.player);
+		m.cardInHand();
 		m.cardInPlay();
 		this.player.getArmorSet().addFootGear(m);
 		this.card.cardPlayed(false);

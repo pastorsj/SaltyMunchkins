@@ -17,11 +17,11 @@ public class TwoHandedFlashlight extends Treasure {
         if(this.getOwner().getFaction().equals(Faction.Professor)) {
             this.disable();
         }
+        this.setArmor(Armor.TwoHands);
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(3);
-        this.setArmor(Armor.TwoHands);
     }
 }

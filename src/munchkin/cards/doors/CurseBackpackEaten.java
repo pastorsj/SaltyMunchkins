@@ -15,5 +15,7 @@ public class CurseBackpackEaten extends AbstractCurse {
 				card.setDiscard();
 			}
 		}
+		this.setDiscard();
 	}
+	
 }

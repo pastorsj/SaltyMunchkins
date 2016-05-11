@@ -17,12 +17,12 @@ public class TweedJacket extends Treasure {
         if(!this.getOwner().getFaction().equals(Faction.Professor)) {
             this.disable();
         }
+        this.setArmor(Armor.PseudoArmor);
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(2);
         //Can be used with more than one piece of armor
-        this.setArmor(Armor.PseudoArmor);
     }
 }

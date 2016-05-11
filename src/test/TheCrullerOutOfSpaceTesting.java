@@ -60,7 +60,11 @@ public class TheCrullerOutOfSpaceTesting {
 	public void testBadStuff(){
 		Necrotelecom n = new Necrotelecom(this.game);
 		MonsterStompers m = new MonsterStompers(this.game);
-		
+
+		n.setOwner(this.player);
+		m.setOwner(this.player);
+		m.cardInHand();
+		n.cardInHand();
 		m.cardInPlay();
 		n.cardInPlay();
 		

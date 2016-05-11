@@ -17,11 +17,11 @@ public class WandOfWalloping extends Treasure {
         if(this.getOwner().getFaction().equals(Faction.Investigator)) {
             this.disable();
         }
+        this.setArmor(Armor.OneHand);
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(3);
-        this.setArmor(Armor.OneHand);
     }
 }

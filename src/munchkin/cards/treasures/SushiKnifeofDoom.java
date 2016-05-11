@@ -13,11 +13,11 @@ public class SushiKnifeofDoom extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(300);
+        this.setArmor(Armor.OneHand);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.OneHand);
         this.setBonus(2);
     }
 }

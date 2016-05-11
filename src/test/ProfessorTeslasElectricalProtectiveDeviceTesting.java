@@ -41,12 +41,12 @@ public class ProfessorTeslasElectricalProtectiveDeviceTesting {
 	public void testCardInHand() {
 		this.card.cardInHand();
 		assertEquals(900, this.card.getGold());
+		assertEquals(Armor.Armor, this.card.getArmor());
 	}
 
 	@Test
 	public void testCardInPlay() {
 		this.card.cardInPlay();
 		assertEquals(4, this.card.getBonus());
-		assertEquals(Armor.Armor, this.card.getArmor());
 	}
 }

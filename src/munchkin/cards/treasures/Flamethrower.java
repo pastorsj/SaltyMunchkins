@@ -12,11 +12,11 @@ public class Flamethrower extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(800);
+        this.setArmor(Armor.TwoHands);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.TwoHands);
         this.setBonus(4);
     }
 }

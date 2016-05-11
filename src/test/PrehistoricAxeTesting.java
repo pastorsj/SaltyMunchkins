@@ -56,6 +56,7 @@ public class PrehistoricAxeTesting {
 		m.cardInPlay();
 		
 		this.game.getCombat().addMonsterToFight(m);
+		this.card.cardInHand();
 		this.card.cardInPlay();
 		
 		assertEquals(Armor.OneHand, this.card.getArmor());
@@ -71,6 +72,7 @@ public class PrehistoricAxeTesting {
 		m.cardInPlay();
 		this.combat.addMonsterToFight(m);
 
+		this.card.cardInHand();
 		this.card.cardInPlay();
 		assertEquals(Armor.OneHand, this.card.getArmor());
 		assertEquals(2, this.card.getBonus());

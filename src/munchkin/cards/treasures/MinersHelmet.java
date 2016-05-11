@@ -12,11 +12,11 @@ public class MinersHelmet extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(400);
+        this.setArmor(Armor.HeadGear);
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(2);
-        this.setArmor(Armor.HeadGear);
     }
 }

@@ -48,6 +48,7 @@ public class RailroadSpikeTesting {
 		this.card.cardInHand();
 		assertEquals(400, this.card.getGold());
 		assertFalse(this.card.isDisabled());
+		assertEquals(Armor.OneHand, this.card.getArmor());
 	}
 	@Test
 	public void testCardInHandWithoutMonsterWhacker(){
@@ -59,8 +60,7 @@ public class RailroadSpikeTesting {
 	@Test
 	public void testCardInPlay(){
 		this.card.cardInPlay();
-		
+
 		assertEquals(3, this.card.getBonus());
-		assertEquals(Armor.OneHand, this.card.getArmor());
 	}
 }

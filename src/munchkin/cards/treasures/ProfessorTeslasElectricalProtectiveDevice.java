@@ -13,11 +13,11 @@ public class ProfessorTeslasElectricalProtectiveDevice extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(900);
+        this.setArmor(Armor.Armor);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.Armor);
         this.setBonus(4);
     }
 }
