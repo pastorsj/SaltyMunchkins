@@ -87,6 +87,7 @@
 			<test name="test.TwoHandedFlashlightTesting" todir="${junit.output.dir}" />
 			<test name="test.ShogGothTesting" todir="${junit.output.dir}" />
 			<test name="test.ShallowOnesTesting" todir="${junit.output.dir}" />
+			<test name="test.RuggothTesting" todir="${junit.output.dir}" />
 
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
