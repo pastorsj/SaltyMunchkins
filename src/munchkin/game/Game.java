@@ -20,6 +20,7 @@ public class Game {
 	private InitializeCards initializeCards;
 	private DiscardedCards discardedCards;
 	private Combat combat;
+	private boolean drewCard;
 
 	public Game(int numberOfPlayers) {
 		this.initializeCards = new InitializeCards(this);
@@ -90,6 +91,10 @@ public class Game {
 	}
 
 	public ICard drawACard(List<ICard> cards, IPlayer p) {
+		if(drewCard){
+			return null;
+		}
+		
 		if (cards.size() < 1) {
 			action.setValue("No cards left to draw. Reshuffling...");
 			this.initializeCards = new InitializeCards(this);
@@ -98,6 +103,7 @@ public class Game {
 		ICard card = cards.get(0);
 		if (p.getHand().insertCard(card)) {
 			cards.remove(0);
+			drewCard = true;
 			return card;
 		} else {
 			action.setValue("You can only have eight cards in your hand. Please discard any extras");
@@ -149,6 +155,7 @@ public class Game {
 		// Reset Combat
 		this.combat.finish();
 		this.combat.resetCombat();
+		drewCard = false;
 		return true;
 	}
 
