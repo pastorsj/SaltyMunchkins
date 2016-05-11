@@ -45,7 +45,7 @@
 	</target>
 	<target name="test">
 		<mkdir dir="${junit.output.dir}" />
-		<junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="yes" filtertrace="no">
+		<junit printsummary="withOutAndErr" haltonfailure="yes" haltonerror="yes" showoutput="no" filtertrace="no">
 			<formatter type="plain" usefile="false" />
 			<!--<test name="test.AbstractCardTesting" todir="${junit.output.dir}"/>-->
 			<!--<test name="test.CardFunctionalityTesting" todir="${junit.output.dir}"/>-->
