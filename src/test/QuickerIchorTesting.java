@@ -10,7 +10,6 @@ import org.junit.Test;
 
 import munchkin.api.SpecificCardType;
 import munchkin.cards.treasures.QuickerIchor;
-import munchkin.cards.treasures.SickerIchor;
 import munchkin.game.Game;
 
 /**
