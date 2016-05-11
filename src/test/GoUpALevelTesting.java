@@ -16,7 +16,7 @@ import munchkin.cards.treasures.api.Treasure;
 public class GoUpALevelTesting {
 
     private CallTheArmy cta;
-    //DiscoverFamilyHistory
+    private DiscoverFamilyHistory dfh;
     //InformLocalAuthorities
     //InterviewedforEveningNews
     //LearnThingsManWasNotMeantToKnow
@@ -30,11 +30,14 @@ public class GoUpALevelTesting {
     	cta = new CallTheArmy();
     	cta.setOwner(new Player());
     	
+    	dfh = new DiscoverFamilyHistory();
+    	dfh.setOwner(new Player());
     }
 
     @After
     public void takeDown() {
     	this.cta = null;
+    	this.dfh = null;
     }
 
 
@@ -48,6 +51,10 @@ public class GoUpALevelTesting {
 
     @Test
     public void DiscoverFamilyHistory() {
+    	this.dfh.cardInHand();
+    	this.dfh.cardInPlay();
+    	this.dfh.cardPlayed(true);
+    	assertTrue(this.dfh.checkDiscard());
         
     }
 
