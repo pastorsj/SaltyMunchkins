@@ -9,7 +9,7 @@ public interface ICombat {
 
     public void addMonsterToFight(AbstractMonster monster);
     public void addPlayerToFight(IPlayer player);
-    public void resolveFight();
+    public boolean resolveFight();
     public void runAway();
     public void resetCombat();
     public void finish();

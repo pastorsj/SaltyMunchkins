@@ -2,6 +2,7 @@ package munchkin.cards.treasures.api;
 
 import munchkin.api.ICard;
 import munchkin.game.Action;
+import munchkin.game.Game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,20 +40,26 @@ public class ArmorSet {
         return footgear;
     }
 
-    public void removeFootgear(){
+    public List<ICard> removeFootgear(){
         if(this.footgear.size()>0) {
+            List<ICard> retFootgear = this.footgear;
             this.footgear.clear();
+            return retFootgear;
         }
+        return null;
     }
 
     public List<ICard> getHeadgear() {
         return headgear;
     }
 
-    public void removeHeadgear(){
+    public List<ICard> removeHeadgear(){
         if(this.headgear.size()>0) {
+            List<ICard> retHeadgear = this.headgear;
             this.headgear.clear();
+            return retHeadgear;
         }
+        return null;
     }
 
 
@@ -61,18 +68,26 @@ public class ArmorSet {
     }
 
 
-    public void removeArmor(){
+    public List<ICard> removeArmor(){
         if(this.armor.size()>0) {
+            List<ICard> retArmor = this.armor;
             this.armor.clear();
+            return retArmor;
         }
+        return null;
     }
     public List<ICard> getHands() {
         return hands;
     }
 
-    public void removeHands(){
-        this.hands.clear();
-        this.currentHands = 0;
+    public List<ICard> removeHands(){
+        if(this.hands.size()>0) {
+            List<ICard> retHands = this.hands;
+            this.hands.clear();
+            this.currentHands = 0;
+            return retHands;
+        }
+        return null;
     }
 
     public void addFootGear(ITreasure card) {

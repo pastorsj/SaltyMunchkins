@@ -25,10 +25,11 @@ public class CurseBackpackEatenTesting {
 	private Door door;
 	private Game game;
 	private Treasure card;
+
     @Before
     public void setUp() {
-    	door = new CurseBackpackEaten();
     	game = new Game(2);
+    	door = new CurseBackpackEaten(game);
     	card = new CultMembershipCard(game);
     	card.setOwner(this.game.getCurrentPlayer());
     	door.setOwner(game.getCurrentPlayer());

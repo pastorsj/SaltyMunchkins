@@ -116,6 +116,12 @@ public class Game {
 	}
 
 	public boolean discardCard(IPlayer p, ICard card) {
+		if(this.cardsInPlay.contains(card) && card.getOwner().equals(p)) {
+			if(this.cardsInPlay.removeCardFromPlay(card)) {
+				card.setOwner(null);
+				return this.discardedCards.addToDiscardedCards(card);
+			}
+		}
 		if (p.getHand().removeCardFromHand(card)) {
 			card.setOwner(null);
 			return this.discardedCards.addToDiscardedCards(card);
@@ -170,17 +176,28 @@ public class Game {
 	public boolean endTurn() {
 		// TODO: Several things must happen when ending a turn
 		// Resolve conflict
-		this.combat.resolveFight();
+		if(!this.combat.resolveFight()) {
+			return false;
+		}
+
 		// Discard all changes that are set to be discarded
+		List<ICard> toDelete = new ArrayList<>();
 		for (ICard c : this.cardsInPlay.getCardsInPlay()) {
 			if (c.checkDiscard()) {
-				this.cardsInPlay.removeCardFromPlay(c);
+				toDelete.add(c);
 			}
+		}
+		this.cardsInPlay.removeCardsFromPlay(toDelete);
+
+		if(this.getCurrentPlayer().getDiscardGoldAmount() > 0) {
+			this.action.setValue("You are required to discard " + this.getCurrentPlayer().getDiscardGoldAmount() + " more gold before ending your turn");
+			return false;
 		}
 		// Reset Combat
 		this.combat.finish();
 		this.combat.resetCombat();
 		drewCard = false;
+		this.pass();
 		return true;
 	}
 
@@ -202,5 +219,11 @@ public class Game {
 
 	public List<ICard> getAllCards() {
 		return this.initializeCards.getAllCards();
+	}
+
+	public void discardCards(IPlayer player, List<ICard> toDelete) {
+		for(ICard c : toDelete) {
+			this.discardCard(player, c);
+		}
 	}
 }

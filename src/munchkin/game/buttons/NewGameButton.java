@@ -1,5 +1,6 @@
 package munchkin.game.buttons;
 
+import munchkin.game.Game;
 import munchkin.game.MFrame;
 import munchkin.game.Main;
 
@@ -20,7 +21,7 @@ public class NewGameButton extends JButton implements ActionListener {
 		super.setText("Reset Game");
 
 		this.frame = frame;
-		
+		Game.gameSetUp = false;
 		addActionListener(this);
 	}
 

@@ -54,11 +54,17 @@ public class Combat implements ICombat{
     }
 
     @Override
-    public void resolveFight() {
+    public boolean resolveFight() {
         if(this.monsters.size()==1 && this.fighters.size() == 1) {
             resolveSingleMonsterSingleFighter();
+            this.action.setValue("Resolved a fight between a single monster and a single player.");
+            return true;
+        } else if(this.monsters.size()==0 && this.fighters.size()==0) {
+            this.action.setValue("There were no fighters or monsters in combat. Turn can be ended successfully.");
+            return true;
         } else {
             System.err.println("Error in Combat: " + this.monsters.size() + " monsters and " + this.fighters.size() + " fighters");
+            return false;
         }
     }
 
@@ -67,7 +73,6 @@ public class Combat implements ICombat{
         AbstractMonster singleMonster = this.monsters.get(0);
         if(singlePlayer.getCombatLevel() > singleMonster.getLevel()) {
             //Win Condition: Fighters draw treasure cards and turn is ended
-            //FIXME: Use single monster treasures to deal new treasures
             try {
                 for (int i = 0; i < singleMonster.getTreasures(); i++) {
                     this.game.dealNewTreasureCard(this.game.getCurrentPlayer());

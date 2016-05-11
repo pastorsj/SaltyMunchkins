@@ -3,6 +3,7 @@ package munchkin.api;
 import munchkin.cards.treasures.api.ArmorSet;
 import munchkin.cards.treasures.api.Faction;
 import munchkin.cards.treasures.api.Treasure;
+import munchkin.game.Game;
 
 /**
  * Created by SamPastoriza on 3/25/16.

@@ -2,6 +2,7 @@ package test;
 
 import static org.junit.Assert.*;
 
+import munchkin.game.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,11 +17,13 @@ import munchkin.cards.doors.api.Door;
 public class CurseChangeSexTesting {
 	
 	private Door door;
+	private Game game;
 
     @Before
     public void setUp() {
-    	door = new CurseChangeSex();
-    	door.setOwner(new Player());
+		this.game = new Game(2);
+    	door = new CurseChangeSex(this.game);
+    	door.setOwner(this.game.getCurrentPlayer());
     }
 
     @After

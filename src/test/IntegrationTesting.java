@@ -1,10 +1,12 @@
 package test;
 
 import munchkin.api.ICard;
+import munchkin.api.IPlayer;
 import munchkin.api.Player;
 import munchkin.cards.doors.CurseHairStandsOnEnd;
 import munchkin.cards.treasures.api.GoUpALevel;
 
+import munchkin.game.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,12 +20,14 @@ import static org.junit.Assert.assertTrue;
 public class IntegrationTesting {
 
     private ICard card;
-    private Player a;
+    private IPlayer a;
+    private Game game;
 
     @Before
     public void setUp() {
-        this.card = new CurseHairStandsOnEnd();
-        this.a = new Player();
+        this.game = new Game(2);
+        this.card = new CurseHairStandsOnEnd(this.game);
+        this.a = this.game.getCurrentPlayer();
     }
 
     @After

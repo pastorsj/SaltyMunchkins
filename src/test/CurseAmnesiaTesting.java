@@ -4,6 +4,7 @@ import munchkin.api.IPlayer;
 import munchkin.api.Player;
 import munchkin.cards.doors.CurseAmnesia;
 import munchkin.cards.treasures.api.Faction;
+import munchkin.game.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,11 +15,13 @@ import static org.junit.Assert.assertNotNull;
 public class CurseAmnesiaTesting {
 	private CurseAmnesia card;
 	private IPlayer player;
+	private Game game;
 	
 	@Before
 	public void setUp() {
-		this.card = new CurseAmnesia();
-		this.player = new Player();
+		this.game = new Game(2);
+		this.card = new CurseAmnesia(this.game);
+		this.player = this.game.getCurrentPlayer();
 		this.player.setFaction(Faction.Investigator);
 		this.player.addCardToHand(this.card);
 		this.player.addLevel(5);

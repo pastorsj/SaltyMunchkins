@@ -24,6 +24,10 @@ public class KickerIchor extends Treasure {
 
     @Override
     public void cardInPlay() {
+        if(this.getOwner().getArmorSet().getFootgear()==null) {
+            this.action.setValue("You have no footgear");
+            return;
+        }
         tripleCombatBonusForFootgear();
     }
 

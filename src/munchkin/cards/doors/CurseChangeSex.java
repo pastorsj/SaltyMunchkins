@@ -1,22 +1,30 @@
 package munchkin.cards.doors;
 
+import munchkin.api.IPlayer;
 import munchkin.cards.doors.api.AbstractCurse;
+import munchkin.game.Game;
 
 public class CurseChangeSex extends AbstractCurse {
+
+	public CurseChangeSex(Game game) {
+		super(game);
+	}
 
 	private int timesPlayed = 0;
 
 	@Override
 	public void cardInPlay() {
+		IPlayer playedOn = this.game.getOtherPlayer();
 		if(timesPlayed == 0) {
 			this.switchGender();
-			this.getOwner().addToCombatLevel(-5);
+			playedOn.addToCombatLevel(-5);
 			timesPlayed++;
 		}
 		this.setDiscard();
 	}
 
 	private void switchGender() {
-		this.getOwner().setGender(this.getOwner().getGender().equals("Male") ? "Female" : "Male");
+		IPlayer playedOn = this.game.getOtherPlayer();
+		playedOn.setGender(playedOn.getGender().equals("Male") ? "Female" : "Male");
 	}
 }

@@ -35,17 +35,12 @@ public class PassCombatButton extends JButton implements ActionListener{
 		this.game.pass();
 		this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(false);
 		this.setNowPass(true);
-		if(this.lastPass && this.nowPass) {
+		if(this.lastPass && this.nowPass && this.game.getCombat().containsMonster()) {
 			this.setVisible(false);
 			this.mainCardPanel.getButtonSet().get("Resolve Conflict").setVisible(true);
 		}
 		this.mainCardPanel.updateLabels();
 		this.mainCardPanel.repaintFrame();
-	}
-	
-	public void resetButton() {
-		this.lastPass = false;
-		this.nowPass = false;
 	}
 
 	public void setNowPass(boolean pass) {

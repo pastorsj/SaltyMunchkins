@@ -58,4 +58,10 @@ public class CardsInPlay {
     public boolean contains(ICard card) {
         return this.cardsInPlay.contains(card);
     }
+
+    public void removeCardsFromPlay(List<ICard> toDelete) {
+        for(ICard c : toDelete) {
+            this.removeCardFromPlay(c);
+        }
+    }
 }

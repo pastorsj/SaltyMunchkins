@@ -27,7 +27,7 @@ public class WishingRingTesting {
     	this.game = new Game(2);
     	this.treasure = new WishingRing(this.game);
     	this.treasure.cardInHand();
-    	this.curse = new CurseAmnesia();
+    	this.curse = new CurseAmnesia(this.game);
     	this.player=new Player();
     	this.player.addCardToHand(this.treasure);
     	this.player.addCardToHand(this.curse);

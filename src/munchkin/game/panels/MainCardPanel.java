@@ -80,6 +80,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.partialLabel.put("GenderLabel", "Enter Gender: ");
 		this.labels.put("DiscardGoldLabel", new JLabel("Gold Sold: " + this.game.getCurrentPlayer().getDiscardGoldAmount()));
 		this.partialLabel.put("DiscardGoldLabel", "Gold Sold: ");
+		this.labels.put("FactionLabel", new JLabel("Faction: " + this.game.getCurrentPlayer().getFaction().name()));
+		this.partialLabel.put("FactionLabel", "Faction: ");
 	}
 
 	private void initializeButtons() {
@@ -92,8 +94,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.buttons.put("Pass Combat", new PassCombatButton("Pass", this.game, this));
 		this.buttons.put("Resolve Conflict", new ResolveConflictButton("Resolve Conflict", this.game, this));
 		this.buttons.put("Sell Gold", new SellGoldButton("Sell Gold", this.game, this));
-		//TODO: This may not be needed
-//		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
+		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
 		this.buttons.put("Male", new GenderButton("Male", this.game, this));
 		((GenderButton) this.buttons.get("Male")).setMaleGender();
 		this.buttons.put("Female", new GenderButton("Female", this.game, this));
@@ -141,6 +142,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 				.setText("Combat Level: " + this.game.getCurrentPlayer().getCombatLevel());
 		this.labels.get("MonsterLevelLabel").setText("Monster's Level: " + this.game.getCombat().getMonsterLevel());
 		this.labels.get("DiscardGoldLabel").setText("Gold Sold: " + this.game.getCurrentPlayer().getDiscardGoldAmount());
+		this.labels.get("FactionLabel").setText("Faction: " + this.game.getCurrentPlayer().getFaction().name());
+		this.labels.get("GenderLabel").setText("Gender: " + this.game.getCurrentPlayer().getGender());
 	}
 
 	public void paintComponent(Graphics g) {

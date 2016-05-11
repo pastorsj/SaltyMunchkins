@@ -1,16 +1,23 @@
 package munchkin.cards.doors;
 
+import munchkin.api.IPlayer;
 import munchkin.cards.doors.api.AbstractCurse;
 import munchkin.cards.treasures.api.Faction;
+import munchkin.game.Game;
 
 public class CurseAmnesia extends AbstractCurse {
 
+	public CurseAmnesia(Game game) {
+		super(game);
+	}
+
 	@Override
 	public void cardInPlay() {
-		if(this.getOwner().getFaction()==Faction.UNAFFILIATED || this.getOwner().getFaction().equals(Faction.UNAFFILIATED)){
-			this.getOwner().addLevel(-1);
+		IPlayer playedOn = this.game.getOtherPlayer();
+		if(playedOn.getFaction().equals(Faction.UNAFFILIATED)){
+			playedOn.addLevel(-1);
 		}else{
-			this.getOwner().setFaction(Faction.UNAFFILIATED);
+			playedOn.setFaction(Faction.UNAFFILIATED);
 		}
 	}
 }

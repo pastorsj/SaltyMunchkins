@@ -39,20 +39,22 @@ public class PlayCardButton extends JButton implements ActionListener {
 		
 		((PassCombatButton) buttonSet.get("Pass Combat")).setNowPass(false);
 		ICard cardToMove = this.mainCardPanel.getSelectedCard();
+		boolean cardPlayed = false;
 		if(cardToMove != null) {
-			this.game.playACard(cardToMove);
+			cardPlayed = this.game.playACard(cardToMove);
 		} else {
 			return;
 		}
 		if(this.game.getCombat().containsMonster()) {
 			buttonSet.get("End Turn").setVisible(false);
 			buttonSet.get("Pass Combat").setVisible(true);
-		} else {
+		} else if(cardPlayed) {
 			buttonSet.get("End Turn").setVisible(true);
 		}
 		buttonSet.get("Resolve Conflict").setVisible(false);
 		buttonSet.get("Discard").setVisible(false);
 		this.mainCardPanel.updateLabels();
+		this.mainCardPanel.repaint();
 		this.mainCardPanel.repaintFrame();
 
 	}

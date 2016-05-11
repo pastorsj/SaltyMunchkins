@@ -4,6 +4,7 @@ import munchkin.api.IPlayer;
 import munchkin.api.Player;
 import munchkin.cards.doors.CurseDraggedOffToSnarkhamAsylum;
 import munchkin.cards.treasures.api.Faction;
+import munchkin.game.Game;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -11,13 +12,16 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class CurseDraggedOffToSnarkhamAsylumTesting {
+
 	private CurseDraggedOffToSnarkhamAsylum card;
 	private IPlayer player;
+	private Game game;
 	
 	@Before
 	public void setUp() {
-		this.card = new CurseDraggedOffToSnarkhamAsylum();
-		this.player = new Player();
+		this.game = new Game(2);
+		this.card = new CurseDraggedOffToSnarkhamAsylum(this.game);
+		this.player = this.game.getCurrentPlayer();
 		this.player.setFaction(Faction.Investigator);
 		this.player.addCardToHand(this.card);
 		this.card.setOwner(this.player);
