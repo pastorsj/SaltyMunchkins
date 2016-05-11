@@ -75,7 +75,7 @@ public class Combat implements ICombat{
             //Win Condition: Fighters draw treasure cards and turn is ended
             try {
                 for (int i = 0; i < singleMonster.getTreasures(); i++) {
-                    this.game.dealNewTreasureCard(this.game.getCurrentPlayer());
+                    this.game.dealNewTreasureCard(singlePlayer);
                 }
             } catch(Exception e) {
                 e.printStackTrace();
@@ -85,7 +85,6 @@ public class Combat implements ICombat{
             //Lose Condition: Must roll to attempt to run away
             this.action.setValue("Attempting to run away");
             if(Utility.rollDice() + singlePlayer.getRunAwayLevel() > 3) {
-                this.action.setValue("Running Away!");
                 runAway();
             } else {
                 this.action.setValue("Oh no, you could not run away");
@@ -96,7 +95,7 @@ public class Combat implements ICombat{
 
     @Override
     public void runAway() {
-        game.pass();
+        this.action.setValue("You have run away!");
     }
 
     @Override
@@ -128,45 +127,3 @@ public class Combat implements ICombat{
         return this.monsterLevels.get(0);
     }
 }
-//
-//
-//    public void endCombat(Game myGame){
-//        System.out.println("END COMBAT IS CALLED");
-//        for(int i =0; i<this.pPlay.size();i++){
-//
-//            if(myGame.ic.getCardHash().get(this.pPlay.get(i)).discard){
-//                System.out.println("delete pPlay in endCombat");
-//                if(this.pPlay.get(i)<83){
-//                    myGame.doorDiscards.add(this.pPlay.get(i));
-//                }
-//                else{
-//                    myGame.treasDiscards.add(this.pPlay.get(i));
-//                }
-//
-//                this.pPlay.remove(i);
-//
-//                i--;
-//            }
-//            else if(myGame.ic.getCardHash().get(this.pPlay.get(i)).armor ||
-//                    myGame.ic.getCardHash().get(this.pPlay.get(i)).footGear ||
-//                    myGame.ic.getCardHash().get(this.pPlay.get(i)).headGear ||
-//                    myGame.ic.getCardHash().get(this.pPlay.get(i)).numHands>0 ||
-//                    this.pPlay.get(i)==87){
-//
-//            }
-//            else{
-//                System.out.println("moving card to pHand in endCombat");
-//                this.pHand.add(this.pPlay.get(i));
-//                this.pPlay.remove(i);
-//            }
-//
-//        }
-//        this.handLevel = 0;
-//        this.headLevel=0;
-//        this.armorLevel=0;
-//        myGame.mLevel = 0;
-//        myGame.mframe.mainPanel.bCardPanel.dgb.goldToDiscard = 0;
-//
-//
-//
-//    }

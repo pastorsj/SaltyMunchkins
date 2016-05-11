@@ -37,7 +37,6 @@ public class CurseChangeSexTesting {
     	this.door.cardInHand();
     	this.door.cardInPlay();
     	assertEquals("Female", this.game.getOtherPlayer().getGender());
-    	assertEquals(-5, this.game.getOtherPlayer().getCombatLevel());
     }
     
     @Test
@@ -46,6 +45,5 @@ public class CurseChangeSexTesting {
     	this.door.cardInHand();
     	this.door.cardInPlay();
     	assertEquals("Male", this.game.getOtherPlayer().getGender());
-    	assertEquals(-5, this.game.getOtherPlayer().getCombatLevel());
     }
 }
