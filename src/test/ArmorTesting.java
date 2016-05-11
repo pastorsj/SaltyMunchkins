@@ -1,7 +1,10 @@
 package test;
 
+import munchkin.api.IPlayer;
+import munchkin.api.Player;
 import munchkin.cards.treasures.*;
 import munchkin.cards.treasures.api.ArmorSet;
+import munchkin.cards.treasures.api.Faction;
 import munchkin.cards.treasures.api.ITreasure;
 import munchkin.game.Action;
 import munchkin.game.Game;
@@ -16,14 +19,17 @@ public class ArmorTesting {
 	private ArmorSet armor;
 	private Game game;
 	private ITreasure helmet;
+	private IPlayer player;
 	
 	@Before
 	public void setUp(){
 		action = Action.getInstance();
 		armor = new ArmorSet();
 		game = new Game(2);
+		player = new Player();
 
 		helmet = new MinersHelmet();
+		helmet.cardInHand();
 		helmet.cardInPlay();
 	}
 	
@@ -36,6 +42,9 @@ public class ArmorTesting {
 		assertEquals("Not Footgear armor",action.getAction());
 		assertEquals(0, armor.getFootgear().size());
 		
+		player.setFaction(Faction.MonsterWhacker);
+		boots.setOwner(player);
+		boots.cardInHand();
 		boots.cardInPlay();
 		armor.addFootGear(boots);
 		assertEquals(1, armor.getFootgear().size());
@@ -56,6 +65,9 @@ public class ArmorTesting {
 		armor.removeHeadgear();
 		
 		ITreasure notHeadGear = new MonsterStompers(game);
+		player.setFaction(Faction.MonsterWhacker);
+		notHeadGear.setOwner(player);
+		notHeadGear.cardInHand();
 		notHeadGear.cardInPlay();
 		
 		armor.addHeadGear(notHeadGear);
@@ -85,6 +97,7 @@ public class ArmorTesting {
 		assertEquals("Not armor type",action.getAction());
 		assertEquals(0, armor.getArmor().size());
 		
+		chest.cardInHand();
 		chest.cardInPlay();
 		armor.addArmor(chest);
 		assertEquals(1, armor.getArmor().size());
@@ -110,6 +123,9 @@ public class ArmorTesting {
 		assertEquals("Not hands armor",action.getAction());
 		assertEquals(0, armor.getArmor().size());
 		
+		player.setFaction(Faction.Investigator);
+		twoHand.setOwner(player);
+		twoHand.cardInHand();
 		twoHand.cardInPlay();
 		armor.addHands(twoHand);
 		assertEquals(1, armor.getHands().size());
@@ -121,6 +137,7 @@ public class ArmorTesting {
 		
 		armor.removeHands();
 		
+		oneHand.cardInHand();
 		oneHand.cardInPlay();
 		armor.addHands(oneHand);
 		assertEquals(1, armor.getHands().size());
