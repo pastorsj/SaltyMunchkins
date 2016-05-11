@@ -78,8 +78,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.partialLabel.put("DiceRollLabel", "Number Rolled: ");
 		this.labels.put("GenderLabel", new JLabel("Enter Gender: " + this.game.getCurrentPlayer().getName()));
 		this.partialLabel.put("GenderLabel", "Enter Gender: ");
-		this.labels.put("DiscardGoldLabel", new JLabel("Discarded Gold Amount: " + this.game.getCurrentPlayer().getDiscardGoldAmount()));
-		this.partialLabel.put("DiscardGoldLabel", "Discarded Gold Amount: ");
+		this.labels.put("DiscardGoldLabel", new JLabel("Gold Sold: " + this.game.getCurrentPlayer().getDiscardGoldAmount()));
+		this.partialLabel.put("DiscardGoldLabel", "Gold Sold: ");
 	}
 
 	private void initializeButtons() {
@@ -92,7 +92,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.buttons.put("Pass Combat", new PassCombatButton("Pass Combat", this.game, this));
 		this.buttons.put("Resolve Conflict", new ResolveConflictButton("Resolve Conflict", this.game, this));
 		this.buttons.put("Sell Gold", new SellGoldButton("Sell Gold", this.game, this));
-		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
+		//TODO: This may not be needed
+//		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
 		this.buttons.put("Male", new GenderButton("Male", this.game, this));
 		((GenderButton) this.buttons.get("Male")).setMaleGender();
 		this.buttons.put("Female", new GenderButton("Female", this.game, this));
@@ -139,7 +140,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.labels.get("CombatLevelLabel")
 				.setText("Player's Combat Level: " + this.game.getCurrentPlayer().getCombatLevel());
 		this.labels.get("MonsterLevelLabel").setText("Monster's Level: " + this.game.getCombat().getMonsterLevel());
-		this.labels.get("DiscardGoldLabel").setText("Discarded Gold Amount: " + this.game.getCurrentPlayer().getDiscardGoldAmount());
+		this.labels.get("DiscardGoldLabel").setText("Gold Sold: " + this.game.getCurrentPlayer().getDiscardGoldAmount());
 	}
 
 	public void paintComponent(Graphics g) {
@@ -225,7 +226,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.cardsInPlay = new HashMap<>();
 		for (ICard card : cards.getCardsInPlay()) {
 			if (!this.cardsInPlay.containsKey(card.getOwner())) {
-				this.cardsInPlay.put(card.getOwner(), new ArrayList<>());
+				this.cardsInPlay.put(card.getOwner(), new ArrayList<BufferedImage>());
 			}
 			BufferedImage inPlayImage = ImageIO.read(new File(IMAGE_PATH + card.getName() + PNG_EXTENSION));
 			this.cardsInPlay.get(card.getOwner()).add(inPlayImage);
