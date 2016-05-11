@@ -95,7 +95,8 @@
 			<test name="test.OzathothTesting" todir="${junit.output.dir}" />
 			<test name="test.NonEuclideanMapTesting" todir="${junit.output.dir}" />
 			<test name="test.RailroadSpikeTesting" todir="${junit.output.dir}" />
-			<test name="test.NgihtieGauntsTesting" todir="${junit.output.dir}" />
+			<test name="test.NightieGauntsTesting" todir="${junit.output.dir}" />
+			<test name="test.NecrotelecomgTesting" todir="${junit.output.dir}" />
 			
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
