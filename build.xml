@@ -98,7 +98,8 @@
 			<test name="test.NightieGauntsTesting" todir="${junit.output.dir}" />
 			<test name="test.NecrotelecomTesting" todir="${junit.output.dir}" />
 			<test name="test.NecronomiconTesting" todir="${junit.output.dir}" />
-			
+			<test name="test.NecrognomiconTesting" todir="${junit.output.dir}" />
+
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
 		</junit>
