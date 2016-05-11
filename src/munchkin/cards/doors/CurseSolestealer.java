@@ -18,7 +18,6 @@ public class CurseSolestealer extends AbstractCurse {
 		//lose the footgear you are wearing
 		IPlayer playedOn = this.game.getOtherPlayer();
 		List<ICard> footgear = playedOn.getArmorSet().removeFootgear();
-		System.out.println(footgear);
 		if(footgear == null) {
 			this.action.setValue("You played a curse that had no effect!");
 			return;

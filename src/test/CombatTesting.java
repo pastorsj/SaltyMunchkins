@@ -75,7 +75,7 @@ public class CombatTesting {
 		Field fighterList = combat.getClass().getDeclaredField("fighters");
 		fighterList.setAccessible(true);
 		List<Player> players = (List<Player>) fighterList.get(combat);
-		assertEquals(6,players.get(0).getCombatLevel());
+		assertEquals(6, players.get(0).getCombatLevel());
 	}
 
 	

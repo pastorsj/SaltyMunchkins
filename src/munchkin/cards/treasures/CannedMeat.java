@@ -16,7 +16,7 @@ public class CannedMeat extends Treasure {
 
 	@Override
 	public void cardInPlay() {
-		//TODO: Add action saying this card sets the bonus to the current player, not the monster
+		this.action.setValue("This only affects the player, not the monster");
 		this.setBonus(3);
 		
 	}

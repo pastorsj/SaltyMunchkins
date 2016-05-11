@@ -18,7 +18,6 @@ public class CurseGetAllBlobby extends AbstractCurse {
 		//lose the armor you are wearing
 		IPlayer playedOn = this.game.getOtherPlayer();
 		List<ICard> armor = playedOn.getArmorSet().removeArmor();
-		System.out.println(armor);
 		if(armor == null) {
 			this.action.setValue("You played a curse that had no effect!");
 			return;

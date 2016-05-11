@@ -18,7 +18,6 @@ public class CurseHairStandsOnEnd extends AbstractCurse {
 		//lose the headgear you are wearing
 		IPlayer playedOn = this.game.getOtherPlayer();
 		List<ICard> removedCards = playedOn.getArmorSet().removeHeadgear();
-		System.out.println(removedCards);
 		if(removedCards == null) {
 			this.action.setValue("You played a curse that had no effect!");
 			return;

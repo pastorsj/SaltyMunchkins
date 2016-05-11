@@ -94,7 +94,6 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.buttons.put("Pass Combat", new PassCombatButton("Pass", this.game, this));
 		this.buttons.put("Resolve Conflict", new ResolveConflictButton("Resolve Conflict", this.game, this));
 		this.buttons.put("Sell Gold", new SellGoldButton("Sell Gold", this.game, this));
-		this.buttons.put("Discard Gold", new DiscardGoldButton("Discard Gold", this.game, this));
 		this.buttons.put("Male", new GenderButton("Male", this.game, this));
 		((GenderButton) this.buttons.get("Male")).setMaleGender();
 		this.buttons.put("Female", new GenderButton("Female", this.game, this));
@@ -241,7 +240,6 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		IHand currentPlayersHand = this.game.getCurrentPlayer().getHand();
 		this.cardsInHand = new ArrayList<>();
 		for (ICard card : currentPlayersHand.getCards()) {
-			System.out.println(card.getName());
 			BufferedImage inHandImage = ImageIO.read(new File(IMAGE_PATH + card.getName() + PNG_EXTENSION));
 			this.cardsInHand.add(inHandImage);
 			this.images.put(card.getName(), inHandImage);
@@ -252,42 +250,44 @@ public class MainCardPanel extends JPanel implements MouseListener {
 	public void mouseClicked(MouseEvent e) {
 		int x = MouseInfo.getPointerInfo().getLocation().x;
 		int y = MouseInfo.getPointerInfo().getLocation().y;
-
-		//cards current player has in play
-		if (y > Y_PPLAY_MIN && y < Y_PPLAY_MAX) {
-			for (int i = 0; i < this.cardsInPlay.get(this.game.getCurrentPlayer()).size(); i++) {
-				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
-					largeCard = this.cardsInPlay.get(this.game.getCurrentPlayer()).get(i);
+		try {
+			//cards current player has in play
+			if (y > Y_PPLAY_MIN && y < Y_PPLAY_MAX) {
+				for (int i = 0; i < this.cardsInPlay.get(this.game.getCurrentPlayer()).size(); i++) {
+					if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
+						largeCard = this.cardsInPlay.get(this.game.getCurrentPlayer()).get(i);
+					}
 				}
 			}
-		} 
-		
-		//cards other player played
-		else if (y > Y_OPLAY_MIN && y < Y_OPLAY_MAX) {
-			for (int i = 0; i < this.cardsInPlay.get(this.game.getOtherPlayer()).size(); i++) {
-				if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
-					largeCard = this.cardsInPlay.get(this.game.getOtherPlayer()).get(i);
+			//cards other player played
+			else if (y > Y_OPLAY_MIN && y < Y_OPLAY_MAX) {
+				for (int i = 0; i < this.cardsInPlay.get(this.game.getOtherPlayer()).size(); i++) {
+					if (x > 50 + 100 * i && x < 50 + 100 * i + 100) {
+						largeCard = this.cardsInPlay.get(this.game.getOtherPlayer()).get(i);
+					}
 				}
 			}
-		}
-		// current cards in hand on bottom panel
-		else if (y > Y_PHAND_MIN && y < Y_PHAND_MAX) {
-			for (int i = 0; i < this.cardsInHand.size() && i < 8; i++) {
-				if (x >= 10 + 190 * i && x <= 10 + 190 * (i + 1)) {
-					largeCard = this.cardsInHand.get(i);
+			// current cards in hand on bottom panel
+			else if (y > Y_PHAND_MIN && y < Y_PHAND_MAX) {
+				for (int i = 0; i < this.cardsInHand.size() && i < 8; i++) {
+					if (x >= 10 + 190 * i && x <= 10 + 190 * (i + 1)) {
+						largeCard = this.cardsInHand.get(i);
+					}
 				}
 			}
-		}
-		// overflow cards in hand above large card
-		else if (y > Y_PHAND_EXTRA_MIN && y < Y_PHAND_EXTRA_MAX) {
-			for (int i = 8; this.cardsInHand.size() > i && i < 10; i++) {
-				if (x >= 10 + 190 * i && x <= 10 + 190 * (i + 1)) {
-					largeCard = this.cardsInHand.get(i);
+			// overflow cards in hand above large card
+			else if (y > Y_PHAND_EXTRA_MIN && y < Y_PHAND_EXTRA_MAX) {
+				for (int i = 8; this.cardsInHand.size() > i && i < 10; i++) {
+					if (x >= 10 + 190 * i && x <= 10 + 190 * (i + 1)) {
+						largeCard = this.cardsInHand.get(i);
+					}
 				}
 			}
+		}catch(NullPointerException n) {
+			System.err.println("mouseClicked(): MainCardPanel; NullPointerExcpetion:cardsInPlay");
 		}
 		this.updateSelectedCard();
-		this.frame.repaint();
+		this.repaintFrame();
 	}
 
 	private void updateSelectedCard() {

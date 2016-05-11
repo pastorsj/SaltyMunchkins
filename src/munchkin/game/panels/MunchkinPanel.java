@@ -27,7 +27,7 @@ public class MunchkinPanel extends JPanel {
 			this.munchkinLogo = ImageIO.read(new File("resources/munchkin-cthulhu.jpg"));
 			//this.cardImage = ImageIO.read(new File ("resources/cards.jpg"));
 		} catch (IOException ex) {
-			System.out.println("Error reading munchkin banner file in Mpanel");
+			System.err.println("Error reading munchkin banner file in Mpanel");
 			// handle exception...
 		}
 		

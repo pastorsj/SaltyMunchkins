@@ -23,8 +23,7 @@ public class IaRlyeh extends Door {
 		try {
 			this.game.discardCard(this.getOwner(), this);
 		} catch(Exception e) {
-			System.out.println("cardInPlay(): IaRlyeh");
-			e.printStackTrace();
+			System.err.println("Attempted to discard IaRlyeh");
 		}
 		this.getOwner().addCardToHand(lastCard);
 	}

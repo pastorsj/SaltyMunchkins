@@ -59,7 +59,6 @@ public class RulesFrame {
 				if(currentCard < cardPaths.size()-1)
 					currentCard++;
 				try {
-					System.out.println("next");
 					showCard();
 				} catch (IOException e1) {
 				}
@@ -84,7 +83,6 @@ public class RulesFrame {
 	
 	private void showCard() throws IOException{
 
-		System.out.println("showing " + currentCard);
 		BufferedImage rulesPic = ImageIO.read(new File(cardPaths.get(currentCard)));
 		Image scaled = rulesPic.getScaledInstance(600, 900, 0);
 		icon = new ImageIcon(scaled);

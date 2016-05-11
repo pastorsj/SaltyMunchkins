@@ -34,6 +34,9 @@ public class SellGoldButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent arg0) {
         ICard card = this.mainCardPanel.getSelectedCard();
+        if(card == null) {
+            return;
+        }
         IPlayer owner = card.getOwner();
         if(card instanceof Treasure) {
             owner.sellGold(card);

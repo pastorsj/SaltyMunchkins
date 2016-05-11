@@ -51,12 +51,9 @@ public class InitializeCards {
 					Constructor[] allConstructors = clazz.getDeclaredConstructors();
 					ICard c = null;
 					for(Constructor ctor : allConstructors) {
-						System.out.println(ctor);
 						if(ctor.toString().contains("munchkin.game.Game")) {
-							System.out.println("Game Constructor");
 							c = (Treasure) ctor.newInstance(this.game);
 						} else {
-							System.out.println("Not Game Constructor");
 							c = (Treasure) ctor.newInstance();
 						}
 					}
@@ -85,18 +82,14 @@ public class InitializeCards {
 				} else {
 					continue;
 				}
-				System.out.println(className);
 				try {
 					Class<?> clazz = Class.forName("munchkin.cards.doors." + className);
 					Constructor[] allConstructors = clazz.getDeclaredConstructors();
 					ICard c = null;
 					for(Constructor ctor : allConstructors) {
-						System.out.println(ctor);
 						if(ctor.toString().contains("munchkin.game.Game")) {
-							System.out.println("Game Constructor");
 							c = (Door) ctor.newInstance(this.game);
 						} else {
-							System.out.println("Not Game Constructor");
 							c = (Door) ctor.newInstance();
 						}
 					}

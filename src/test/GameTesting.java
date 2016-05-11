@@ -74,7 +74,6 @@ public class GameTesting {
 	public void testDrawACardSuccessfully(){
 		g.getCurrentPlayer().getHand().getCards().clear();
 		ICard card = g.drawACard(g.getAllCards(), g.getCurrentPlayer());
-		System.out.println(card.getName());
 		assertTrue(card instanceof ICard);
 		assertEquals(1, g.getCurrentPlayer().getHand().sizeOfHand());
 	}

@@ -25,8 +25,7 @@ public class WishingRing extends Treasure {
                 try {
                 	this.game.getCardsInPlay().removeCardFromPlay(card);
                 } catch(Exception e) {
-                    System.out.println("cardInPlay():WishingRing");
-                    e.printStackTrace();
+                    System.err.println("Attempted to discard: cardInPlay():WishingRing");
                 }
                 return;
             }

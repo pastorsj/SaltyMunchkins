@@ -29,7 +29,6 @@ public class CurseChangeSexTesting {
     @After
     public void takeDown() {
     	this.door = null;
-		this.game = null;
     }
 
     @Test

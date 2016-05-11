@@ -35,8 +35,6 @@ public class EndTurnButton extends JButton implements ActionListener{
 		if(this.game.endTurn()) {
 			Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
 			Map<String, JLabel> labelSet = this.mainCardPanel.getLabels();
-			//TODO: Fix this issue!!!!!!! Easy, just change the discard gold amount for the current player and update the discard gold amount label
-//			((DiscardGoldButton) buttonSet.get("Discard Gold")).setGoldAmount(0);
 			buttonSet.get("End Turn").setVisible(false);
 			buttonSet.get("Sell Gold").setVisible(true);
 			buttonSet.get("Resolve Conflict").setVisible(false);

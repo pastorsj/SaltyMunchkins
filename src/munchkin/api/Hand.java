@@ -51,7 +51,6 @@ public class Hand implements IHand {
     		return false;
     	}
         boolean inHand = this.hand.remove(card);
-        System.out.println(this.hand.size());
         if(inHand) {
             action.setValue("Discarded " + card.getName() + " from your hand");
             //Add card to either treasure or door discard set
