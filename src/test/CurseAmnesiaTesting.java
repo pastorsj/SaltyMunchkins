@@ -21,11 +21,11 @@ public class CurseAmnesiaTesting {
 	public void setUp() {
 		this.game = new Game(2);
 		this.card = new CurseAmnesia(this.game);
-		this.player = this.game.getCurrentPlayer();
+		this.player = this.game.getOtherPlayer();
 		this.player.setFaction(Faction.Investigator);
 		this.player.addCardToHand(this.card);
 		this.player.addLevel(5);
-		this.card.setOwner(this.player);
+		this.card.setOwner(this.game.getCurrentPlayer());
 	}
 
 	@After
@@ -41,16 +41,17 @@ public class CurseAmnesiaTesting {
 	
 	@Test
 	public void testCardInPlay(){
-		assertEquals(Faction.Investigator, this.card.getOwner().getFaction());
+		assertEquals(Faction.Investigator, this.player.getFaction());
 
 		this.card.cardInPlay();
 		//lose a class
 		assertEquals(Faction.UNAFFILIATED, this.card.getOwner().getFaction());
+		assertEquals(Faction.UNAFFILIATED, this.player.getFaction());
 		
 		this.card.cardInPlay();
 		assertEquals(Faction.UNAFFILIATED, this.card.getOwner().getFaction());
 		//lose a level if no class
-		assertEquals(5, this.card.getOwner().getPlayerLevel());
+		assertEquals(5, this.player.getPlayerLevel());
 	}
 	
 }

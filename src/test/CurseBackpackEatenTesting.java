@@ -56,7 +56,7 @@ public class CurseBackpackEatenTesting {
     	assertTrue(game.getCurrentPlayer().getHand().cardInHand(door));
     	door.cardInPlay();
     	
-    	assertTrue(card.checkDiscard());
+    	assertTrue(door.checkDiscard());
     }
     
     @Test

@@ -21,10 +21,10 @@ public class CurseDraggedOffToSnarkhamAsylumTesting {
 	public void setUp() {
 		this.game = new Game(2);
 		this.card = new CurseDraggedOffToSnarkhamAsylum(this.game);
-		this.player = this.game.getCurrentPlayer();
+		this.player = this.game.getOtherPlayer();
 		this.player.setFaction(Faction.Investigator);
 		this.player.addCardToHand(this.card);
-		this.card.setOwner(this.player);
+		this.card.setOwner(this.game.getCurrentPlayer());
 	}
 
 	@After
@@ -40,15 +40,15 @@ public class CurseDraggedOffToSnarkhamAsylumTesting {
 	
 	@Test
 	public void testCardInPlay(){
-		assertEquals(Faction.Investigator, this.card.getOwner().getFaction());
+		assertEquals(Faction.Investigator, this.game.getOtherPlayer().getFaction());
 
 		this.card.cardInPlay();
 		//change to cultist
-		assertEquals(Faction.Cultist, this.card.getOwner().getFaction());
+		assertEquals(Faction.Cultist, this.game.getOtherPlayer().getFaction());
 		
 		this.card.cardInPlay();
 		//become a noncultist
-		assertTrue(!Faction.Cultist.equals(this.card.getOwner().getFaction()));
+		assertTrue(!Faction.Cultist.equals(this.game.getOtherPlayer().getFaction()));
 	}
 	
 }
