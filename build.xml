@@ -60,7 +60,7 @@
 			<test name="test.TestDoor" todir="${junit.output.dir}" />
 			<test name="test.TestInitializeCards" todir="${junit.output.dir}" />
 			<test name="test.TestTreasure" todir="${junit.output.dir}" />
-			
+
 			<test name="test.CoggothTesting" todir="${junit.output.dir}" />
 			<test name="test.BuggothTesting" todir="${junit.output.dir}" />
 			<test name="test.CampusCrusadeForCthulhuTesting" todir="${junit.output.dir}" />
@@ -71,14 +71,21 @@
 			<test name="test.ThtWhchHsNVwlsTesting" todir="${junit.output.dir}" />
 			<test name="test.UnnameableTesting" todir="${junit.output.dir}" />
 
+			<!--Addison 48 tests starts here-->
 			<test name="test.WishingRingTesting" todir="${junit.output.dir}" />
 			<test name="test.WandOfWallopingTesting" todir="${junit.output.dir}" />
 			<test name="test.TweedJacketTesting" todir="${junit.output.dir}" />
 			<test name="test.TripleBarreledShotgunTesting" todir="${junit.output.dir}" />
 			<test name="test.TheCrullerOutOfSpaceTesting" todir="${junit.output.dir}" />
-
+			<test name="test.SushiKnifeofDoomTesting" todir="${junit.output.dir}" />
+			<test name="test.SuddenHeadBlowTesting" todir="${junit.output.dir}" />
+			<test name="test.StickerIchorTesting" todir="${junit.output.dir}" />
+			<test name="test.SquamousTesting" todir="${junit.output.dir}" />
+			<test name="test.SickerIchorTesting" todir="${junit.output.dir}" />
+			<test name="test.ShrubNiggurathTesting" todir="${junit.output.dir}" />
 			<test name="test.TwoHandedFlashlightTesting" todir="${junit.output.dir}" />
-	<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
+			<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
+			<test name="test.ShogGothTesting" todir="${junit.output.dir}" />
 
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />

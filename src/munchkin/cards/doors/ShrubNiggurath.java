@@ -21,7 +21,7 @@ public class ShrubNiggurath extends AbstractMonster {
 	@Override
 	public void cardPlayed(boolean win) {
 		if(win) {
-			this.getOwner().addTreasures(this.getTreasures());
+			this.getOwner().addTreasures(4);
 			this.getOwner().addLevel(2);
 		} else {
 			this.badStuff();

@@ -80,4 +80,8 @@ public abstract class AbstractCard implements ICard{
     public boolean checkDiscard() {
         return this.discard;
     }
+    
+    public Action getAction(){
+    	return this.action;
+    }
 }
