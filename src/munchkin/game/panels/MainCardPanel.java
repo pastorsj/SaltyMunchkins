@@ -241,6 +241,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		IHand currentPlayersHand = this.game.getCurrentPlayer().getHand();
 		this.cardsInHand = new ArrayList<>();
 		for (ICard card : currentPlayersHand.getCards()) {
+			System.out.println(card.getName());
 			BufferedImage inHandImage = ImageIO.read(new File(IMAGE_PATH + card.getName() + PNG_EXTENSION));
 			this.cardsInHand.add(inHandImage);
 			this.images.put(card.getName(), inHandImage);

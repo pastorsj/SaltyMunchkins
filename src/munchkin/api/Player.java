@@ -150,17 +150,24 @@ public class Player implements IPlayer{
         this.alive = false;
     }
 
-    
+
     @Override
     public boolean sellGold(ICard card) {
-        if(card instanceof Treasure) {
-            Treasure tCard = (Treasure) card;
-            int amount = tCard.getGold();
-            this.discardGoldAmount -= amount;
-        } else {
-            //Add action saying no gold was discard since card was not of type treasure
-        }
+        //this method deals with both discarding gold and selling gold
+        Treasure tCard = (Treasure) card;
+        int amount = tCard.getGold();
+        this.discardGoldAmount -= amount;
+        increasePlayerLevel();
         return this.discardGoldAmount < 0;
+    }
+
+    private void increasePlayerLevel() {
+        if(this.discardGoldAmount < -1000) {
+            //Add action saying player level increased by one by selling enough gold
+            this.level += 1;
+            this.discardGoldAmount += 1000;
+            increasePlayerLevel();
+        }
     }
 
 }
