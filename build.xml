@@ -60,7 +60,7 @@
 			<test name="test.TestDoor" todir="${junit.output.dir}" />
 			<test name="test.TestInitializeCards" todir="${junit.output.dir}" />
 			<test name="test.TestTreasure" todir="${junit.output.dir}" />
-			
+
 			<test name="test.CoggothTesting" todir="${junit.output.dir}" />
 			<test name="test.BuggothTesting" todir="${junit.output.dir}" />
 			<test name="test.CampusCrusadeForCthulhuTesting" todir="${junit.output.dir}" />
@@ -81,10 +81,10 @@
 			<test name="test.StickerIchorTesting" todir="${junit.output.dir}" />
 			<test name="test.SquamousTesting" todir="${junit.output.dir}" />
 			<test name="test.SickerIchorTesting" todir="${junit.output.dir}" />
-			<test name="ShrubNiggurathTesting" todir="${junit.output.dir}" />
+			<test name="test.ShrubNiggurathTesting" todir="${junit.output.dir}" />
 
 			<test name="test.TwoHandedFlashlightTesting" todir="${junit.output.dir}" />
-	<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
+			<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
 
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
