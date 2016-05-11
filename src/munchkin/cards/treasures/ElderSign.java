@@ -14,18 +14,18 @@ public class ElderSign extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(200);
-        //This card is not usable by Investigators
-        if(this.getOwner().getFaction().equals(Faction.Investigator)) {
-            this.disable();
+        //This card is only usable by Investigators
+        if(!this.getOwner().getFaction().equals(Faction.Investigator)) {
+        	this.disable();
         }
-        this.setArmor(Armor.OneHand);
+        else{
+            this.setArmor(Armor.OneHand);
+        }
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(3);
+     
     }
-
-
-
 }
