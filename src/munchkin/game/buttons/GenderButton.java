@@ -62,6 +62,7 @@ public class GenderButton extends JButton implements ActionListener {
 			labelSet.get("PlayerLevelLabel").setVisible(true);
 			labelSet.get("CombatLevelLabel").setVisible(true);
 			labelSet.get("MonsterLevelLabel").setVisible(true);
+			labelSet.get("DiscardGoldLabel").setVisible(true);
 			labelSet.get("GenderLabel").setVisible(false);
 
 		}

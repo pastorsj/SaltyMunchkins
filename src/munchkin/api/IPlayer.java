@@ -32,4 +32,5 @@ public interface IPlayer {
     public void addCardToHand(ICard card);
     public void addGoldToDiscard(int gold);
     public void kill();
+    public int getDiscardGoldAmount();
 }
