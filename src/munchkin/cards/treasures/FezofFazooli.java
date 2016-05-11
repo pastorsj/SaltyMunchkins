@@ -18,11 +18,11 @@ public class FezofFazooli extends Treasure {
         if(this.getOwner().getFaction().equals(Faction.MonsterWhacker)) {
             this.disable();
         }
+        this.setArmor(Armor.HeadGear);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.HeadGear);
         this.setBonus(3);
     }
 }

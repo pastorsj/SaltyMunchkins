@@ -12,11 +12,11 @@ public class Maaaaaaster extends Treasure {
         if(!this.getOwner().getFaction().equals(Faction.Cultist)) {
             this.disable();
         }
+        this.setArmor(Armor.HeadGear);
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(4);
-        this.setArmor(Armor.HeadGear);
     }
 }

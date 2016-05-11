@@ -56,7 +56,7 @@ public class TripleBarreledShotgunTesting {
 		this.card.cardInHand();
 		assertEquals(700, this.card.getGold());
 		assertFalse(this.card.isDisabled());
-
+		assertEquals(Armor.TwoHands, this.card.getArmor());
 	}
 	@Test
 	public void testCardInHandWithoutInvestigator(){
@@ -66,11 +66,10 @@ public class TripleBarreledShotgunTesting {
 		assertTrue(this.card.isDisabled());
 
 	}
-	
+
 	@Test
 	public void testCardInPlay(){
 		this.card.cardInPlay();
 		assertEquals(4, this.card.getBonus());
-		assertEquals(Armor.TwoHands, this.card.getArmor());
 	}
 }

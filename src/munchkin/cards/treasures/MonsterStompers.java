@@ -17,11 +17,11 @@ public class MonsterStompers extends Treasure {
         if(!this.getOwner().getFaction().equals(Faction.MonsterWhacker)) {
             this.disable();
         }
+        this.setArmor(Armor.FootGear);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.FootGear);
         this.setBonus(3);
     }
 }

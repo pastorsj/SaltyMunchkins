@@ -52,6 +52,7 @@ public class WandOfWallopingTesting {
 		this.card.cardInHand();
 		assertEquals(400, this.card.getGold());
 		assertTrue(this.card.isDisabled());
+		assertEquals(Armor.OneHand, this.card.getArmor());
 
 	}
 	@Test
@@ -62,11 +63,10 @@ public class WandOfWallopingTesting {
 		assertFalse(this.card.isDisabled());
 
 	}
-	
+
 	@Test
 	public void testCardInPlay(){
 		this.card.cardInPlay();
 		assertEquals(3, this.card.getBonus());
-		assertEquals(Armor.OneHand, this.card.getArmor());
 	}
 }

@@ -13,11 +13,11 @@ public class Necrotelecom extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(300);
+        this.setArmor(Armor.HeadGear);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.HeadGear);
         this.setBonus(2);
     }
 }

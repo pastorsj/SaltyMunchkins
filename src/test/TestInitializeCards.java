@@ -35,12 +35,12 @@ public class TestInitializeCards {
 	@Test
 	public void TestAllCardsInit() {
 		List<ICard> allCards = this.initCards.getAllCards();
-		assertEquals(92, allCards.size());
+		assertEquals(91, allCards.size());
 	}
 	@Test
 	public void TestTreasureCardsInit() {
 		List<ICard> treasureCards = this.initCards.getTreasureCards();
-		assertEquals(46, treasureCards.size());
+		assertEquals(45, treasureCards.size());
 	}
 	
 	@Test

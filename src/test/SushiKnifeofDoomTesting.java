@@ -52,12 +52,12 @@ public class SushiKnifeofDoomTesting {
 	public void testCardInHand(){
 		this.card.cardInHand();
 		assertEquals(300, this.card.getGold());
+		assertEquals(Armor.OneHand, this.card.getArmor());
 	}
-	
+
 	@Test
 	public void testCardInPlay(){
 		this.card.cardInPlay();
 		assertEquals(2, this.card.getBonus());
-		assertEquals(Armor.OneHand, this.card.getArmor());
 	}
 }

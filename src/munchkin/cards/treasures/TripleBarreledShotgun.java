@@ -17,11 +17,11 @@ public class TripleBarreledShotgun extends Treasure {
         if(!this.getOwner().getFaction().equals(Faction.Investigator)) {
             this.disable();
         }
+        this.setArmor(Armor.TwoHands);
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(4);
-        this.setArmor(Armor.TwoHands);
     }
 }

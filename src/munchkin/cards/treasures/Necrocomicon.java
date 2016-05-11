@@ -13,11 +13,11 @@ public class Necrocomicon extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(100);
+        this.setArmor(Armor.OneHand);
     }
 
     @Override
     public void cardInPlay() {
         this.setBonus(1);
-        this.setArmor(Armor.OneHand);
     }
 }

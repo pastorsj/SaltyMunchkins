@@ -51,6 +51,7 @@ public class TwoHandedFlashlightTesting {
 		this.card.cardInHand();
 		assertEquals(400, this.card.getGold());
 		assertTrue(this.card.isDisabled());
+		assertEquals(Armor.TwoHands, this.card.getArmor());
 
 	}
 	@Test
@@ -61,11 +62,10 @@ public class TwoHandedFlashlightTesting {
 		assertFalse(this.card.isDisabled());
 
 	}
-	
+
 	@Test
 	public void testCardInPlay(){
 		this.card.cardInPlay();
 		assertEquals(3, this.card.getBonus());
-		assertEquals(Armor.TwoHands, this.card.getArmor());
 	}
 }

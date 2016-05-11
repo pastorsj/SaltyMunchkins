@@ -57,6 +57,7 @@ public class TweedJacketTesting {
 		this.card.cardInHand();
 		assertEquals(400, this.card.getGold());
 		assertTrue(this.card.isDisabled());
+		assertEquals(Armor.PseudoArmor, this.card.getArmor());
 
 	}
 	@Test
@@ -66,11 +67,10 @@ public class TweedJacketTesting {
 		assertFalse(this.card.isDisabled());
 
 	}
-	
+
 	@Test
 	public void testCardInPlay(){
 		this.card.cardInPlay();
 		assertEquals(2, this.card.getBonus());
-		assertEquals(Armor.PseudoArmor, this.card.getArmor());
 	}
 }
