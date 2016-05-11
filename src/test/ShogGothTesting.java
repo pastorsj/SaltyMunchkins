@@ -50,7 +50,7 @@ public class ShogGothTesting {
 	
 	@Test
 	public void testCardInPlayWithoutInvestigator(){
-		this.player.addToPlayerLevel(3);
+		this.player.addToPlayerLevel(2);
 		this.card.cardInPlay();
 		assertEquals(14, this.card.getLevel());
 		assertEquals(10000, this.card.getOwner().getRunAwayLevel());
@@ -67,7 +67,7 @@ public class ShogGothTesting {
 	public void testCardPlayedWin(){
 		this.card.cardPlayed(true);
 		assertEquals(4, this.player.getNumTreasures());
-		assertEquals(2, this.player.getPlayerLevel());
+		assertEquals(3, this.player.getPlayerLevel());
 		assertEquals(Faction.Investigator, this.player.getFaction());
 
 	}
@@ -75,7 +75,7 @@ public class ShogGothTesting {
 	public void testCardPlayedLose(){
 		this.card.cardPlayed(false);
 		assertEquals(0, this.player.getNumTreasures());
-		assertEquals(0, this.player.getPlayerLevel());
+		assertEquals(1, this.player.getPlayerLevel());
 		assertEquals(Faction.Cultist, this.player.getFaction());
 	}
 }

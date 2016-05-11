@@ -53,7 +53,7 @@ public class CoggothTesting {
 		this.card.cardInPlay();
 		this.player.addLevel(3);
 		this.card.badStuff();
-		assertEquals(1, this.player.getPlayerLevel());
+		assertEquals(2, this.player.getPlayerLevel());
 	}
 	
 }

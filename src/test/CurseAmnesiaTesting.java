@@ -47,7 +47,7 @@ public class CurseAmnesiaTesting {
 		this.card.cardInPlay();
 		assertEquals(Faction.UNAFFILIATED, this.card.getOwner().getFaction());
 		//lose a level if no class
-		assertEquals(4, this.card.getOwner().getPlayerLevel());
+		assertEquals(5, this.card.getOwner().getPlayerLevel());
 	}
 	
 }

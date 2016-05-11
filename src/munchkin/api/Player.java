@@ -25,7 +25,7 @@ public class Player implements IPlayer{
     public Player() {
         this.faction = Faction.UNAFFILIATED;
         this.hand = new Hand(this);
-        this.level = 0;
+        this.level = 1;
         this.treasures = 0;
         this.armorSet = new ArmorSet();
         this.name = "";

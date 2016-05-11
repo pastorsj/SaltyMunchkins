@@ -70,8 +70,8 @@ public class MainCardPanel extends JPanel implements MouseListener {
 				new JLabel("Player's Level: " + this.game.getCurrentPlayer().getPlayerLevel()));
 		this.partialLabel.put("PlayerLevelLabel", "Player's Level: ");
 		this.labels.put("CombatLevelLabel",
-				new JLabel("Player's Combat Level: " + this.game.getCurrentPlayer().getCombatLevel()));
-		this.partialLabel.put("CombatLevelLabel", "Player's Combat Level: ");
+				new JLabel("Combat Level: " + this.game.getCurrentPlayer().getCombatLevel()));
+		this.partialLabel.put("CombatLevelLabel", "Combat Level: ");
 		this.labels.put("MonsterLevelLabel", new JLabel("Monster's Level: " + this.game.getCombat().getMonsterLevel()));
 		this.partialLabel.put("MonsterLevelLabel", "Monster's Level: ");
 		this.labels.put("DiceRollLabel", new JLabel("Number Rolled: "));
@@ -89,7 +89,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.buttons.put("End Turn", new EndTurnButton("End Turn", this.game, this));
 		this.buttons.put("Discard", new DiscardButton("Discard", this.game, this));
 		this.buttons.put("Play Card", new PlayCardButton("Play Card", this.game, this));
-		this.buttons.put("Pass Combat", new PassCombatButton("Pass Combat", this.game, this));
+		this.buttons.put("Pass Combat", new PassCombatButton("Pass", this.game, this));
 		this.buttons.put("Resolve Conflict", new ResolveConflictButton("Resolve Conflict", this.game, this));
 		this.buttons.put("Sell Gold", new SellGoldButton("Sell Gold", this.game, this));
 		//TODO: This may not be needed
@@ -138,7 +138,7 @@ public class MainCardPanel extends JPanel implements MouseListener {
 		this.labels.get("PlayerLabel").setText("Current Player: " + this.game.getCurrentPlayer().getName());
 		this.labels.get("PlayerLevelLabel").setText("Player's Level: " + this.game.getCurrentPlayer().getPlayerLevel());
 		this.labels.get("CombatLevelLabel")
-				.setText("Player's Combat Level: " + this.game.getCurrentPlayer().getCombatLevel());
+				.setText("Combat Level: " + this.game.getCurrentPlayer().getCombatLevel());
 		this.labels.get("MonsterLevelLabel").setText("Monster's Level: " + this.game.getCombat().getMonsterLevel());
 		this.labels.get("DiscardGoldLabel").setText("Gold Sold: " + this.game.getCurrentPlayer().getDiscardGoldAmount());
 	}

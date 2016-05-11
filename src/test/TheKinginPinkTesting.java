@@ -18,7 +18,7 @@ public class TheKinginPinkTesting {
 	public void setUp() {
 		this.card = new TheKinginPink();
 		this.player = new Player();
-		this.player.addToPlayerLevel(3);
+		this.player.addToPlayerLevel(2);
 		this.player.addCardToHand(this.card);
 		this.card.setOwner(this.player);
 	}
