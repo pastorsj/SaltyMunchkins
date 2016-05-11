@@ -70,7 +70,6 @@
 			<test name="test.TheKinginPinkTesting" todir="${junit.output.dir}" />
 			<test name="test.ThtWhchHsNVwlsTesting" todir="${junit.output.dir}" />
 			<test name="test.UnnameableTesting" todir="${junit.output.dir}" />
-			<test name="test.CurseAmnesiaTesting" todir="${junit.output.dir}" />
 
 			<!--Addison 48 tests starts here-->
 			<test name="test.WishingRingTesting" todir="${junit.output.dir}" />
@@ -93,8 +92,14 @@
 			<test name="test.ProfessorTeslasElectricalProtectiveDeviceTesting" todir="${junit.output.dir}" />
 			<test name="test.PrehistoricAxeTesting" todir="${junit.output.dir}" />
 			<test name="test.PollyPolypTesting" todir="${junit.output.dir}" />
-
+			<test name="test.OzathothTesting" todir="${junit.output.dir}" />
+			<test name="test.NonEuclideanMapTesting" todir="${junit.output.dir}" />
 			<test name="test.RailroadSpikeTesting" todir="${junit.output.dir}" />
+			<test name="test.NightieGauntsTesting" todir="${junit.output.dir}" />
+			<test name="test.NecrotelecomTesting" todir="${junit.output.dir}" />
+			<test name="test.NecronomiconTesting" todir="${junit.output.dir}" />
+			<test name="test.NecrognomiconTesting" todir="${junit.output.dir}" />
+
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
 			<classpath refid="SaltyMunchkins.classpath" />
 		</junit>

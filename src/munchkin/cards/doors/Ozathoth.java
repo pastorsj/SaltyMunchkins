@@ -21,7 +21,7 @@ public class Ozathoth extends AbstractMonster {
 	@Override
 	public void cardPlayed(boolean win) {
 		if(win) {
-			this.getOwner().addTreasures(this.getTreasures());
+			this.getOwner().addTreasures(5);
 			this.getOwner().addLevel(2);
 		} else {
 			this.badStuff();
