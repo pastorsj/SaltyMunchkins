@@ -8,11 +8,11 @@ public class Galoshes extends Treasure {
     @Override
     public void cardInHand() {
         this.setGold(300);
+        this.setArmor(Armor.PseudoFootGear);
     }
 
     @Override
     public void cardInPlay() {
-        this.setArmor(Armor.PseudoFootGear);
         this.setBonus(2);
     }
 

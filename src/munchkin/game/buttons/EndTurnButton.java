@@ -42,7 +42,7 @@ public class EndTurnButton extends JButton implements ActionListener{
 			buttonSet.get("Sell Gold").setVisible(true);
 			buttonSet.get("Resolve Conflict").setVisible(false);
 			buttonSet.get("Draw Card").setVisible(true);
-			buttonSet.get("Discard").setVisible(true);
+//			buttonSet.get("Discard").setVisible(true);
 			labelSet.get("DiceRollLabel").setVisible(false);
 			this.mainCardPanel.repaintFrame();
 		}
