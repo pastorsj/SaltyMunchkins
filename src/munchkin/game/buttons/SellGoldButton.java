@@ -1,6 +1,8 @@
 package munchkin.game.buttons;
 
 import munchkin.api.ICard;
+import munchkin.api.IPlayer;
+import munchkin.cards.treasures.api.Treasure;
 import munchkin.game.Game;
 import munchkin.game.panels.MainCardPanel;
 
@@ -32,7 +34,11 @@ public class SellGoldButton extends JButton implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent arg0) {
         ICard card = this.mainCardPanel.getSelectedCard();
-        this.game.getCurrentPlayer().sellGold(card);
+        IPlayer owner = card.getOwner();
+        if(card instanceof Treasure) {
+            owner.sellGold(card);
+            this.game.discardCard(owner, card);
+        }
 
         this.mainCardPanel.updateLabels();
         this.mainCardPanel.repaintFrame();
