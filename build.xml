@@ -91,6 +91,8 @@
 			<test name="test.QuickerIchorTesting" todir="${junit.output.dir}" />
 			<test name="test.ProfessorTesting" todir="${junit.output.dir}" />
 			<test name="test.ProfessorTeslasElectricalProtectiveDeviceTesting" todir="${junit.output.dir}" />
+			<test name="test.PrehistoricAxeTesting" todir="${junit.output.dir}" />
+			<test name="test.PollyPolypTesting" todir="${junit.output.dir}" />
 
 			<test name="test.RailroadSpikeTesting" todir="${junit.output.dir}" />
 			<!--<test name="test.GameTesting" todir="${junit.output.dir}"/>-->
