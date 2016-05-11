@@ -55,7 +55,7 @@ public class ShrubNiggurathTesting {
 	public void testCardPlayedWin(){
 		this.card.cardPlayed(true);
 		assertEquals(4, this.card.getOwner().getNumTreasures());
-		assertEquals(6, this.card.getOwner().getPlayerLevel());
+		assertEquals(5, this.card.getOwner().getPlayerLevel());
 	}
 	
 	@Test
@@ -65,6 +65,6 @@ public class ShrubNiggurathTesting {
 		this.player.getArmorSet().addFootGear(m);
 		this.card.cardPlayed(false);
 		assertEquals(0, this.card.getOwner().getArmorSet().getFootgear().size());
-		assertEquals(1, this.card.getOwner().getPlayerLevel());
+		assertEquals(0, this.card.getOwner().getPlayerLevel());
 	}
 }
