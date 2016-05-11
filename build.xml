@@ -71,6 +71,7 @@
 			<test name="test.ThtWhchHsNVwlsTesting" todir="${junit.output.dir}" />
 			<test name="test.UnnameableTesting" todir="${junit.output.dir}" />
 
+			<!--Addison 48 tests starts here-->
 			<test name="test.WishingRingTesting" todir="${junit.output.dir}" />
 			<test name="test.WandOfWallopingTesting" todir="${junit.output.dir}" />
 			<test name="test.TweedJacketTesting" todir="${junit.output.dir}" />
