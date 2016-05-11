@@ -2,6 +2,10 @@ package munchkin.game;
 
 import munchkin.api.*;
 import munchkin.cards.doors.api.AbstractMonster;
+import munchkin.cards.treasures.api.Armor;
+import munchkin.cards.treasures.api.ArmorSet;
+import munchkin.cards.treasures.api.ITreasure;
+import munchkin.cards.treasures.api.Treasure;
 
 import java.util.*;
 
@@ -127,8 +131,11 @@ public class Game {
 				}
 			}
 		}
+		ArmorSet armorSet = this.getCurrentPlayer().getArmorSet();
 		
-		if (this.getCurrentPlayer().getArmorSet().checkArmor(card) && !card.isDisabled()) {
+		if (armorSet.checkArmor(card) && !card.isDisabled()) {
+			
+			addArmor(card, armorSet);
 			this.cardsInPlay.addCardsToPlay(card);
 			this.getCurrentPlayer().getHand().removeCardFromHand(card);
 			if (card instanceof AbstractMonster) {
@@ -139,6 +146,24 @@ public class Game {
 		} else {
 			this.action.setValue("Due to the current conditions, you are unable to play this card");
 			return false;
+		}
+	}
+	
+	private void addArmor(ICard card, ArmorSet armorSet){
+		if(card instanceof Treasure){
+			ITreasure treasureCard = (ITreasure) card;
+			Armor a = treasureCard.getArmor();
+			if(a == null){
+				return;
+			}else if(a.equals(Armor.Armor) || a.equals(Armor.PseudoArmor)){
+				armorSet.addArmor(treasureCard);
+			}else if(a.equals(Armor.FootGear) || a.equals(Armor.PseudoFootGear)){
+				armorSet.addFootGear(treasureCard);
+			}else if(a.equals(Armor.HeadGear) || a.equals(Armor.PseudoHeadGear)){
+				armorSet.addHeadGear(treasureCard);
+			}else if(a.equals(Armor.OneHand) || a.equals(Armor.TwoHands) || a.equals(Armor.PseudoHandGear)){
+				armorSet.addHands(treasureCard);
+			}
 		}
 	}
 
