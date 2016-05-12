@@ -37,7 +37,7 @@ public class MiskatonicUniversityTShirtTesting {
 	}
 
 	@Test
-	public void testCardInHandWithCultist() {
+	public void testCardInHand() {
 		this.card.cardInHand();
 		assertEquals(100, this.card.getGold());
 		assertEquals(Armor.PseudoArmor, this.card.getArmor());
