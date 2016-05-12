@@ -8,19 +8,19 @@ public class LogWindow {
 	
 	private static LogWindow instance;
 	private JFrame frame;
-	private JLabel statusLabel;
+	private JTextArea text;
+	private JScrollPane scrollPane;
 	
 	private LogWindow(){
 		
 		frame = new JFrame("Game Log");
-		JPanel panel = new JPanel();
-		statusLabel = new JLabel();
-		
-		panel.add(statusLabel);
-		
+		this.text = new JTextArea("Game Log");
+		scrollPane = new JScrollPane(text);
+		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
 		frame.setPreferredSize(new Dimension(400,200));
 		frame.pack();
-		frame.add(panel);
+		frame.add(scrollPane);
 		frame.setVisible(true);
 	}
 	
@@ -34,7 +34,8 @@ public class LogWindow {
 	}
 	
 	public void logMessage(String message){
-		statusLabel.setText(message);
+		String newText = message + "\n" + text.getText();
+		text.setText(newText);
 		frame.repaint();
 	}
 	
