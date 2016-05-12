@@ -40,6 +40,6 @@ public class InvestigatorTesting {
 	@Test
 	public void testCardInPlay() {
 		this.card.cardInPlay();
-		assertEquals(Faction.MonsterWhacker, this.card.getOwner().getFaction());
+		assertEquals(Faction.Investigator, this.card.getOwner().getFaction());
 	}
 }
