@@ -17,7 +17,7 @@ public class FakeTentacle extends Treasure {
 
     @Override
     public void cardInPlay() {
-        //TODO: Add pseudo armor
+        //DONE: Add pseudo armor
         this.setArmor(Armor.PseudoHeadGear);
         this.getOwner().addToRunAwayLevel(1);
     }
