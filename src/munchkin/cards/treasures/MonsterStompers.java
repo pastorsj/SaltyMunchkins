@@ -15,6 +15,7 @@ public class MonsterStompers extends Treasure {
     public void cardInHand() {
         this.setGold(600);
         if(!this.getOwner().getFaction().equals(Faction.MonsterWhacker)) {
+            System.out.println("MonsterStompers disabled: " + this.getOwner().getFaction().name());
             this.disable();
         }
         this.setArmor(Armor.FootGear);

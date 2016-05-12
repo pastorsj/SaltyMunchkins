@@ -14,4 +14,5 @@ public interface ICombat {
     public void resetCombat();
     public void finish();
     public boolean containsMonster();
+    void cardPlayed(boolean win, IPlayer player);
 }

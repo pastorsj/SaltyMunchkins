@@ -32,6 +32,7 @@ public class Hand implements IHand {
             this.hand.add(card);
             //IMPORTANT: Invoke this method when a card is added to a players hand.
             card.setOwner(this.owner);
+            //TODO: Not actually needed, instead it is called CardsInPlay.class
             card.cardInHand();
             this.action.setValue("inserted " + card.getName() + " into your hand");
         }

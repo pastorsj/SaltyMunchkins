@@ -11,17 +11,14 @@ public abstract class Door extends AbstractCard implements IDoor {
     private int level = 0;
     private int treasures = 0;
     public Game game;
-    private Queue<IPlayer> players;
 
     public Door() {
         this.game = null;
-        this.players = null;
         this.setCardType(CardType.Door);
     }
 
     public Door(Game game) {
         this.game = game;
-        this.players = game.getPlayers();
         this.setCardType(CardType.Door);
     }
 

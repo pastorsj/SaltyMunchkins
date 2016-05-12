@@ -149,10 +149,20 @@ public class Game {
 				this.action.setValue("Added " + card.getName() + " monster to combat");
 				this.combat.addMonsterToFight((AbstractMonster) card);
 			}
+			this.updateCardsInHandForBothPlayers();
 			return true;
 		} else {
 			this.action.setValue("Due to the current conditions, you are unable to play this card");
 			return false;
+		}
+	}
+
+	private void updateCardsInHandForBothPlayers() {
+		for(ICard c : this.getCurrentPlayer().getHand().getCards()) {
+			c.cardInHand();
+		}
+		for(ICard c : this.getOtherPlayer().getHand().getCards()) {
+			c.cardInHand();
 		}
 	}
 	
@@ -175,7 +185,7 @@ public class Game {
 	}
 
 	public boolean endTurn() {
-		// TODO: Several things must happen when ending a turn
+
 		// Resolve conflict
 		if(!this.combat.resolveFight()) {
 			return false;
@@ -185,6 +195,7 @@ public class Game {
 		List<ICard> toDelete = new ArrayList<>();
 		for (ICard c : this.cardsInPlay.getCardsInPlay()) {
 			if (c.checkDiscard()) {
+				System.out.println("Deleting " + c.getName());
 				toDelete.add(c);
 			}
 		}

@@ -26,6 +26,7 @@ public class CardsInPlay {
             this.cardsInPlay.add(card);
             //IMPORTANT: This method must be called when a card added to the play set
             action.setValue("Added " + card.getName() + " to play");
+
             card.cardInPlay();
             return true;
         } else {

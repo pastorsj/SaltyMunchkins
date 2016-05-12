@@ -56,10 +56,10 @@ public class Combat implements ICombat{
     @Override
     public boolean resolveFight() {
         if(this.monsters.size()==1 && this.fighters.size() == 1) {
-            resolveSingleMonsterSingleFighter();
             this.action.setValue("Resolved a fight between a single monster and a single player.");
+            resolveSingleMonsterSingleFighter();
             return true;
-        } else if(this.monsters.size()==0 && this.fighters.size()==0) {
+        } else if(this.monsters.size()==0) {
             this.action.setValue("There were no fighters or monsters in combat. Turn can be ended successfully.");
             return true;
         } else {
@@ -73,8 +73,10 @@ public class Combat implements ICombat{
         AbstractMonster singleMonster = this.monsters.get(0);
         if(singlePlayer.getCombatLevel() > singleMonster.getLevel()) {
             //Win Condition: Fighters draw treasure cards and turn is ended
+            this.cardPlayed(true, singlePlayer);
             try {
-                for (int i = 0; i < singleMonster.getTreasures(); i++) {
+                for (int i = 0; i < singlePlayer.getNumTreasures(); i++) {
+                    System.out.println("Dealing a new treasure card");
                     this.game.dealNewTreasureCard(singlePlayer);
                 }
             } catch(Exception e) {
@@ -83,15 +85,12 @@ public class Combat implements ICombat{
             this.action.setValue("You have won! You have received the appropriate number of treasures for your victory. Discard the excess cards.");
         } else {
             //Lose Condition: Must roll to attempt to run away
+            this.cardPlayed(false, singlePlayer);
             this.action.setValue("Attempting to run away");
-            if(Utility.rollDice() + singlePlayer.getRunAwayLevel() > 3) {
-                runAway();
-            } else {
-                this.action.setValue("Oh no, you could not run away");
-                singleMonster.badStuff();
-            }
         }
     }
+
+
 
     @Override
     public void runAway() {
@@ -106,6 +105,14 @@ public class Combat implements ICombat{
     @Override
     public boolean containsMonster() {
         return this.monsters.size() > 0;
+    }
+
+    @Override
+    public void cardPlayed(boolean win, IPlayer player) {
+        for (ICard c : this.game.getCardsInPlay().getCardsInPlay()) {
+            if(c.getOwner().equals(player))
+                c.cardPlayed(win);
+        }
     }
 
     @Override
