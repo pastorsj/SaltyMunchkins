@@ -102,6 +102,7 @@ public class Game {
 		if (cards.size() < 1) {
 			action.setValue("No cards left to draw. Reshuffling...");
 			this.initializeCards = new InitializeCards(this);
+			//FIXME
 		}
 		
 		ICard card = cards.get(0);
@@ -195,7 +196,6 @@ public class Game {
 		}
 		// Reset Combat
 		this.combat.finish();
-		this.combat.resetCombat();
 		drewCard = false;
 		this.pass();
 		return true;

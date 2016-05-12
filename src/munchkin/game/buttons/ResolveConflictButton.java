@@ -31,7 +31,7 @@ public class ResolveConflictButton extends JButton implements ActionListener{
 
 		Map<String, JButton> buttonSet = this.mainCardPanel.getButtonSet();
 
-		this.game.getCombat().resolveFight();
+		this.game.endTurn();
 		if(this.game.getCurrentPlayer().getHand().checkSizeOfHand()) {
 			buttonSet.get("Discard").setVisible(true);
 		} else {
