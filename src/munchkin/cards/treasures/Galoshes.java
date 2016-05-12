@@ -13,7 +13,7 @@ public class Galoshes extends Treasure {
 
     @Override
     public void cardInPlay() {
-        this.setBonus(2);
+        this.setBonus(1);
     }
 
     @Override
