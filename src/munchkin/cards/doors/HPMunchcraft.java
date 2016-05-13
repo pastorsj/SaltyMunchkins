@@ -10,6 +10,9 @@ public class HPMunchcraft extends AbstractMonster {
 		if(this.getOwner().getFaction().equals(Faction.Investigator)) {
 			this.setLevel(9);
 		}
+		else{
+			this.setLevel(6);
+		}
 		this.action.setValue("From meeting HP Munchcraft, you are now a Cultist no matter if you win or not");
 		this.getOwner().setFaction(Faction.Cultist);
 		this.addTreasures(2);
